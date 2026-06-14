@@ -1,0 +1,92 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "akash": "https://akash.network/vocab#",
+    "api": "https://apisjson.org/schema/",
+    "WebAPI": "WebAPI",
+    "name": "name",
+    "description": "description",
+    "url": "url",
+    "provider": {
+      "@id": "provider",
+      "@type": "@id"
+    },
+    "documentation": {
+      "@id": "documentation",
+      "@type": "@id"
+    },
+    "termsOfService": "termsOfService",
+    "contactPoint": "contactPoint"
+  },
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://akash.network",
+      "name": "Akash Network",
+      "description": "Akash Network is a decentralized cloud computing marketplace that connects users with underutilized compute capacity from data centers and bare-metal providers worldwide.",
+      "url": "https://akash.network",
+      "sameAs": [
+        "https://github.com/akash-network",
+        "https://twitter.com/akashnet_",
+        "https://discord.akash.network"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "hello@akash.network",
+        "url": "https://akash.network/community"
+      }
+    },
+    {
+      "@type": "WebAPI",
+      "@id": "https://console-api.akash.network",
+      "name": "Akash Console Deployment API",
+      "description": "REST API for programmatic deployment management on Akash Network with managed wallets and credit-card billing.",
+      "url": "https://console-api.akash.network",
+      "documentation": "https://akash.network/docs/api-documentation/console-api/",
+      "provider": {
+        "@id": "https://akash.network"
+      },
+      "termsOfService": "https://akash.network/terms",
+      "keywords": ["cloud", "deployments", "leases", "bids", "escrow", "decentralized"]
+    },
+    {
+      "@type": "WebAPI",
+      "@id": "https://console-api.akash.network/network-data",
+      "name": "Akash Console Network Data API",
+      "description": "Publicly accessible indexed API for querying provider information, GPU availability, resource statistics, and network-wide metrics.",
+      "url": "https://console-api.akash.network",
+      "documentation": "https://akash.network/docs/api-documentation/rest-api/providers-api/",
+      "provider": {
+        "@id": "https://akash.network"
+      },
+      "termsOfService": "https://akash.network/terms",
+      "keywords": ["providers", "gpu", "network stats", "monitoring", "public"]
+    },
+    {
+      "@type": "WebAPI",
+      "@id": "https://api.akashnet.net",
+      "name": "Akash Blockchain REST API",
+      "description": "Direct REST access to Akash blockchain state via gRPC-Gateway. Exposes Cosmos SDK modules and Akash-specific modules.",
+      "url": "https://api.akashnet.net",
+      "documentation": "https://akash.network/docs/node-operators/architecture/api-layer/",
+      "provider": {
+        "@id": "https://akash.network"
+      },
+      "termsOfService": "https://akash.network/terms",
+      "keywords": ["blockchain", "cosmos sdk", "deployments", "staking", "governance", "grpc-gateway"]
+    },
+    {
+      "@type": "WebAPI",
+      "@id": "https://api.akashml.com",
+      "name": "AkashML Inference API",
+      "description": "OpenAI-compatible AI inference API providing access to open-source LLMs hosted on decentralized compute across 80+ global datacenters.",
+      "url": "https://api.akashml.com",
+      "documentation": "https://akashml.com/",
+      "provider": {
+        "@id": "https://akash.network"
+      },
+      "termsOfService": "https://akash.network/terms",
+      "keywords": ["ai", "llm", "inference", "openai compatible", "chat completions", "llama", "deepseek"]
+    }
+  ]
+}
