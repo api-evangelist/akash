@@ -1,0 +1,50 @@
+plans:
+  - name: Akash Console - Pay-As-You-Go
+    description: >-
+      Managed deployment billing via credit card. Users deposit USD into a
+      managed wallet; the API converts to AKT/USDC on-chain transparently.
+      Deployments are billed based on actual compute consumed per provider
+      lease. No monthly subscription required.
+    url: https://console.akash.network/
+    price: 0.00
+    unit: usage-based
+    features:
+      - Managed wallet (no crypto required)
+      - Credit card billing
+      - Minimum deposit $0.50 per deployment
+      - Access to entire Akash provider marketplace
+      - Console API access with API key
+      - GPU compute available
+    notes: >-
+      Akash uses a decentralized marketplace model. Prices are set by providers
+      and negotiated via bids. On average 60-85% cheaper than AWS/GCP/Azure.
+
+  - name: AkashML Inference - Free Tier
+    description: >-
+      New accounts receive $100 in complimentary AI token credits usable across
+      all supported inference models. No time limit stated on initial credits.
+    url: https://akashml.com/
+    price: 0.00
+    unit: $100 one-time credit
+    features:
+      - $100 in free AI token credits
+      - Access to all supported LLMs
+      - OpenAI-compatible API
+      - Playground access
+      - Sub-200ms latency via 80+ global datacenters
+
+  - name: AkashML Inference - Pay-Per-Token
+    description: >-
+      After free credit is exhausted, pay per million tokens consumed.
+      Pricing varies by model. Aims for 70-85% cost savings versus
+      major cloud AI providers.
+    url: https://akashml.com/
+    price: 0.13
+    unit: per million input tokens (Llama 3.3-70B)
+    features:
+      - Llama 3.3-70B at $0.13/M input, $0.40/M output tokens
+      - DeepSeek V3 available
+      - Qwen3-30B-A3B available
+      - QWEN3.6 35B A3B available
+      - MiniMax M2.5 and Kimi K2.6 available
+      - No subscription or seat fees

@@ -1,0 +1,99 @@
+finops:
+  summary: >-
+    Akash Network uses a decentralized marketplace model where compute prices
+    are set by individual providers and awarded via competitive bids. This
+    creates a fundamentally different cost structure from traditional cloud —
+    costs are highly variable based on supply/demand, provider competition,
+    and resource type (CPU, GPU, memory, storage). AkashML inference pricing
+    follows a straightforward per-token model similar to OpenAI.
+
+  costDrivers:
+    - name: Compute Type
+      description: >-
+        CPU, GPU, memory, and storage are all independently priced. GPU
+        resources (especially H100/A100) command significant premiums over
+        CPU-only workloads.
+    - name: Provider Competition
+      description: >-
+        Multiple providers bid on each deployment. Accepting the lowest bid
+        reduces cost; accepting higher bids may indicate better-quality or
+        more reputable providers.
+    - name: Deployment Duration
+      description: >-
+        Costs accrue per block on the Akash blockchain (approximately 6-second
+        blocks). Longer-running deployments reduce per-unit overhead costs.
+    - name: Escrow Management
+      description: >-
+        Deployments require pre-funded escrow. When escrow runs out, the
+        deployment is closed automatically. Over-funding ties up capital;
+        under-funding risks unexpected downtime.
+    - name: AKT vs USDC Payment
+      description: >-
+        Direct blockchain users pay in AKT or USDC. Console API users pay in
+        USD via credit card with automatic conversion, adding a small
+        managed-wallet overhead.
+
+  savingsOpportunities:
+    - description: >-
+        Select lowest-bid provider for commodity CPU workloads to maximize
+        cost savings (60-85% vs AWS/GCP/Azure baseline).
+    - description: >-
+        Use GPU availability API to identify providers with available GPUs
+        before deploying to avoid bid failures.
+    - description: >-
+        For AkashML inference, use smaller/faster models (e.g., Qwen3-30B at
+        $0.13/M tokens) rather than largest models where task permits.
+    - description: >-
+        Enable auto top-up via /v2/deployment-settings to avoid deployment
+        downtime from escrow exhaustion without over-funding.
+    - description: >-
+        Monitor escrow balance via deployment status endpoints to right-size
+        deposits.
+
+  pricing:
+    cloudMarketplace:
+      model: bid-based marketplace
+      currency: AKT, USDC, or USD (via managed wallet)
+      estimatedSavings: 60-85% versus AWS/GCP/Azure equivalent
+      minimumDeposit:
+        amount: 0.50
+        currency: USD
+        notes: Minimum per deployment via Console managed wallet
+
+    inferenceAPI:
+      model: pay-per-token
+      currency: USD
+      freeCredit:
+        amount: 100.00
+        currency: USD
+        notes: Awarded to new accounts; applies to all models
+      models:
+        - name: Llama 3.3-70B
+          inputPricePerMillion: 0.13
+          outputPricePerMillion: 0.40
+        - name: Qwen3-30B-A3B
+          inputPricePerMillion: 0.13
+          outputPricePerMillion: 0.28
+        - name: DeepSeek V3
+          inputPricePerMillion: 0.27
+          outputPricePerMillion: 1.10
+        - name: QWEN3.6 35B A3B
+          inputPricePerMillion: 0.13
+          outputPricePerMillion: 0.28
+        - name: MiniMax M2.5
+          inputPricePerMillion: 0.95
+          outputPricePerMillion: 4.00
+        - name: Kimi K2.6
+          inputPricePerMillion: 0.50
+          outputPricePerMillion: 2.50
+
+  costMonitoring:
+    - tool: Akash Stats Dashboard
+      url: https://stats.akash.network
+      description: Network-wide statistics including active deployments and spend
+    - tool: Console API /v1/deployments
+      url: https://console-api.akash.network/v1/deployments
+      description: Query active deployments and escrow balances programmatically
+    - tool: Console UI
+      url: https://console.akash.network
+      description: Visual deployment and billing dashboard for managed wallet users

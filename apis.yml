@@ -1,0 +1,221 @@
+name: Akash Network
+description: >-
+  Akash Network is a decentralized cloud computing marketplace that connects
+  users with underutilized compute capacity from data centers and bare-metal
+  providers worldwide. It enables deploying containerized workloads at 60-85%
+  lower cost than traditional cloud providers. The platform offers REST APIs for
+  deployment management, provider discovery, GPU availability, AI inference, and
+  direct blockchain interaction via Cosmos SDK modules.
+image: https://akash.network/favicon.ico
+tags:
+  - Cloud Computing
+  - Decentralized
+  - Blockchain
+  - Kubernetes
+  - GPU
+  - AI Inference
+  - Cosmos
+  - Web3
+url: https://akash.network
+baseURL: https://akash.network
+humanURL: https://akash.network
+contact:
+  - FN: Akash Network Support
+    url: https://akash.network/community
+    email: hello@akash.network
+created: "2026-06-13"
+modified: "2026-06-13"
+specificationVersion: "0.19"
+apis:
+  - name: Akash Console Deployment API
+    description: >-
+      REST API for programmatic deployment management on Akash Network with
+      managed wallets and credit-card billing. Supports creating, listing,
+      updating, and closing deployments via SDL manifests. Includes bid
+      management, lease creation, and escrow funding operations. Designed for
+      SaaS platforms and non-crypto-native users.
+    image: https://akash.network/favicon.ico
+    humanURL: https://akash.network/docs/api-documentation/console-api/
+    baseURL: https://console-api.akash.network
+    tags:
+      - Deployments
+      - Leases
+      - Bids
+      - Escrow
+      - Cloud
+    properties:
+      - type: Documentation
+        url: https://akash.network/docs/api-documentation/console-api/
+      - type: GettingStarted
+        url: https://akash.network/docs/api-documentation/console-api/getting-started
+      - type: ReferenceDocumentation
+        url: https://akash.network/docs/api-documentation/console-api/api-reference
+    contact:
+      - FN: Akash Network Support
+        url: https://akash.network/community
+    X-pricing:
+      - plans:
+        - name: Pay-As-You-Go
+          description: >-
+            Credit-card billing for managed wallet deployments. Minimum deposit
+            $0.50. Billed in USD; API converts to AKT/USDC on-chain
+            automatically.
+          url: https://console.akash.network/
+          price: 0.00
+    X-rateLimit:
+      - rate:
+        - requests: 1
+          unit: second
+          notes: >-
+            Avoid polling faster than every 3 seconds. 429 TooManyRequests
+            returned when rate exceeded. Implement exponential backoff on 5xx
+            errors.
+    X-authentication:
+      - type: x-api-key
+        description: >-
+          Pass API key via x-api-key header. Create and manage keys at
+          console.akash.network under Settings > API Keys.
+        url: https://console.akash.network/settings/api-keys
+
+  - name: Akash Console Network Data API
+    description: >-
+      Publicly accessible indexed API for querying provider information, GPU
+      availability, resource statistics, and network-wide metrics. No
+      authentication required. Returns real-time provider resource
+      availability, hardware specifications, uptime, and GPU models across the
+      Akash Network marketplace.
+    image: https://akash.network/favicon.ico
+    humanURL: https://akash.network/docs/api-documentation/rest-api/providers-api/
+    baseURL: https://console-api.akash.network
+    tags:
+      - Providers
+      - GPU
+      - Network Stats
+      - Public
+      - Monitoring
+    properties:
+      - type: Documentation
+        url: https://akash.network/docs/api-documentation/rest-api/providers-api/
+      - type: GuidanceDocumentation
+        url: https://akash.network/docs/api-documentation/rest-api/gpu-availability-guide
+    contact:
+      - FN: Akash Network Support
+        url: https://akash.network/community
+    X-rateLimit:
+      - rate:
+        - requests: 0
+          unit: none
+          notes: >-
+            Public, unauthenticated API. No formal rate limits documented.
+            Recommended to avoid excessive polling.
+
+  - name: Akash Blockchain REST API
+    description: >-
+      Direct REST access to Akash blockchain state via gRPC-Gateway on port
+      1317. Exposes Cosmos SDK modules (auth, bank, staking, governance) and
+      Akash-specific modules (deployment, market, provider, audit, certificate,
+      escrow). Supports querying chain state and submitting transactions.
+      Swagger UI available at /swagger/ on any running node.
+    image: https://akash.network/favicon.ico
+    humanURL: https://akash.network/docs/node-operators/architecture/api-layer/
+    baseURL: https://api.akashnet.net
+    tags:
+      - Blockchain
+      - Cosmos SDK
+      - Deployments
+      - Staking
+      - Governance
+      - gRPC-Gateway
+    properties:
+      - type: Documentation
+        url: https://akash.network/docs/node-operators/architecture/api-layer/
+      - type: ReferenceDocumentation
+        url: https://akash.network/docs/api-documentation/sdk/api-reference
+    contact:
+      - FN: Akash Network Support
+        url: https://akash.network/community
+    X-rateLimit:
+      - rate:
+        - requests: 10
+          unit: second
+          notes: >-
+            Rate limiting recommended via reverse proxy at 10 requests/second
+            for production node setups. Public community nodes may have
+            independent limits.
+
+  - name: AkashML Inference API
+    description: >-
+      OpenAI-compatible AI inference API providing access to open-source LLMs
+      hosted on decentralized compute across 80+ global datacenters. Supports
+      chat completions with models including Llama 3.3-70B, DeepSeek V3,
+      Qwen3-30B-A3B, and others. Drop-in replacement for OpenAI API clients.
+      New accounts receive $100 in free AI token credits.
+    image: https://akash.network/favicon.ico
+    humanURL: https://akash.network/blog/akashml-managed-ai-inference-on-the-decentralized-supercloud/
+    baseURL: https://api.akashml.com
+    tags:
+      - AI
+      - LLM
+      - Inference
+      - OpenAI Compatible
+      - Chat Completions
+      - Llama
+      - DeepSeek
+    properties:
+      - type: Documentation
+        url: https://akashml.com/
+      - type: Playground
+        url: https://playground.akashml.com
+    contact:
+      - FN: AkashML Support
+        url: https://akash.network/community
+    X-pricing:
+      - plans:
+        - name: Pay-Per-Token
+          description: >-
+            Pay-per-token pricing with no subscription. New accounts receive
+            $100 in free credits. Pricing varies by model.
+          url: https://akashml.com/
+          price: 0.13
+          unit: per million input tokens (Llama 3.3-70B)
+    X-rateLimit:
+      - rate:
+        - requests: 0
+          unit: none
+          notes: >-
+            No formal rate limits published. Service advertises no capacity
+            caps. Sub-200ms response times across 80+ global datacenters.
+    X-authentication:
+      - type: Bearer
+        description: >-
+          Bearer token authentication via Authorization header.
+          Obtain API key from akashml.com account dashboard.
+        url: https://akashml.com/
+
+common:
+  - type: Website
+    url: https://akash.network
+  - type: Documentation
+    url: https://akash.network/docs
+  - type: APIDocumentation
+    url: https://akash.network/docs/api-documentation/getting-started/
+  - type: GitHub
+    url: https://github.com/akash-network
+  - type: Blog
+    url: https://akash.network/blog
+  - type: Community
+    url: https://akash.network/community
+  - type: Discord
+    url: https://discord.akash.network
+  - type: Twitter
+    url: https://twitter.com/akashnet_
+  - type: Status
+    url: https://stats.akash.network
+  - type: TermsOfService
+    url: https://akash.network/terms
+  - type: PrivacyPolicy
+    url: https://akash.network/privacy
+  - type: Changelog
+    url: https://github.com/akash-network/node/releases
+  - type: SDK
+    url: https://github.com/akash-network/chain-sdk

@@ -1,0 +1,48 @@
+rateLimits:
+  - api: Akash Console Deployment API
+    baseURL: https://console-api.akash.network
+    notes: >-
+      Formal rate limit thresholds not publicly published. API returns HTTP 429
+      TooManyRequests when the rate is exceeded. Recommended best practices from
+      documentation: avoid polling more frequently than every 3 seconds; use
+      exponential backoff on 5xx responses.
+    limits:
+      - type: advisory
+        requests: 1
+        unit: per 3 seconds (recommended polling interval)
+        enforcement: HTTP 429 returned when exceeded
+        retry: exponential backoff recommended
+
+  - api: Akash Console Network Data API
+    baseURL: https://console-api.akash.network
+    notes: >-
+      Public, unauthenticated API. No formal rate limits documented in official
+      Akash documentation as of June 2026. Reasonable use expected; avoid
+      aggressive scraping.
+    limits:
+      - type: none-documented
+        notes: No formal rate limits published for public endpoints
+
+  - api: Akash Blockchain REST API
+    baseURL: https://api.akashnet.net
+    notes: >-
+      Node operators are advised to implement rate limiting via reverse proxy
+      at approximately 10 requests per second for production deployments.
+      Public community nodes (rpc.akashnet.net, polkachu, etc.) may impose
+      their own limits independently.
+    limits:
+      - type: recommended
+        requests: 10
+        unit: per second
+        enforcement: Reverse proxy (e.g., nginx) enforced by node operator
+        notes: Applied per-IP at proxy layer; not enforced by the Akash protocol itself
+
+  - api: AkashML Inference API
+    baseURL: https://api.akashml.com
+    notes: >-
+      No formal rate limits published as of June 2026. Service advertises
+      auto-scaling with no capacity caps and sub-200ms response times across
+      80+ global datacenters. Contact support for enterprise volume needs.
+    limits:
+      - type: none-documented
+        notes: No formal rate limits published; auto-scaling infrastructure claimed
