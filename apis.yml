@@ -215,7 +215,7 @@ common:
     url: https://akash.network/terms
   - type: PrivacyPolicy
     url: https://akash.network/privacy
-  - type: Changelog
+  - type: ChangeLog
     url: https://github.com/akash-network/node/releases
-  - type: SDK
+  - type: SDKs
     url: https://github.com/akash-network/chain-sdk
