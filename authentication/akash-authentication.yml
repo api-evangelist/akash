@@ -1,0 +1,43 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/akash-blockchain-rest-api.yaml, openapi/akash-console-deployment-api.json, openapi/akash-notifications-api.json
+summary:
+  types:
+  - apiKey
+  - http
+  api_key_in:
+  - header
+schemes:
+- name: kms
+  type: http
+  scheme: basic
+  sources:
+  - openapi/akash-blockchain-rest-api.yaml
+- name: BearerAuth
+  type: http
+  scheme: bearer
+  bearerFormat: JWT
+  description: 'JWT token for authenticated users, sent in "Authorization: Bearer %token" header.'
+  sources:
+  - openapi/akash-console-deployment-api.json
+- name: ApiKeyAuth
+  type: apiKey
+  in: header
+  parameter: x-api-key
+  description: API key for programmatic access.
+  sources:
+  - openapi/akash-console-deployment-api.json
+- name: x-user-id
+  type: apiKey
+  in: header
+  parameter: x-user-id
+  sources:
+  - openapi/akash-console-deployment-api.json
+  - openapi/akash-notifications-api.json
+- name: x-owner-address
+  type: apiKey
+  in: header
+  parameter: x-owner-address
+  sources:
+  - openapi/akash-console-deployment-api.json
+  - openapi/akash-notifications-api.json

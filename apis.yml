@@ -193,6 +193,10 @@ apis:
         url: https://akashml.com/
 
 common:
+  - type: DomainSecurity
+    url: security/akash-domain-security.yml
+  - type: Authentication
+    url: authentication/akash-authentication.yml
   - type: Website
     url: https://akash.network
   - type: Documentation

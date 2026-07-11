@@ -1,0 +1,31 @@
+generated: '2026-07-11'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: akash.network
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Sep  3 18:16:30 2026 GMT
+  hsts: false
+- host: console-api.akash.network
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Sep  3 18:16:30 2026 GMT
+  hsts: null
+- host: api.akashnet.net
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Oct  5 13:35:28 2026 GMT
+  hsts: null
+domains:
+- domain: akash.network
+  dnssec: true
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: reject
+- domain: akashnet.net
+  dnssec: false
+  caa: []
+  spf: false
+  dmarc: false
