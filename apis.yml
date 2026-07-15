@@ -193,6 +193,8 @@ apis:
         url: https://akashml.com/
 
 common:
+  - type: AgenticAccess
+    url: agentic-access/akash-agentic-access.yml
   - type: DomainSecurity
     url: security/akash-domain-security.yml
   - type: Authentication
