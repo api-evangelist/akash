@@ -1,0 +1,31 @@
+swagger: '2.0'
+info:
+  title: AKASH - gRPC Gateway docs Addresses Certificate API
+  description: A REST interface for state queries
+  version: 1.0.0
+tags:
+- name: Certificate
+paths:
+  /v1/certificates:
+    post:
+      summary: Create certificate
+      tags:
+      - Certificate
+      security:
+      - BearerAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '400':
+          description: This endpoint has been removed. mTLS certificates are no longer required as identity is now verified via API key.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                required:
+                - error
+securityDefinitions:
+  kms:
+    type: basic

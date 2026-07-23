@@ -1,0 +1,280 @@
+swagger: '2.0'
+info:
+  title: AKASH - gRPC Gateway docs Addresses DeploymentAlert API
+  description: A REST interface for state queries
+  version: 1.0.0
+tags:
+- name: DeploymentAlert
+paths:
+  /v1/deployment-alerts/{dseq}:
+    post:
+      operationId: upsertDeploymentAlert
+      parameters:
+      - name: dseq
+        required: true
+        in: path
+        schema:
+          type: string
+      - name: x-owner-address
+        required: false
+        in: header
+        description: The address of the user who owns the deployment
+        schema:
+          type: string
+      - name: Authorization
+        in: header
+        required: false
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DeploymentAlertCreateInput'
+      responses:
+        '201':
+          description: Returns the created alert
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeploymentAlertsResponse'
+        '400':
+          description: Validation error responded when some request parameters are invalid
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationErrorResponse'
+        '401':
+          description: Unauthorized error responded when the user is not authenticated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedErrorResponse'
+        '403':
+          description: Forbidden error responded when the user is not authorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ForbiddenErrorResponse'
+        '500':
+          description: Internal server error, should probably be reported
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponse'
+      tags:
+      - DeploymentAlert
+    get:
+      operationId: listDeploymentAlerts
+      parameters:
+      - name: dseq
+        required: true
+        in: path
+        schema:
+          type: string
+      - name: Authorization
+        in: header
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Returns alerts for the specified deployment
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeploymentAlertsResponse'
+        '400':
+          description: Validation error responded when some request parameters are invalid
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationErrorResponse'
+        '401':
+          description: Unauthorized error responded when the user is not authenticated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedErrorResponse'
+        '403':
+          description: Forbidden error responded when the user is not authorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ForbiddenErrorResponse'
+        '500':
+          description: Internal server error, should probably be reported
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponse'
+      tags:
+      - DeploymentAlert
+components:
+  schemas:
+    ValidationErrorResponse:
+      type: object
+      properties:
+        statusCode:
+          type: number
+          minimum: 400
+          maximum: 400
+        message:
+          type: string
+        errors:
+          type: object
+          properties:
+            issues:
+              type: array
+              items:
+                type: object
+                properties: {}
+          required:
+          - issues
+      required:
+      - statusCode
+      - message
+      - errors
+    InternalServerErrorResponse:
+      type: object
+      properties:
+        statusCode:
+          type: number
+          minimum: 500
+          maximum: 500
+        message:
+          type: string
+      required:
+      - statusCode
+      - message
+    UnauthorizedErrorResponse:
+      type: object
+      properties:
+        statusCode:
+          type: number
+          minimum: 401
+          maximum: 401
+        message:
+          type: string
+      required:
+      - statusCode
+      - message
+    DeploymentAlertCreateInput:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            alerts:
+              type: object
+              properties:
+                deploymentBalance:
+                  type: object
+                  properties:
+                    notificationChannelId:
+                      type: string
+                      format: uuid
+                    enabled:
+                      type: boolean
+                      default: true
+                    threshold:
+                      type: number
+                      minimum: 0
+                      exclusiveMinimum: false
+                  required:
+                  - notificationChannelId
+                  - threshold
+                deploymentClosed:
+                  type: object
+                  properties:
+                    notificationChannelId:
+                      type: string
+                      format: uuid
+                    enabled:
+                      type: boolean
+                      default: true
+                  required:
+                  - notificationChannelId
+          required:
+          - alerts
+      required:
+      - data
+    ForbiddenErrorResponse:
+      type: object
+      properties:
+        statusCode:
+          type: number
+          minimum: 403
+          maximum: 403
+        message:
+          type: string
+      required:
+      - statusCode
+      - message
+    DeploymentAlertsResponse:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            dseq:
+              type: string
+            owner:
+              type: string
+            alerts:
+              type: object
+              properties:
+                deploymentBalance:
+                  type: object
+                  properties:
+                    notificationChannelId:
+                      type: string
+                      format: uuid
+                    enabled:
+                      type: boolean
+                      default: true
+                    threshold:
+                      type: number
+                      minimum: 0
+                      exclusiveMinimum: false
+                    id:
+                      type: string
+                      format: uuid
+                    status:
+                      type: string
+                    suppressedBySystem:
+                      type: boolean
+                  required:
+                  - notificationChannelId
+                  - threshold
+                  - id
+                  - status
+                deploymentClosed:
+                  type: object
+                  properties:
+                    notificationChannelId:
+                      type: string
+                      format: uuid
+                    enabled:
+                      type: boolean
+                      default: true
+                    id:
+                      type: string
+                      format: uuid
+                    status:
+                      type: string
+                    suppressedBySystem:
+                      type: boolean
+                  required:
+                  - notificationChannelId
+                  - id
+                  - status
+          required:
+          - dseq
+          - alerts
+      required:
+      - data
+securityDefinitions:
+  kms:
+    type: basic

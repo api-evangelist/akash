@@ -1,0 +1,167 @@
+swagger: '2.0'
+info:
+  title: AKASH - gRPC Gateway docs Addresses Billing API
+  description: A REST interface for state queries
+  version: 1.0.0
+tags:
+- name: Billing
+paths:
+  /v1/usage/history:
+    get:
+      summary: Get historical data of billing and usage for a wallet address.
+      tags:
+      - Billing
+      security: []
+      parameters:
+      - schema:
+          type: string
+          description: The wallet address to get billing and usage data for
+          example: akash18andxgtd6r08zzfpcdqg9pdr6smks7gv76tyt6
+        required: true
+        name: address
+        in: query
+      - schema:
+          type: string
+          format: date
+          description: Start date (YYYY-MM-DD). Defaults to 30 days before endDate
+          example: '2024-01-01'
+        required: false
+        name: startDate
+        in: query
+      - schema:
+          type: string
+          format: date
+          default: '2026-05-20'
+          description: End date (YYYY-MM-DD). Defaults to today by UTC 23:59:59
+          example: '2024-01-31'
+        required: false
+        name: endDate
+        in: query
+      responses:
+        '200':
+          description: Returns billing and usage data
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    date:
+                      type: string
+                      description: Date in YYYY-MM-DD format
+                      example: '2024-01-15'
+                    activeDeployments:
+                      type: number
+                      description: Number of active deployments on this date
+                      example: 3
+                    dailyAktSpent:
+                      type: number
+                      description: AKT tokens spent on this date
+                      example: 12.5
+                    totalAktSpent:
+                      type: number
+                      description: Cumulative AKT tokens spent up to this date
+                      example: 125.75
+                    dailyUsdcSpent:
+                      type: number
+                      description: USDC spent on this date
+                      example: 5.25
+                    totalUsdcSpent:
+                      type: number
+                      description: Cumulative USDC spent up to this date
+                      example: 52.5
+                    dailyActSpent:
+                      type: number
+                      description: ACT spent on this date (includes legacy USDC)
+                      example: 5.25
+                    totalActSpent:
+                      type: number
+                      description: Cumulative ACT spent up to this date (includes legacy USDC)
+                      example: 52.5
+                    dailyUsdSpent:
+                      type: number
+                      description: Total USD value spent on this date (AKT + USDC)
+                      example: 17.75
+                    totalUsdSpent:
+                      type: number
+                      description: Cumulative USD value spent up to this date
+                      example: 178.25
+                  required:
+                  - date
+                  - activeDeployments
+                  - dailyAktSpent
+                  - totalAktSpent
+                  - dailyUsdcSpent
+                  - totalUsdcSpent
+                  - dailyActSpent
+                  - totalActSpent
+                  - dailyUsdSpent
+                  - totalUsdSpent
+        '400':
+          description: Invalid address format
+  /v1/usage/history/stats:
+    get:
+      summary: Get historical usage stats for a wallet address.
+      tags:
+      - Billing
+      security: []
+      parameters:
+      - schema:
+          type: string
+          description: The wallet address to get billing and usage data for
+          example: akash18andxgtd6r08zzfpcdqg9pdr6smks7gv76tyt6
+        required: true
+        name: address
+        in: query
+      - schema:
+          type: string
+          format: date
+          description: Start date (YYYY-MM-DD). Defaults to 30 days before endDate
+          example: '2024-01-01'
+        required: false
+        name: startDate
+        in: query
+      - schema:
+          type: string
+          format: date
+          default: '2026-05-20'
+          description: End date (YYYY-MM-DD). Defaults to today by UTC 23:59:59
+          example: '2024-01-31'
+        required: false
+        name: endDate
+        in: query
+      responses:
+        '200':
+          description: Returns usage stats data
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  totalSpent:
+                    type: number
+                    description: Total amount spent in USD
+                    example: 1234.56
+                  averageSpentPerDay:
+                    type: number
+                    description: Average spending per day in USD
+                    example: 12.34
+                  totalDeployments:
+                    type: number
+                    description: Total number of deployments deployed
+                    example: 15
+                  averageDeploymentsPerDay:
+                    type: number
+                    description: Average number of deployments deployed per day
+                    example: 1.5
+                required:
+                - totalSpent
+                - averageSpentPerDay
+                - totalDeployments
+                - averageDeploymentsPerDay
+        '400':
+          description: Invalid address format
+securityDefinitions:
+  kms:
+    type: basic

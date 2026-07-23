@@ -1,0 +1,2175 @@
+swagger: '2.0'
+info:
+  title: AKASH - gRPC Gateway docs Addresses Providers API
+  description: A REST interface for state queries
+  version: 1.0.0
+tags:
+- name: Providers
+paths:
+  /v1/providers:
+    get:
+      summary: Get a list of providers.
+      tags:
+      - Providers
+      security: []
+      parameters:
+      - schema:
+          type: string
+          enum:
+          - all
+          - trial
+          default: all
+        required: false
+        name: scope
+        in: query
+      - schema:
+          type: string
+        required: false
+        name: addresses
+        in: query
+      responses:
+        '200':
+          description: Returns a list of providers
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    owner:
+                      type: string
+                    name:
+                      type: string
+                      nullable: true
+                    hostUri:
+                      type: string
+                    createdHeight:
+                      type: number
+                    email:
+                      type: string
+                      nullable: true
+                    website:
+                      type: string
+                      nullable: true
+                    lastCheckDate:
+                      type: string
+                      nullable: true
+                    deploymentCount:
+                      type: number
+                      nullable: true
+                    leaseCount:
+                      type: number
+                      nullable: true
+                    cosmosSdkVersion:
+                      type: string
+                    akashVersion:
+                      type: string
+                    ipRegion:
+                      type: string
+                      nullable: true
+                    ipRegionCode:
+                      type: string
+                      nullable: true
+                    ipCountry:
+                      type: string
+                      nullable: true
+                    ipCountryCode:
+                      type: string
+                      nullable: true
+                    ipLat:
+                      type: string
+                      nullable: true
+                    ipLon:
+                      type: string
+                      nullable: true
+                    uptime1d:
+                      type: number
+                      nullable: true
+                    uptime7d:
+                      type: number
+                      nullable: true
+                    uptime30d:
+                      type: number
+                      nullable: true
+                    isValidVersion:
+                      type: boolean
+                    isOnline:
+                      type: boolean
+                    lastOnlineDate:
+                      type: string
+                      nullable: true
+                    isAudited:
+                      type: boolean
+                    gpuModels:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          vendor:
+                            type: string
+                          model:
+                            type: string
+                          ram:
+                            type: string
+                          interface:
+                            type: string
+                        required:
+                        - vendor
+                        - model
+                        - ram
+                        - interface
+                    attributes:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          key:
+                            type: string
+                          value:
+                            type: string
+                          auditedBy:
+                            type: array
+                            items:
+                              type: string
+                        required:
+                        - key
+                        - value
+                        - auditedBy
+                    host:
+                      type: string
+                      nullable: true
+                    organization:
+                      type: string
+                      nullable: true
+                    statusPage:
+                      type: string
+                      nullable: true
+                    locationRegion:
+                      type: string
+                      nullable: true
+                    country:
+                      type: string
+                      nullable: true
+                    city:
+                      type: string
+                      nullable: true
+                    timezone:
+                      type: string
+                      nullable: true
+                    locationType:
+                      type: string
+                      nullable: true
+                    hostingProvider:
+                      type: string
+                      nullable: true
+                    hardwareCpu:
+                      type: string
+                      nullable: true
+                    hardwareCpuArch:
+                      type: string
+                      nullable: true
+                    hardwareGpuVendor:
+                      type: string
+                      nullable: true
+                    hardwareGpuModels:
+                      type: array
+                      nullable: true
+                      items:
+                        type: string
+                    hardwareDisk:
+                      type: array
+                      nullable: true
+                      items:
+                        type: string
+                    featPersistentStorage:
+                      type: boolean
+                    featPersistentStorageType:
+                      type: array
+                      nullable: true
+                      items:
+                        type: string
+                    hardwareMemory:
+                      type: string
+                      nullable: true
+                    networkProvider:
+                      type: string
+                      nullable: true
+                    networkSpeedDown:
+                      type: number
+                    networkSpeedUp:
+                      type: number
+                    tier:
+                      type: string
+                      nullable: true
+                    featEndpointCustomDomain:
+                      type: boolean
+                    workloadSupportChia:
+                      type: boolean
+                    workloadSupportChiaCapabilities:
+                      type: array
+                      nullable: true
+                      items:
+                        type: string
+                    featEndpointIp:
+                      type: boolean
+                  required:
+                  - owner
+                  - name
+                  - hostUri
+                  - createdHeight
+                  - cosmosSdkVersion
+                  - akashVersion
+                  - ipRegion
+                  - ipRegionCode
+                  - ipCountry
+                  - ipCountryCode
+                  - ipLat
+                  - ipLon
+                  - uptime1d
+                  - uptime7d
+                  - uptime30d
+                  - isValidVersion
+                  - isOnline
+                  - lastOnlineDate
+                  - isAudited
+                  - gpuModels
+                  - attributes
+                  - host
+                  - organization
+                  - statusPage
+                  - locationRegion
+                  - country
+                  - city
+                  - timezone
+                  - locationType
+                  - hostingProvider
+                  - hardwareCpu
+                  - hardwareCpuArch
+                  - hardwareGpuVendor
+                  - hardwareGpuModels
+                  - hardwareDisk
+                  - featPersistentStorage
+                  - featPersistentStorageType
+                  - hardwareMemory
+                  - networkProvider
+                  - networkSpeedDown
+                  - networkSpeedUp
+                  - tier
+                  - featEndpointCustomDomain
+                  - workloadSupportChia
+                  - workloadSupportChiaCapabilities
+                  - featEndpointIp
+  /v1/providers/{address}:
+    get:
+      summary: Get a provider details.
+      tags:
+      - Providers
+      security: []
+      parameters:
+      - schema:
+          type: string
+          description: Provider Address
+          example: akash18ga02jzaq8cw52anyhzkwta5wygufgu6zsz6xc
+        required: true
+        name: address
+        in: path
+      responses:
+        '200':
+          description: Return a provider details
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  owner:
+                    type: string
+                  name:
+                    type: string
+                    nullable: true
+                  hostUri:
+                    type: string
+                  createdHeight:
+                    type: number
+                  email:
+                    type: string
+                    nullable: true
+                  website:
+                    type: string
+                    nullable: true
+                  lastCheckDate:
+                    type: string
+                    nullable: true
+                  deploymentCount:
+                    type: number
+                  leaseCount:
+                    type: number
+                  cosmosSdkVersion:
+                    type: string
+                  akashVersion:
+                    type: string
+                  ipRegion:
+                    type: string
+                    nullable: true
+                  ipRegionCode:
+                    type: string
+                    nullable: true
+                  ipCountry:
+                    type: string
+                    nullable: true
+                  ipCountryCode:
+                    type: string
+                    nullable: true
+                  ipLat:
+                    type: string
+                    nullable: true
+                  ipLon:
+                    type: string
+                    nullable: true
+                  uptime1d:
+                    type: number
+                  uptime7d:
+                    type: number
+                  uptime30d:
+                    type: number
+                  isValidVersion:
+                    type: boolean
+                  isOnline:
+                    type: boolean
+                  lastOnlineDate:
+                    type: string
+                    nullable: true
+                  isAudited:
+                    type: boolean
+                  stats:
+                    type: object
+                    properties:
+                      cpu:
+                        type: object
+                        properties:
+                          active:
+                            type: number
+                          available:
+                            type: number
+                          pending:
+                            type: number
+                        required:
+                        - active
+                        - available
+                        - pending
+                      gpu:
+                        type: object
+                        properties:
+                          active:
+                            type: number
+                          available:
+                            type: number
+                          pending:
+                            type: number
+                        required:
+                        - active
+                        - available
+                        - pending
+                      memory:
+                        type: object
+                        properties:
+                          active:
+                            type: number
+                          available:
+                            type: number
+                          pending:
+                            type: number
+                        required:
+                        - active
+                        - available
+                        - pending
+                      storage:
+                        type: object
+                        properties:
+                          ephemeral:
+                            type: object
+                            properties:
+                              active:
+                                type: number
+                              available:
+                                type: number
+                              pending:
+                                type: number
+                            required:
+                            - active
+                            - available
+                            - pending
+                          persistent:
+                            type: object
+                            properties:
+                              active:
+                                type: number
+                              available:
+                                type: number
+                              pending:
+                                type: number
+                            required:
+                            - active
+                            - available
+                            - pending
+                        required:
+                        - ephemeral
+                        - persistent
+                    required:
+                    - cpu
+                    - gpu
+                    - memory
+                    - storage
+                  gpuModels:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        vendor:
+                          type: string
+                        model:
+                          type: string
+                        ram:
+                          type: string
+                        interface:
+                          type: string
+                      required:
+                      - vendor
+                      - model
+                      - ram
+                      - interface
+                  attributes:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        key:
+                          type: string
+                        value:
+                          type: string
+                        auditedBy:
+                          type: array
+                          items:
+                            type: string
+                      required:
+                      - key
+                      - value
+                      - auditedBy
+                  host:
+                    type: string
+                    nullable: true
+                  organization:
+                    type: string
+                    nullable: true
+                  statusPage:
+                    type: string
+                    nullable: true
+                  locationRegion:
+                    type: string
+                    nullable: true
+                  country:
+                    type: string
+                    nullable: true
+                  city:
+                    type: string
+                    nullable: true
+                  timezone:
+                    type: string
+                    nullable: true
+                  locationType:
+                    type: string
+                    nullable: true
+                  hostingProvider:
+                    type: string
+                    nullable: true
+                  hardwareCpu:
+                    type: string
+                    nullable: true
+                  hardwareCpuArch:
+                    type: string
+                    nullable: true
+                  hardwareGpuVendor:
+                    type: string
+                    nullable: true
+                  hardwareGpuModels:
+                    type: array
+                    items:
+                      type: string
+                  hardwareDisk:
+                    type: array
+                    items:
+                      type: string
+                  featPersistentStorage:
+                    type: boolean
+                  featPersistentStorageType:
+                    type: array
+                    items:
+                      type: string
+                  hardwareMemory:
+                    type: string
+                    nullable: true
+                  networkProvider:
+                    type: string
+                    nullable: true
+                  networkSpeedDown:
+                    type: number
+                  networkSpeedUp:
+                    type: number
+                  tier:
+                    type: string
+                    nullable: true
+                  featEndpointCustomDomain:
+                    type: boolean
+                  workloadSupportChia:
+                    type: boolean
+                  workloadSupportChiaCapabilities:
+                    type: array
+                    items:
+                      type: string
+                  featEndpointIp:
+                    type: boolean
+                  uptime:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        isOnline:
+                          type: boolean
+                        checkDate:
+                          type: string
+                      required:
+                      - id
+                      - isOnline
+                      - checkDate
+                required:
+                - owner
+                - name
+                - hostUri
+                - createdHeight
+                - email
+                - website
+                - lastCheckDate
+                - deploymentCount
+                - leaseCount
+                - cosmosSdkVersion
+                - akashVersion
+                - ipRegion
+                - ipRegionCode
+                - ipCountry
+                - ipCountryCode
+                - ipLat
+                - ipLon
+                - uptime1d
+                - uptime7d
+                - uptime30d
+                - isValidVersion
+                - isOnline
+                - lastOnlineDate
+                - isAudited
+                - stats
+                - gpuModels
+                - attributes
+                - host
+                - organization
+                - statusPage
+                - locationRegion
+                - country
+                - city
+                - timezone
+                - locationType
+                - hostingProvider
+                - hardwareCpu
+                - hardwareCpuArch
+                - hardwareGpuVendor
+                - hardwareGpuModels
+                - hardwareDisk
+                - featPersistentStorage
+                - featPersistentStorageType
+                - hardwareMemory
+                - networkProvider
+                - networkSpeedDown
+                - networkSpeedUp
+                - tier
+                - featEndpointCustomDomain
+                - workloadSupportChia
+                - workloadSupportChiaCapabilities
+                - featEndpointIp
+                - uptime
+        '400':
+          description: Invalid address
+        '404':
+          description: Provider not found
+  /v1/providers/{providerAddress}/active-leases-graph-data:
+    get:
+      tags:
+      - Providers
+      security: []
+      parameters:
+      - schema:
+          type: string
+          example: akash18ga02jzaq8cw52anyhzkwta5wygufgu6zsz6xc
+        required: true
+        name: providerAddress
+        in: path
+      responses:
+        '200':
+          description: Returns a provider's active leases graph data
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  currentValue:
+                    type: number
+                  compareValue:
+                    type: number
+                  snapshots:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        date:
+                          type: string
+                          example: '2021-07-01T00:00:00.000Z'
+                        value:
+                          type: number
+                          example: 100
+                      required:
+                      - date
+                      - value
+                  now:
+                    type: object
+                    properties:
+                      count:
+                        type: number
+                        example: 100
+                    required:
+                    - count
+                  compare:
+                    type: object
+                    properties:
+                      count:
+                        type: number
+                        example: 100
+                    required:
+                    - count
+                required:
+                - currentValue
+                - compareValue
+                - snapshots
+                - now
+                - compare
+        '400':
+          description: Invalid address
+  /v1/auditors:
+    get:
+      tags:
+      - Providers
+      security: []
+      summary: Get a list of auditors.
+      responses:
+        '200':
+          description: List of auditors
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    name:
+                      type: string
+                    address:
+                      type: string
+                    website:
+                      type: string
+                  required:
+                  - id
+                  - name
+                  - address
+                  - website
+  /v1/provider-attributes-schema:
+    get:
+      summary: Get the provider attributes schema
+      tags:
+      - Providers
+      security: []
+      responses:
+        '200':
+          description: Return the provider attributes schema
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  host:
+                    type: object
+                    properties:
+                      key:
+                        type: string
+                      type:
+                        type: string
+                        enum:
+                        - string
+                        - number
+                        - boolean
+                        - option
+                        - multiple-option
+                      required:
+                        type: boolean
+                      description:
+                        type: string
+                      values:
+                        type: array
+                        nullable: true
+                        items:
+                          type: object
+                          properties:
+                            key:
+                              type: string
+                            description:
+                              type: string
+                            value:
+                              nullable: true
+                          required:
+                          - key
+                          - description
+                    required:
+                    - key
+                    - type
+                    - required
+                    - description
+                  email:
+                    type: object
+                    properties:
+                      key:
+                        type: string
+                      type:
+                        type: string
+                        enum:
+                        - string
+                        - number
+                        - boolean
+                        - option
+                        - multiple-option
+                      required:
+                        type: boolean
+                      description:
+                        type: string
+                      values:
+                        type: array
+                        nullable: true
+                        items:
+                          type: object
+                          properties:
+                            key:
+                              type: string
+                            description:
+                              type: string
+                            value:
+                              nullable: true
+                          required:
+                          - key
+                          - description
+                    required:
+                    - key
+                    - type
+                    - required
+                    - description
+                  organization:
+                    type: object
+                    properties:
+                      key:
+                        type: string
+                      type:
+                        type: string
+                        enum:
+                        - string
+                        - number
+                        - boolean
+                        - option
+                        - multiple-option
+                      required:
+                        type: boolean
+                      description:
+                        type: string
+                      values:
+                        type: array
+                        nullable: true
+                        items:
+                          type: object
+                          properties:
+                            key:
+                              type: string
+                            description:
+                              type: string
+                            value:
+                              nullable: true
+                          required:
+                          - key
+                          - description
+                    required:
+                    - key
+                    - type
+                    - required
+                    - description
+                  website:
+                    type: object
+                    properties:
+                      key:
+                        type: string
+                      type:
+                        type: string
+                        enum:
+                        - string
+                        - number
+                        - boolean
+                        - option
+                        - multiple-option
+                      required:
+                        type: boolean
+                      description:
+                        type: string
+                      values:
+                        type: array
+                        nullable: true
+                        items:
+                          type: object
+                          properties:
+                            key:
+                              type: string
+                            description:
+                              type: string
+                            value:
+                              nullable: true
+                          required:
+                          - key
+                          - description
+                    required:
+                    - key
+                    - type
+                    - required
+                    - description
+                  tier:
+                    type: object
+                    properties:
+                      key:
+                        type: string
+                      type:
+                        type: string
+                        enum:
+                        - string
+                        - number
+                        - boolean
+                        - option
+                        - multiple-option
+                      required:
+                        type: boolean
+                      description:
+                        type: string
+                      values:
+                        type: array
+                        nullable: true
+                        items:
+                          type: object
+                          properties:
+                            key:
+                              type: string
+                            description:
+                              type: string
+                            value:
+                              nullable: true
+                          required:
+                          - key
+                          - description
+                    required:
+                    - key
+                    - type
+                    - required
+                    - description
+                  status-page:
+                    type: object
+                    properties:
+                      key:
+                        type: string
+                      type:
+                        type: string
+                        enum:
+                        - string
+                        - number
+                        - boolean
+                        - option
+                        - multiple-option
+                      required:
+                        type: boolean
+                      description:
+                        type: string
+                      values:
+                        type: array
+                        nullable: true
+                        items:
+                          type: object
+                          properties:
+                            key:
+                              type: string
+                            description:
+                              type: string
+                            value:
+                              nullable: true
+                          required:
+                          - key
+                          - description
+                    required:
+                    - key
+                    - type
+                    - required
+                    - description
+                  location-region:
+                    type: object
+                    properties:
+                      key:
+                        type: string
+                      type:
+                        type: string
+                        enum:
+                        - string
+                        - number
+                        - boolean
+                        - option
+                        - multiple-option
+                      required:
+                        type: boolean
+                      description:
+                        type: string
+                      values:
+                        type: array
+                        nullable: true
+                        items:
+                          type: object
+                          properties:
+                            key:
+                              type: string
+                            description:
+                              type: string
+                            value:
+                              nullable: true
+                          required:
+                          - key
+                          - description
+                    required:
+                    - key
+                    - type
+                    - required
+                    - description
+                  country:
+                    type: object
+                    properties:
+                      key:
+                        type: string
+                      type:
+                        type: string
+                        enum:
+                        - string
+                        - number
+                        - boolean
+                        - option
+                        - multiple-option
+                      required:
+                        type: boolean
+                      description:
+                        type: string
+                      values:
+                        type: array
+                        nullable: true
+                        items:
+                          type: object
+                          properties:
+                            key:
+                              type: string
+                            description:
+                              type: string
+                            value:
+                              nullable: true
+                          required:
+                          - key
+                          - description
+                    required:
+                    - key
+                    - type
+                    - required
+                    - description
+                  city:
+                    type: object
+                    properties:
+                      key:
+                        type: string
+                      type:
+                        type: string
+                        enum:
+                        - string
+                        - number
+                        - boolean
+                        - option
+                        - multiple-option
+                      required:
+                        type: boolean
+                      description:
+                        type: string
+                      values:
+                        type: array
+                        nullable: true
+                        items:
+                          type: object
+                          properties:
+                            key:
+                              type: string
+                            description:
+                              type: string
+                            value:
+                              nullable: true
+                          required:
+                          - key
+                          - description
+                    required:
+                    - key
+                    - type
+                    - required
+                    - description
+                  timezone:
+                    type: object
+                    properties:
+                      key:
+                        type: string
+                      type:
+                        type: string
+                        enum:
+                        - string
+                        - number
+                        - boolean
+                        - option
+                        - multiple-option
+                      required:
+                        type: boolean
+                      description:
+                        type: string
+                      values:
+                        type: array
+                        nullable: true
+                        items:
+                          type: object
+                          properties:
+                            key:
+                              type: string
+                            description:
+                              type: string
+                            value:
+                              nullable: true
+                          required:
+                          - key
+                          - description
+                    required:
+                    - key
+                    - type
+                    - required
+                    - description
+                  location-type:
+                    type: object
+                    properties:
+                      key:
+                        type: string
+                      type:
+                        type: string
+                        enum:
+                        - string
+                        - number
+                        - boolean
+                        - option
+                        - multiple-option
+                      required:
+                        type: boolean
+                      description:
+                        type: string
+                      values:
+                        type: array
+                        nullable: true
+                        items:
+                          type: object
+                          properties:
+                            key:
+                              type: string
+                            description:
+                              type: string
+                            value:
+                              nullable: true
+                          required:
+                          - key
+                          - description
+                    required:
+                    - key
+                    - type
+                    - required
+                    - description
+                  hosting-provider:
+                    type: object
+                    properties:
+                      key:
+                        type: string
+                      type:
+                        type: string
+                        enum:
+                        - string
+                        - number
+                        - boolean
+                        - option
+                        - multiple-option
+                      required:
+                        type: boolean
+                      description:
+                        type: string
+                      values:
+                        type: array
+                        nullable: true
+                        items:
+                          type: object
+                          properties:
+                            key:
+                              type: string
+                            description:
+                              type: string
+                            value:
+                              nullable: true
+                          required:
+                          - key
+                          - description
+                    required:
+                    - key
+                    - type
+                    - required
+                    - description
+                  hardware-cpu:
+                    type: object
+                    properties:
+                      key:
+                        type: string
+                      type:
+                        type: string
+                        enum:
+                        - string
+                        - number
+                        - boolean
+                        - option
+                        - multiple-option
+                      required:
+                        type: boolean
+                      description:
+                        type: string
+                      values:
+                        type: array
+                        nullable: true
+                        items:
+                          type: object
+                          properties:
+                            key:
+                              type: string
+                            description:
+                              type: string
+                            value:
+                              nullable: true
+                          required:
+                          - key
+                          - description
+                    required:
+                    - key
+                    - type
+                    - required
+                    - description
+                  hardware-cpu-arch:
+                    type: object
+                    properties:
+                      key:
+                        type: string
+                      type:
+                        type: string
+                        enum:
+                        - string
+                        - number
+                        - boolean
+                        - option
+                        - multiple-option
+                      required:
+                        type: boolean
+                      description:
+                        type: string
+                      values:
+                        type: array
+                        nullable: true
+                        items:
+                          type: object
+                          properties:
+                            key:
+                              type: string
+                            description:
+                              type: string
+                            value:
+                              nullable: true
+                          required:
+                          - key
+                          - description
+                    required:
+                    - key
+                    - type
+                    - required
+                    - description
+                  hardware-gpu:
+                    type: object
+                    properties:
+                      key:
+                        type: string
+                      type:
+                        type: string
+                        enum:
+                        - string
+                        - number
+                        - boolean
+                        - option
+                        - multiple-option
+                      required:
+                        type: boolean
+                      description:
+                        type: string
+                      values:
+                        type: array
+                        nullable: true
+                        items:
+                          type: object
+                          properties:
+                            key:
+                              type: string
+                            description:
+                              type: string
+                            value:
+                              nullable: true
+                          required:
+                          - key
+                          - description
+                    required:
+                    - key
+                    - type
+                    - required
+                    - description
+                  hardware-gpu-model:
+                    type: object
+                    properties:
+                      key:
+                        type: string
+                      type:
+                        type: string
+                        enum:
+                        - string
+                        - number
+                        - boolean
+                        - option
+                        - multiple-option
+                      required:
+                        type: boolean
+                      description:
+                        type: string
+                      values:
+                        type: array
+                        nullable: true
+                        items:
+                          type: object
+                          properties:
+                            key:
+                              type: string
+                            description:
+                              type: string
+                            value:
+                              nullable: true
+                          required:
+                          - key
+                          - description
+                    required:
+                    - key
+                    - type
+                    - required
+                    - description
+                  hardware-disk:
+                    type: object
+                    properties:
+                      key:
+                        type: string
+                      type:
+                        type: string
+                        enum:
+                        - string
+                        - number
+                        - boolean
+                        - option
+                        - multiple-option
+                      required:
+                        type: boolean
+                      description:
+                        type: string
+                      values:
+                        type: array
+                        nullable: true
+                        items:
+                          type: object
+                          properties:
+                            key:
+                              type: string
+                            description:
+                              type: string
+                            value:
+                              nullable: true
+                          required:
+                          - key
+                          - description
+                    required:
+                    - key
+                    - type
+                    - required
+                    - description
+                  hardware-memory:
+                    type: object
+                    properties:
+                      key:
+                        type: string
+                      type:
+                        type: string
+                        enum:
+                        - string
+                        - number
+                        - boolean
+                        - option
+                        - multiple-option
+                      required:
+                        type: boolean
+                      description:
+                        type: string
+                      values:
+                        type: array
+                        nullable: true
+                        items:
+                          type: object
+                          properties:
+                            key:
+                              type: string
+                            description:
+                              type: string
+                            value:
+                              nullable: true
+                          required:
+                          - key
+                          - description
+                    required:
+                    - key
+                    - type
+                    - required
+                    - description
+                  network-provider:
+                    type: object
+                    properties:
+                      key:
+                        type: string
+                      type:
+                        type: string
+                        enum:
+                        - string
+                        - number
+                        - boolean
+                        - option
+                        - multiple-option
+                      required:
+                        type: boolean
+                      description:
+                        type: string
+                      values:
+                        type: array
+                        nullable: true
+                        items:
+                          type: object
+                          properties:
+                            key:
+                              type: string
+                            description:
+                              type: string
+                            value:
+                              nullable: true
+                          required:
+                          - key
+                          - description
+                    required:
+                    - key
+                    - type
+                    - required
+                    - description
+                  network-speed-up:
+                    type: object
+                    properties:
+                      key:
+                        type: string
+                      type:
+                        type: string
+                        enum:
+                        - string
+                        - number
+                        - boolean
+                        - option
+                        - multiple-option
+                      required:
+                        type: boolean
+                      description:
+                        type: string
+                      values:
+                        type: array
+                        nullable: true
+                        items:
+                          type: object
+                          properties:
+                            key:
+                              type: string
+                            description:
+                              type: string
+                            value:
+                              nullable: true
+                          required:
+                          - key
+                          - description
+                    required:
+                    - key
+                    - type
+                    - required
+                    - description
+                  network-speed-down:
+                    type: object
+                    properties:
+                      key:
+                        type: string
+                      type:
+                        type: string
+                        enum:
+                        - string
+                        - number
+                        - boolean
+                        - option
+                        - multiple-option
+                      required:
+                        type: boolean
+                      description:
+                        type: string
+                      values:
+                        type: array
+                        nullable: true
+                        items:
+                          type: object
+                          properties:
+                            key:
+                              type: string
+                            description:
+                              type: string
+                            value:
+                              nullable: true
+                          required:
+                          - key
+                          - description
+                    required:
+                    - key
+                    - type
+                    - required
+                    - description
+                  feat-persistent-storage:
+                    type: object
+                    properties:
+                      key:
+                        type: string
+                      type:
+                        type: string
+                        enum:
+                        - string
+                        - number
+                        - boolean
+                        - option
+                        - multiple-option
+                      required:
+                        type: boolean
+                      description:
+                        type: string
+                      values:
+                        type: array
+                        nullable: true
+                        items:
+                          type: object
+                          properties:
+                            key:
+                              type: string
+                            description:
+                              type: string
+                            value:
+                              nullable: true
+                          required:
+                          - key
+                          - description
+                    required:
+                    - key
+                    - type
+                    - required
+                    - description
+                  feat-persistent-storage-type:
+                    type: object
+                    properties:
+                      key:
+                        type: string
+                      type:
+                        type: string
+                        enum:
+                        - string
+                        - number
+                        - boolean
+                        - option
+                        - multiple-option
+                      required:
+                        type: boolean
+                      description:
+                        type: string
+                      values:
+                        type: array
+                        nullable: true
+                        items:
+                          type: object
+                          properties:
+                            key:
+                              type: string
+                            description:
+                              type: string
+                            value:
+                              nullable: true
+                          required:
+                          - key
+                          - description
+                    required:
+                    - key
+                    - type
+                    - required
+                    - description
+                  workload-support-chia:
+                    type: object
+                    properties:
+                      key:
+                        type: string
+                      type:
+                        type: string
+                        enum:
+                        - string
+                        - number
+                        - boolean
+                        - option
+                        - multiple-option
+                      required:
+                        type: boolean
+                      description:
+                        type: string
+                      values:
+                        type: array
+                        nullable: true
+                        items:
+                          type: object
+                          properties:
+                            key:
+                              type: string
+                            description:
+                              type: string
+                            value:
+                              nullable: true
+                          required:
+                          - key
+                          - description
+                    required:
+                    - key
+                    - type
+                    - required
+                    - description
+                  workload-support-chia-capabilities:
+                    type: object
+                    properties:
+                      key:
+                        type: string
+                      type:
+                        type: string
+                        enum:
+                        - string
+                        - number
+                        - boolean
+                        - option
+                        - multiple-option
+                      required:
+                        type: boolean
+                      description:
+                        type: string
+                      values:
+                        type: array
+                        nullable: true
+                        items:
+                          type: object
+                          properties:
+                            key:
+                              type: string
+                            description:
+                              type: string
+                            value:
+                              nullable: true
+                          required:
+                          - key
+                          - description
+                    required:
+                    - key
+                    - type
+                    - required
+                    - description
+                  feat-endpoint-ip:
+                    type: object
+                    properties:
+                      key:
+                        type: string
+                      type:
+                        type: string
+                        enum:
+                        - string
+                        - number
+                        - boolean
+                        - option
+                        - multiple-option
+                      required:
+                        type: boolean
+                      description:
+                        type: string
+                      values:
+                        type: array
+                        nullable: true
+                        items:
+                          type: object
+                          properties:
+                            key:
+                              type: string
+                            description:
+                              type: string
+                            value:
+                              nullable: true
+                          required:
+                          - key
+                          - description
+                    required:
+                    - key
+                    - type
+                    - required
+                    - description
+                  feat-endpoint-custom-domain:
+                    type: object
+                    properties:
+                      key:
+                        type: string
+                      type:
+                        type: string
+                        enum:
+                        - string
+                        - number
+                        - boolean
+                        - option
+                        - multiple-option
+                      required:
+                        type: boolean
+                      description:
+                        type: string
+                      values:
+                        type: array
+                        nullable: true
+                        items:
+                          type: object
+                          properties:
+                            key:
+                              type: string
+                            description:
+                              type: string
+                            value:
+                              nullable: true
+                          required:
+                          - key
+                          - description
+                    required:
+                    - key
+                    - type
+                    - required
+                    - description
+                required:
+                - host
+                - email
+                - organization
+                - website
+                - tier
+                - status-page
+                - location-region
+                - country
+                - city
+                - timezone
+                - location-type
+                - hosting-provider
+                - hardware-cpu
+                - hardware-cpu-arch
+                - hardware-gpu
+                - hardware-gpu-model
+                - hardware-disk
+                - hardware-memory
+                - network-provider
+                - network-speed-up
+                - network-speed-down
+                - feat-persistent-storage
+                - feat-persistent-storage-type
+                - workload-support-chia
+                - workload-support-chia-capabilities
+                - feat-endpoint-ip
+                - feat-endpoint-custom-domain
+  /v1/provider-regions:
+    get:
+      summary: Get a list of provider regions
+      tags:
+      - Providers
+      security: []
+      responses:
+        '200':
+          description: Return a list of provider regions
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    providers:
+                      type: array
+                      items:
+                        type: string
+                    key:
+                      type: string
+                    description:
+                      type: string
+                    value:
+                      type: string
+                  required:
+                  - providers
+                  - key
+                  - description
+  /v1/provider-dashboard/{owner}:
+    get:
+      summary: Get dashboard data for provider console.
+      tags:
+      - Providers
+      security: []
+      parameters:
+      - schema:
+          type: string
+          example: akash18ga02jzaq8cw52anyhzkwta5wygufgu6zsz6xc
+        required: true
+        name: owner
+        in: path
+      responses:
+        '200':
+          description: Dashboard data
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  current:
+                    type: object
+                    properties:
+                      date:
+                        type: string
+                      height:
+                        type: number
+                      activeLeaseCount:
+                        type: number
+                      totalLeaseCount:
+                        type: number
+                      dailyLeaseCount:
+                        type: number
+                      totalUAktEarned:
+                        type: number
+                      dailyUAktEarned:
+                        type: number
+                      totalUUsdcEarned:
+                        type: number
+                      dailyUUsdcEarned:
+                        type: number
+                      totalUActEarned:
+                        type: number
+                      dailyUActEarned:
+                        type: number
+                      totalUUsdEarned:
+                        type: number
+                      dailyUUsdEarned:
+                        type: number
+                      activeCPU:
+                        type: number
+                      activeGPU:
+                        type: number
+                      activeMemory:
+                        type: number
+                      activeEphemeralStorage:
+                        type: number
+                      activePersistentStorage:
+                        type: number
+                      activeStorage:
+                        type: number
+                    required:
+                    - date
+                    - height
+                    - activeLeaseCount
+                    - totalLeaseCount
+                    - dailyLeaseCount
+                    - totalUAktEarned
+                    - dailyUAktEarned
+                    - totalUUsdcEarned
+                    - dailyUUsdcEarned
+                    - totalUActEarned
+                    - dailyUActEarned
+                    - totalUUsdEarned
+                    - dailyUUsdEarned
+                    - activeCPU
+                    - activeGPU
+                    - activeMemory
+                    - activeEphemeralStorage
+                    - activePersistentStorage
+                    - activeStorage
+                  previous:
+                    type: object
+                    properties:
+                      date:
+                        type: string
+                      height:
+                        type: number
+                      activeLeaseCount:
+                        type: number
+                      totalLeaseCount:
+                        type: number
+                      dailyLeaseCount:
+                        type: number
+                      totalUAktEarned:
+                        type: number
+                      dailyUAktEarned:
+                        type: number
+                      totalUUsdcEarned:
+                        type: number
+                      dailyUUsdcEarned:
+                        type: number
+                      totalUActEarned:
+                        type: number
+                      dailyUActEarned:
+                        type: number
+                      totalUUsdEarned:
+                        type: number
+                      dailyUUsdEarned:
+                        type: number
+                      activeCPU:
+                        type: number
+                      activeGPU:
+                        type: number
+                      activeMemory:
+                        type: number
+                      activeEphemeralStorage:
+                        type: number
+                      activePersistentStorage:
+                        type: number
+                      activeStorage:
+                        type: number
+                    required:
+                    - date
+                    - height
+                    - activeLeaseCount
+                    - totalLeaseCount
+                    - dailyLeaseCount
+                    - totalUAktEarned
+                    - dailyUAktEarned
+                    - totalUUsdcEarned
+                    - dailyUUsdcEarned
+                    - totalUActEarned
+                    - dailyUActEarned
+                    - totalUUsdEarned
+                    - dailyUUsdEarned
+                    - activeCPU
+                    - activeGPU
+                    - activeMemory
+                    - activeEphemeralStorage
+                    - activePersistentStorage
+                    - activeStorage
+                required:
+                - current
+                - previous
+        '404':
+          description: Provider not found
+  /v1/provider-earnings/{owner}:
+    get:
+      summary: Get earnings data for provider console.
+      tags:
+      - Providers
+      security: []
+      parameters:
+      - schema:
+          type: string
+          description: Provider Address
+          example: akash18ga02jzaq8cw52anyhzkwta5wygufgu6zsz6xc
+        required: true
+        name: owner
+        in: path
+      - schema:
+          type: string
+          format: YYYY-MM-DD
+          description: Start date in YYYY-MM-DD format
+          example: '2023-01-01'
+        required: true
+        name: from
+        in: query
+      - schema:
+          type: string
+          format: YYYY-MM-DD
+          description: End date in YYYY-MM-DD format
+          example: '2023-02-01'
+        required: true
+        name: to
+        in: query
+      responses:
+        '200':
+          description: Earnings data
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  earnings:
+                    type: object
+                    properties:
+                      totalUAktEarned:
+                        type: number
+                      totalUUsdcEarned:
+                        type: number
+                      totalUActEarned:
+                        type: number
+                      totalUUsdEarned:
+                        type: number
+                    required:
+                    - totalUAktEarned
+                    - totalUUsdcEarned
+                    - totalUActEarned
+                    - totalUUsdEarned
+                required:
+                - earnings
+        '404':
+          description: Provider not found
+  /v1/provider-versions:
+    get:
+      summary: Get providers grouped by version.
+      tags:
+      - Providers
+      security: []
+      responses:
+        '200':
+          description: List of providers grouped by version.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+                  properties:
+                    version:
+                      type: string
+                    count:
+                      type: number
+                    ratio:
+                      type: number
+                    providers:
+                      type: array
+                      items:
+                        type: string
+                  required:
+                  - version
+                  - count
+                  - ratio
+                  - providers
+  /v1/providers/{provider}/deployments/{skip}/{limit}:
+    get:
+      summary: Get a list of deployments for a provider.
+      tags:
+      - Providers
+      security: []
+      parameters:
+      - schema:
+          type: string
+          description: Provider Address
+          example: akash18ga02jzaq8cw52anyhzkwta5wygufgu6zsz6xc
+        required: true
+        name: provider
+        in: path
+      - schema:
+          type: number
+          nullable: true
+          minimum: 0
+          description: Deployments to skip
+          example: 10
+        required: false
+        name: skip
+        in: path
+      - schema:
+          type: number
+          minimum: 1
+          maximum: 100
+          description: Deployments to return
+          example: 10
+        required: true
+        name: limit
+        in: path
+      - schema:
+          type: string
+          enum:
+          - active
+          - closed
+          description: Filter by status
+          example: closed
+        required: false
+        name: status
+        in: query
+      responses:
+        '200':
+          description: Returns deployment list
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  total:
+                    type: number
+                  deployments:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        owner:
+                          type: string
+                        dseq:
+                          type: string
+                          pattern: ^d+$
+                        denom:
+                          type: string
+                        createdHeight:
+                          type: number
+                        createdDate:
+                          type: string
+                          nullable: true
+                        status:
+                          type: string
+                        balance:
+                          type: number
+                        transferred:
+                          type: number
+                        settledAt:
+                          type: number
+                          nullable: true
+                        resources:
+                          type: object
+                          properties:
+                            cpu:
+                              type: number
+                            memory:
+                              type: number
+                            gpu:
+                              type: number
+                            ephemeralStorage:
+                              type: number
+                            persistentStorage:
+                              type: number
+                          required:
+                          - cpu
+                          - memory
+                          - gpu
+                          - ephemeralStorage
+                          - persistentStorage
+                        leases:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              provider:
+                                type: string
+                              gseq:
+                                type: number
+                              oseq:
+                                type: number
+                              price:
+                                type: number
+                              createdHeight:
+                                type: number
+                              createdDate:
+                                type: string
+                                nullable: true
+                              closedHeight:
+                                type: number
+                                nullable: true
+                              closedDate:
+                                type: string
+                                nullable: true
+                              status:
+                                type: string
+                              resources:
+                                type: object
+                                properties:
+                                  cpu:
+                                    type: number
+                                  memory:
+                                    type: number
+                                  gpu:
+                                    type: number
+                                  ephemeralStorage:
+                                    type: number
+                                  persistentStorage:
+                                    type: number
+                                required:
+                                - cpu
+                                - memory
+                                - gpu
+                                - ephemeralStorage
+                                - persistentStorage
+                            required:
+                            - provider
+                            - gseq
+                            - oseq
+                            - price
+                            - createdHeight
+                            - createdDate
+                            - closedHeight
+                            - closedDate
+                            - status
+                            - resources
+                      required:
+                      - owner
+                      - dseq
+                      - denom
+                      - createdHeight
+                      - createdDate
+                      - status
+                      - balance
+                      - transferred
+                      - settledAt
+                      - resources
+                      - leases
+                required:
+                - total
+                - deployments
+        '400':
+          description: Invalid status filter
+securityDefinitions:
+  kms:
+    type: basic

@@ -1,0 +1,120 @@
+swagger: '2.0'
+info:
+  title: AKASH - gRPC Gateway docs Addresses Validators API
+  description: A REST interface for state queries
+  version: 1.0.0
+tags:
+- name: Validators
+paths:
+  /v1/validators:
+    get:
+      tags:
+      - Validators
+      security: []
+      responses:
+        '200':
+          description: Returns validators
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    operatorAddress:
+                      type: string
+                    moniker:
+                      type: string
+                    votingPower:
+                      type: number
+                    commission:
+                      type: number
+                    identity:
+                      type: string
+                    votingPowerRatio:
+                      type: number
+                    rank:
+                      type: number
+                    keybaseAvatarUrl:
+                      type: string
+                      nullable: true
+                  required:
+                  - operatorAddress
+                  - moniker
+                  - votingPower
+                  - commission
+                  - identity
+                  - votingPowerRatio
+                  - rank
+                  - keybaseAvatarUrl
+  /v1/validators/{address}:
+    get:
+      tags:
+      - Validators
+      security: []
+      parameters:
+      - schema:
+          type: string
+          description: Validator Address
+          example: akashvaloper14mt78hz73d9tdwpdvkd59ne9509kxw8yj7qy8f
+        required: true
+        name: address
+        in: path
+      responses:
+        '200':
+          description: Return a validator information
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  operatorAddress:
+                    type: string
+                  address:
+                    type: string
+                    nullable: true
+                  moniker:
+                    type: string
+                  keybaseUsername:
+                    type: string
+                    nullable: true
+                  keybaseAvatarUrl:
+                    type: string
+                    nullable: true
+                  votingPower:
+                    type: number
+                  commission:
+                    type: number
+                  maxCommission:
+                    type: number
+                  maxCommissionChange:
+                    type: number
+                  identity:
+                    type: string
+                  description:
+                    type: string
+                  website:
+                    type: string
+                  rank:
+                    type: number
+                required:
+                - operatorAddress
+                - address
+                - moniker
+                - keybaseUsername
+                - keybaseAvatarUrl
+                - votingPower
+                - commission
+                - maxCommission
+                - maxCommissionChange
+                - identity
+                - description
+                - website
+                - rank
+        '400':
+          description: Invalid address
+        '404':
+          description: Validator not found
+securityDefinitions:
+  kms:
+    type: basic

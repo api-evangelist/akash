@@ -1,0 +1,285 @@
+swagger: '2.0'
+info:
+  title: AKASH - gRPC Gateway docs Addresses Bid Screening API
+  description: A REST interface for state queries
+  version: 1.0.0
+tags:
+- name: Bid Screening
+paths:
+  /v1/bid-screening:
+    post:
+      summary: Screen providers by deployment resource requirements
+      tags:
+      - Bid Screening
+      security: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: Group name
+                  example: westcoast
+                requirements:
+                  type: object
+                  properties:
+                    signedBy:
+                      type: object
+                      properties:
+                        allOf:
+                          type: array
+                          items:
+                            type: string
+                          default: []
+                        anyOf:
+                          type: array
+                          items:
+                            type: string
+                          default: []
+                      default: {}
+                    attributes:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          key:
+                            type: string
+                            minLength: 1
+                            maxLength: 128
+                            pattern: ^([a-zA-Z][\w/.-]{1,126}[\w*]?)$
+                            description: Attribute key
+                            example: persistent
+                          value:
+                            type: string
+                            description: Attribute value
+                            example: 'false'
+                        required:
+                        - key
+                        - value
+                      default: []
+                  default: {}
+                resources:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      resource:
+                        type: object
+                        properties:
+                          id:
+                            type: integer
+                            description: Resource unit ID
+                            example: 1
+                          cpu:
+                            type: object
+                            properties:
+                              units:
+                                type: object
+                                properties:
+                                  val:
+                                    type: string
+                                    maxLength: 80
+                                required:
+                                - val
+                              attributes:
+                                type: array
+                                items:
+                                  type: object
+                                  properties:
+                                    key:
+                                      type: string
+                                      minLength: 1
+                                      maxLength: 128
+                                      pattern: ^([a-zA-Z][\w/.-]{1,126}[\w*]?)$
+                                      description: Attribute key
+                                      example: persistent
+                                    value:
+                                      type: string
+                                      description: Attribute value
+                                      example: 'false'
+                                  required:
+                                  - key
+                                  - value
+                            required:
+                            - units
+                          memory:
+                            type: object
+                            properties:
+                              quantity:
+                                type: object
+                                properties:
+                                  val:
+                                    type: string
+                                    maxLength: 80
+                                required:
+                                - val
+                              attributes:
+                                type: array
+                                items:
+                                  type: object
+                                  properties:
+                                    key:
+                                      type: string
+                                      minLength: 1
+                                      maxLength: 128
+                                      pattern: ^([a-zA-Z][\w/.-]{1,126}[\w*]?)$
+                                      description: Attribute key
+                                      example: persistent
+                                    value:
+                                      type: string
+                                      description: Attribute value
+                                      example: 'false'
+                                  required:
+                                  - key
+                                  - value
+                            required:
+                            - quantity
+                          gpu:
+                            type: object
+                            properties:
+                              units:
+                                type: object
+                                properties:
+                                  val:
+                                    type: string
+                                    maxLength: 80
+                                required:
+                                - val
+                              attributes:
+                                type: array
+                                items:
+                                  type: object
+                                  properties:
+                                    key:
+                                      type: string
+                                      minLength: 1
+                                      maxLength: 128
+                                      pattern: ^([a-zA-Z][\w/.-]{1,126}[\w*]?)$
+                                      description: Attribute key
+                                      example: persistent
+                                    value:
+                                      type: string
+                                      description: Attribute value
+                                      example: 'false'
+                                  required:
+                                  - key
+                                  - value
+                            required:
+                            - units
+                          storage:
+                            type: array
+                            items:
+                              type: object
+                              properties:
+                                name:
+                                  type: string
+                                  description: Storage volume name
+                                  example: default
+                                quantity:
+                                  type: object
+                                  properties:
+                                    val:
+                                      type: string
+                                      maxLength: 80
+                                  required:
+                                  - val
+                                attributes:
+                                  type: array
+                                  items:
+                                    type: object
+                                    properties:
+                                      key:
+                                        type: string
+                                        minLength: 1
+                                        maxLength: 128
+                                        pattern: ^([a-zA-Z][\w/.-]{1,126}[\w*]?)$
+                                        description: Attribute key
+                                        example: persistent
+                                      value:
+                                        type: string
+                                        description: Attribute value
+                                        example: 'false'
+                                    required:
+                                    - key
+                                    - value
+                              required:
+                              - name
+                              - quantity
+                          endpoints:
+                            type: array
+                            items:
+                              nullable: true
+                        required:
+                        - id
+                        - cpu
+                        - memory
+                        - gpu
+                        - storage
+                      count:
+                        type: integer
+                        minimum: 1
+                        description: Replica count
+                        example: 1
+                      price:
+                        type: object
+                        properties:
+                          denom:
+                            type: string
+                          amount:
+                            type: string
+                            pattern: ^\d+$
+                        required:
+                        - denom
+                        - amount
+                    required:
+                    - resource
+                    - count
+                    - price
+                  minItems: 1
+                  description: Resource units with replica counts
+              required:
+              - name
+              - resources
+      responses:
+        '200':
+          description: Returns matching providers
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  providers:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        owner:
+                          type: string
+                          description: Provider address
+                          example: akash1q7spv2cw06yszgfp4f9ed59lkka6ytn8g4tkjf
+                        hostUri:
+                          type: string
+                          description: Provider HTTPS endpoint
+                          example: https://provider.europlots.com:8443
+                        isAudited:
+                          type: boolean
+                          description: True if signed by a known auditor
+                        createdAt:
+                          type: string
+                          format: date-time
+                          description: ISO 8601 timestamp marking when the provider was first enrolled in the inventory
+                          example: '2026-01-01T00:00:00.000Z'
+                      required:
+                      - owner
+                      - hostUri
+                      - isAudited
+                      - createdAt
+                required:
+                - providers
+        '400':
+          description: Invalid request body
+securityDefinitions:
+  kms:
+    type: basic

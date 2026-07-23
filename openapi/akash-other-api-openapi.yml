@@ -1,0 +1,269 @@
+swagger: '2.0'
+info:
+  title: AKASH - gRPC Gateway docs Addresses Other API
+  description: A REST interface for state queries
+  version: 1.0.0
+tags:
+- name: Other
+paths:
+  /v1/pricing:
+    post:
+      tags:
+      - Other
+      security: []
+      summary: Estimate the price of a deployment on akash and other cloud providers.
+      requestBody:
+        description: Deployment specs to use for the price estimation. **An array of specs can also be sent, in that case an array of estimations will be returned in the same order.**
+        content:
+          application/json:
+            schema:
+              anyOf:
+              - type: object
+                properties:
+                  cpu:
+                    type: number
+                    minimum: 0
+                    description: CPU in thousandths of a core. 1000 = 1 core
+                    example: 1000
+                  memory:
+                    type: number
+                    description: Memory in bytes
+                    example: 1000000000
+                  storage:
+                    type: number
+                    description: Storage in bytes
+                    example: 1000000000
+                required:
+                - cpu
+                - memory
+                - storage
+              - type: array
+                items:
+                  type: object
+                  properties:
+                    cpu:
+                      type: number
+                      minimum: 0
+                      description: CPU in thousandths of a core. 1000 = 1 core
+                      example: 1000
+                    memory:
+                      type: number
+                      description: Memory in bytes
+                      example: 1000000000
+                    storage:
+                      type: number
+                      description: Storage in bytes
+                      example: 1000000000
+                  required:
+                  - cpu
+                  - memory
+                  - storage
+                minItems: 1
+                maxItems: 10
+      responses:
+        '200':
+          description: Returns a list of deployment templates grouped by categories
+          content:
+            application/json:
+              schema:
+                anyOf:
+                - type: object
+                  properties:
+                    spec:
+                      type: object
+                      properties:
+                        cpu:
+                          type: number
+                          minimum: 0
+                          description: CPU in thousandths of a core. 1000 = 1 core
+                          example: 1000
+                        memory:
+                          type: number
+                          description: Memory in bytes
+                          example: 1000000000
+                        storage:
+                          type: number
+                          description: Storage in bytes
+                          example: 1000000000
+                      required:
+                      - cpu
+                      - memory
+                      - storage
+                    akash:
+                      type: number
+                      description: Akash price estimation (USD/month)
+                    aws:
+                      type: number
+                      description: AWS price estimation (USD/month)
+                    gcp:
+                      type: number
+                      description: GCP price estimation (USD/month)
+                    azure:
+                      type: number
+                      description: Azure price estimation (USD/month)
+                  required:
+                  - spec
+                  - akash
+                  - aws
+                  - gcp
+                  - azure
+                - type: array
+                  items:
+                    type: object
+                    properties:
+                      spec:
+                        type: object
+                        properties:
+                          cpu:
+                            type: number
+                            minimum: 0
+                            description: CPU in thousandths of a core. 1000 = 1 core
+                            example: 1000
+                          memory:
+                            type: number
+                            description: Memory in bytes
+                            example: 1000000000
+                          storage:
+                            type: number
+                            description: Storage in bytes
+                            example: 1000000000
+                        required:
+                        - cpu
+                        - memory
+                        - storage
+                      akash:
+                        type: number
+                        description: Akash price estimation (USD/month)
+                      aws:
+                        type: number
+                        description: AWS price estimation (USD/month)
+                      gcp:
+                        type: number
+                        description: GCP price estimation (USD/month)
+                      azure:
+                        type: number
+                        description: Azure price estimation (USD/month)
+                    required:
+                    - spec
+                    - akash
+                    - aws
+                    - gcp
+                    - azure
+        '400':
+          description: Invalid parameters
+  /v1/templates-list:
+    get:
+      tags:
+      - Other
+      security: []
+      responses:
+        '200':
+          description: Returns a list of deployment templates grouped by categories
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        title:
+                          type: string
+                        templates:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              id:
+                                type: string
+                              name:
+                                type: string
+                              logoUrl:
+                                type: string
+                                nullable: true
+                              summary:
+                                type: string
+                              tags:
+                                type: array
+                                items:
+                                  type: string
+                            required:
+                            - id
+                            - name
+                            - logoUrl
+                            - summary
+                      required:
+                      - title
+                      - templates
+                required:
+                - data
+  /v1/templates/{id}:
+    get:
+      tags:
+      - Other
+      security: []
+      parameters:
+      - schema:
+          type: string
+          description: Template ID
+          example: akash-network-cosmos-omnibus-agoric
+        required: true
+        name: id
+        in: path
+      responses:
+        '200':
+          description: Return a template by id
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                      name:
+                        type: string
+                      path:
+                        type: string
+                      logoUrl:
+                        type: string
+                        nullable: true
+                      summary:
+                        type: string
+                      readme:
+                        type: string
+                      deploy:
+                        type: string
+                      persistentStorageEnabled:
+                        type: boolean
+                      guide:
+                        type: string
+                      githubUrl:
+                        type: string
+                      config:
+                        type: object
+                        properties:
+                          ssh:
+                            type: boolean
+                    required:
+                    - id
+                    - name
+                    - path
+                    - logoUrl
+                    - summary
+                    - readme
+                    - deploy
+                    - persistentStorageEnabled
+                    - githubUrl
+                    - config
+                required:
+                - data
+        '404':
+          description: Template not found
+securityDefinitions:
+  kms:
+    type: basic

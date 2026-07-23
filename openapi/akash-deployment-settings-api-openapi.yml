@@ -1,0 +1,493 @@
+swagger: '2.0'
+info:
+  title: AKASH - gRPC Gateway docs Addresses Deployment Settings API
+  description: A REST interface for state queries
+  version: 1.0.0
+tags:
+- name: Deployment Settings
+paths:
+  /v1/deployment-settings/{userId}/{dseq}:
+    get:
+      summary: Get deployment settings by user ID and dseq
+      tags:
+      - Deployment Settings
+      security:
+      - BearerAuth: []
+      - ApiKeyAuth: []
+      parameters:
+      - schema:
+          type: string
+          description: User ID
+        required: true
+        name: userId
+        in: path
+      - schema:
+          type: string
+          pattern: ^d+$
+          description: Deployment sequence number
+        required: true
+        name: dseq
+        in: path
+      responses:
+        '200':
+          description: Returns deployment settings
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        format: uuid
+                      userId:
+                        type: string
+                      dseq:
+                        type: string
+                        pattern: ^d+$
+                      autoTopUpEnabled:
+                        type: boolean
+                      estimatedTopUpAmount:
+                        type: number
+                      topUpFrequencyMs:
+                        type: number
+                      createdAt:
+                        type: string
+                        format: date-time
+                      updatedAt:
+                        type: string
+                        format: date-time
+                    required:
+                    - id
+                    - userId
+                    - dseq
+                    - autoTopUpEnabled
+                    - estimatedTopUpAmount
+                    - topUpFrequencyMs
+                    - createdAt
+                    - updatedAt
+                required:
+                - data
+        '404':
+          description: Deployment settings not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                required:
+                - message
+    patch:
+      summary: Update deployment settings
+      tags:
+      - Deployment Settings
+      security:
+      - BearerAuth: []
+      - ApiKeyAuth: []
+      parameters:
+      - schema:
+          type: string
+          description: User ID
+        required: true
+        name: userId
+        in: path
+      - schema:
+          type: string
+          pattern: ^d+$
+          description: Deployment sequence number
+        required: true
+        name: dseq
+        in: path
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                data:
+                  type: object
+                  properties:
+                    autoTopUpEnabled:
+                      type: boolean
+                      description: Whether auto top-up is enabled for this deployment
+                  required:
+                  - autoTopUpEnabled
+              required:
+              - data
+      responses:
+        '200':
+          description: Deployment settings updated successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        format: uuid
+                      userId:
+                        type: string
+                      dseq:
+                        type: string
+                        pattern: ^d+$
+                      autoTopUpEnabled:
+                        type: boolean
+                      estimatedTopUpAmount:
+                        type: number
+                      topUpFrequencyMs:
+                        type: number
+                      createdAt:
+                        type: string
+                        format: date-time
+                      updatedAt:
+                        type: string
+                        format: date-time
+                    required:
+                    - id
+                    - userId
+                    - dseq
+                    - autoTopUpEnabled
+                    - estimatedTopUpAmount
+                    - topUpFrequencyMs
+                    - createdAt
+                    - updatedAt
+                required:
+                - data
+        '404':
+          description: Deployment settings not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                required:
+                - message
+  /v1/deployment-settings:
+    post:
+      summary: Create deployment settings
+      tags:
+      - Deployment Settings
+      security:
+      - BearerAuth: []
+      - ApiKeyAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                data:
+                  type: object
+                  properties:
+                    userId:
+                      type: string
+                      description: User ID
+                    dseq:
+                      type: string
+                      pattern: ^d+$
+                      description: Deployment sequence number
+                    autoTopUpEnabled:
+                      type: boolean
+                      default: false
+                      description: Whether auto top-up is enabled for this deployment
+                  required:
+                  - userId
+                  - dseq
+              required:
+              - data
+      responses:
+        '201':
+          description: Deployment settings created successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        format: uuid
+                      userId:
+                        type: string
+                      dseq:
+                        type: string
+                        pattern: ^d+$
+                      autoTopUpEnabled:
+                        type: boolean
+                      estimatedTopUpAmount:
+                        type: number
+                      topUpFrequencyMs:
+                        type: number
+                      createdAt:
+                        type: string
+                        format: date-time
+                      updatedAt:
+                        type: string
+                        format: date-time
+                    required:
+                    - id
+                    - userId
+                    - dseq
+                    - autoTopUpEnabled
+                    - estimatedTopUpAmount
+                    - topUpFrequencyMs
+                    - createdAt
+                    - updatedAt
+                required:
+                - data
+  /v2/deployment-settings/{dseq}:
+    get:
+      summary: Get deployment settings by dseq
+      tags:
+      - Deployment Settings
+      security:
+      - BearerAuth: []
+      - ApiKeyAuth: []
+      parameters:
+      - schema:
+          type: string
+          pattern: ^d+$
+          description: Deployment sequence number
+        required: true
+        name: dseq
+        in: path
+      - schema:
+          type: string
+          format: uuid
+          description: User ID. Defaults to the current authenticated user if not provided
+        required: false
+        name: userId
+        in: query
+      responses:
+        '200':
+          description: Returns deployment settings
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        format: uuid
+                      userId:
+                        type: string
+                      dseq:
+                        type: string
+                        pattern: ^d+$
+                      autoTopUpEnabled:
+                        type: boolean
+                      estimatedTopUpAmount:
+                        type: number
+                      topUpFrequencyMs:
+                        type: number
+                      createdAt:
+                        type: string
+                        format: date-time
+                      updatedAt:
+                        type: string
+                        format: date-time
+                    required:
+                    - id
+                    - userId
+                    - dseq
+                    - autoTopUpEnabled
+                    - estimatedTopUpAmount
+                    - topUpFrequencyMs
+                    - createdAt
+                    - updatedAt
+                required:
+                - data
+        '404':
+          description: Deployment settings not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                required:
+                - message
+    patch:
+      summary: Update deployment settings
+      tags:
+      - Deployment Settings
+      security:
+      - BearerAuth: []
+      - ApiKeyAuth: []
+      parameters:
+      - schema:
+          type: string
+          pattern: ^d+$
+          description: Deployment sequence number
+        required: true
+        name: dseq
+        in: path
+      - schema:
+          type: string
+          format: uuid
+          description: User ID. Defaults to the current authenticated user if not provided
+        required: false
+        name: userId
+        in: query
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                data:
+                  type: object
+                  properties:
+                    autoTopUpEnabled:
+                      type: boolean
+                      description: Whether auto top-up is enabled for this deployment
+                  required:
+                  - autoTopUpEnabled
+              required:
+              - data
+      responses:
+        '200':
+          description: Deployment settings updated successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        format: uuid
+                      userId:
+                        type: string
+                      dseq:
+                        type: string
+                        pattern: ^d+$
+                      autoTopUpEnabled:
+                        type: boolean
+                      estimatedTopUpAmount:
+                        type: number
+                      topUpFrequencyMs:
+                        type: number
+                      createdAt:
+                        type: string
+                        format: date-time
+                      updatedAt:
+                        type: string
+                        format: date-time
+                    required:
+                    - id
+                    - userId
+                    - dseq
+                    - autoTopUpEnabled
+                    - estimatedTopUpAmount
+                    - topUpFrequencyMs
+                    - createdAt
+                    - updatedAt
+                required:
+                - data
+        '404':
+          description: Deployment settings not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                required:
+                - message
+  /v2/deployment-settings:
+    post:
+      summary: Create deployment settings
+      tags:
+      - Deployment Settings
+      security:
+      - BearerAuth: []
+      - ApiKeyAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                data:
+                  type: object
+                  properties:
+                    dseq:
+                      type: string
+                      pattern: ^d+$
+                      description: Deployment sequence number
+                    autoTopUpEnabled:
+                      type: boolean
+                      default: false
+                      description: Whether auto top-up is enabled for this deployment
+                    userId:
+                      type: string
+                      format: uuid
+                      description: User ID. Defaults to the current authenticated user if not provided
+                  required:
+                  - dseq
+              required:
+              - data
+      responses:
+        '201':
+          description: Deployment settings created successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        format: uuid
+                      userId:
+                        type: string
+                      dseq:
+                        type: string
+                        pattern: ^d+$
+                      autoTopUpEnabled:
+                        type: boolean
+                      estimatedTopUpAmount:
+                        type: number
+                      topUpFrequencyMs:
+                        type: number
+                      createdAt:
+                        type: string
+                        format: date-time
+                      updatedAt:
+                        type: string
+                        format: date-time
+                    required:
+                    - id
+                    - userId
+                    - dseq
+                    - autoTopUpEnabled
+                    - estimatedTopUpAmount
+                    - topUpFrequencyMs
+                    - createdAt
+                    - updatedAt
+                required:
+                - data
+securityDefinitions:
+  kms:
+    type: basic

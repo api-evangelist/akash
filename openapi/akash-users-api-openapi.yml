@@ -1,0 +1,564 @@
+swagger: '2.0'
+info:
+  title: AKASH - gRPC Gateway docs Addresses Users API
+  description: A REST interface for state queries
+  version: 1.0.0
+tags:
+- name: Users
+paths:
+  /v1/register-user:
+    post:
+      summary: Registers a new user
+      tags:
+      - Users
+      security: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                wantedUsername:
+                  type: string
+                email:
+                  type: string
+                emailVerified:
+                  type: boolean
+                subscribedToNewsletter:
+                  type: boolean
+              required:
+              - wantedUsername
+              - email
+              - emailVerified
+      responses:
+        '200':
+          description: Returns the registered user
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                      userId:
+                        type: string
+                      username:
+                        type: string
+                      email:
+                        type: string
+                      emailVerified:
+                        type: boolean
+                      stripeCustomerId:
+                        type: string
+                        nullable: true
+                      bio:
+                        type: string
+                        nullable: true
+                      subscribedToNewsletter:
+                        type: boolean
+                      youtubeUsername:
+                        type: string
+                        nullable: true
+                      twitterUsername:
+                        type: string
+                        nullable: true
+                      githubUsername:
+                        type: string
+                        nullable: true
+                    required:
+                    - id
+                    - userId
+                    - username
+                    - email
+                    - emailVerified
+                    - subscribedToNewsletter
+                required:
+                - data
+  /v1/user/me:
+    get:
+      summary: Retrieves the logged in user
+      tags:
+      - Users
+      security:
+      - BearerAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '200':
+          description: Returns the logged in user
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                      userId:
+                        type: string
+                      username:
+                        type: string
+                      email:
+                        type: string
+                      emailVerified:
+                        type: boolean
+                      stripeCustomerId:
+                        type: string
+                        nullable: true
+                      bio:
+                        type: string
+                        nullable: true
+                      subscribedToNewsletter:
+                        type: boolean
+                      youtubeUsername:
+                        type: string
+                        nullable: true
+                      twitterUsername:
+                        type: string
+                        nullable: true
+                      githubUsername:
+                        type: string
+                        nullable: true
+                    required:
+                    - id
+                    - userId
+                    - username
+                    - email
+                    - emailVerified
+                    - subscribedToNewsletter
+                required:
+                - data
+  /v1/user/byUsername/{username}:
+    get:
+      summary: Get user by username
+      tags:
+      - Users
+      security: []
+      parameters:
+      - schema:
+          type: string
+        required: true
+        name: username
+        in: path
+      responses:
+        '200':
+          description: Returns user profile
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  username:
+                    type: string
+                  bio:
+                    type: string
+                    nullable: true
+                required:
+                - username
+                - bio
+        '404':
+          description: User not found
+  /v1/user/updateSettings:
+    put:
+      summary: Update user settings
+      tags:
+      - Users
+      security:
+      - BearerAuth: []
+      - ApiKeyAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                  pattern: ^[a-zA-Z0-9_-]+$
+                subscribedToNewsletter:
+                  type: boolean
+                bio:
+                  type: string
+                  nullable: true
+                  maxLength: 5000
+                youtubeUsername:
+                  type: string
+                  nullable: true
+                  maxLength: 200
+                twitterUsername:
+                  type: string
+                  nullable: true
+                  maxLength: 200
+                githubUsername:
+                  type: string
+                  nullable: true
+                  maxLength: 200
+              required:
+              - username
+      responses:
+        '200':
+          description: Settings updated successfully
+        '400':
+          description: Invalid input
+        '401':
+          description: Unauthorized
+  /v1/user/checkUsernameAvailability/{username}:
+    get:
+      summary: Check if username is available
+      tags:
+      - Users
+      security: []
+      parameters:
+      - schema:
+          type: string
+        required: true
+        name: username
+        in: path
+      responses:
+        '200':
+          description: Returns username availability
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  isAvailable:
+                    type: boolean
+                required:
+                - isAvailable
+  /v1/user/subscribeToNewsletter:
+    post:
+      summary: Subscribe to newsletter
+      tags:
+      - Users
+      security:
+      - BearerAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '200':
+          description: Subscribed successfully
+        '401':
+          description: Unauthorized
+  /v1/user/template/{id}:
+    get:
+      summary: Get template by ID
+      tags:
+      - Users
+      security: []
+      parameters:
+      - schema:
+          type: string
+          format: uuid
+        required: true
+        name: id
+        in: path
+      responses:
+        '200':
+          description: Returns template
+        '400':
+          description: Invalid template ID
+        '404':
+          description: Template not found
+  /v1/user/saveTemplate:
+    post:
+      summary: Save template
+      tags:
+      - Users
+      security:
+      - BearerAuth: []
+      - ApiKeyAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                  format: uuid
+                sdl:
+                  type: string
+                title:
+                  type: string
+                cpu:
+                  type: number
+                ram:
+                  type: number
+                storage:
+                  type: number
+                isPublic:
+                  type: boolean
+                description:
+                  type: string
+                  maxLength: 2000
+              required:
+              - sdl
+              - title
+              - cpu
+              - ram
+              - storage
+              - isPublic
+      responses:
+        '200':
+          description: Template saved successfully
+        '400':
+          description: Invalid input
+        '401':
+          description: Unauthorized
+  /v1/user/saveTemplateDesc:
+    post:
+      summary: Save template description
+      tags:
+      - Users
+      security:
+      - BearerAuth: []
+      - ApiKeyAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                  format: uuid
+                description:
+                  type: string
+              required:
+              - id
+              - description
+      responses:
+        '200':
+          description: Template description saved successfully
+        '401':
+          description: Unauthorized
+  /v1/user/templates/{username}:
+    get:
+      summary: Get templates by username
+      tags:
+      - Users
+      security: []
+      parameters:
+      - schema:
+          type: string
+        required: true
+        name: username
+        in: path
+      responses:
+        '200':
+          description: Returns templates
+        '404':
+          description: User not found
+  /v1/user/deleteTemplate/{id}:
+    delete:
+      summary: Delete template
+      tags:
+      - Users
+      security:
+      - BearerAuth: []
+      - ApiKeyAuth: []
+      parameters:
+      - schema:
+          type: string
+          format: uuid
+        required: true
+        name: id
+        in: path
+      responses:
+        '200':
+          description: Template deleted successfully
+        '400':
+          description: Invalid template ID
+        '401':
+          description: Unauthorized
+  /v1/user/favoriteTemplates:
+    get:
+      summary: Get favorite templates
+      tags:
+      - Users
+      security:
+      - BearerAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '200':
+          description: Returns favorite templates
+        '401':
+          description: Unauthorized
+  /v1/user/addFavoriteTemplate/{templateId}:
+    post:
+      summary: Add favorite template
+      tags:
+      - Users
+      security:
+      - BearerAuth: []
+      - ApiKeyAuth: []
+      parameters:
+      - schema:
+          type: string
+          format: uuid
+        required: true
+        name: templateId
+        in: path
+      responses:
+        '200':
+          description: Template added to favorites
+        '400':
+          description: Invalid template ID
+        '401':
+          description: Unauthorized
+  /v1/user/removeFavoriteTemplate/{templateId}:
+    delete:
+      summary: Remove favorite template
+      tags:
+      - Users
+      security:
+      - BearerAuth: []
+      - ApiKeyAuth: []
+      parameters:
+      - schema:
+          type: string
+          format: uuid
+        required: true
+        name: templateId
+        in: path
+      responses:
+        '200':
+          description: Template removed from favorites
+        '400':
+          description: Invalid template ID
+        '401':
+          description: Unauthorized
+  /v1/send-verification-email:
+    post:
+      summary: Resends a verification email
+      tags:
+      - Users
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                data:
+                  type: object
+                  properties:
+                    userId:
+                      type: string
+                  required:
+                  - userId
+              required:
+              - data
+      responses:
+        '200':
+          description: Returns a created wallet
+          content: {}
+  /v1/send-verification-code:
+    post:
+      summary: Sends a verification code to the authenticated user's email
+      tags:
+      - Users
+      security:
+      - BearerAuth: []
+      responses:
+        '200':
+          description: Returns the timestamp when the code was sent
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      codeSentAt:
+                        type: string
+                    required:
+                    - codeSentAt
+                required:
+                - data
+        '429':
+          description: Too many requests
+  /v1/verify-email-code:
+    post:
+      summary: Verifies the email using a 6-digit code
+      tags:
+      - Users
+      security:
+      - BearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                data:
+                  type: object
+                  properties:
+                    code:
+                      type: string
+                      pattern: ^\d{6}$
+                  required:
+                  - code
+              required:
+              - data
+      responses:
+        '204':
+          description: Email verified successfully
+        '400':
+          description: Invalid or expired code
+        '429':
+          description: Too many attempts
+  /v1/verify-email:
+    post:
+      summary: Checks if the email is verified
+      tags:
+      - Users
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                data:
+                  type: object
+                  properties:
+                    email:
+                      type: string
+                      format: email
+                  required:
+                  - email
+              required:
+              - data
+      responses:
+        '200':
+          description: Returns email verification status
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      emailVerified:
+                        type: boolean
+                    required:
+                    - emailVerified
+                required:
+                - data
+        '401':
+          description: Unauthorized
+        '404':
+          description: User not found
+securityDefinitions:
+  kms:
+    type: basic

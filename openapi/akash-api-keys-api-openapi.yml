@@ -1,0 +1,310 @@
+swagger: '2.0'
+info:
+  title: AKASH - gRPC Gateway docs Addresses API Keys API
+  description: A REST interface for state queries
+  version: 1.0.0
+tags:
+- name: API Keys
+paths:
+  /v1/api-keys:
+    get:
+      summary: List all API keys
+      operationId: listApiKeys
+      tags:
+      - API Keys
+      security:
+      - BearerAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '200':
+          description: Returns list of API keys
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          format: uuid
+                        name:
+                          type: string
+                        expiresAt:
+                          type: string
+                          nullable: true
+                          format: date-time
+                        createdAt:
+                          type: string
+                          format: date-time
+                        updatedAt:
+                          type: string
+                          format: date-time
+                        lastUsedAt:
+                          type: string
+                          nullable: true
+                          format: date-time
+                        keyFormat:
+                          type: string
+                      required:
+                      - id
+                      - name
+                      - expiresAt
+                      - createdAt
+                      - updatedAt
+                      - lastUsedAt
+                      - keyFormat
+                required:
+                - data
+    post:
+      summary: Create new API key
+      tags:
+      - API Keys
+      security:
+      - BearerAuth: []
+      - ApiKeyAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                data:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    expiresAt:
+                      type: string
+                      format: date-time
+                  required:
+                  - name
+              required:
+              - data
+      responses:
+        '201':
+          description: API key created successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        format: uuid
+                      name:
+                        type: string
+                      expiresAt:
+                        type: string
+                        nullable: true
+                        format: date-time
+                      createdAt:
+                        type: string
+                        format: date-time
+                      updatedAt:
+                        type: string
+                        format: date-time
+                      lastUsedAt:
+                        type: string
+                        nullable: true
+                        format: date-time
+                      keyFormat:
+                        type: string
+                      apiKey:
+                        type: string
+                    required:
+                    - id
+                    - name
+                    - expiresAt
+                    - createdAt
+                    - updatedAt
+                    - lastUsedAt
+                    - keyFormat
+                    - apiKey
+                required:
+                - data
+  /v1/api-keys/{id}:
+    get:
+      summary: Get API key by ID
+      tags:
+      - API Keys
+      security:
+      - BearerAuth: []
+      - ApiKeyAuth: []
+      parameters:
+      - schema:
+          type: string
+          format: uuid
+        required: true
+        name: id
+        in: path
+      responses:
+        '200':
+          description: Returns API key details
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        format: uuid
+                      name:
+                        type: string
+                      expiresAt:
+                        type: string
+                        nullable: true
+                        format: date-time
+                      createdAt:
+                        type: string
+                        format: date-time
+                      updatedAt:
+                        type: string
+                        format: date-time
+                      lastUsedAt:
+                        type: string
+                        nullable: true
+                        format: date-time
+                      keyFormat:
+                        type: string
+                    required:
+                    - id
+                    - name
+                    - expiresAt
+                    - createdAt
+                    - updatedAt
+                    - lastUsedAt
+                    - keyFormat
+                required:
+                - data
+        '404':
+          description: API key not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                required:
+                - message
+    patch:
+      summary: Update API key
+      tags:
+      - API Keys
+      security:
+      - BearerAuth: []
+      - ApiKeyAuth: []
+      parameters:
+      - schema:
+          type: string
+          format: uuid
+        required: true
+        name: id
+        in: path
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                data:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+              required:
+              - data
+      responses:
+        '200':
+          description: API key updated successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        format: uuid
+                      name:
+                        type: string
+                      expiresAt:
+                        type: string
+                        nullable: true
+                        format: date-time
+                      createdAt:
+                        type: string
+                        format: date-time
+                      updatedAt:
+                        type: string
+                        format: date-time
+                      lastUsedAt:
+                        type: string
+                        nullable: true
+                        format: date-time
+                      keyFormat:
+                        type: string
+                    required:
+                    - id
+                    - name
+                    - expiresAt
+                    - createdAt
+                    - updatedAt
+                    - lastUsedAt
+                    - keyFormat
+                required:
+                - data
+        '404':
+          description: API key not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                required:
+                - message
+    delete:
+      summary: Delete API key
+      tags:
+      - API Keys
+      security:
+      - BearerAuth: []
+      - ApiKeyAuth: []
+      parameters:
+      - schema:
+          type: string
+          format: uuid
+        required: true
+        name: id
+        in: path
+      responses:
+        '204':
+          description: API key deleted successfully
+        '404':
+          description: API key not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                required:
+                - message
+securityDefinitions:
+  kms:
+    type: basic

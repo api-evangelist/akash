@@ -1,0 +1,134 @@
+swagger: '2.0'
+info:
+  title: AKASH - gRPC Gateway docs Addresses Proposals API
+  description: A REST interface for state queries
+  version: 1.0.0
+tags:
+- name: Proposals
+paths:
+  /v1/proposals:
+    get:
+      tags:
+      - Proposals
+      security: []
+      responses:
+        '200':
+          description: Returns a list of proposals
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: number
+                    title:
+                      type: string
+                    status:
+                      type: string
+                    submitTime:
+                      type: string
+                    votingStartTime:
+                      type: string
+                    votingEndTime:
+                      type: string
+                    totalDeposit:
+                      type: number
+                  required:
+                  - id
+                  - title
+                  - status
+                  - submitTime
+                  - votingStartTime
+                  - votingEndTime
+                  - totalDeposit
+  /v1/proposals/{id}:
+    get:
+      tags:
+      - Proposals
+      security: []
+      parameters:
+      - schema:
+          type: number
+          nullable: true
+          description: Proposal ID
+          example: 1
+        required: false
+        name: id
+        in: path
+      responses:
+        '200':
+          description: Return a proposal by id
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: number
+                  title:
+                    type: string
+                  description:
+                    type: string
+                  status:
+                    type: string
+                  submitTime:
+                    type: string
+                  votingStartTime:
+                    type: string
+                  votingEndTime:
+                    type: string
+                  totalDeposit:
+                    type: number
+                  tally:
+                    type: object
+                    properties:
+                      'yes':
+                        type: number
+                      abstain:
+                        type: number
+                      'no':
+                        type: number
+                      noWithVeto:
+                        type: number
+                      total:
+                        type: number
+                    required:
+                    - 'yes'
+                    - abstain
+                    - 'no'
+                    - noWithVeto
+                    - total
+                  paramChanges:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        subspace:
+                          type: string
+                        key:
+                          type: string
+                        value:
+                          nullable: true
+                      required:
+                      - subspace
+                      - key
+                required:
+                - id
+                - title
+                - description
+                - status
+                - submitTime
+                - votingStartTime
+                - votingEndTime
+                - totalDeposit
+                - tally
+                - paramChanges
+        '400':
+          description: Invalid proposal id
+        '404':
+          description: Proposal not found
+securityDefinitions:
+  kms:
+    type: basic

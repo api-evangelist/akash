@@ -1,0 +1,605 @@
+swagger: '2.0'
+info:
+  title: AKASH - gRPC Gateway docs Addresses Tendermint RPC API
+  description: A REST interface for state queries
+  version: 1.0.0
+tags:
+- name: Tendermint RPC
+paths:
+  /syncing:
+    get:
+      summary: Syncing state of node
+      tags:
+      - Tendermint RPC
+      description: Get if the node is currently syning with other nodes
+      produces:
+      - application/json
+      responses:
+        '200':
+          description: Node syncing status
+          schema:
+            type: object
+            properties:
+              syncing:
+                type: boolean
+        '500':
+          description: Server internal error
+  /blocks/latest:
+    get:
+      summary: Get the latest block
+      tags:
+      - Tendermint RPC
+      produces:
+      - application/json
+      responses:
+        '200':
+          description: The latest block
+          schema:
+            type: object
+            properties:
+              block_meta:
+                type: object
+                properties:
+                  header:
+                    type: object
+                    properties:
+                      chain_id:
+                        type: string
+                        example: cosmoshub-2
+                      height:
+                        type: number
+                        example: 1
+                      time:
+                        type: string
+                        example: '2017-12-30T05:53:09.287+01:00'
+                      num_txs:
+                        type: number
+                        example: 0
+                      last_block_id:
+                        type: object
+                        properties:
+                          hash:
+                            type: string
+                            example: EE5F3404034C524501629B56E0DDC38FAD651F04
+                          parts:
+                            type: object
+                            properties:
+                              total:
+                                type: number
+                                example: 0
+                              hash:
+                                type: string
+                                example: EE5F3404034C524501629B56E0DDC38FAD651F04
+                      total_txs:
+                        type: number
+                        example: 35
+                      last_commit_hash:
+                        type: string
+                        example: EE5F3404034C524501629B56E0DDC38FAD651F04
+                      data_hash:
+                        type: string
+                        example: EE5F3404034C524501629B56E0DDC38FAD651F04
+                      validators_hash:
+                        type: string
+                        example: EE5F3404034C524501629B56E0DDC38FAD651F04
+                      next_validators_hash:
+                        type: string
+                        example: EE5F3404034C524501629B56E0DDC38FAD651F04
+                      consensus_hash:
+                        type: string
+                        example: EE5F3404034C524501629B56E0DDC38FAD651F04
+                      app_hash:
+                        type: string
+                        example: EE5F3404034C524501629B56E0DDC38FAD651F04
+                      last_results_hash:
+                        type: string
+                        example: EE5F3404034C524501629B56E0DDC38FAD651F04
+                      evidence_hash:
+                        type: string
+                        example: EE5F3404034C524501629B56E0DDC38FAD651F04
+                      proposer_address:
+                        type: string
+                        description: bech32 encoded address
+                        example: cosmos1depk54cuajgkzea6zpgkq36tnjwdzv4afc3d27
+                      version:
+                        type: object
+                        properties:
+                          block:
+                            type: string
+                            example: 10
+                          app:
+                            type: string
+                            example: 0
+                  block_id:
+                    type: object
+                    properties:
+                      hash:
+                        type: string
+                        example: EE5F3404034C524501629B56E0DDC38FAD651F04
+                      parts:
+                        type: object
+                        properties:
+                          total:
+                            type: number
+                            example: 0
+                          hash:
+                            type: string
+                            example: EE5F3404034C524501629B56E0DDC38FAD651F04
+              block:
+                type: object
+                properties:
+                  header:
+                    type: object
+                    properties:
+                      chain_id:
+                        type: string
+                        example: cosmoshub-2
+                      height:
+                        type: number
+                        example: 1
+                      time:
+                        type: string
+                        example: '2017-12-30T05:53:09.287+01:00'
+                      num_txs:
+                        type: number
+                        example: 0
+                      last_block_id:
+                        type: object
+                        properties:
+                          hash:
+                            type: string
+                            example: EE5F3404034C524501629B56E0DDC38FAD651F04
+                          parts:
+                            type: object
+                            properties:
+                              total:
+                                type: number
+                                example: 0
+                              hash:
+                                type: string
+                                example: EE5F3404034C524501629B56E0DDC38FAD651F04
+                      total_txs:
+                        type: number
+                        example: 35
+                      last_commit_hash:
+                        type: string
+                        example: EE5F3404034C524501629B56E0DDC38FAD651F04
+                      data_hash:
+                        type: string
+                        example: EE5F3404034C524501629B56E0DDC38FAD651F04
+                      validators_hash:
+                        type: string
+                        example: EE5F3404034C524501629B56E0DDC38FAD651F04
+                      next_validators_hash:
+                        type: string
+                        example: EE5F3404034C524501629B56E0DDC38FAD651F04
+                      consensus_hash:
+                        type: string
+                        example: EE5F3404034C524501629B56E0DDC38FAD651F04
+                      app_hash:
+                        type: string
+                        example: EE5F3404034C524501629B56E0DDC38FAD651F04
+                      last_results_hash:
+                        type: string
+                        example: EE5F3404034C524501629B56E0DDC38FAD651F04
+                      evidence_hash:
+                        type: string
+                        example: EE5F3404034C524501629B56E0DDC38FAD651F04
+                      proposer_address:
+                        type: string
+                        description: bech32 encoded address
+                        example: cosmos1depk54cuajgkzea6zpgkq36tnjwdzv4afc3d27
+                      version:
+                        type: object
+                        properties:
+                          block:
+                            type: string
+                            example: 10
+                          app:
+                            type: string
+                            example: 0
+                  txs:
+                    type: array
+                    items:
+                      type: string
+                  evidence:
+                    type: array
+                    items:
+                      type: string
+                  last_commit:
+                    type: object
+                    properties:
+                      block_id:
+                        type: object
+                        properties:
+                          hash:
+                            type: string
+                            example: EE5F3404034C524501629B56E0DDC38FAD651F04
+                          parts:
+                            type: object
+                            properties:
+                              total:
+                                type: number
+                                example: 0
+                              hash:
+                                type: string
+                                example: EE5F3404034C524501629B56E0DDC38FAD651F04
+                      precommits:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            validator_address:
+                              type: string
+                            validator_index:
+                              type: string
+                              example: '0'
+                            height:
+                              type: string
+                              example: '0'
+                            round:
+                              type: string
+                              example: '0'
+                            timestamp:
+                              type: string
+                              example: '2017-12-30T05:53:09.287+01:00'
+                            type:
+                              type: number
+                              example: 2
+                            block_id:
+                              type: object
+                              properties:
+                                hash:
+                                  type: string
+                                  example: EE5F3404034C524501629B56E0DDC38FAD651F04
+                                parts:
+                                  type: object
+                                  properties:
+                                    total:
+                                      type: number
+                                      example: 0
+                                    hash:
+                                      type: string
+                                      example: EE5F3404034C524501629B56E0DDC38FAD651F04
+                            signature:
+                              type: string
+                              example: 7uTC74QlknqYWEwg7Vn6M8Om7FuZ0EO4bjvuj6rwH1mTUJrRuMMZvAAqT9VjNgP0RA/TDp6u/92AqrZfXJSpBQ==
+        '500':
+          description: Server internal error
+  /blocks/{height}:
+    get:
+      summary: Get a block at a certain height
+      tags:
+      - Tendermint RPC
+      produces:
+      - application/json
+      parameters:
+      - in: path
+        name: height
+        description: Block height
+        required: true
+        type: number
+        x-example: 1
+      responses:
+        '200':
+          description: The block at a specific height
+          schema:
+            type: object
+            properties:
+              block_meta:
+                type: object
+                properties:
+                  header:
+                    type: object
+                    properties:
+                      chain_id:
+                        type: string
+                        example: cosmoshub-2
+                      height:
+                        type: number
+                        example: 1
+                      time:
+                        type: string
+                        example: '2017-12-30T05:53:09.287+01:00'
+                      num_txs:
+                        type: number
+                        example: 0
+                      last_block_id:
+                        type: object
+                        properties:
+                          hash:
+                            type: string
+                            example: EE5F3404034C524501629B56E0DDC38FAD651F04
+                          parts:
+                            type: object
+                            properties:
+                              total:
+                                type: number
+                                example: 0
+                              hash:
+                                type: string
+                                example: EE5F3404034C524501629B56E0DDC38FAD651F04
+                      total_txs:
+                        type: number
+                        example: 35
+                      last_commit_hash:
+                        type: string
+                        example: EE5F3404034C524501629B56E0DDC38FAD651F04
+                      data_hash:
+                        type: string
+                        example: EE5F3404034C524501629B56E0DDC38FAD651F04
+                      validators_hash:
+                        type: string
+                        example: EE5F3404034C524501629B56E0DDC38FAD651F04
+                      next_validators_hash:
+                        type: string
+                        example: EE5F3404034C524501629B56E0DDC38FAD651F04
+                      consensus_hash:
+                        type: string
+                        example: EE5F3404034C524501629B56E0DDC38FAD651F04
+                      app_hash:
+                        type: string
+                        example: EE5F3404034C524501629B56E0DDC38FAD651F04
+                      last_results_hash:
+                        type: string
+                        example: EE5F3404034C524501629B56E0DDC38FAD651F04
+                      evidence_hash:
+                        type: string
+                        example: EE5F3404034C524501629B56E0DDC38FAD651F04
+                      proposer_address:
+                        type: string
+                        description: bech32 encoded address
+                        example: cosmos1depk54cuajgkzea6zpgkq36tnjwdzv4afc3d27
+                      version:
+                        type: object
+                        properties:
+                          block:
+                            type: string
+                            example: 10
+                          app:
+                            type: string
+                            example: 0
+                  block_id:
+                    type: object
+                    properties:
+                      hash:
+                        type: string
+                        example: EE5F3404034C524501629B56E0DDC38FAD651F04
+                      parts:
+                        type: object
+                        properties:
+                          total:
+                            type: number
+                            example: 0
+                          hash:
+                            type: string
+                            example: EE5F3404034C524501629B56E0DDC38FAD651F04
+              block:
+                type: object
+                properties:
+                  header:
+                    type: object
+                    properties:
+                      chain_id:
+                        type: string
+                        example: cosmoshub-2
+                      height:
+                        type: number
+                        example: 1
+                      time:
+                        type: string
+                        example: '2017-12-30T05:53:09.287+01:00'
+                      num_txs:
+                        type: number
+                        example: 0
+                      last_block_id:
+                        type: object
+                        properties:
+                          hash:
+                            type: string
+                            example: EE5F3404034C524501629B56E0DDC38FAD651F04
+                          parts:
+                            type: object
+                            properties:
+                              total:
+                                type: number
+                                example: 0
+                              hash:
+                                type: string
+                                example: EE5F3404034C524501629B56E0DDC38FAD651F04
+                      total_txs:
+                        type: number
+                        example: 35
+                      last_commit_hash:
+                        type: string
+                        example: EE5F3404034C524501629B56E0DDC38FAD651F04
+                      data_hash:
+                        type: string
+                        example: EE5F3404034C524501629B56E0DDC38FAD651F04
+                      validators_hash:
+                        type: string
+                        example: EE5F3404034C524501629B56E0DDC38FAD651F04
+                      next_validators_hash:
+                        type: string
+                        example: EE5F3404034C524501629B56E0DDC38FAD651F04
+                      consensus_hash:
+                        type: string
+                        example: EE5F3404034C524501629B56E0DDC38FAD651F04
+                      app_hash:
+                        type: string
+                        example: EE5F3404034C524501629B56E0DDC38FAD651F04
+                      last_results_hash:
+                        type: string
+                        example: EE5F3404034C524501629B56E0DDC38FAD651F04
+                      evidence_hash:
+                        type: string
+                        example: EE5F3404034C524501629B56E0DDC38FAD651F04
+                      proposer_address:
+                        type: string
+                        description: bech32 encoded address
+                        example: cosmos1depk54cuajgkzea6zpgkq36tnjwdzv4afc3d27
+                      version:
+                        type: object
+                        properties:
+                          block:
+                            type: string
+                            example: 10
+                          app:
+                            type: string
+                            example: 0
+                  txs:
+                    type: array
+                    items:
+                      type: string
+                  evidence:
+                    type: array
+                    items:
+                      type: string
+                  last_commit:
+                    type: object
+                    properties:
+                      block_id:
+                        type: object
+                        properties:
+                          hash:
+                            type: string
+                            example: EE5F3404034C524501629B56E0DDC38FAD651F04
+                          parts:
+                            type: object
+                            properties:
+                              total:
+                                type: number
+                                example: 0
+                              hash:
+                                type: string
+                                example: EE5F3404034C524501629B56E0DDC38FAD651F04
+                      precommits:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            validator_address:
+                              type: string
+                            validator_index:
+                              type: string
+                              example: '0'
+                            height:
+                              type: string
+                              example: '0'
+                            round:
+                              type: string
+                              example: '0'
+                            timestamp:
+                              type: string
+                              example: '2017-12-30T05:53:09.287+01:00'
+                            type:
+                              type: number
+                              example: 2
+                            block_id:
+                              type: object
+                              properties:
+                                hash:
+                                  type: string
+                                  example: EE5F3404034C524501629B56E0DDC38FAD651F04
+                                parts:
+                                  type: object
+                                  properties:
+                                    total:
+                                      type: number
+                                      example: 0
+                                    hash:
+                                      type: string
+                                      example: EE5F3404034C524501629B56E0DDC38FAD651F04
+                            signature:
+                              type: string
+                              example: 7uTC74QlknqYWEwg7Vn6M8Om7FuZ0EO4bjvuj6rwH1mTUJrRuMMZvAAqT9VjNgP0RA/TDp6u/92AqrZfXJSpBQ==
+        '400':
+          description: Invalid height
+        '404':
+          description: Request block height doesn't
+        '500':
+          description: Server internal error
+  /validatorsets/latest:
+    get:
+      summary: Get the latest validator set
+      tags:
+      - Tendermint RPC
+      produces:
+      - application/json
+      responses:
+        '200':
+          description: The validator set at the latest block height
+          schema:
+            type: object
+            properties:
+              block_height:
+                type: string
+              validators:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    address:
+                      type: string
+                      description: bech32 encoded address
+                      example: cosmosvaloper16xyempempp92x9hyzz9wrgf94r6j9h5f2w4n2l
+                    pub_key:
+                      type: string
+                      example: cosmosvalconspub1zcjduepq0vu2zgkgk49efa0nqwzndanq5m4c7pa3u4apz4g2r9gspqg6g9cs3k9cuf
+                    voting_power:
+                      type: string
+                      example: '1000'
+                    proposer_priority:
+                      type: string
+                      example: '1000'
+        '500':
+          description: Server internal error
+  /validatorsets/{height}:
+    get:
+      summary: Get a validator set a certain height
+      tags:
+      - Tendermint RPC
+      produces:
+      - application/json
+      parameters:
+      - in: path
+        name: height
+        description: Block height
+        required: true
+        type: number
+        x-example: 1
+      responses:
+        '200':
+          description: The validator set at a specific block height
+          schema:
+            type: object
+            properties:
+              block_height:
+                type: string
+              validators:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    address:
+                      type: string
+                      description: bech32 encoded address
+                      example: cosmosvaloper16xyempempp92x9hyzz9wrgf94r6j9h5f2w4n2l
+                    pub_key:
+                      type: string
+                      example: cosmosvalconspub1zcjduepq0vu2zgkgk49efa0nqwzndanq5m4c7pa3u4apz4g2r9gspqg6g9cs3k9cuf
+                    voting_power:
+                      type: string
+                      example: '1000'
+                    proposer_priority:
+                      type: string
+                      example: '1000'
+        '400':
+          description: Invalid height
+        '404':
+          description: Block at height not available
+        '500':
+          description: Server internal error
+securityDefinitions:
+  kms:
+    type: basic

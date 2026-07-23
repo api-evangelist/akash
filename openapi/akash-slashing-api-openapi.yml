@@ -1,0 +1,207 @@
+swagger: '2.0'
+info:
+  title: AKASH - gRPC Gateway docs Addresses Slashing API
+  description: A REST interface for state queries
+  version: 1.0.0
+tags:
+- name: Slashing
+paths:
+  /slashing/signing_infos:
+    get:
+      deprecated: true
+      summary: Get sign info of given all validators
+      description: Get sign info of all validators
+      produces:
+      - application/json
+      tags:
+      - Slashing
+      parameters:
+      - in: query
+        name: page
+        description: Page number
+        type: integer
+        required: true
+        x-example: 1
+      - in: query
+        name: limit
+        description: Maximum number of items per page
+        type: integer
+        required: true
+        x-example: 5
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              type: object
+              properties:
+                start_height:
+                  type: string
+                index_offset:
+                  type: string
+                jailed_until:
+                  type: string
+                missed_blocks_counter:
+                  type: string
+        '400':
+          description: Invalid validator public key for one of the validators
+        '500':
+          description: Internal Server Error
+  /slashing/validators/{validatorAddr}/unjail:
+    post:
+      deprecated: true
+      summary: Unjail a jailed validator
+      description: Send transaction to unjail a jailed validator
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Slashing
+      parameters:
+      - type: string
+        description: Bech32 validator address
+        name: validatorAddr
+        required: true
+        in: path
+        x-example: cosmosvaloper16xyempempp92x9hyzz9wrgf94r6j9h5f2w4n2l
+      - description: ''
+        name: UnjailBody
+        in: body
+        required: true
+        schema:
+          type: object
+          properties:
+            base_req:
+              type: object
+              properties:
+                msg:
+                  type: array
+                  items:
+                    type: string
+                fee:
+                  type: object
+                  properties:
+                    gas:
+                      type: string
+                    amount:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          denom:
+                            type: string
+                            example: stake
+                          amount:
+                            type: string
+                            example: '50'
+                memo:
+                  type: string
+                signature:
+                  type: object
+                  properties:
+                    signature:
+                      type: string
+                      example: MEUCIQD02fsDPra8MtbRsyB1w7bqTM55Wu138zQbFcWx4+CFyAIge5WNPfKIuvzBZ69MyqHsqD8S1IwiEp+iUb6VSdtlpgY=
+                    pub_key:
+                      type: object
+                      properties:
+                        type:
+                          type: string
+                          example: tendermint/PubKeySecp256k1
+                        value:
+                          type: string
+                          example: Avz04VhtKJh8ACCVzlI8aTosGy0ikFXKIVHQ3jKMrosH
+                    account_number:
+                      type: string
+                      example: '0'
+                    sequence:
+                      type: string
+                      example: '0'
+      responses:
+        '200':
+          description: Tx was succesfully generated
+          schema:
+            type: object
+            properties:
+              msg:
+                type: array
+                items:
+                  type: string
+              fee:
+                type: object
+                properties:
+                  gas:
+                    type: string
+                  amount:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        denom:
+                          type: string
+                          example: stake
+                        amount:
+                          type: string
+                          example: '50'
+              memo:
+                type: string
+              signature:
+                type: object
+                properties:
+                  signature:
+                    type: string
+                    example: MEUCIQD02fsDPra8MtbRsyB1w7bqTM55Wu138zQbFcWx4+CFyAIge5WNPfKIuvzBZ69MyqHsqD8S1IwiEp+iUb6VSdtlpgY=
+                  pub_key:
+                    type: object
+                    properties:
+                      type:
+                        type: string
+                        example: tendermint/PubKeySecp256k1
+                      value:
+                        type: string
+                        example: Avz04VhtKJh8ACCVzlI8aTosGy0ikFXKIVHQ3jKMrosH
+                  account_number:
+                    type: string
+                    example: '0'
+                  sequence:
+                    type: string
+                    example: '0'
+        '400':
+          description: Invalid validator address or base_req
+        '500':
+          description: Internal Server Error
+  /slashing/parameters:
+    get:
+      deprecated: true
+      summary: Get the current slashing parameters
+      tags:
+      - Slashing
+      produces:
+      - application/json
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+            properties:
+              max_evidence_age:
+                type: string
+              signed_blocks_window:
+                type: string
+              min_signed_per_window:
+                type: string
+              double_sign_unbond_duration:
+                type: string
+              downtime_unbond_duration:
+                type: string
+              slash_fraction_double_sign:
+                type: string
+              slash_fraction_downtime:
+                type: string
+        '500':
+          description: Internal Server Error
+securityDefinitions:
+  kms:
+    type: basic

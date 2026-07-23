@@ -1,0 +1,274 @@
+swagger: '2.0'
+info:
+  title: AKASH - gRPC Gateway docs Addresses Gpu API
+  description: A REST interface for state queries
+  version: 1.0.0
+tags:
+- name: Gpu
+paths:
+  /v1/gpu:
+    get:
+      summary: Get a list of gpu models and their availability.
+      tags:
+      - Gpu
+      security: []
+      parameters:
+      - schema:
+          type: string
+        required: false
+        name: provider
+        in: query
+      - schema:
+          type: string
+        required: false
+        name: vendor
+        in: query
+      - schema:
+          type: string
+        required: false
+        name: model
+        in: query
+      - schema:
+          type: string
+        required: false
+        name: memory_size
+        in: query
+      responses:
+        '200':
+          description: List of gpu models and their availability.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  gpus:
+                    type: object
+                    properties:
+                      total:
+                        type: object
+                        properties:
+                          allocatable:
+                            type: number
+                          allocated:
+                            type: number
+                        required:
+                        - allocatable
+                        - allocated
+                      details:
+                        type: object
+                        additionalProperties:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              model:
+                                type: string
+                              ram:
+                                type: string
+                              interface:
+                                type: string
+                              allocatable:
+                                type: number
+                              allocated:
+                                type: number
+                            required:
+                            - model
+                            - ram
+                            - interface
+                            - allocatable
+                            - allocated
+                    required:
+                    - total
+                    - details
+                required:
+                - gpus
+        '400':
+          description: Invalid provider parameter, should be a valid akash address or host uri
+  /v1/gpu-models:
+    get:
+      summary: Get a list of gpu models per vendor. Based on the content from https://raw.githubusercontent.com/akash-network/provider-configs/main/devices/pcie/gpus.json.
+      tags:
+      - Gpu
+      security: []
+      responses:
+        '200':
+          description: List of gpu models per.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    models:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          name:
+                            type: string
+                          memory:
+                            type: array
+                            items:
+                              type: string
+                          interface:
+                            type: array
+                            items:
+                              type: string
+                        required:
+                        - name
+                        - memory
+                        - interface
+                  required:
+                  - name
+                  - models
+  /v1/gpu-breakdown:
+    get:
+      tags:
+      - Gpu
+      security: []
+      summary: Gets gpu analytics breakdown by vendor and model. If no vendor or model is provided, all GPUs are returned.
+      parameters:
+      - schema:
+          type: string
+        required: false
+        name: vendor
+        in: query
+      - schema:
+          type: string
+        required: false
+        name: model
+        in: query
+      responses:
+        '200':
+          description: Gets gpu analytics breakdown by vendor and model. If no vendor or model is provided, all GPUs are returned.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    date:
+                      type: string
+                    vendor:
+                      type: string
+                    model:
+                      type: string
+                    providerCount:
+                      type: number
+                    nodeCount:
+                      type: number
+                    totalGpus:
+                      type: number
+                    leasedGpus:
+                      type: number
+                    gpuUtilization:
+                      type: number
+                  required:
+                  - date
+                  - vendor
+                  - model
+                  - providerCount
+                  - nodeCount
+                  - totalGpus
+                  - leasedGpus
+                  - gpuUtilization
+  /v1/gpu-prices:
+    get:
+      summary: Get a list of gpu models with their availability and pricing.
+      operationId: listGpuPrices
+      tags:
+      - Gpu
+      security: []
+      responses:
+        '200':
+          description: List of gpu models with their availability and pricing.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  availability:
+                    type: object
+                    properties:
+                      total:
+                        type: number
+                      available:
+                        type: number
+                    required:
+                    - total
+                    - available
+                  models:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        vendor:
+                          type: string
+                        model:
+                          type: string
+                        ram:
+                          type: string
+                        interface:
+                          type: string
+                        availability:
+                          type: object
+                          properties:
+                            total:
+                              type: number
+                            available:
+                              type: number
+                          required:
+                          - total
+                          - available
+                        providerAvailability:
+                          type: object
+                          properties:
+                            total:
+                              type: number
+                            available:
+                              type: number
+                          required:
+                          - total
+                          - available
+                        price:
+                          type: object
+                          nullable: true
+                          properties:
+                            currency:
+                              type: string
+                              example: USD
+                            min:
+                              type: number
+                            max:
+                              type: number
+                            avg:
+                              type: number
+                            weightedAverage:
+                              type: number
+                            med:
+                              type: number
+                          required:
+                          - currency
+                          - min
+                          - max
+                          - avg
+                          - weightedAverage
+                          - med
+                      required:
+                      - vendor
+                      - model
+                      - ram
+                      - interface
+                      - availability
+                      - providerAvailability
+                      - price
+                required:
+                - availability
+                - models
+securityDefinitions:
+  kms:
+    type: basic

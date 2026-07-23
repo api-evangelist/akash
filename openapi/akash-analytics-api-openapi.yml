@@ -1,0 +1,1039 @@
+swagger: '2.0'
+info:
+  title: AKASH - gRPC Gateway docs Addresses Analytics API
+  description: A REST interface for state queries
+  version: 1.0.0
+tags:
+- name: Analytics
+paths:
+  /v1/providers/{providerAddress}/active-leases-graph-data:
+    get:
+      tags:
+      - Analytics
+      security: []
+      parameters:
+      - schema:
+          type: string
+          example: akash18ga02jzaq8cw52anyhzkwta5wygufgu6zsz6xc
+        required: true
+        name: providerAddress
+        in: path
+      responses:
+        '200':
+          description: Returns a provider's active leases graph data
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  currentValue:
+                    type: number
+                  compareValue:
+                    type: number
+                  snapshots:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        date:
+                          type: string
+                          example: '2021-07-01T00:00:00.000Z'
+                        value:
+                          type: number
+                          example: 100
+                      required:
+                      - date
+                      - value
+                  now:
+                    type: object
+                    properties:
+                      count:
+                        type: number
+                        example: 100
+                    required:
+                    - count
+                  compare:
+                    type: object
+                    properties:
+                      count:
+                        type: number
+                        example: 100
+                    required:
+                    - count
+                required:
+                - currentValue
+                - compareValue
+                - snapshots
+                - now
+                - compare
+        '400':
+          description: Invalid address
+  /v1/provider-graph-data/{dataName}:
+    get:
+      tags:
+      - Analytics
+      security: []
+      parameters:
+      - schema:
+          type: string
+          example: cpu
+          enum:
+          - count
+          - cpu
+          - gpu
+          - memory
+          - storage
+        required: true
+        name: dataName
+        in: path
+      responses:
+        '200':
+          description: Returns provider graph data
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  currentValue:
+                    type: number
+                  compareValue:
+                    type: number
+                  snapshots:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        date:
+                          type: string
+                          example: '2021-07-01T00:00:00.000Z'
+                        value:
+                          type: number
+                          example: 100
+                      required:
+                      - date
+                      - value
+                  now:
+                    type: object
+                    properties:
+                      count:
+                        type: number
+                        example: 100
+                      cpu:
+                        type: number
+                        example: 100
+                      gpu:
+                        type: number
+                        example: 100
+                      memory:
+                        type: number
+                        example: 100
+                      storage:
+                        type: number
+                        example: 100
+                    required:
+                    - count
+                    - cpu
+                    - gpu
+                    - memory
+                    - storage
+                  compare:
+                    type: object
+                    properties:
+                      count:
+                        type: number
+                        example: 100
+                      cpu:
+                        type: number
+                        example: 100
+                      gpu:
+                        type: number
+                        example: 100
+                      memory:
+                        type: number
+                        example: 100
+                      storage:
+                        type: number
+                        example: 100
+                    required:
+                    - count
+                    - cpu
+                    - gpu
+                    - memory
+                    - storage
+                required:
+                - currentValue
+                - compareValue
+                - snapshots
+        '404':
+          description: Graph data not found
+  /v1/graph-data/{dataName}:
+    get:
+      tags:
+      - Analytics
+      security: []
+      parameters:
+      - schema:
+          type: string
+          example: dailyUAktSpent
+          enum:
+          - dailyUAktSpent
+          - dailyUActSpent
+          - dailyUUsdcSpent
+          - dailyUUsdSpent
+          - dailyLeaseCount
+          - totalUAktSpent
+          - totalUActSpent
+          - totalUUsdcSpent
+          - totalUUsdSpent
+          - activeLeaseCount
+          - totalLeaseCount
+          - activeCPU
+          - activeGPU
+          - activeMemory
+          - activeStorage
+          - gpuUtilization
+          - totalAktBurnedForAct
+          - dailyAktBurnedForAct
+          - totalActMinted
+          - dailyActMinted
+          - totalActBurnedForAkt
+          - dailyActBurnedForAkt
+          - totalAktReminted
+          - dailyAktReminted
+          - netAktBurned
+          - dailyNetAktBurned
+          - outstandingAct
+          - vaultAkt
+          - collateralRatio
+        required: true
+        name: dataName
+        in: path
+      responses:
+        '200':
+          description: Returns graph data
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  currentValue:
+                    type: number
+                  compareValue:
+                    type: number
+                  snapshots:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        date:
+                          type: string
+                          example: '2021-07-01T00:00:00.000Z'
+                        value:
+                          type: number
+                          example: 100
+                      required:
+                      - date
+                      - value
+                required:
+                - currentValue
+                - compareValue
+                - snapshots
+        '404':
+          description: Graph data not found
+  /v1/bme/dashboard-data:
+    get:
+      tags:
+      - Analytics
+      security: []
+      responses:
+        '200':
+          description: Returns BME dashboard data
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  now:
+                    type: object
+                    properties:
+                      date:
+                        type: string
+                      outstandingAct:
+                        type: number
+                      vaultAkt:
+                        type: number
+                      collateralRatio:
+                        type: number
+                      dailyAktBurnedForAct:
+                        type: number
+                      totalAktBurnedForAct:
+                        type: number
+                      dailyActMinted:
+                        type: number
+                      totalActMinted:
+                        type: number
+                      dailyActBurnedForAkt:
+                        type: number
+                      totalActBurnedForAkt:
+                        type: number
+                      dailyAktReminted:
+                        type: number
+                      totalAktReminted:
+                        type: number
+                      dailyNetAktBurned:
+                        type: number
+                      netAktBurned:
+                        type: number
+                    required:
+                    - date
+                    - outstandingAct
+                    - vaultAkt
+                    - collateralRatio
+                    - dailyAktBurnedForAct
+                    - totalAktBurnedForAct
+                    - dailyActMinted
+                    - totalActMinted
+                    - dailyActBurnedForAkt
+                    - totalActBurnedForAkt
+                    - dailyAktReminted
+                    - totalAktReminted
+                    - dailyNetAktBurned
+                    - netAktBurned
+                  compare:
+                    type: object
+                    properties:
+                      date:
+                        type: string
+                      outstandingAct:
+                        type: number
+                      vaultAkt:
+                        type: number
+                      collateralRatio:
+                        type: number
+                      dailyAktBurnedForAct:
+                        type: number
+                      totalAktBurnedForAct:
+                        type: number
+                      dailyActMinted:
+                        type: number
+                      totalActMinted:
+                        type: number
+                      dailyActBurnedForAkt:
+                        type: number
+                      totalActBurnedForAkt:
+                        type: number
+                      dailyAktReminted:
+                        type: number
+                      totalAktReminted:
+                        type: number
+                      dailyNetAktBurned:
+                        type: number
+                      netAktBurned:
+                        type: number
+                    required:
+                    - date
+                    - outstandingAct
+                    - vaultAkt
+                    - collateralRatio
+                    - dailyAktBurnedForAct
+                    - totalAktBurnedForAct
+                    - dailyActMinted
+                    - totalActMinted
+                    - dailyActBurnedForAkt
+                    - totalActBurnedForAkt
+                    - dailyAktReminted
+                    - totalAktReminted
+                    - dailyNetAktBurned
+                    - netAktBurned
+                required:
+                - now
+                - compare
+  /v1/bme/status-history:
+    get:
+      tags:
+      - Analytics
+      security: []
+      responses:
+        '200':
+          description: Returns BME circuit breaker status change history
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    height:
+                      type: integer
+                      example: 12345678
+                    date:
+                      type: string
+                      example: '2024-01-01T00:00:00.000Z'
+                    previousStatus:
+                      type: string
+                      example: healthy
+                    newStatus:
+                      type: string
+                      example: warning
+                    collateralRatio:
+                      type: number
+                      example: 1.5
+                  required:
+                  - height
+                  - date
+                  - previousStatus
+                  - newStatus
+                  - collateralRatio
+  /v1/dashboard-data:
+    get:
+      tags:
+      - Analytics
+      security: []
+      responses:
+        '200':
+          description: Returns dashboard data
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  chainStats:
+                    type: object
+                    properties:
+                      height:
+                        type: number
+                      transactionCount:
+                        type: number
+                      bondedTokens:
+                        type: number
+                      totalSupply:
+                        type: number
+                      communityPool:
+                        type: number
+                      inflation:
+                        type: number
+                      stakingAPR:
+                        type: number
+                    required:
+                    - height
+                    - transactionCount
+                    - bondedTokens
+                    - totalSupply
+                    - communityPool
+                    - inflation
+                  now:
+                    type: object
+                    properties:
+                      date:
+                        type: string
+                      height:
+                        type: number
+                      activeLeaseCount:
+                        type: number
+                      totalLeaseCount:
+                        type: number
+                      dailyLeaseCount:
+                        type: number
+                      totalUAktSpent:
+                        type: number
+                      dailyUAktSpent:
+                        type: number
+                      totalUActSpent:
+                        type: number
+                      dailyUActSpent:
+                        type: number
+                      totalUUsdcSpent:
+                        type: number
+                      dailyUUsdcSpent:
+                        type: number
+                      totalUUsdSpent:
+                        type: number
+                      dailyUUsdSpent:
+                        type: number
+                      activeCPU:
+                        type: number
+                      activeGPU:
+                        type: number
+                      activeMemory:
+                        type: number
+                      activeStorage:
+                        type: number
+                    required:
+                    - date
+                    - height
+                    - activeLeaseCount
+                    - totalLeaseCount
+                    - dailyLeaseCount
+                    - totalUAktSpent
+                    - dailyUAktSpent
+                    - totalUActSpent
+                    - dailyUActSpent
+                    - totalUUsdcSpent
+                    - dailyUUsdcSpent
+                    - totalUUsdSpent
+                    - dailyUUsdSpent
+                    - activeCPU
+                    - activeGPU
+                    - activeMemory
+                    - activeStorage
+                  compare:
+                    type: object
+                    properties:
+                      date:
+                        type: string
+                      height:
+                        type: number
+                      activeLeaseCount:
+                        type: number
+                      totalLeaseCount:
+                        type: number
+                      dailyLeaseCount:
+                        type: number
+                      totalUAktSpent:
+                        type: number
+                      dailyUAktSpent:
+                        type: number
+                      totalUActSpent:
+                        type: number
+                      dailyUActSpent:
+                        type: number
+                      totalUUsdcSpent:
+                        type: number
+                      dailyUUsdcSpent:
+                        type: number
+                      totalUUsdSpent:
+                        type: number
+                      dailyUUsdSpent:
+                        type: number
+                      activeCPU:
+                        type: number
+                      activeGPU:
+                        type: number
+                      activeMemory:
+                        type: number
+                      activeStorage:
+                        type: number
+                    required:
+                    - date
+                    - height
+                    - activeLeaseCount
+                    - totalLeaseCount
+                    - dailyLeaseCount
+                    - totalUAktSpent
+                    - dailyUAktSpent
+                    - totalUActSpent
+                    - dailyUActSpent
+                    - totalUUsdcSpent
+                    - dailyUUsdcSpent
+                    - totalUUsdSpent
+                    - dailyUUsdSpent
+                    - activeCPU
+                    - activeGPU
+                    - activeMemory
+                    - activeStorage
+                  networkCapacity:
+                    type: object
+                    properties:
+                      activeProviderCount:
+                        type: number
+                      activeCPU:
+                        type: number
+                      activeGPU:
+                        type: number
+                      activeMemory:
+                        type: number
+                      activeStorage:
+                        type: number
+                      pendingCPU:
+                        type: number
+                      pendingGPU:
+                        type: number
+                      pendingMemory:
+                        type: number
+                      pendingStorage:
+                        type: number
+                      availableCPU:
+                        type: number
+                      availableGPU:
+                        type: number
+                      availableMemory:
+                        type: number
+                      availableStorage:
+                        type: number
+                      totalCPU:
+                        type: number
+                      totalGPU:
+                        type: number
+                      totalMemory:
+                        type: number
+                      totalStorage:
+                        type: number
+                      activeEphemeralStorage:
+                        type: number
+                      pendingEphemeralStorage:
+                        type: number
+                      availableEphemeralStorage:
+                        type: number
+                      activePersistentStorage:
+                        type: number
+                      pendingPersistentStorage:
+                        type: number
+                      availablePersistentStorage:
+                        type: number
+                      totalEphemeralStorage:
+                        type: number
+                      totalPersistentStorage:
+                        type: number
+                    required:
+                    - activeProviderCount
+                    - activeCPU
+                    - activeGPU
+                    - activeMemory
+                    - activeStorage
+                    - pendingCPU
+                    - pendingGPU
+                    - pendingMemory
+                    - pendingStorage
+                    - availableCPU
+                    - availableGPU
+                    - availableMemory
+                    - availableStorage
+                    - totalCPU
+                    - totalGPU
+                    - totalMemory
+                    - totalStorage
+                    - activeEphemeralStorage
+                    - pendingEphemeralStorage
+                    - availableEphemeralStorage
+                    - activePersistentStorage
+                    - pendingPersistentStorage
+                    - availablePersistentStorage
+                    - totalEphemeralStorage
+                    - totalPersistentStorage
+                  networkCapacityStats:
+                    type: object
+                    properties:
+                      currentValue:
+                        type: number
+                      compareValue:
+                        type: number
+                      snapshots:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            date:
+                              type: string
+                            value:
+                              type: number
+                          required:
+                          - date
+                          - value
+                      now:
+                        type: object
+                        properties:
+                          count:
+                            type: number
+                          cpu:
+                            type: number
+                          gpu:
+                            type: number
+                          memory:
+                            type: number
+                          storage:
+                            type: number
+                        required:
+                        - count
+                        - cpu
+                        - gpu
+                        - memory
+                        - storage
+                      compare:
+                        type: object
+                        properties:
+                          count:
+                            type: number
+                          cpu:
+                            type: number
+                          gpu:
+                            type: number
+                          memory:
+                            type: number
+                          storage:
+                            type: number
+                        required:
+                        - count
+                        - cpu
+                        - gpu
+                        - memory
+                        - storage
+                    required:
+                    - currentValue
+                    - compareValue
+                    - snapshots
+                    - now
+                    - compare
+                  latestBlocks:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        height:
+                          type: number
+                        proposer:
+                          type: object
+                          properties:
+                            address:
+                              type: string
+                            operatorAddress:
+                              type: string
+                            moniker:
+                              type: string
+                              nullable: true
+                            avatarUrl:
+                              type: string
+                              nullable: true
+                          required:
+                          - address
+                          - operatorAddress
+                          - moniker
+                          - avatarUrl
+                        transactionCount:
+                          type: number
+                        totalTransactionCount:
+                          type: number
+                        datetime:
+                          type: string
+                      required:
+                      - height
+                      - proposer
+                      - transactionCount
+                      - totalTransactionCount
+                      - datetime
+                  latestTransactions:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        height:
+                          type: number
+                        datetime:
+                          type: string
+                        hash:
+                          type: string
+                        isSuccess:
+                          type: boolean
+                        error:
+                          type: string
+                          nullable: true
+                        gasUsed:
+                          type: number
+                        gasWanted:
+                          type: number
+                        fee:
+                          type: number
+                        memo:
+                          type: string
+                        messages:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              id:
+                                type: string
+                              type:
+                                type: string
+                              amount:
+                                type: number
+                            required:
+                            - id
+                            - type
+                            - amount
+                      required:
+                      - height
+                      - datetime
+                      - hash
+                      - isSuccess
+                      - error
+                      - gasUsed
+                      - gasWanted
+                      - fee
+                      - memo
+                      - messages
+                required:
+                - chainStats
+                - now
+                - compare
+                - networkCapacity
+                - networkCapacityStats
+                - latestBlocks
+                - latestTransactions
+  /v1/network-capacity:
+    get:
+      tags:
+      - Analytics
+      security: []
+      responses:
+        '200':
+          description: Returns network capacity stats
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  activeProviderCount:
+                    type: number
+                  resources:
+                    type: object
+                    properties:
+                      cpu:
+                        type: object
+                        properties:
+                          active:
+                            type: number
+                          pending:
+                            type: number
+                          available:
+                            type: number
+                          total:
+                            type: number
+                        required:
+                        - active
+                        - pending
+                        - available
+                        - total
+                      gpu:
+                        type: object
+                        properties:
+                          active:
+                            type: number
+                          pending:
+                            type: number
+                          available:
+                            type: number
+                          total:
+                            type: number
+                        required:
+                        - active
+                        - pending
+                        - available
+                        - total
+                      memory:
+                        type: object
+                        properties:
+                          active:
+                            type: number
+                          pending:
+                            type: number
+                          available:
+                            type: number
+                          total:
+                            type: number
+                        required:
+                        - active
+                        - pending
+                        - available
+                        - total
+                      storage:
+                        type: object
+                        properties:
+                          ephemeral:
+                            type: object
+                            properties:
+                              active:
+                                type: number
+                              pending:
+                                type: number
+                              available:
+                                type: number
+                              total:
+                                type: number
+                            required:
+                            - active
+                            - pending
+                            - available
+                            - total
+                          persistent:
+                            type: object
+                            properties:
+                              active:
+                                type: number
+                              pending:
+                                type: number
+                              available:
+                                type: number
+                              total:
+                                type: number
+                            required:
+                            - active
+                            - pending
+                            - available
+                            - total
+                          total:
+                            type: object
+                            properties:
+                              active:
+                                type: number
+                              pending:
+                                type: number
+                              available:
+                                type: number
+                              total:
+                                type: number
+                            required:
+                            - active
+                            - pending
+                            - available
+                            - total
+                        required:
+                        - ephemeral
+                        - persistent
+                        - total
+                    required:
+                    - cpu
+                    - gpu
+                    - memory
+                    - storage
+                required:
+                - activeProviderCount
+                - resources
+  /v1/market-data/{coin?}:
+    get:
+      tags:
+      - Analytics
+      security: []
+      parameters:
+      - schema:
+          type: string
+          enum:
+          - akash-network
+          - akt
+          default: akt
+          example: akt
+        required: false
+        name: coin
+        in: path
+      responses:
+        '200':
+          description: Returns market stats
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  price:
+                    type: number
+                  volume:
+                    type: number
+                  marketCap:
+                    type: number
+                  marketCapRank:
+                    type: number
+                  priceChange24h:
+                    type: number
+                  priceChangePercentage24:
+                    type: number
+                required:
+                - price
+                - volume
+                - marketCap
+                - marketCapRank
+                - priceChange24h
+                - priceChangePercentage24
+  /v1/leases-duration/{owner}:
+    get:
+      summary: Get leases durations.
+      tags:
+      - Analytics
+      security: []
+      parameters:
+      - schema:
+          type: string
+          example: akash13265twfqejnma6cc93rw5dxk4cldyz2zyy8cdm
+        required: true
+        name: owner
+        in: path
+      - schema:
+          type: string
+          pattern: ^d+$
+        required: false
+        name: dseq
+        in: query
+      - schema:
+          type: string
+          format: YYYY-MM-DD
+          default: '2000-01-01'
+        required: false
+        name: startDate
+        in: query
+      - schema:
+          type: string
+          format: YYYY-MM-DD
+          default: '2100-01-01'
+        required: false
+        name: endDate
+        in: query
+      responses:
+        '200':
+          description: List of leases durations and total duration.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  leaseCount:
+                    type: number
+                  totalDurationInSeconds:
+                    type: number
+                  totalDurationInHours:
+                    type: number
+                  leases:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        dseq:
+                          type: string
+                          pattern: ^d+$
+                        oseq:
+                          type: number
+                        gseq:
+                          type: number
+                        provider:
+                          type: string
+                        startHeight:
+                          type: number
+                        startDate:
+                          type: string
+                        closedHeight:
+                          type: number
+                        closedDate:
+                          type: string
+                        durationInBlocks:
+                          type: number
+                        durationInSeconds:
+                          type: number
+                        durationInHours:
+                          type: number
+                      required:
+                      - dseq
+                      - oseq
+                      - gseq
+                      - provider
+                      - startHeight
+                      - startDate
+                      - closedHeight
+                      - closedDate
+                      - durationInBlocks
+                      - durationInSeconds
+                      - durationInHours
+                required:
+                - leaseCount
+                - totalDurationInSeconds
+                - totalDurationInHours
+                - leases
+        '400':
+          description: 'Invalid start date, must be in the following format: YYYY-MM-DD'
+securityDefinitions:
+  kms:
+    type: basic

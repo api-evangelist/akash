@@ -1,0 +1,606 @@
+swagger: '2.0'
+info:
+  title: AKASH - gRPC Gateway docs Addresses Bids API
+  description: A REST interface for state queries
+  version: 1.0.0
+tags:
+- name: Bids
+paths:
+  /v1/bids:
+    get:
+      summary: List bids
+      operationId: listBids
+      tags:
+      - Bids
+      security:
+      - BearerAuth: []
+      - ApiKeyAuth: []
+      parameters:
+      - schema:
+          type: string
+          pattern: ^d+$
+        required: true
+        name: dseq
+        in: query
+      responses:
+        '200':
+          description: List of bids
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        bid:
+                          type: object
+                          properties:
+                            id:
+                              type: object
+                              properties:
+                                owner:
+                                  type: string
+                                dseq:
+                                  type: string
+                                  pattern: ^d+$
+                                gseq:
+                                  type: number
+                                oseq:
+                                  type: number
+                                provider:
+                                  type: string
+                                bseq:
+                                  type: number
+                              required:
+                              - owner
+                              - dseq
+                              - gseq
+                              - oseq
+                              - provider
+                              - bseq
+                            state:
+                              type: string
+                            price:
+                              type: object
+                              properties:
+                                denom:
+                                  type: string
+                                amount:
+                                  type: string
+                              required:
+                              - denom
+                              - amount
+                            created_at:
+                              type: string
+                            resources_offer:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  resources:
+                                    type: object
+                                    properties:
+                                      cpu:
+                                        type: object
+                                        properties:
+                                          units:
+                                            type: object
+                                            properties:
+                                              val:
+                                                type: string
+                                            required:
+                                            - val
+                                          attributes:
+                                            type: array
+                                            items:
+                                              type: object
+                                              properties:
+                                                key:
+                                                  type: string
+                                                value:
+                                                  type: string
+                                              required:
+                                              - key
+                                              - value
+                                        required:
+                                        - units
+                                        - attributes
+                                      gpu:
+                                        type: object
+                                        properties:
+                                          units:
+                                            type: object
+                                            properties:
+                                              val:
+                                                type: string
+                                            required:
+                                            - val
+                                          attributes:
+                                            type: array
+                                            items:
+                                              type: object
+                                              properties:
+                                                key:
+                                                  type: string
+                                                value:
+                                                  type: string
+                                              required:
+                                              - key
+                                              - value
+                                        required:
+                                        - units
+                                        - attributes
+                                      memory:
+                                        type: object
+                                        properties:
+                                          quantity:
+                                            type: object
+                                            properties:
+                                              val:
+                                                type: string
+                                            required:
+                                            - val
+                                          attributes:
+                                            type: array
+                                            items:
+                                              type: object
+                                              properties:
+                                                key:
+                                                  type: string
+                                                value:
+                                                  type: string
+                                              required:
+                                              - key
+                                              - value
+                                        required:
+                                        - quantity
+                                        - attributes
+                                      storage:
+                                        type: array
+                                        items:
+                                          type: object
+                                          properties:
+                                            name:
+                                              type: string
+                                            quantity:
+                                              type: object
+                                              properties:
+                                                val:
+                                                  type: string
+                                              required:
+                                              - val
+                                            attributes:
+                                              type: array
+                                              items:
+                                                type: object
+                                                properties:
+                                                  key:
+                                                    type: string
+                                                  value:
+                                                    type: string
+                                                required:
+                                                - key
+                                                - value
+                                          required:
+                                          - name
+                                          - quantity
+                                          - attributes
+                                      endpoints:
+                                        type: array
+                                        items:
+                                          type: object
+                                          properties:
+                                            kind:
+                                              type: string
+                                            sequence_number:
+                                              type: number
+                                          required:
+                                          - kind
+                                          - sequence_number
+                                    required:
+                                    - cpu
+                                    - gpu
+                                    - memory
+                                    - storage
+                                    - endpoints
+                                  count:
+                                    type: number
+                                required:
+                                - resources
+                                - count
+                          required:
+                          - id
+                          - state
+                          - price
+                          - created_at
+                          - resources_offer
+                        escrow_account:
+                          type: object
+                          properties:
+                            id:
+                              type: object
+                              properties:
+                                scope:
+                                  type: string
+                                xid:
+                                  type: string
+                              required:
+                              - scope
+                              - xid
+                            state:
+                              type: object
+                              properties:
+                                owner:
+                                  type: string
+                                state:
+                                  type: string
+                                transferred:
+                                  type: array
+                                  items:
+                                    type: object
+                                    properties:
+                                      denom:
+                                        type: string
+                                      amount:
+                                        type: string
+                                    required:
+                                    - denom
+                                    - amount
+                                settled_at:
+                                  type: string
+                                funds:
+                                  type: array
+                                  items:
+                                    type: object
+                                    properties:
+                                      denom:
+                                        type: string
+                                      amount:
+                                        type: string
+                                    required:
+                                    - denom
+                                    - amount
+                                deposits:
+                                  type: array
+                                  items:
+                                    type: object
+                                    properties:
+                                      owner:
+                                        type: string
+                                      height:
+                                        type: string
+                                      source:
+                                        type: string
+                                      balance:
+                                        type: object
+                                        properties:
+                                          denom:
+                                            type: string
+                                          amount:
+                                            type: string
+                                        required:
+                                        - denom
+                                        - amount
+                                    required:
+                                    - owner
+                                    - height
+                                    - source
+                                    - balance
+                              required:
+                              - owner
+                              - state
+                              - transferred
+                              - settled_at
+                              - funds
+                              - deposits
+                          required:
+                          - id
+                          - state
+                      required:
+                      - bid
+                      - escrow_account
+                required:
+                - data
+  /v1/bids/{dseq}:
+    get:
+      summary: List bids by dseq
+      tags:
+      - Bids
+      security:
+      - BearerAuth: []
+      - ApiKeyAuth: []
+      parameters:
+      - schema:
+          type: string
+          pattern: ^d+$
+        required: true
+        name: dseq
+        in: path
+      responses:
+        '200':
+          description: List of bids
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        bid:
+                          type: object
+                          properties:
+                            id:
+                              type: object
+                              properties:
+                                owner:
+                                  type: string
+                                dseq:
+                                  type: string
+                                  pattern: ^d+$
+                                gseq:
+                                  type: number
+                                oseq:
+                                  type: number
+                                provider:
+                                  type: string
+                                bseq:
+                                  type: number
+                              required:
+                              - owner
+                              - dseq
+                              - gseq
+                              - oseq
+                              - provider
+                              - bseq
+                            state:
+                              type: string
+                            price:
+                              type: object
+                              properties:
+                                denom:
+                                  type: string
+                                amount:
+                                  type: string
+                              required:
+                              - denom
+                              - amount
+                            created_at:
+                              type: string
+                            resources_offer:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  resources:
+                                    type: object
+                                    properties:
+                                      cpu:
+                                        type: object
+                                        properties:
+                                          units:
+                                            type: object
+                                            properties:
+                                              val:
+                                                type: string
+                                            required:
+                                            - val
+                                          attributes:
+                                            type: array
+                                            items:
+                                              type: object
+                                              properties:
+                                                key:
+                                                  type: string
+                                                value:
+                                                  type: string
+                                              required:
+                                              - key
+                                              - value
+                                        required:
+                                        - units
+                                        - attributes
+                                      gpu:
+                                        type: object
+                                        properties:
+                                          units:
+                                            type: object
+                                            properties:
+                                              val:
+                                                type: string
+                                            required:
+                                            - val
+                                          attributes:
+                                            type: array
+                                            items:
+                                              type: object
+                                              properties:
+                                                key:
+                                                  type: string
+                                                value:
+                                                  type: string
+                                              required:
+                                              - key
+                                              - value
+                                        required:
+                                        - units
+                                        - attributes
+                                      memory:
+                                        type: object
+                                        properties:
+                                          quantity:
+                                            type: object
+                                            properties:
+                                              val:
+                                                type: string
+                                            required:
+                                            - val
+                                          attributes:
+                                            type: array
+                                            items:
+                                              type: object
+                                              properties:
+                                                key:
+                                                  type: string
+                                                value:
+                                                  type: string
+                                              required:
+                                              - key
+                                              - value
+                                        required:
+                                        - quantity
+                                        - attributes
+                                      storage:
+                                        type: array
+                                        items:
+                                          type: object
+                                          properties:
+                                            name:
+                                              type: string
+                                            quantity:
+                                              type: object
+                                              properties:
+                                                val:
+                                                  type: string
+                                              required:
+                                              - val
+                                            attributes:
+                                              type: array
+                                              items:
+                                                type: object
+                                                properties:
+                                                  key:
+                                                    type: string
+                                                  value:
+                                                    type: string
+                                                required:
+                                                - key
+                                                - value
+                                          required:
+                                          - name
+                                          - quantity
+                                          - attributes
+                                      endpoints:
+                                        type: array
+                                        items:
+                                          type: object
+                                          properties:
+                                            kind:
+                                              type: string
+                                            sequence_number:
+                                              type: number
+                                          required:
+                                          - kind
+                                          - sequence_number
+                                    required:
+                                    - cpu
+                                    - gpu
+                                    - memory
+                                    - storage
+                                    - endpoints
+                                  count:
+                                    type: number
+                                required:
+                                - resources
+                                - count
+                          required:
+                          - id
+                          - state
+                          - price
+                          - created_at
+                          - resources_offer
+                        escrow_account:
+                          type: object
+                          properties:
+                            id:
+                              type: object
+                              properties:
+                                scope:
+                                  type: string
+                                xid:
+                                  type: string
+                              required:
+                              - scope
+                              - xid
+                            state:
+                              type: object
+                              properties:
+                                owner:
+                                  type: string
+                                state:
+                                  type: string
+                                transferred:
+                                  type: array
+                                  items:
+                                    type: object
+                                    properties:
+                                      denom:
+                                        type: string
+                                      amount:
+                                        type: string
+                                    required:
+                                    - denom
+                                    - amount
+                                settled_at:
+                                  type: string
+                                funds:
+                                  type: array
+                                  items:
+                                    type: object
+                                    properties:
+                                      denom:
+                                        type: string
+                                      amount:
+                                        type: string
+                                    required:
+                                    - denom
+                                    - amount
+                                deposits:
+                                  type: array
+                                  items:
+                                    type: object
+                                    properties:
+                                      owner:
+                                        type: string
+                                      height:
+                                        type: string
+                                      source:
+                                        type: string
+                                      balance:
+                                        type: object
+                                        properties:
+                                          denom:
+                                            type: string
+                                          amount:
+                                            type: string
+                                        required:
+                                        - denom
+                                        - amount
+                                    required:
+                                    - owner
+                                    - height
+                                    - source
+                                    - balance
+                              required:
+                              - owner
+                              - state
+                              - transferred
+                              - settled_at
+                              - funds
+                              - deposits
+                          required:
+                          - id
+                          - state
+                      required:
+                      - bid
+                      - escrow_account
+                required:
+                - data
+securityDefinitions:
+  kms:
+    type: basic

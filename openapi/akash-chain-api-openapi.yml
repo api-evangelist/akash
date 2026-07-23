@@ -1,0 +1,29 @@
+swagger: '2.0'
+info:
+  title: AKASH - gRPC Gateway docs Addresses Chain API
+  description: A REST interface for state queries
+  version: 1.0.0
+tags:
+- name: Chain
+paths:
+  /v1/blockchain-status:
+    get:
+      summary: Get blockchain reachability status
+      tags:
+      - Chain
+      security: []
+      responses:
+        '200':
+          description: Returns blockchain reachability status
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  isBlockchainReachable:
+                    type: boolean
+                required:
+                - isBlockchainReachable
+securityDefinitions:
+  kms:
+    type: basic

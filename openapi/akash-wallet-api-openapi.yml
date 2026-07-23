@@ -1,0 +1,306 @@
+swagger: '2.0'
+info:
+  title: AKASH - gRPC Gateway docs Addresses Wallet API
+  description: A REST interface for state queries
+  version: 1.0.0
+tags:
+- name: Wallet
+paths:
+  /v1/start-trial:
+    post:
+      summary: Start a trial period for a user
+      description: Creates a managed wallet for a user and initiates a trial period. This endpoint handles payment method validation and may require 3D Secure authentication for certain payment methods. Returns wallet information and trial status.
+      tags:
+      - Wallet
+      security: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                data:
+                  type: object
+                  properties:
+                    userId:
+                      type: string
+                  required:
+                  - userId
+              required:
+              - data
+      responses:
+        '200':
+          description: Trial started successfully and wallet created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: number
+                        nullable: true
+                      userId:
+                        type: string
+                        nullable: true
+                      creditAmount:
+                        type: number
+                      address:
+                        type: string
+                        nullable: true
+                      denom:
+                        type: string
+                      isTrialing:
+                        type: boolean
+                      createdAt:
+                        type: string
+                        nullable: true
+                      requires3DS:
+                        type: boolean
+                      clientSecret:
+                        type: string
+                        nullable: true
+                      paymentIntentId:
+                        type: string
+                        nullable: true
+                      paymentMethodId:
+                        type: string
+                        nullable: true
+                    required:
+                    - id
+                    - userId
+                    - creditAmount
+                    - address
+                    - denom
+                    - isTrialing
+                    - createdAt
+                    additionalProperties: false
+                required:
+                - data
+        '202':
+          description: 3D Secure authentication required to complete trial setup
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: number
+                        nullable: true
+                      userId:
+                        type: string
+                        nullable: true
+                      creditAmount:
+                        type: number
+                      address:
+                        type: string
+                        nullable: true
+                      denom:
+                        type: string
+                      isTrialing:
+                        type: boolean
+                      createdAt:
+                        type: string
+                        nullable: true
+                      requires3DS:
+                        type: boolean
+                      clientSecret:
+                        type: string
+                        nullable: true
+                      paymentIntentId:
+                        type: string
+                        nullable: true
+                      paymentMethodId:
+                        type: string
+                        nullable: true
+                    required:
+                    - id
+                    - userId
+                    - creditAmount
+                    - address
+                    - denom
+                    - isTrialing
+                    - createdAt
+                    additionalProperties: false
+                required:
+                - data
+  /v1/wallets:
+    get:
+      summary: Get a list of wallets
+      tags:
+      - Wallet
+      security:
+      - BearerAuth: []
+      - ApiKeyAuth: []
+      parameters:
+      - schema:
+          type: string
+          format: uuid
+        required: true
+        description: The ID of the user to get the wallets for
+        name: userId
+        in: query
+      responses:
+        '200':
+          description: Returns a created wallet
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: number
+                          nullable: true
+                        userId:
+                          type: string
+                          nullable: true
+                        creditAmount:
+                          type: number
+                        address:
+                          type: string
+                          nullable: true
+                        denom:
+                          type: string
+                        isTrialing:
+                          type: boolean
+                        createdAt:
+                          type: string
+                          nullable: true
+                        requires3DS:
+                          type: boolean
+                        clientSecret:
+                          type: string
+                          nullable: true
+                        paymentIntentId:
+                          type: string
+                          nullable: true
+                        paymentMethodId:
+                          type: string
+                          nullable: true
+                      required:
+                      - id
+                      - userId
+                      - creditAmount
+                      - address
+                      - denom
+                      - isTrialing
+                      - createdAt
+                required:
+                - data
+  /v1/tx:
+    post:
+      summary: Signs a transaction via a user managed wallet
+      tags:
+      - Wallet
+      security:
+      - BearerAuth: []
+      - ApiKeyAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                data:
+                  type: object
+                  properties:
+                    userId:
+                      type: string
+                    messages:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          typeUrl:
+                            type: string
+                            enum:
+                            - /akash.deployment.v1beta4.MsgCreateDeployment
+                            - /akash.cert.v1.MsgCreateCertificate
+                            - /akash.market.v1beta5.MsgCreateLease
+                            - /akash.deployment.v1beta4.MsgUpdateDeployment
+                            - /akash.deployment.v1beta4.MsgCloseDeployment
+                            - /akash.escrow.v1.MsgAccountDeposit
+                          value:
+                            type: string
+                        required:
+                        - typeUrl
+                        - value
+                      minItems: 1
+                  required:
+                  - userId
+                  - messages
+              required:
+              - data
+      responses:
+        '200':
+          description: Returns a signed transaction
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      code:
+                        type: number
+                      transactionHash:
+                        type: string
+                      rawLog:
+                        type: string
+                    required:
+                    - code
+                    - transactionHash
+                    - rawLog
+                required:
+                - data
+  /v1/balances:
+    get:
+      summary: Get user balances
+      tags:
+      - Wallet
+      security: []
+      parameters:
+      - schema:
+          type: string
+          description: Optional wallet address to fetch balances for instead of the current user
+        required: false
+        description: Optional wallet address to fetch balances for instead of the current user
+        name: address
+        in: query
+      responses:
+        '200':
+          description: Returns user balances
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      balance:
+                        type: number
+                      deployments:
+                        type: number
+                      total:
+                        type: number
+                    required:
+                    - balance
+                    - deployments
+                    - total
+                required:
+                - data
+securityDefinitions:
+  kms:
+    type: basic

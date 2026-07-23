@@ -1,0 +1,58 @@
+swagger: '2.0'
+info:
+  title: AKASH - gRPC Gateway docs Addresses JWT Token API
+  description: A REST interface for state queries
+  version: 1.0.0
+tags:
+- name: JWT Token
+paths:
+  /v1/create-jwt-token:
+    post:
+      summary: Create new JWT token for managed wallet
+      tags:
+      - JWT Token
+      security:
+      - BearerAuth: []
+      - ApiKeyAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                data:
+                  type: object
+                  properties:
+                    ttl:
+                      type: integer
+                      minimum: 0
+                      exclusiveMinimum: true
+                    leases:
+                      type: object
+                      additionalProperties:
+                        nullable: true
+                  required:
+                  - ttl
+                  - leases
+              required:
+              - data
+      responses:
+        '201':
+          description: JWT token created successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      token:
+                        type: string
+                    required:
+                    - token
+                required:
+                - data
+securityDefinitions:
+  kms:
+    type: basic

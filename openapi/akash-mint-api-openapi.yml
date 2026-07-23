@@ -1,0 +1,68 @@
+swagger: '2.0'
+info:
+  title: AKASH - gRPC Gateway docs Addresses Mint API
+  description: A REST interface for state queries
+  version: 1.0.0
+tags:
+- name: Mint
+paths:
+  /minting/parameters:
+    get:
+      deprecated: true
+      summary: Minting module parameters
+      tags:
+      - Mint
+      produces:
+      - application/json
+      responses:
+        '200':
+          description: OK
+          schema:
+            properties:
+              mint_denom:
+                type: string
+              inflation_rate_change:
+                type: string
+              inflation_max:
+                type: string
+              inflation_min:
+                type: string
+              goal_bonded:
+                type: string
+              blocks_per_year:
+                type: string
+        '500':
+          description: Internal Server Error
+  /minting/inflation:
+    get:
+      deprecated: true
+      summary: Current minting inflation value
+      tags:
+      - Mint
+      produces:
+      - application/json
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: string
+        '500':
+          description: Internal Server Error
+  /minting/annual-provisions:
+    get:
+      deprecated: true
+      summary: Current minting annual provisions value
+      tags:
+      - Mint
+      produces:
+      - application/json
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: string
+        '500':
+          description: Internal Server Error
+securityDefinitions:
+  kms:
+    type: basic

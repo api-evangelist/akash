@@ -1,0 +1,439 @@
+swagger: '2.0'
+info:
+  title: AKASH - gRPC Gateway docs Addresses API
+  description: A REST interface for state queries
+  version: 1.0.0
+tags:
+- name: Addresses
+paths:
+  /v1/addresses/{address}/deployments/{skip}/{limit}:
+    get:
+      summary: Get a list of deployments by owner address.
+      tags:
+      - Addresses
+      security: []
+      parameters:
+      - schema:
+          type: string
+          description: Wallet Address
+          example: akash13265twfqejnma6cc93rw5dxk4cldyz2zyy8cdm
+        required: true
+        name: address
+        in: path
+      - schema:
+          type: number
+          nullable: true
+          minimum: 0
+          description: Deployments to skip
+          example: 10
+        required: false
+        name: skip
+        in: path
+      - schema:
+          type: number
+          minimum: 1
+          maximum: 100
+          description: Deployments to return
+          example: 10
+        required: true
+        name: limit
+        in: path
+      - schema:
+          type: string
+          enum:
+          - active
+          - closed
+          description: Filter by status
+          example: closed
+        required: true
+        name: status
+        in: query
+      - schema:
+          type: string
+          description: Reverse sorting
+          example: 'true'
+        required: false
+        name: reverseSorting
+        in: query
+      responses:
+        '200':
+          description: Returns deployment list
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: number
+                  results:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        owner:
+                          type: string
+                        dseq:
+                          type: string
+                          pattern: ^d+$
+                        status:
+                          type: string
+                        createdHeight:
+                          type: number
+                        cpuUnits:
+                          type: number
+                        gpuUnits:
+                          type: number
+                        memoryQuantity:
+                          type: number
+                        storageQuantity:
+                          type: number
+                        leases:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              id:
+                                type: string
+                              owner:
+                                type: string
+                              provider:
+                                type: object
+                                properties:
+                                  address:
+                                    type: string
+                                  hostUri:
+                                    type: string
+                                required:
+                                - address
+                                - hostUri
+                              dseq:
+                                type: string
+                                pattern: ^d+$
+                              gseq:
+                                type: number
+                              oseq:
+                                type: number
+                              state:
+                                type: string
+                              price:
+                                type: object
+                                properties:
+                                  denom:
+                                    type: string
+                                  amount:
+                                    type: string
+                                required:
+                                - denom
+                                - amount
+                            required:
+                            - id
+                            - owner
+                            - dseq
+                            - gseq
+                            - oseq
+                            - state
+                            - price
+                      required:
+                      - owner
+                      - dseq
+                      - status
+                      - createdHeight
+                      - cpuUnits
+                      - gpuUnits
+                      - memoryQuantity
+                      - storageQuantity
+                      - leases
+                required:
+                - count
+                - results
+        '400':
+          description: Invalid address
+  /v1/addresses/{address}:
+    get:
+      summary: Get address details
+      tags:
+      - Addresses
+      security: []
+      parameters:
+      - schema:
+          type: string
+          description: Account Address
+          example: akash13265twfqejnma6cc93rw5dxk4cldyz2zyy8cdm
+        required: true
+        name: address
+        in: path
+      responses:
+        '200':
+          description: Returns address details
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  total:
+                    type: number
+                  delegations:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        validator:
+                          type: object
+                          properties:
+                            address:
+                              type: string
+                            moniker:
+                              type: string
+                            operatorAddress:
+                              type: string
+                            avatarUrl:
+                              type: string
+                        amount:
+                          type: number
+                        reward:
+                          type: number
+                          nullable: true
+                      required:
+                      - validator
+                      - amount
+                      - reward
+                  available:
+                    type: number
+                  delegated:
+                    type: number
+                  rewards:
+                    type: number
+                  assets:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        symbol:
+                          type: string
+                        ibcToken:
+                          type: string
+                        logoUrl:
+                          type: string
+                        description:
+                          type: string
+                        amount:
+                          type: number
+                      required:
+                      - amount
+                  redelegations:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        srcAddress:
+                          type: object
+                          properties:
+                            address:
+                              type: string
+                            moniker:
+                              type: string
+                            operatorAddress:
+                              type: string
+                            avatarUrl:
+                              type: string
+                        dstAddress:
+                          type: object
+                          properties:
+                            address:
+                              type: string
+                            moniker:
+                              type: string
+                            operatorAddress:
+                              type: string
+                            avatarUrl:
+                              type: string
+                        creationHeight:
+                          type: number
+                        completionTime:
+                          type: string
+                        amount:
+                          type: number
+                      required:
+                      - srcAddress
+                      - dstAddress
+                      - creationHeight
+                      - completionTime
+                      - amount
+                  commission:
+                    type: number
+                  latestTransactions:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        height:
+                          type: number
+                        datetime:
+                          type: string
+                        hash:
+                          type: string
+                        isSuccess:
+                          type: boolean
+                        error:
+                          type: string
+                          nullable: true
+                        gasUsed:
+                          type: number
+                        gasWanted:
+                          type: number
+                        fee:
+                          type: number
+                        memo:
+                          type: string
+                          nullable: true
+                        isSigner:
+                          type: boolean
+                        messages:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              id:
+                                type: string
+                              type:
+                                type: string
+                              amount:
+                                type: number
+                              isReceiver:
+                                type: boolean
+                            required:
+                            - id
+                            - type
+                            - amount
+                            - isReceiver
+                      required:
+                      - height
+                      - datetime
+                      - hash
+                      - isSuccess
+                      - error
+                      - gasUsed
+                      - gasWanted
+                      - fee
+                      - memo
+                      - isSigner
+                      - messages
+                required:
+                - total
+                - delegations
+                - available
+                - delegated
+                - rewards
+                - assets
+                - redelegations
+                - commission
+                - latestTransactions
+        '400':
+          description: Invalid address
+  /v1/addresses/{address}/transactions/{skip}/{limit}:
+    get:
+      summary: Get a list of transactions for a given address.
+      tags:
+      - Addresses
+      security: []
+      parameters:
+      - schema:
+          type: string
+          description: Wallet Address
+          example: akash13265twfqejnma6cc93rw5dxk4cldyz2zyy8cdm
+        required: true
+        name: address
+        in: path
+      - schema:
+          type: number
+          nullable: true
+          minimum: 0
+          description: Transactions to skip
+          example: 10
+        required: false
+        name: skip
+        in: path
+      - schema:
+          type: number
+          minimum: 1
+          maximum: 100
+          description: Transactions to return
+          example: 10
+        required: true
+        name: limit
+        in: path
+      responses:
+        '200':
+          description: Returns transaction list
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: number
+                  results:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        height:
+                          type: number
+                        datetime:
+                          type: string
+                        hash:
+                          type: string
+                        isSuccess:
+                          type: boolean
+                        error:
+                          type: string
+                          nullable: true
+                        gasUsed:
+                          type: number
+                        gasWanted:
+                          type: number
+                        fee:
+                          type: number
+                        memo:
+                          type: string
+                          nullable: true
+                        isSigner:
+                          type: boolean
+                        messages:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              id:
+                                type: string
+                              type:
+                                type: string
+                              amount:
+                                type: number
+                              isReceiver:
+                                type: boolean
+                            required:
+                            - id
+                            - type
+                            - amount
+                            - isReceiver
+                      required:
+                      - height
+                      - datetime
+                      - hash
+                      - isSuccess
+                      - error
+                      - gasUsed
+                      - gasWanted
+                      - fee
+                      - memo
+                      - isSigner
+                      - messages
+                required:
+                - count
+                - results
+        '400':
+          description: Invalid address or parameters
+securityDefinitions:
+  kms:
+    type: basic

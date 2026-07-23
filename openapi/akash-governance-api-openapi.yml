@@ -1,0 +1,1018 @@
+swagger: '2.0'
+info:
+  title: AKASH - gRPC Gateway docs Addresses Governance API
+  description: A REST interface for state queries
+  version: 1.0.0
+tags:
+- name: Governance
+paths:
+  /gov/proposals:
+    post:
+      deprecated: true
+      summary: Submit a proposal
+      description: Send transaction to submit a proposal
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Governance
+      parameters:
+      - description: valid value of `"proposal_type"` can be `"text"`, `"parameter_change"`, `"software_upgrade"`
+        name: post_proposal_body
+        in: body
+        required: true
+        schema:
+          type: object
+          properties:
+            base_req:
+              type: object
+              properties:
+                from:
+                  type: string
+                  example: cosmos1g9ahr6xhht5rmqven628nklxluzyv8z9jqjcmc
+                  description: Sender address or Keybase name to generate a transaction
+                memo:
+                  type: string
+                  example: Sent via Cosmos Voyager 🚀
+                chain_id:
+                  type: string
+                  example: Cosmos-Hub
+                account_number:
+                  type: string
+                  example: '0'
+                sequence:
+                  type: string
+                  example: '1'
+                gas:
+                  type: string
+                  example: '200000'
+                gas_adjustment:
+                  type: string
+                  example: '1.2'
+                fees:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      denom:
+                        type: string
+                        example: stake
+                      amount:
+                        type: string
+                        example: '50'
+                simulate:
+                  type: boolean
+                  example: false
+                  description: Estimate gas for a transaction (cannot be used in conjunction with generate_only)
+            title:
+              type: string
+            description:
+              type: string
+            proposal_type:
+              type: string
+              example: text
+            proposer:
+              type: string
+              description: bech32 encoded address
+              example: cosmos1depk54cuajgkzea6zpgkq36tnjwdzv4afc3d27
+            initial_deposit:
+              type: array
+              items:
+                type: object
+                properties:
+                  denom:
+                    type: string
+                    example: stake
+                  amount:
+                    type: string
+                    example: '50'
+      responses:
+        '200':
+          description: Tx was succesfully generated
+          schema:
+            type: object
+            properties:
+              msg:
+                type: array
+                items:
+                  type: string
+              fee:
+                type: object
+                properties:
+                  gas:
+                    type: string
+                  amount:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        denom:
+                          type: string
+                          example: stake
+                        amount:
+                          type: string
+                          example: '50'
+              memo:
+                type: string
+              signature:
+                type: object
+                properties:
+                  signature:
+                    type: string
+                    example: MEUCIQD02fsDPra8MtbRsyB1w7bqTM55Wu138zQbFcWx4+CFyAIge5WNPfKIuvzBZ69MyqHsqD8S1IwiEp+iUb6VSdtlpgY=
+                  pub_key:
+                    type: object
+                    properties:
+                      type:
+                        type: string
+                        example: tendermint/PubKeySecp256k1
+                      value:
+                        type: string
+                        example: Avz04VhtKJh8ACCVzlI8aTosGy0ikFXKIVHQ3jKMrosH
+                  account_number:
+                    type: string
+                    example: '0'
+                  sequence:
+                    type: string
+                    example: '0'
+        '400':
+          description: Invalid proposal body
+        '500':
+          description: Internal Server Error
+    get:
+      deprecated: true
+      summary: Query proposals
+      description: Query proposals information with parameters
+      produces:
+      - application/json
+      tags:
+      - Governance
+      parameters:
+      - in: query
+        name: voter
+        description: voter address
+        required: false
+        type: string
+      - in: query
+        name: depositor
+        description: depositor address
+        required: false
+        type: string
+      - in: query
+        name: status
+        description: proposal status, valid values can be `"deposit_period"`, `"voting_period"`, `"passed"`, `"rejected"`
+        required: false
+        type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              type: object
+              properties:
+                proposal_id:
+                  type: integer
+                title:
+                  type: string
+                description:
+                  type: string
+                proposal_type:
+                  type: string
+                proposal_status:
+                  type: string
+                final_tally_result:
+                  type: object
+                  properties:
+                    'yes':
+                      type: string
+                      example: '0.0000000000'
+                    abstain:
+                      type: string
+                      example: '0.0000000000'
+                    'no':
+                      type: string
+                      example: '0.0000000000'
+                    no_with_veto:
+                      type: string
+                      example: '0.0000000000'
+                submit_time:
+                  type: string
+                total_deposit:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      denom:
+                        type: string
+                        example: stake
+                      amount:
+                        type: string
+                        example: '50'
+                voting_start_time:
+                  type: string
+        '400':
+          description: Invalid query parameters
+        '500':
+          description: Internal Server Error
+  /gov/proposals/param_change:
+    post:
+      deprecated: true
+      summary: Generate a parameter change proposal transaction
+      description: Generate a parameter change proposal transaction
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Governance
+      parameters:
+      - description: The parameter change proposal body that contains all parameter changes
+        name: post_proposal_body
+        in: body
+        required: true
+        schema:
+          type: object
+          properties:
+            base_req:
+              type: object
+              properties:
+                from:
+                  type: string
+                  example: cosmos1g9ahr6xhht5rmqven628nklxluzyv8z9jqjcmc
+                  description: Sender address or Keybase name to generate a transaction
+                memo:
+                  type: string
+                  example: Sent via Cosmos Voyager 🚀
+                chain_id:
+                  type: string
+                  example: Cosmos-Hub
+                account_number:
+                  type: string
+                  example: '0'
+                sequence:
+                  type: string
+                  example: '1'
+                gas:
+                  type: string
+                  example: '200000'
+                gas_adjustment:
+                  type: string
+                  example: '1.2'
+                fees:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      denom:
+                        type: string
+                        example: stake
+                      amount:
+                        type: string
+                        example: '50'
+                simulate:
+                  type: boolean
+                  example: false
+                  description: Estimate gas for a transaction (cannot be used in conjunction with generate_only)
+            title:
+              type: string
+              x-example: Param Change
+            description:
+              type: string
+              x-example: Update max validators
+            proposer:
+              type: string
+              description: bech32 encoded address
+              example: cosmos1depk54cuajgkzea6zpgkq36tnjwdzv4afc3d27
+            deposit:
+              type: array
+              items:
+                type: object
+                properties:
+                  denom:
+                    type: string
+                    example: stake
+                  amount:
+                    type: string
+                    example: '50'
+            changes:
+              type: array
+              items:
+                type: object
+                properties:
+                  subspace:
+                    type: string
+                    example: staking
+                  key:
+                    type: string
+                    example: MaxValidators
+                  subkey:
+                    type: string
+                    example: ''
+                  value:
+                    type: object
+      responses:
+        '200':
+          description: The transaction was succesfully generated
+          schema:
+            type: object
+            properties:
+              msg:
+                type: array
+                items:
+                  type: string
+              fee:
+                type: object
+                properties:
+                  gas:
+                    type: string
+                  amount:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        denom:
+                          type: string
+                          example: stake
+                        amount:
+                          type: string
+                          example: '50'
+              memo:
+                type: string
+              signature:
+                type: object
+                properties:
+                  signature:
+                    type: string
+                    example: MEUCIQD02fsDPra8MtbRsyB1w7bqTM55Wu138zQbFcWx4+CFyAIge5WNPfKIuvzBZ69MyqHsqD8S1IwiEp+iUb6VSdtlpgY=
+                  pub_key:
+                    type: object
+                    properties:
+                      type:
+                        type: string
+                        example: tendermint/PubKeySecp256k1
+                      value:
+                        type: string
+                        example: Avz04VhtKJh8ACCVzlI8aTosGy0ikFXKIVHQ3jKMrosH
+                  account_number:
+                    type: string
+                    example: '0'
+                  sequence:
+                    type: string
+                    example: '0'
+        '400':
+          description: Invalid proposal body
+        '500':
+          description: Internal Server Error
+  /gov/proposals/{proposalId}:
+    get:
+      deprecated: true
+      summary: Query a proposal
+      description: Query a proposal by id
+      produces:
+      - application/json
+      tags:
+      - Governance
+      parameters:
+      - type: string
+        name: proposalId
+        required: true
+        in: path
+        x-example: '2'
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+            properties:
+              proposal_id:
+                type: integer
+              title:
+                type: string
+              description:
+                type: string
+              proposal_type:
+                type: string
+              proposal_status:
+                type: string
+              final_tally_result:
+                type: object
+                properties:
+                  'yes':
+                    type: string
+                    example: '0.0000000000'
+                  abstain:
+                    type: string
+                    example: '0.0000000000'
+                  'no':
+                    type: string
+                    example: '0.0000000000'
+                  no_with_veto:
+                    type: string
+                    example: '0.0000000000'
+              submit_time:
+                type: string
+              total_deposit:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    denom:
+                      type: string
+                      example: stake
+                    amount:
+                      type: string
+                      example: '50'
+              voting_start_time:
+                type: string
+        '400':
+          description: Invalid proposal id
+        '500':
+          description: Internal Server Error
+  /gov/proposals/{proposalId}/proposer:
+    get:
+      deprecated: true
+      summary: Query proposer
+      description: Query for the proposer for a proposal
+      produces:
+      - application/json
+      tags:
+      - Governance
+      parameters:
+      - type: string
+        name: proposalId
+        required: true
+        in: path
+        x-example: '2'
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+            properties:
+              proposal_id:
+                type: string
+              proposer:
+                type: string
+        '400':
+          description: Invalid proposal ID
+        '500':
+          description: Internal Server Error
+  /gov/proposals/{proposalId}/deposits:
+    get:
+      deprecated: true
+      summary: Query deposits
+      description: Query deposits by proposalId
+      produces:
+      - application/json
+      tags:
+      - Governance
+      parameters:
+      - type: string
+        name: proposalId
+        required: true
+        in: path
+        x-example: '2'
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              type: object
+              properties:
+                amount:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      denom:
+                        type: string
+                        example: stake
+                      amount:
+                        type: string
+                        example: '50'
+                proposal_id:
+                  type: string
+                depositor:
+                  type: string
+                  description: bech32 encoded address
+                  example: cosmos1depk54cuajgkzea6zpgkq36tnjwdzv4afc3d27
+        '400':
+          description: Invalid proposal id
+        '500':
+          description: Internal Server Error
+    post:
+      deprecated: true
+      summary: Deposit tokens to a proposal
+      description: Send transaction to deposit tokens to a proposal
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Governance
+      parameters:
+      - type: string
+        description: proposal id
+        name: proposalId
+        required: true
+        in: path
+        x-example: '2'
+      - description: ''
+        name: post_deposit_body
+        in: body
+        required: true
+        schema:
+          type: object
+          properties:
+            base_req:
+              type: object
+              properties:
+                from:
+                  type: string
+                  example: cosmos1g9ahr6xhht5rmqven628nklxluzyv8z9jqjcmc
+                  description: Sender address or Keybase name to generate a transaction
+                memo:
+                  type: string
+                  example: Sent via Cosmos Voyager 🚀
+                chain_id:
+                  type: string
+                  example: Cosmos-Hub
+                account_number:
+                  type: string
+                  example: '0'
+                sequence:
+                  type: string
+                  example: '1'
+                gas:
+                  type: string
+                  example: '200000'
+                gas_adjustment:
+                  type: string
+                  example: '1.2'
+                fees:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      denom:
+                        type: string
+                        example: stake
+                      amount:
+                        type: string
+                        example: '50'
+                simulate:
+                  type: boolean
+                  example: false
+                  description: Estimate gas for a transaction (cannot be used in conjunction with generate_only)
+            depositor:
+              type: string
+              description: bech32 encoded address
+              example: cosmos1depk54cuajgkzea6zpgkq36tnjwdzv4afc3d27
+            amount:
+              type: array
+              items:
+                type: object
+                properties:
+                  denom:
+                    type: string
+                    example: stake
+                  amount:
+                    type: string
+                    example: '50'
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+            properties:
+              msg:
+                type: array
+                items:
+                  type: string
+              fee:
+                type: object
+                properties:
+                  gas:
+                    type: string
+                  amount:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        denom:
+                          type: string
+                          example: stake
+                        amount:
+                          type: string
+                          example: '50'
+              memo:
+                type: string
+              signature:
+                type: object
+                properties:
+                  signature:
+                    type: string
+                    example: MEUCIQD02fsDPra8MtbRsyB1w7bqTM55Wu138zQbFcWx4+CFyAIge5WNPfKIuvzBZ69MyqHsqD8S1IwiEp+iUb6VSdtlpgY=
+                  pub_key:
+                    type: object
+                    properties:
+                      type:
+                        type: string
+                        example: tendermint/PubKeySecp256k1
+                      value:
+                        type: string
+                        example: Avz04VhtKJh8ACCVzlI8aTosGy0ikFXKIVHQ3jKMrosH
+                  account_number:
+                    type: string
+                    example: '0'
+                  sequence:
+                    type: string
+                    example: '0'
+        '400':
+          description: Invalid proposal id or deposit body
+        '401':
+          description: Key password is wrong
+        '500':
+          description: Internal Server Error
+  /gov/proposals/{proposalId}/deposits/{depositor}:
+    get:
+      deprecated: true
+      summary: Query deposit
+      description: Query deposit by proposalId and depositor address
+      produces:
+      - application/json
+      tags:
+      - Governance
+      parameters:
+      - type: string
+        description: proposal id
+        name: proposalId
+        required: true
+        in: path
+        x-example: '2'
+      - type: string
+        description: Bech32 depositor address
+        name: depositor
+        required: true
+        in: path
+        x-example: cosmos16xyempempp92x9hyzz9wrgf94r6j9h5f06pxxv
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+            properties:
+              amount:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    denom:
+                      type: string
+                      example: stake
+                    amount:
+                      type: string
+                      example: '50'
+              proposal_id:
+                type: string
+              depositor:
+                type: string
+                description: bech32 encoded address
+                example: cosmos1depk54cuajgkzea6zpgkq36tnjwdzv4afc3d27
+        '400':
+          description: Invalid proposal id or depositor address
+        '404':
+          description: Found no deposit
+        '500':
+          description: Internal Server Error
+  /gov/proposals/{proposalId}/votes:
+    get:
+      deprecated: true
+      summary: Query voters
+      description: Query voters information by proposalId
+      produces:
+      - application/json
+      tags:
+      - Governance
+      parameters:
+      - type: string
+        description: proposal id
+        name: proposalId
+        required: true
+        in: path
+        x-example: '2'
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              type: object
+              properties:
+                voter:
+                  type: string
+                proposal_id:
+                  type: string
+                option:
+                  type: string
+        '400':
+          description: Invalid proposal id
+        '500':
+          description: Internal Server Error
+    post:
+      deprecated: true
+      summary: Vote a proposal
+      description: Send transaction to vote a proposal
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Governance
+      parameters:
+      - type: string
+        description: proposal id
+        name: proposalId
+        required: true
+        in: path
+        x-example: '2'
+      - description: valid value of `"option"` field can be `"yes"`, `"no"`, `"no_with_veto"` and `"abstain"`
+        name: post_vote_body
+        in: body
+        required: true
+        schema:
+          type: object
+          properties:
+            base_req:
+              type: object
+              properties:
+                from:
+                  type: string
+                  example: cosmos1g9ahr6xhht5rmqven628nklxluzyv8z9jqjcmc
+                  description: Sender address or Keybase name to generate a transaction
+                memo:
+                  type: string
+                  example: Sent via Cosmos Voyager 🚀
+                chain_id:
+                  type: string
+                  example: Cosmos-Hub
+                account_number:
+                  type: string
+                  example: '0'
+                sequence:
+                  type: string
+                  example: '1'
+                gas:
+                  type: string
+                  example: '200000'
+                gas_adjustment:
+                  type: string
+                  example: '1.2'
+                fees:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      denom:
+                        type: string
+                        example: stake
+                      amount:
+                        type: string
+                        example: '50'
+                simulate:
+                  type: boolean
+                  example: false
+                  description: Estimate gas for a transaction (cannot be used in conjunction with generate_only)
+            voter:
+              type: string
+              description: bech32 encoded address
+              example: cosmos1depk54cuajgkzea6zpgkq36tnjwdzv4afc3d27
+            option:
+              type: string
+              example: 'yes'
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+            properties:
+              msg:
+                type: array
+                items:
+                  type: string
+              fee:
+                type: object
+                properties:
+                  gas:
+                    type: string
+                  amount:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        denom:
+                          type: string
+                          example: stake
+                        amount:
+                          type: string
+                          example: '50'
+              memo:
+                type: string
+              signature:
+                type: object
+                properties:
+                  signature:
+                    type: string
+                    example: MEUCIQD02fsDPra8MtbRsyB1w7bqTM55Wu138zQbFcWx4+CFyAIge5WNPfKIuvzBZ69MyqHsqD8S1IwiEp+iUb6VSdtlpgY=
+                  pub_key:
+                    type: object
+                    properties:
+                      type:
+                        type: string
+                        example: tendermint/PubKeySecp256k1
+                      value:
+                        type: string
+                        example: Avz04VhtKJh8ACCVzlI8aTosGy0ikFXKIVHQ3jKMrosH
+                  account_number:
+                    type: string
+                    example: '0'
+                  sequence:
+                    type: string
+                    example: '0'
+        '400':
+          description: Invalid proposal id or vote body
+        '401':
+          description: Key password is wrong
+        '500':
+          description: Internal Server Error
+  /gov/proposals/{proposalId}/votes/{voter}:
+    get:
+      deprecated: true
+      summary: Query vote
+      description: Query vote information by proposal Id and voter address
+      produces:
+      - application/json
+      tags:
+      - Governance
+      parameters:
+      - type: string
+        description: proposal id
+        name: proposalId
+        required: true
+        in: path
+        x-example: '2'
+      - type: string
+        description: Bech32 voter address
+        name: voter
+        required: true
+        in: path
+        x-example: cosmos16xyempempp92x9hyzz9wrgf94r6j9h5f06pxxv
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+            properties:
+              voter:
+                type: string
+              proposal_id:
+                type: string
+              option:
+                type: string
+        '400':
+          description: Invalid proposal id or voter address
+        '404':
+          description: Found no vote
+        '500':
+          description: Internal Server Error
+  /gov/proposals/{proposalId}/tally:
+    get:
+      deprecated: true
+      summary: Get a proposal's tally result at the current time
+      description: Gets a proposal's tally result at the current time. If the proposal is pending deposits (i.e status 'DepositPeriod') it returns an empty tally result.
+      produces:
+      - application/json
+      tags:
+      - Governance
+      parameters:
+      - type: string
+        description: proposal id
+        name: proposalId
+        required: true
+        in: path
+        x-example: '2'
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+            properties:
+              'yes':
+                type: string
+                example: '0.0000000000'
+              abstain:
+                type: string
+                example: '0.0000000000'
+              'no':
+                type: string
+                example: '0.0000000000'
+              no_with_veto:
+                type: string
+                example: '0.0000000000'
+        '400':
+          description: Invalid proposal id
+        '500':
+          description: Internal Server Error
+  /gov/parameters/deposit:
+    get:
+      deprecated: true
+      summary: Query governance deposit parameters
+      description: Query governance deposit parameters. The max_deposit_period units are in nanoseconds.
+      produces:
+      - application/json
+      tags:
+      - Governance
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+            properties:
+              min_deposit:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    denom:
+                      type: string
+                      example: stake
+                    amount:
+                      type: string
+                      example: '50'
+              max_deposit_period:
+                type: string
+                example: '86400000000000'
+        '400':
+          description: <other_path> is not a valid query request path
+        '404':
+          description: Found no deposit parameters
+        '500':
+          description: Internal Server Error
+  /gov/parameters/tallying:
+    get:
+      deprecated: true
+      summary: Query governance tally parameters
+      description: Query governance tally parameters
+      produces:
+      - application/json
+      tags:
+      - Governance
+      responses:
+        '200':
+          description: OK
+          schema:
+            properties:
+              threshold:
+                type: string
+                example: '0.5000000000'
+              veto:
+                type: string
+                example: '0.3340000000'
+              governance_penalty:
+                type: string
+                example: '0.0100000000'
+        '400':
+          description: <other_path> is not a valid query request path
+        '404':
+          description: Found no tally parameters
+        '500':
+          description: Internal Server Error
+  /gov/parameters/voting:
+    get:
+      deprecated: true
+      summary: Query governance voting parameters
+      description: Query governance voting parameters. The voting_period units are in nanoseconds.
+      produces:
+      - application/json
+      tags:
+      - Governance
+      responses:
+        '200':
+          description: OK
+          schema:
+            properties:
+              voting_period:
+                type: string
+                example: '86400000000000'
+        '400':
+          description: <other_path> is not a valid query request path
+        '404':
+          description: Found no voting parameters
+        '500':
+          description: Internal Server Error
+securityDefinitions:
+  kms:
+    type: basic

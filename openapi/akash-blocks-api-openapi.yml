@@ -1,0 +1,255 @@
+swagger: '2.0'
+info:
+  title: AKASH - gRPC Gateway docs Addresses Blocks API
+  description: A REST interface for state queries
+  version: 1.0.0
+tags:
+- name: Blocks
+paths:
+  /v1/blocks:
+    get:
+      summary: Get a list of recent blocks.
+      tags:
+      - Blocks
+      security: []
+      parameters:
+      - schema:
+          type: number
+          description: Number of blocks to return
+          minimum: 1
+          maximum: 100
+          example: 20
+          default: 20
+        required: false
+        name: limit
+        in: query
+      responses:
+        '200':
+          description: Returns block list
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    height:
+                      type: number
+                    proposer:
+                      type: object
+                      properties:
+                        address:
+                          type: string
+                        operatorAddress:
+                          type: string
+                        moniker:
+                          type: string
+                        avatarUrl:
+                          type: string
+                          nullable: true
+                      required:
+                      - address
+                      - operatorAddress
+                      - moniker
+                      - avatarUrl
+                    transactionCount:
+                      type: number
+                    totalTransactionCount:
+                      type: number
+                    datetime:
+                      type: string
+                  required:
+                  - height
+                  - proposer
+                  - transactionCount
+                  - totalTransactionCount
+                  - datetime
+  /v1/blocks/{height}:
+    get:
+      summary: Get a block by height.
+      tags:
+      - Blocks
+      security: []
+      parameters:
+      - schema:
+          type: number
+          nullable: true
+          description: Block Height
+          example: 12121212
+        required: false
+        name: height
+        in: path
+      responses:
+        '200':
+          description: Returns predicted block date
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  height:
+                    type: number
+                  datetime:
+                    type: string
+                  proposer:
+                    type: object
+                    properties:
+                      operatorAddress:
+                        type: string
+                      moniker:
+                        type: string
+                      avatarUrl:
+                        type: string
+                      address:
+                        type: string
+                    required:
+                    - operatorAddress
+                    - moniker
+                    - address
+                  hash:
+                    type: string
+                  gasUsed:
+                    type: number
+                  gasWanted:
+                    type: number
+                  transactions:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        hash:
+                          type: string
+                        isSuccess:
+                          type: boolean
+                        error:
+                          type: string
+                          nullable: true
+                        fee:
+                          type: number
+                        datetime:
+                          type: string
+                        messages:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              id:
+                                type: string
+                              type:
+                                type: string
+                              amount:
+                                type: number
+                            required:
+                            - id
+                            - type
+                            - amount
+                      required:
+                      - hash
+                      - isSuccess
+                      - fee
+                      - datetime
+                      - messages
+                required:
+                - height
+                - datetime
+                - proposer
+                - hash
+                - gasUsed
+                - gasWanted
+                - transactions
+        '400':
+          description: Invalid height
+        '404':
+          description: Block not found
+  /v1/predicted-block-date/{height}:
+    get:
+      summary: Get the estimated date of a future block.
+      tags:
+      - Blocks
+      security: []
+      parameters:
+      - schema:
+          type: number
+          description: Block height
+          example: 20000000
+        required: false
+        name: height
+        in: path
+      - schema:
+          type: number
+          default: 10000
+          description: Block window
+          example: 10000
+        required: false
+        name: blockWindow
+        in: query
+      responses:
+        '200':
+          description: Returns predicted block date
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  predictedDate:
+                    type: string
+                  height:
+                    type: number
+                    example: 10000000
+                  blockWindow:
+                    type: number
+                    example: 10000
+                required:
+                - predictedDate
+                - height
+                - blockWindow
+        '400':
+          description: Invalid height or block window
+  /v1/predicted-date-height/{timestamp}:
+    get:
+      summary: Get the estimated height of a future date and time.
+      tags:
+      - Blocks
+      security: []
+      parameters:
+      - schema:
+          type: number
+          description: Unix Timestamp
+          example: 1704392968
+        required: false
+        name: timestamp
+        in: path
+      - schema:
+          type: number
+          default: 10000
+          description: Block window
+          example: 10000
+        required: false
+        name: blockWindow
+        in: query
+      responses:
+        '200':
+          description: Returns predicted block height
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  predictedHeight:
+                    type: number
+                    example: 10000000
+                  date:
+                    type: string
+                    example: '2024-01-04T18:29:28.000Z'
+                  blockWindow:
+                    type: number
+                    example: 10000
+                required:
+                - predictedHeight
+                - date
+                - blockWindow
+        '400':
+          description: Invalid timestamp or block window
+securityDefinitions:
+  kms:
+    type: basic
