@@ -6,6 +6,19 @@ description: >-
   lower cost than traditional cloud providers. The platform offers REST APIs for
   deployment management, provider discovery, GPU availability, AI inference, and
   direct blockchain interaction via Cosmos SDK modules.
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 image: https://akash.network/favicon.ico
 tags:
   - Cloud Computing
@@ -27,171 +40,528 @@ created: "2026-06-13"
 modified: "2026-06-13"
 specificationVersion: "0.19"
 apis:
-  - name: Akash Console Deployment API
+- name: Akash Console Deployment API
+  description: >-
+    REST API for programmatic deployment management on Akash Network with managed wallets and credit-card
+    billing. Supports creating, listing, updating, and closing deployments via SDL manifests. Includes
+    bid management, lease creation, and escrow funding operations. Designed for SaaS platforms and non-crypto-native
+    users.
+  image: https://akash.network/favicon.ico
+  humanURL: https://akash.network/docs/api-documentation/console-api/
+  baseURL: https://console-api.akash.network
+  tags:
+  - Deployments
+  - Leases
+  - Bids
+  - Escrow
+  - Cloud
+  properties:
+  - type: Documentation
+    url: https://akash.network/docs/api-documentation/console-api/
+  - type: GettingStarted
+    url: https://akash.network/docs/api-documentation/console-api/getting-started
+  - type: ReferenceDocumentation
+    url: https://akash.network/docs/api-documentation/console-api/api-reference
+  contact:
+  - FN: Akash Network Support
+    url: https://akash.network/community
+  X-pricing:
+  - plans:
+    - name: Pay-As-You-Go
+      description: >-
+        Credit-card billing for managed wallet deployments. Minimum deposit $0.50. Billed in USD; API
+        converts to AKT/USDC on-chain automatically.
+      url: https://console.akash.network/
+      price: 0.0
+  X-rateLimit:
+  - rate:
+    - requests: 1
+      unit: second
+      notes: >-
+        Avoid polling faster than every 3 seconds. 429 TooManyRequests returned when rate exceeded. Implement
+        exponential backoff on 5xx errors.
+  X-authentication:
+  - type: x-api-key
     description: >-
-      REST API for programmatic deployment management on Akash Network with
-      managed wallets and credit-card billing. Supports creating, listing,
-      updating, and closing deployments via SDL manifests. Includes bid
-      management, lease creation, and escrow funding operations. Designed for
-      SaaS platforms and non-crypto-native users.
-    image: https://akash.network/favicon.ico
-    humanURL: https://akash.network/docs/api-documentation/console-api/
-    baseURL: https://console-api.akash.network
-    tags:
-      - Deployments
-      - Leases
-      - Bids
-      - Escrow
-      - Cloud
-    properties:
-      - type: Documentation
-        url: https://akash.network/docs/api-documentation/console-api/
-      - type: GettingStarted
-        url: https://akash.network/docs/api-documentation/console-api/getting-started
-      - type: ReferenceDocumentation
-        url: https://akash.network/docs/api-documentation/console-api/api-reference
-    contact:
-      - FN: Akash Network Support
-        url: https://akash.network/community
-    X-pricing:
-      - plans:
-        - name: Pay-As-You-Go
-          description: >-
-            Credit-card billing for managed wallet deployments. Minimum deposit
-            $0.50. Billed in USD; API converts to AKT/USDC on-chain
-            automatically.
-          url: https://console.akash.network/
-          price: 0.00
-    X-rateLimit:
-      - rate:
-        - requests: 1
-          unit: second
-          notes: >-
-            Avoid polling faster than every 3 seconds. 429 TooManyRequests
-            returned when rate exceeded. Implement exponential backoff on 5xx
-            errors.
-    X-authentication:
-      - type: x-api-key
-        description: >-
-          Pass API key via x-api-key header. Create and manage keys at
-          console.akash.network under Settings > API Keys.
-        url: https://console.akash.network/settings/api-keys
-
-  - name: Akash Console Network Data API
+      Pass API key via x-api-key header. Create and manage keys at console.akash.network under Settings
+      > API Keys.
+    url: https://console.akash.network/settings/api-keys
+- name: Akash Console Network Data API
+  description: >-
+    Publicly accessible indexed API for querying provider information, GPU availability, resource statistics,
+    and network-wide metrics. No authentication required. Returns real-time provider resource availability,
+    hardware specifications, uptime, and GPU models across the Akash Network marketplace.
+  image: https://akash.network/favicon.ico
+  humanURL: https://akash.network/docs/api-documentation/rest-api/providers-api/
+  baseURL: https://console-api.akash.network
+  tags:
+  - Providers
+  - GPU
+  - Network Stats
+  - Public
+  - Monitoring
+  properties:
+  - type: Documentation
+    url: https://akash.network/docs/api-documentation/rest-api/providers-api/
+  - type: GuidanceDocumentation
+    url: https://akash.network/docs/api-documentation/rest-api/gpu-availability-guide
+  contact:
+  - FN: Akash Network Support
+    url: https://akash.network/community
+  X-rateLimit:
+  - rate:
+    - requests: 0
+      unit: none
+      notes: >-
+        Public, unauthenticated API. No formal rate limits documented. Recommended to avoid excessive
+        polling.
+- name: Akash Blockchain REST API
+  description: >-
+    Direct REST access to Akash blockchain state via gRPC-Gateway on port 1317. Exposes Cosmos SDK modules
+    (auth, bank, staking, governance) and Akash-specific modules (deployment, market, provider, audit,
+    certificate, escrow). Supports querying chain state and submitting transactions. Swagger UI available
+    at /swagger/ on any running node.
+  image: https://akash.network/favicon.ico
+  humanURL: https://akash.network/docs/node-operators/architecture/api-layer/
+  baseURL: https://api.akashnet.net
+  tags:
+  - Blockchain
+  - Cosmos SDK
+  - Deployments
+  - Staking
+  - Governance
+  - gRPC-Gateway
+  properties:
+  - type: Documentation
+    url: https://akash.network/docs/node-operators/architecture/api-layer/
+  - type: ReferenceDocumentation
+    url: https://akash.network/docs/api-documentation/sdk/api-reference
+  contact:
+  - FN: Akash Network Support
+    url: https://akash.network/community
+  X-rateLimit:
+  - rate:
+    - requests: 10
+      unit: second
+      notes: >-
+        Rate limiting recommended via reverse proxy at 10 requests/second for production node setups.
+        Public community nodes may have independent limits.
+- name: AkashML Inference API
+  description: >-
+    OpenAI-compatible AI inference API providing access to open-source LLMs hosted on decentralized compute
+    across 80+ global datacenters. Supports chat completions with models including Llama 3.3-70B, DeepSeek
+    V3, Qwen3-30B-A3B, and others. Drop-in replacement for OpenAI API clients. New accounts receive $100
+    in free AI token credits.
+  image: https://akash.network/favicon.ico
+  humanURL: https://akash.network/blog/akashml-managed-ai-inference-on-the-decentralized-supercloud/
+  baseURL: https://api.akashml.com
+  tags:
+  - AI
+  - LLM
+  - Inference
+  - OpenAI Compatible
+  - Chat Completions
+  - Llama
+  - DeepSeek
+  properties:
+  - type: Documentation
+    url: https://akashml.com/
+  - type: Playground
+    url: https://playground.akashml.com
+  contact:
+  - FN: AkashML Support
+    url: https://akash.network/community
+  X-pricing:
+  - plans:
+    - name: Pay-Per-Token
+      description: >-
+        Pay-per-token pricing with no subscription. New accounts receive $100 in free credits. Pricing
+        varies by model.
+      url: https://akashml.com/
+      price: 0.13
+      unit: per million input tokens (Llama 3.3-70B)
+  X-rateLimit:
+  - rate:
+    - requests: 0
+      unit: none
+      notes: >-
+        No formal rate limits published. Service advertises no capacity caps. Sub-200ms response times
+        across 80+ global datacenters.
+  X-authentication:
+  - type: Bearer
     description: >-
-      Publicly accessible indexed API for querying provider information, GPU
-      availability, resource statistics, and network-wide metrics. No
-      authentication required. Returns real-time provider resource
-      availability, hardware specifications, uptime, and GPU models across the
-      Akash Network marketplace.
-    image: https://akash.network/favicon.ico
-    humanURL: https://akash.network/docs/api-documentation/rest-api/providers-api/
-    baseURL: https://console-api.akash.network
-    tags:
-      - Providers
-      - GPU
-      - Network Stats
-      - Public
-      - Monitoring
-    properties:
-      - type: Documentation
-        url: https://akash.network/docs/api-documentation/rest-api/providers-api/
-      - type: GuidanceDocumentation
-        url: https://akash.network/docs/api-documentation/rest-api/gpu-availability-guide
-    contact:
-      - FN: Akash Network Support
-        url: https://akash.network/community
-    X-rateLimit:
-      - rate:
-        - requests: 0
-          unit: none
-          notes: >-
-            Public, unauthenticated API. No formal rate limits documented.
-            Recommended to avoid excessive polling.
-
-  - name: Akash Blockchain REST API
-    description: >-
-      Direct REST access to Akash blockchain state via gRPC-Gateway on port
-      1317. Exposes Cosmos SDK modules (auth, bank, staking, governance) and
-      Akash-specific modules (deployment, market, provider, audit, certificate,
-      escrow). Supports querying chain state and submitting transactions.
-      Swagger UI available at /swagger/ on any running node.
-    image: https://akash.network/favicon.ico
-    humanURL: https://akash.network/docs/node-operators/architecture/api-layer/
-    baseURL: https://api.akashnet.net
-    tags:
-      - Blockchain
-      - Cosmos SDK
-      - Deployments
-      - Staking
-      - Governance
-      - gRPC-Gateway
-    properties:
-      - type: Documentation
-        url: https://akash.network/docs/node-operators/architecture/api-layer/
-      - type: ReferenceDocumentation
-        url: https://akash.network/docs/api-documentation/sdk/api-reference
-    contact:
-      - FN: Akash Network Support
-        url: https://akash.network/community
-    X-rateLimit:
-      - rate:
-        - requests: 10
-          unit: second
-          notes: >-
-            Rate limiting recommended via reverse proxy at 10 requests/second
-            for production node setups. Public community nodes may have
-            independent limits.
-
-  - name: AkashML Inference API
-    description: >-
-      OpenAI-compatible AI inference API providing access to open-source LLMs
-      hosted on decentralized compute across 80+ global datacenters. Supports
-      chat completions with models including Llama 3.3-70B, DeepSeek V3,
-      Qwen3-30B-A3B, and others. Drop-in replacement for OpenAI API clients.
-      New accounts receive $100 in free AI token credits.
-    image: https://akash.network/favicon.ico
-    humanURL: https://akash.network/blog/akashml-managed-ai-inference-on-the-decentralized-supercloud/
-    baseURL: https://api.akashml.com
-    tags:
-      - AI
-      - LLM
-      - Inference
-      - OpenAI Compatible
-      - Chat Completions
-      - Llama
-      - DeepSeek
-    properties:
-      - type: Documentation
-        url: https://akashml.com/
-      - type: Playground
-        url: https://playground.akashml.com
-    contact:
-      - FN: AkashML Support
-        url: https://akash.network/community
-    X-pricing:
-      - plans:
-        - name: Pay-Per-Token
-          description: >-
-            Pay-per-token pricing with no subscription. New accounts receive
-            $100 in free credits. Pricing varies by model.
-          url: https://akashml.com/
-          price: 0.13
-          unit: per million input tokens (Llama 3.3-70B)
-    X-rateLimit:
-      - rate:
-        - requests: 0
-          unit: none
-          notes: >-
-            No formal rate limits published. Service advertises no capacity
-            caps. Sub-200ms response times across 80+ global datacenters.
-    X-authentication:
-      - type: Bearer
-        description: >-
-          Bearer token authentication via Authorization header.
-          Obtain API key from akashml.com account dashboard.
-        url: https://akashml.com/
-
+      Bearer token authentication via Authorization header. Obtain API key from akashml.com account dashboard.
+    url: https://akashml.com/
+- aid: akash:akash-addresses-api
+  name: Akash Network Addresses API
+  description: The Addresses API from Akash Network — 3 operation(s) for addresses.
+  humanURL: https://akash.network/docs/api-documentation/console-api/
+  baseURL: https://console-api.akash.network
+  tags:
+  - Addresses
+  properties:
+  - type: OpenAPI
+    url: openapi/akash-addresses-api-openapi.yml
+- aid: akash:akash-alert-api
+  name: Akash Network Alert API
+  description: The Alert API from Akash Network — 2 operation(s) for alert.
+  humanURL: https://akash.network/docs/api-documentation/console-api/
+  baseURL: https://console-api.akash.network
+  tags:
+  - Alert
+  properties:
+  - type: OpenAPI
+    url: openapi/akash-alert-api-openapi.yml
+- aid: akash:akash-analytics-api
+  name: Akash Network Analytics API
+  description: The Analytics API from Akash Network — 9 operation(s) for analytics.
+  humanURL: https://akash.network/docs/api-documentation/console-api/
+  baseURL: https://console-api.akash.network
+  tags:
+  - Analytics
+  properties:
+  - type: OpenAPI
+    url: openapi/akash-analytics-api-openapi.yml
+- aid: akash:akash-api-keys-api
+  name: Akash Network API Keys API
+  description: The API Keys API from Akash Network — 2 operation(s) for api keys.
+  humanURL: https://akash.network/docs/api-documentation/console-api/
+  baseURL: https://console-api.akash.network
+  tags:
+  - API Keys
+  properties:
+  - type: OpenAPI
+    url: openapi/akash-api-keys-api-openapi.yml
+- aid: akash:akash-auth-api
+  name: Akash Network Auth API
+  description: The Auth API from Akash Network — 2 operation(s) for auth.
+  humanURL: https://akash.network/docs/api-documentation/console-api/
+  baseURL: https://console-api.akash.network
+  tags:
+  - Auth
+  properties:
+  - type: OpenAPI
+    url: openapi/akash-auth-api-openapi.yml
+- aid: akash:akash-bank-api
+  name: Akash Network Bank API
+  description: The Bank API from Akash Network — 4 operation(s) for bank.
+  humanURL: https://akash.network/docs/api-documentation/console-api/
+  baseURL: https://console-api.akash.network
+  tags:
+  - Bank
+  properties:
+  - type: OpenAPI
+    url: openapi/akash-bank-api-openapi.yml
+- aid: akash:akash-bid-screening-api
+  name: Akash Network Bid Screening API
+  description: The Bid Screening API from Akash Network — 1 operation(s) for bid screening.
+  humanURL: https://akash.network/docs/api-documentation/console-api/
+  baseURL: https://console-api.akash.network
+  tags:
+  - Bid Screening
+  properties:
+  - type: OpenAPI
+    url: openapi/akash-bid-screening-api-openapi.yml
+- aid: akash:akash-bids-api
+  name: Akash Network Bids API
+  description: The Bids API from Akash Network — 2 operation(s) for bids.
+  humanURL: https://akash.network/docs/api-documentation/console-api/
+  baseURL: https://console-api.akash.network
+  tags:
+  - Bids
+  properties:
+  - type: OpenAPI
+    url: openapi/akash-bids-api-openapi.yml
+- aid: akash:akash-billing-api
+  name: Akash Network Billing API
+  description: The Billing API from Akash Network — 2 operation(s) for billing.
+  humanURL: https://akash.network/docs/api-documentation/console-api/
+  baseURL: https://console-api.akash.network
+  tags:
+  - Billing
+  properties:
+  - type: OpenAPI
+    url: openapi/akash-billing-api-openapi.yml
+- aid: akash:akash-blocks-api
+  name: Akash Network Blocks API
+  description: The Blocks API from Akash Network — 4 operation(s) for blocks.
+  humanURL: https://akash.network/docs/api-documentation/console-api/
+  baseURL: https://console-api.akash.network
+  tags:
+  - Blocks
+  properties:
+  - type: OpenAPI
+    url: openapi/akash-blocks-api-openapi.yml
+- aid: akash:akash-certificate-api
+  name: Akash Network Certificate API
+  description: The Certificate API from Akash Network — 1 operation(s) for certificate.
+  humanURL: https://akash.network/docs/api-documentation/console-api/
+  baseURL: https://console-api.akash.network
+  tags:
+  - Certificate
+  properties:
+  - type: OpenAPI
+    url: openapi/akash-certificate-api-openapi.yml
+- aid: akash:akash-chain-api
+  name: Akash Network Chain API
+  description: The Chain API from Akash Network — 1 operation(s) for chain.
+  humanURL: https://akash.network/docs/api-documentation/console-api/
+  baseURL: https://console-api.akash.network
+  tags:
+  - Chain
+  properties:
+  - type: OpenAPI
+    url: openapi/akash-chain-api-openapi.yml
+- aid: akash:akash-deployment-settings-api
+  name: Akash Network Deployment Settings API
+  description: The Deployment Settings API from Akash Network — 4 operation(s) for deployment settings.
+  humanURL: https://akash.network/docs/api-documentation/console-api/
+  baseURL: https://console-api.akash.network
+  tags:
+  - Deployment Settings
+  properties:
+  - type: OpenAPI
+    url: openapi/akash-deployment-settings-api-openapi.yml
+- aid: akash:akash-deploymentalert-api
+  name: Akash Network DeploymentAlert API
+  description: The DeploymentAlert API from Akash Network — 1 operation(s) for deploymentalert.
+  humanURL: https://akash.network/docs/api-documentation/console-api/
+  baseURL: https://console-api.akash.network
+  tags:
+  - DeploymentAlert
+  properties:
+  - type: OpenAPI
+    url: openapi/akash-deploymentalert-api-openapi.yml
+- aid: akash:akash-deployments-api
+  name: Akash Network Deployments API
+  description: The Deployments API from Akash Network — 9 operation(s) for deployments.
+  humanURL: https://akash.network/docs/api-documentation/console-api/
+  baseURL: https://console-api.akash.network
+  tags:
+  - Deployments
+  properties:
+  - type: OpenAPI
+    url: openapi/akash-deployments-api-openapi.yml
+- aid: akash:akash-distribution-api
+  name: Akash Network Distribution API
+  description: The Distribution API from Akash Network — 8 operation(s) for distribution.
+  humanURL: https://akash.network/docs/api-documentation/console-api/
+  baseURL: https://console-api.akash.network
+  tags:
+  - Distribution
+  properties:
+  - type: OpenAPI
+    url: openapi/akash-distribution-api-openapi.yml
+- aid: akash:akash-gaia-rest-api
+  name: Akash Network Gaia REST API
+  description: The Gaia REST API from Akash Network — 1 operation(s) for gaia rest.
+  humanURL: https://akash.network/docs/api-documentation/console-api/
+  baseURL: https://console-api.akash.network
+  tags:
+  - Gaia REST
+  properties:
+  - type: OpenAPI
+    url: openapi/akash-gaia-rest-api-openapi.yml
+- aid: akash:akash-governance-api
+  name: Akash Network Governance API
+  description: The Governance API from Akash Network — 12 operation(s) for governance.
+  humanURL: https://akash.network/docs/api-documentation/console-api/
+  baseURL: https://console-api.akash.network
+  tags:
+  - Governance
+  properties:
+  - type: OpenAPI
+    url: openapi/akash-governance-api-openapi.yml
+- aid: akash:akash-gpu-api
+  name: Akash Network Gpu API
+  description: The Gpu API from Akash Network — 4 operation(s) for gpu.
+  humanURL: https://akash.network/docs/api-documentation/console-api/
+  baseURL: https://console-api.akash.network
+  tags:
+  - Gpu
+  properties:
+  - type: OpenAPI
+    url: openapi/akash-gpu-api-openapi.yml
+- aid: akash:akash-jwt-token-api
+  name: Akash Network JWT Token API
+  description: The JWT Token API from Akash Network — 1 operation(s) for jwt token.
+  humanURL: https://akash.network/docs/api-documentation/console-api/
+  baseURL: https://console-api.akash.network
+  tags:
+  - JWT Token
+  properties:
+  - type: OpenAPI
+    url: openapi/akash-jwt-token-api-openapi.yml
+- aid: akash:akash-leases-api
+  name: Akash Network Leases API
+  description: The Leases API from Akash Network — 2 operation(s) for leases.
+  humanURL: https://akash.network/docs/api-documentation/console-api/
+  baseURL: https://console-api.akash.network
+  tags:
+  - Leases
+  properties:
+  - type: OpenAPI
+    url: openapi/akash-leases-api-openapi.yml
+- aid: akash:akash-mint-api
+  name: Akash Network Mint API
+  description: The Mint API from Akash Network — 3 operation(s) for mint.
+  humanURL: https://akash.network/docs/api-documentation/console-api/
+  baseURL: https://console-api.akash.network
+  tags:
+  - Mint
+  properties:
+  - type: OpenAPI
+    url: openapi/akash-mint-api-openapi.yml
+- aid: akash:akash-notificationchannel-api
+  name: Akash Network NotificationChannel API
+  description: The NotificationChannel API from Akash Network — 3 operation(s) for notificationchannel.
+  humanURL: https://akash.network/docs/api-documentation/console-api/
+  baseURL: https://console-api.akash.network
+  tags:
+  - NotificationChannel
+  properties:
+  - type: OpenAPI
+    url: openapi/akash-notificationchannel-api-openapi.yml
+- aid: akash:akash-other-api
+  name: Akash Network Other API
+  description: The Other API from Akash Network — 3 operation(s) for other.
+  humanURL: https://akash.network/docs/api-documentation/console-api/
+  baseURL: https://console-api.akash.network
+  tags:
+  - Other
+  properties:
+  - type: OpenAPI
+    url: openapi/akash-other-api-openapi.yml
+- aid: akash:akash-payment-api
+  name: Akash Network Payment API
+  description: The Payment API from Akash Network — 11 operation(s) for payment.
+  humanURL: https://akash.network/docs/api-documentation/console-api/
+  baseURL: https://console-api.akash.network
+  tags:
+  - Payment
+  properties:
+  - type: OpenAPI
+    url: openapi/akash-payment-api-openapi.yml
+- aid: akash:akash-proposals-api
+  name: Akash Network Proposals API
+  description: The Proposals API from Akash Network — 2 operation(s) for proposals.
+  humanURL: https://akash.network/docs/api-documentation/console-api/
+  baseURL: https://console-api.akash.network
+  tags:
+  - Proposals
+  properties:
+  - type: OpenAPI
+    url: openapi/akash-proposals-api-openapi.yml
+- aid: akash:akash-providers-api
+  name: Akash Network Providers API
+  description: The Providers API from Akash Network — 10 operation(s) for providers.
+  humanURL: https://akash.network/docs/api-documentation/console-api/
+  baseURL: https://console-api.akash.network
+  tags:
+  - Providers
+  properties:
+  - type: OpenAPI
+    url: openapi/akash-providers-api-openapi.yml
+- aid: akash:akash-query-api
+  name: Akash Network Query API
+  description: The Query API from Akash Network — 74 operation(s) for query.
+  humanURL: https://akash.network/docs/api-documentation/console-api/
+  baseURL: https://console-api.akash.network
+  tags:
+  - Query
+  properties:
+  - type: OpenAPI
+    url: openapi/akash-query-api-openapi.yml
+- aid: akash:akash-service-api
+  name: Akash Network Service API
+  description: The Service API from Akash Network — 9 operation(s) for service.
+  humanURL: https://akash.network/docs/api-documentation/console-api/
+  baseURL: https://console-api.akash.network
+  tags:
+  - Service
+  properties:
+  - type: OpenAPI
+    url: openapi/akash-service-api-openapi.yml
+- aid: akash:akash-slashing-api
+  name: Akash Network Slashing API
+  description: The Slashing API from Akash Network — 3 operation(s) for slashing.
+  humanURL: https://akash.network/docs/api-documentation/console-api/
+  baseURL: https://console-api.akash.network
+  tags:
+  - Slashing
+  properties:
+  - type: OpenAPI
+    url: openapi/akash-slashing-api-openapi.yml
+- aid: akash:akash-staking-api
+  name: Akash Network Staking API
+  description: The Staking API from Akash Network — 14 operation(s) for staking.
+  humanURL: https://akash.network/docs/api-documentation/console-api/
+  baseURL: https://console-api.akash.network
+  tags:
+  - Staking
+  properties:
+  - type: OpenAPI
+    url: openapi/akash-staking-api-openapi.yml
+- aid: akash:akash-tendermint-rpc-api
+  name: Akash Network Tendermint RPC API
+  description: The Tendermint RPC API from Akash Network — 5 operation(s) for tendermint rpc.
+  humanURL: https://akash.network/docs/api-documentation/console-api/
+  baseURL: https://console-api.akash.network
+  tags:
+  - Tendermint RPC
+  properties:
+  - type: OpenAPI
+    url: openapi/akash-tendermint-rpc-api-openapi.yml
+- aid: akash:akash-transactions-api
+  name: Akash Network Transactions API
+  description: The Transactions API from Akash Network — 7 operation(s) for transactions.
+  humanURL: https://akash.network/docs/api-documentation/console-api/
+  baseURL: https://console-api.akash.network
+  tags:
+  - Transactions
+  properties:
+  - type: OpenAPI
+    url: openapi/akash-transactions-api-openapi.yml
+- aid: akash:akash-users-api
+  name: Akash Network Users API
+  description: The Users API from Akash Network — 18 operation(s) for users.
+  humanURL: https://akash.network/docs/api-documentation/console-api/
+  baseURL: https://console-api.akash.network
+  tags:
+  - Users
+  properties:
+  - type: OpenAPI
+    url: openapi/akash-users-api-openapi.yml
+- aid: akash:akash-validators-api
+  name: Akash Network Validators API
+  description: The Validators API from Akash Network — 2 operation(s) for validators.
+  humanURL: https://akash.network/docs/api-documentation/console-api/
+  baseURL: https://console-api.akash.network
+  tags:
+  - Validators
+  properties:
+  - type: OpenAPI
+    url: openapi/akash-validators-api-openapi.yml
+- aid: akash:akash-wallet-api
+  name: Akash Network Wallet API
+  description: The Wallet API from Akash Network — 4 operation(s) for wallet.
+  humanURL: https://akash.network/docs/api-documentation/console-api/
+  baseURL: https://console-api.akash.network
+  tags:
+  - Wallet
+  properties:
+  - type: OpenAPI
+    url: openapi/akash-wallet-api-openapi.yml
+- aid: akash:akash-walletsetting-api
+  name: Akash Network WalletSetting API
+  description: The WalletSetting API from Akash Network — 1 operation(s) for walletsetting.
+  humanURL: https://akash.network/docs/api-documentation/console-api/
+  baseURL: https://console-api.akash.network
+  tags:
+  - WalletSetting
+  properties:
+  - type: OpenAPI
+    url: openapi/akash-walletsetting-api-openapi.yml
 common:
   - type: AgenticAccess
     url: agentic-access/akash-agentic-access.yml
