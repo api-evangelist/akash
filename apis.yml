@@ -38,7 +38,7 @@ contact:
     email: hello@akash.network
 created: "2026-06-13"
 modified: "2026-06-13"
-specificationVersion: "0.19"
+specificationVersion: '0.23'
 apis:
 - name: Akash Console Deployment API
   description: >-
