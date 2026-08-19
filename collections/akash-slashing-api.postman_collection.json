@@ -1,0 +1,512 @@
+{
+  "item": [
+    {
+      "id": "d99bea6e-b393-4d95-9988-18be54a4e193",
+      "name": "Slashing",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "edd958a4-72b1-44ea-9714-84ab8f5cf94a",
+          "name": "Get sign info of given all validators",
+          "request": {
+            "name": "Get sign info of given all validators",
+            "description": {
+              "content": "Get sign info of all validators",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "slashing",
+                "signing_infos"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "(Required) Page number"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "(Required) Maximum number of items per page"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "682dab91-46e7-4ca7-97c0-87718476daa1",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "slashing",
+                    "signing_infos"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "5"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"start_height\": \"string\",\n    \"index_offset\": \"string\",\n    \"jailed_until\": \"string\",\n    \"missed_blocks_counter\": \"string\"\n  },\n  {\n    \"start_height\": \"string\",\n    \"index_offset\": \"string\",\n    \"jailed_until\": \"string\",\n    \"missed_blocks_counter\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4fb1ff77-a5e4-4ddb-acf5-ad2281039f70",
+              "name": "Invalid validator public key for one of the validators",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "slashing",
+                    "signing_infos"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "5"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f807832d-ba9e-472e-bb61-6f8feb74aefe",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "slashing",
+                    "signing_infos"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "5"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a2c7c036-24c8-4b9f-ad55-803a7bcc9766",
+          "name": "Unjail a jailed validator",
+          "request": {
+            "name": "Unjail a jailed validator",
+            "description": {
+              "content": "Send transaction to unjail a jailed validator",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "slashing",
+                "validators",
+                ":validatorAddr",
+                "unjail"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "validatorAddr",
+                  "description": "(Required) Bech32 validator address"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"base_req\": {\n    \"msg\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"fee\": {\n      \"gas\": \"<string>\",\n      \"amount\": [\n        {\n          \"denom\": \"<string>\",\n          \"amount\": \"<string>\"\n        },\n        {\n          \"denom\": \"<string>\",\n          \"amount\": \"<string>\"\n        }\n      ]\n    },\n    \"memo\": \"<string>\",\n    \"signature\": {\n      \"signature\": \"<string>\",\n      \"pub_key\": {\n        \"type\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      \"account_number\": \"<string>\",\n      \"sequence\": \"<string>\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "baa195fa-78bc-43e5-b920-7548b81c934a",
+              "name": "Tx was succesfully generated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "slashing",
+                    "validators",
+                    ":validatorAddr",
+                    "unjail"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "validatorAddr",
+                      "description": "(Required) Bech32 validator address"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"base_req\": {\n    \"msg\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"fee\": {\n      \"gas\": \"<string>\",\n      \"amount\": [\n        {\n          \"denom\": \"stake\",\n          \"amount\": \"50\"\n        },\n        {\n          \"denom\": \"stake\",\n          \"amount\": \"50\"\n        }\n      ]\n    },\n    \"memo\": \"<string>\",\n    \"signature\": {\n      \"signature\": \"MEUCIQD02fsDPra8MtbRsyB1w7bqTM55Wu138zQbFcWx4+CFyAIge5WNPfKIuvzBZ69MyqHsqD8S1IwiEp+iUb6VSdtlpgY=\",\n      \"pub_key\": {\n        \"type\": \"tendermint/PubKeySecp256k1\",\n        \"value\": \"Avz04VhtKJh8ACCVzlI8aTosGy0ikFXKIVHQ3jKMrosH\"\n      },\n      \"account_number\": \"0\",\n      \"sequence\": \"0\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"msg\": [\n    \"string\",\n    \"string\"\n  ],\n  \"fee\": {\n    \"gas\": \"string\",\n    \"amount\": [\n      {\n        \"denom\": \"stake\",\n        \"amount\": \"50\"\n      },\n      {\n        \"denom\": \"stake\",\n        \"amount\": \"50\"\n      }\n    ]\n  },\n  \"memo\": \"string\",\n  \"signature\": {\n    \"signature\": \"MEUCIQD02fsDPra8MtbRsyB1w7bqTM55Wu138zQbFcWx4+CFyAIge5WNPfKIuvzBZ69MyqHsqD8S1IwiEp+iUb6VSdtlpgY=\",\n    \"pub_key\": {\n      \"type\": \"tendermint/PubKeySecp256k1\",\n      \"value\": \"Avz04VhtKJh8ACCVzlI8aTosGy0ikFXKIVHQ3jKMrosH\"\n    },\n    \"account_number\": \"0\",\n    \"sequence\": \"0\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8144a145-5d76-4da7-8836-5b4bec794902",
+              "name": "Invalid validator address or base_req",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "slashing",
+                    "validators",
+                    ":validatorAddr",
+                    "unjail"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "validatorAddr",
+                      "description": "(Required) Bech32 validator address"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"base_req\": {\n    \"msg\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"fee\": {\n      \"gas\": \"<string>\",\n      \"amount\": [\n        {\n          \"denom\": \"stake\",\n          \"amount\": \"50\"\n        },\n        {\n          \"denom\": \"stake\",\n          \"amount\": \"50\"\n        }\n      ]\n    },\n    \"memo\": \"<string>\",\n    \"signature\": {\n      \"signature\": \"MEUCIQD02fsDPra8MtbRsyB1w7bqTM55Wu138zQbFcWx4+CFyAIge5WNPfKIuvzBZ69MyqHsqD8S1IwiEp+iUb6VSdtlpgY=\",\n      \"pub_key\": {\n        \"type\": \"tendermint/PubKeySecp256k1\",\n        \"value\": \"Avz04VhtKJh8ACCVzlI8aTosGy0ikFXKIVHQ3jKMrosH\"\n      },\n      \"account_number\": \"0\",\n      \"sequence\": \"0\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5031690c-b0db-43bb-91a5-5c16f42006f2",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "slashing",
+                    "validators",
+                    ":validatorAddr",
+                    "unjail"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "validatorAddr",
+                      "description": "(Required) Bech32 validator address"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"base_req\": {\n    \"msg\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"fee\": {\n      \"gas\": \"<string>\",\n      \"amount\": [\n        {\n          \"denom\": \"stake\",\n          \"amount\": \"50\"\n        },\n        {\n          \"denom\": \"stake\",\n          \"amount\": \"50\"\n        }\n      ]\n    },\n    \"memo\": \"<string>\",\n    \"signature\": {\n      \"signature\": \"MEUCIQD02fsDPra8MtbRsyB1w7bqTM55Wu138zQbFcWx4+CFyAIge5WNPfKIuvzBZ69MyqHsqD8S1IwiEp+iUb6VSdtlpgY=\",\n      \"pub_key\": {\n        \"type\": \"tendermint/PubKeySecp256k1\",\n        \"value\": \"Avz04VhtKJh8ACCVzlI8aTosGy0ikFXKIVHQ3jKMrosH\"\n      },\n      \"account_number\": \"0\",\n      \"sequence\": \"0\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cf51a0fe-022f-45f7-bdb3-9fe8ff6f3da0",
+          "name": "Get the current slashing parameters",
+          "request": {
+            "name": "Get the current slashing parameters",
+            "description": {},
+            "url": {
+              "path": [
+                "slashing",
+                "parameters"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f44b0bbc-7a2d-4c15-a65d-ef18472219c8",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "slashing",
+                    "parameters"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"max_evidence_age\": \"string\",\n  \"signed_blocks_window\": \"string\",\n  \"min_signed_per_window\": \"string\",\n  \"double_sign_unbond_duration\": \"string\",\n  \"downtime_unbond_duration\": \"string\",\n  \"slash_fraction_double_sign\": \"string\",\n  \"slash_fraction_downtime\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7146c7f5-e6c2-4555-af74-eb04964a6e95",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "slashing",
+                    "parameters"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "d36b6743-59db-4739-80dc-c5c4f5306617",
+    "name": "AKASH - gRPC Gateway docs Addresses Slashing API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "A REST interface for state queries",
+      "type": "text/plain"
+    }
+  }
+}

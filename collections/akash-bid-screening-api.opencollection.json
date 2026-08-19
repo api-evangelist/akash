@@ -1,0 +1,33 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "AKASH - gRPC Gateway docs Addresses Bid Screening API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Bid Screening",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Screen providers by deployment resource requirements",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/bid-screening",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Screen providers by deployment resource requirements"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

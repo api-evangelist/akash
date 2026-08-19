@@ -1,0 +1,89 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "AKASH - gRPC Gateway docs Addresses Tendermint RPC API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Tendermint RPC",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Syncing state of node",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/syncing"
+          },
+          "docs": "Get if the node is currently syning with other nodes"
+        },
+        {
+          "info": {
+            "name": "Get the latest block",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/blocks/latest"
+          },
+          "docs": "Get the latest block"
+        },
+        {
+          "info": {
+            "name": "Get a block at a certain height",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/blocks/:height",
+            "params": [
+              {
+                "name": "height",
+                "value": "",
+                "type": "path",
+                "description": "Block height"
+              }
+            ]
+          },
+          "docs": "Get a block at a certain height"
+        },
+        {
+          "info": {
+            "name": "Get the latest validator set",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/validatorsets/latest"
+          },
+          "docs": "Get the latest validator set"
+        },
+        {
+          "info": {
+            "name": "Get a validator set a certain height",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/validatorsets/:height",
+            "params": [
+              {
+                "name": "height",
+                "value": "",
+                "type": "path",
+                "description": "Block height"
+              }
+            ]
+          },
+          "docs": "Get a validator set a certain height"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

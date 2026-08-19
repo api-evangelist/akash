@@ -1,0 +1,628 @@
+{
+  "item": [
+    {
+      "id": "2233b7d3-4dcc-4764-b612-d36070153e1d",
+      "name": "Bank",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4afd254c-d65f-4d34-aca4-c026d86eabf9",
+          "name": "Get the account balances",
+          "request": {
+            "name": "Get the account balances",
+            "description": {},
+            "url": {
+              "path": [
+                "bank",
+                "balances",
+                ":address"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "address",
+                  "description": "(Required) Account address in bech32 format"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7b30eb7e-01d3-4c1e-8686-e558e6d082e6",
+              "name": "Account balances",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bank",
+                    "balances",
+                    ":address"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "address",
+                      "description": "(Required) Account address in bech32 format"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"denom\": \"stake\",\n    \"amount\": \"50\"\n  },\n  {\n    \"denom\": \"stake\",\n    \"amount\": \"50\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "62e2476b-9b44-442b-8e88-24bbb9f29803",
+              "name": "Server internal error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bank",
+                    "balances",
+                    ":address"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "address",
+                      "description": "(Required) Account address in bech32 format"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e3448df5-be0f-4e7f-b9dc-1e03ea76b551",
+          "name": "Send coins from one account to another",
+          "request": {
+            "name": "Send coins from one account to another",
+            "description": {},
+            "url": {
+              "path": [
+                "bank",
+                "accounts",
+                ":address",
+                "transfers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "address",
+                  "description": "(Required) Account address in bech32 format"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"base_req\": {\n    \"from\": \"<string>\",\n    \"memo\": \"<string>\",\n    \"chain_id\": \"<string>\",\n    \"account_number\": \"<string>\",\n    \"sequence\": \"<string>\",\n    \"gas\": \"<string>\",\n    \"gas_adjustment\": \"<string>\",\n    \"fees\": [\n      {\n        \"denom\": \"<string>\",\n        \"amount\": \"<string>\"\n      },\n      {\n        \"denom\": \"<string>\",\n        \"amount\": \"<string>\"\n      }\n    ],\n    \"simulate\": \"<boolean>\"\n  },\n  \"amount\": [\n    {\n      \"denom\": \"<string>\",\n      \"amount\": \"<string>\"\n    },\n    {\n      \"denom\": \"<string>\",\n      \"amount\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d16b668e-d582-49bf-bebb-1e12a568d52a",
+              "name": "Tx was succesfully generated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bank",
+                    "accounts",
+                    ":address",
+                    "transfers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "address",
+                      "description": "(Required) Account address in bech32 format"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"base_req\": {\n    \"from\": \"cosmos1g9ahr6xhht5rmqven628nklxluzyv8z9jqjcmc\",\n    \"memo\": \"Sent via Cosmos Voyager 🚀\",\n    \"chain_id\": \"Cosmos-Hub\",\n    \"account_number\": \"0\",\n    \"sequence\": \"1\",\n    \"gas\": \"200000\",\n    \"gas_adjustment\": \"1.2\",\n    \"fees\": [\n      {\n        \"denom\": \"stake\",\n        \"amount\": \"50\"\n      },\n      {\n        \"denom\": \"stake\",\n        \"amount\": \"50\"\n      }\n    ],\n    \"simulate\": false\n  },\n  \"amount\": [\n    {\n      \"denom\": \"stake\",\n      \"amount\": \"50\"\n    },\n    {\n      \"denom\": \"stake\",\n      \"amount\": \"50\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"msg\": [\n    \"string\",\n    \"string\"\n  ],\n  \"fee\": {\n    \"gas\": \"string\",\n    \"amount\": [\n      {\n        \"denom\": \"stake\",\n        \"amount\": \"50\"\n      },\n      {\n        \"denom\": \"stake\",\n        \"amount\": \"50\"\n      }\n    ]\n  },\n  \"memo\": \"string\",\n  \"signature\": {\n    \"signature\": \"MEUCIQD02fsDPra8MtbRsyB1w7bqTM55Wu138zQbFcWx4+CFyAIge5WNPfKIuvzBZ69MyqHsqD8S1IwiEp+iUb6VSdtlpgY=\",\n    \"pub_key\": {\n      \"type\": \"tendermint/PubKeySecp256k1\",\n      \"value\": \"Avz04VhtKJh8ACCVzlI8aTosGy0ikFXKIVHQ3jKMrosH\"\n    },\n    \"account_number\": \"0\",\n    \"sequence\": \"0\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c248ac05-87ed-416b-8832-c2358727f52d",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bank",
+                    "accounts",
+                    ":address",
+                    "transfers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "address",
+                      "description": "(Required) Account address in bech32 format"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"base_req\": {\n    \"from\": \"cosmos1g9ahr6xhht5rmqven628nklxluzyv8z9jqjcmc\",\n    \"memo\": \"Sent via Cosmos Voyager 🚀\",\n    \"chain_id\": \"Cosmos-Hub\",\n    \"account_number\": \"0\",\n    \"sequence\": \"1\",\n    \"gas\": \"200000\",\n    \"gas_adjustment\": \"1.2\",\n    \"fees\": [\n      {\n        \"denom\": \"stake\",\n        \"amount\": \"50\"\n      },\n      {\n        \"denom\": \"stake\",\n        \"amount\": \"50\"\n      }\n    ],\n    \"simulate\": false\n  },\n  \"amount\": [\n    {\n      \"denom\": \"stake\",\n      \"amount\": \"50\"\n    },\n    {\n      \"denom\": \"stake\",\n      \"amount\": \"50\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e136832f-cd52-472e-a79e-0c9c72c2245a",
+              "name": "Server internal error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bank",
+                    "accounts",
+                    ":address",
+                    "transfers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "address",
+                      "description": "(Required) Account address in bech32 format"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"base_req\": {\n    \"from\": \"cosmos1g9ahr6xhht5rmqven628nklxluzyv8z9jqjcmc\",\n    \"memo\": \"Sent via Cosmos Voyager 🚀\",\n    \"chain_id\": \"Cosmos-Hub\",\n    \"account_number\": \"0\",\n    \"sequence\": \"1\",\n    \"gas\": \"200000\",\n    \"gas_adjustment\": \"1.2\",\n    \"fees\": [\n      {\n        \"denom\": \"stake\",\n        \"amount\": \"50\"\n      },\n      {\n        \"denom\": \"stake\",\n        \"amount\": \"50\"\n      }\n    ],\n    \"simulate\": false\n  },\n  \"amount\": [\n    {\n      \"denom\": \"stake\",\n      \"amount\": \"50\"\n    },\n    {\n      \"denom\": \"stake\",\n      \"amount\": \"50\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6a403932-bdc8-4e59-b18f-38048f52721a",
+          "name": "Total supply of coins in the chain",
+          "request": {
+            "name": "Total supply of coins in the chain",
+            "description": {},
+            "url": {
+              "path": [
+                "bank",
+                "total"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "22f536e8-3abe-4dbc-b5f9-5026587dac14",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bank",
+                    "total"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"total\": [\n    {\n      \"denom\": \"stake\",\n      \"amount\": \"50\"\n    },\n    {\n      \"denom\": \"stake\",\n      \"amount\": \"50\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0ec85035-afde-4726-a77a-cc3795074f90",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bank",
+                    "total"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f675bd9d-9a4d-4917-be5f-1489de59ed96",
+          "name": "Total supply of a single coin denomination",
+          "request": {
+            "name": "Total supply of a single coin denomination",
+            "description": {},
+            "url": {
+              "path": [
+                "bank",
+                "total",
+                ":denomination"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "denomination",
+                  "description": "(Required) Coin denomination"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6b30c682-9bd1-4a70-968d-b74b3a9d1088",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bank",
+                    "total",
+                    ":denomination"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "denomination",
+                      "description": "(Required) Coin denomination"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a07ee242-bf58-42ae-88d6-2d3e38cedb29",
+              "name": "Invalid coin denomination",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bank",
+                    "total",
+                    ":denomination"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "denomination",
+                      "description": "(Required) Coin denomination"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a88d2816-5adf-4e19-9bbf-3a8d8c2f9d85",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bank",
+                    "total",
+                    ":denomination"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "denomination",
+                      "description": "(Required) Coin denomination"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "f79159b1-f1dd-4fee-b3b9-3d9b9c009af7",
+    "name": "AKASH - gRPC Gateway docs Addresses Bank API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "A REST interface for state queries",
+      "type": "text/plain"
+    }
+  }
+}

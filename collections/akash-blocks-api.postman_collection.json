@@ -1,0 +1,561 @@
+{
+  "item": [
+    {
+      "id": "772b87ad-6910-4db5-afba-a7f769ddc46c",
+      "name": "Blocks",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "06ad6f94-cdb9-4d84-9446-925143a3b239",
+          "name": "Get a list of recent blocks.",
+          "request": {
+            "name": "Get a list of recent blocks.",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "blocks"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "97d13960-b452-42bd-9056-dba482f9297c",
+              "name": "Returns block list",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "blocks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"height\": 3894.0765362106767,\n    \"proposer\": {\n      \"address\": \"string\",\n      \"operatorAddress\": \"string\",\n      \"moniker\": \"string\",\n      \"avatarUrl\": \"string\"\n    },\n    \"transactionCount\": 1028.3325715661883,\n    \"totalTransactionCount\": 2059.535422897749,\n    \"datetime\": \"string\"\n  },\n  {\n    \"height\": 4899.768801601084,\n    \"proposer\": {\n      \"address\": \"string\",\n      \"operatorAddress\": \"string\",\n      \"moniker\": \"string\",\n      \"avatarUrl\": \"string\"\n    },\n    \"transactionCount\": 7553.50735441512,\n    \"totalTransactionCount\": 6911.398171071172,\n    \"datetime\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "142c8266-76b5-4c78-9cff-daa2b7a23eda",
+          "name": "Get a block by height.",
+          "request": {
+            "name": "Get a block by height.",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "blocks",
+                ":height"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "height",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "25b222c0-21ed-4556-88d1-764a409cc092",
+              "name": "Returns predicted block date",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "blocks",
+                    ":height"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "height",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"height\": 3971.059779672621,\n  \"datetime\": \"string\",\n  \"proposer\": {\n    \"operatorAddress\": \"string\",\n    \"moniker\": \"string\",\n    \"address\": \"string\",\n    \"avatarUrl\": \"string\"\n  },\n  \"hash\": \"string\",\n  \"gasUsed\": 3416.110100171669,\n  \"gasWanted\": 7837.524531306443,\n  \"transactions\": [\n    {\n      \"hash\": \"string\",\n      \"isSuccess\": false,\n      \"fee\": 9754.482173554557,\n      \"datetime\": \"string\",\n      \"messages\": [\n        {\n          \"id\": \"string\",\n          \"type\": \"string\",\n          \"amount\": 5130.259997508137\n        },\n        {\n          \"id\": \"string\",\n          \"type\": \"string\",\n          \"amount\": 4402.573740740582\n        }\n      ],\n      \"error\": \"string\"\n    },\n    {\n      \"hash\": \"string\",\n      \"isSuccess\": true,\n      \"fee\": 2350.7610800868497,\n      \"datetime\": \"string\",\n      \"messages\": [\n        {\n          \"id\": \"string\",\n          \"type\": \"string\",\n          \"amount\": 1289.163637414884\n        },\n        {\n          \"id\": \"string\",\n          \"type\": \"string\",\n          \"amount\": 9134.127092078998\n        }\n      ],\n      \"error\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8e55ef0f-298b-43f0-9567-926b6f9e204d",
+              "name": "Invalid height",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "blocks",
+                    ":height"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "height",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4adab1ac-fa3c-4953-9a91-db80ace8fecb",
+              "name": "Block not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "blocks",
+                    ":height"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "height",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7ae5f05c-39cf-41ea-8731-b99a711dcd4a",
+          "name": "Get the estimated date of a future block.",
+          "request": {
+            "name": "Get the estimated date of a future block.",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "predicted-block-date",
+                ":height"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "blockWindow",
+                  "value": "10000"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "height",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9f5b85ec-3485-4e5b-9296-cff1b030c132",
+              "name": "Returns predicted block date",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "predicted-block-date",
+                    ":height"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "blockWindow",
+                      "value": "10000"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "height",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"predictedDate\": \"string\",\n  \"height\": 10000000,\n  \"blockWindow\": 10000\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "81ed62e2-d875-462f-85ca-44167a384298",
+              "name": "Invalid height or block window",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "predicted-block-date",
+                    ":height"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "blockWindow",
+                      "value": "10000"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "height",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d3a394a2-c3b6-4f89-ae80-53da0ab41fe1",
+          "name": "Get the estimated height of a future date and time.",
+          "request": {
+            "name": "Get the estimated height of a future date and time.",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "predicted-date-height",
+                ":timestamp"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "blockWindow",
+                  "value": "10000"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "timestamp",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1a101d14-4279-426d-a646-cbf581a075be",
+              "name": "Returns predicted block height",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "predicted-date-height",
+                    ":timestamp"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "blockWindow",
+                      "value": "10000"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "timestamp",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"predictedHeight\": 10000000,\n  \"date\": \"2024-01-04T18:29:28.000Z\",\n  \"blockWindow\": 10000\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a7ac3555-2386-4ac5-b0e3-841f1f59cf6a",
+              "name": "Invalid timestamp or block window",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "predicted-date-height",
+                    ":timestamp"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "blockWindow",
+                      "value": "10000"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "timestamp",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "03818f1d-a9ac-4454-8c14-adf43c9ba11f",
+    "name": "AKASH - gRPC Gateway docs Addresses Blocks API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "A REST interface for state queries",
+      "type": "text/plain"
+    }
+  }
+}

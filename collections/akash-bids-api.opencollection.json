@@ -1,0 +1,54 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "AKASH - gRPC Gateway docs Addresses Bids API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Bids",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List bids",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/bids",
+            "params": [
+              {
+                "name": "dseq",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List bids"
+        },
+        {
+          "info": {
+            "name": "List bids by dseq",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/bids/:dseq",
+            "params": [
+              {
+                "name": "dseq",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List bids by dseq"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

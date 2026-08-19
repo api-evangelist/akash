@@ -1,0 +1,1521 @@
+{
+  "item": [
+    {
+      "id": "87c512ff-77dd-498f-93bf-44dc924fe361",
+      "name": "Deployments",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c6622dc4-5801-42af-91fb-0473c7fe610e",
+          "name": "Get a deployment",
+          "request": {
+            "name": "Get a deployment",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "deployments",
+                ":dseq"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "dseq",
+                  "description": "(Required) Deployment sequence number"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "a1376ce2-e7d2-411b-8ee5-dcad1cee4700",
+              "name": "Returns deployment info",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "deployments",
+                    ":dseq"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dseq",
+                      "description": "(Required) Deployment sequence number"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"deployment\": {\n      \"id\": {\n        \"owner\": \"string\",\n        \"dseq\": \"ddddd\"\n      },\n      \"state\": \"string\",\n      \"hash\": \"string\",\n      \"created_at\": \"string\"\n    },\n    \"leases\": [\n      {\n        \"id\": {\n          \"owner\": \"string\",\n          \"dseq\": \"ddddddddd\",\n          \"gseq\": 1285.729306294665,\n          \"oseq\": 8613.329539804736,\n          \"provider\": \"string\",\n          \"bseq\": 7884.488519987356\n        },\n        \"state\": \"string\",\n        \"price\": {\n          \"denom\": \"string\",\n          \"amount\": \"string\"\n        },\n        \"created_at\": \"string\",\n        \"closed_on\": \"string\",\n        \"status\": {\n          \"forwarded_ports\": {\n            \"key_0\": [\n              {\n                \"port\": 2287.6146218780236,\n                \"externalPort\": 1937.6664323766956,\n                \"host\": \"string\",\n                \"available\": 3894.1263444109186\n              },\n              {\n                \"port\": 568.5283767299699,\n                \"externalPort\": 8059.245722519195,\n                \"host\": \"string\",\n                \"available\": 5906.972070167513\n              }\n            ],\n            \"key_1\": [\n              {\n                \"port\": 5408.260918601796,\n                \"externalPort\": 1487.0648559291199,\n                \"host\": \"string\",\n                \"available\": 2260.957925583984\n              },\n              {\n                \"port\": 7397.618877402152,\n                \"externalPort\": 1743.787845514889,\n                \"host\": \"string\",\n                \"available\": 6282.453449832974\n              }\n            ]\n          },\n          \"ips\": {\n            \"key_0\": [\n              {\n                \"IP\": \"string\",\n                \"Port\": 1528.4551022635073,\n                \"ExternalPort\": 6253.594213528682,\n                \"Protocol\": \"string\"\n              },\n              {\n                \"IP\": \"string\",\n                \"Port\": 1258.8435443551439,\n                \"ExternalPort\": 6817.210035788083,\n                \"Protocol\": \"string\"\n              }\n            ]\n          },\n          \"services\": {\n            \"key_0\": {\n              \"name\": \"string\",\n              \"available\": 71.76634576664065,\n              \"total\": 6187.6556529762975,\n              \"uris\": [\n                \"string\",\n                \"string\"\n              ],\n              \"observed_generation\": 9238.475180379524,\n              \"replicas\": 2799.6282748060075,\n              \"updated_replicas\": 3558.942797268071,\n              \"ready_replicas\": 1103.735686933257,\n              \"available_replicas\": 3980.430280296785\n            },\n            \"key_1\": {\n              \"name\": \"string\",\n              \"available\": 3880.981336957319,\n              \"total\": 300.6669364741454,\n              \"uris\": [\n                \"string\",\n                \"string\"\n              ],\n              \"observed_generation\": 5342.262079272724,\n              \"replicas\": 8268.40550047897,\n              \"updated_replicas\": 9331.070897650643,\n              \"ready_replicas\": 2303.659314767813,\n              \"available_replicas\": 2124.66612673747\n            }\n          }\n        },\n        \"reason\": \"string\"\n      },\n      {\n        \"id\": {\n          \"owner\": \"string\",\n          \"dseq\": \"ddddd\",\n          \"gseq\": 5731.1113306173975,\n          \"oseq\": 4365.760360410998,\n          \"provider\": \"string\",\n          \"bseq\": 7049.682405102005\n        },\n        \"state\": \"string\",\n        \"price\": {\n          \"denom\": \"string\",\n          \"amount\": \"string\"\n        },\n        \"created_at\": \"string\",\n        \"closed_on\": \"string\",\n        \"status\": {\n          \"forwarded_ports\": {\n            \"key_0\": [\n              {\n                \"port\": 7473.123673246938,\n                \"externalPort\": 7863.840329570231,\n                \"host\": \"string\",\n                \"available\": 6954.816900191219\n              },\n              {\n                \"port\": 8516.178340535871,\n                \"externalPort\": 6233.817792956684,\n                \"host\": \"string\",\n                \"available\": 6939.309472783592\n              }\n            ],\n            \"key_1\": [\n              {\n                \"port\": 9431.165889930446,\n                \"externalPort\": 4074.704332993384,\n                \"host\": \"string\",\n                \"available\": 2210.1473919143864\n              },\n              {\n                \"port\": 5564.229482387095,\n                \"externalPort\": 1907.8365390521035,\n                \"host\": \"string\",\n                \"available\": 1872.1333217214165\n              }\n            ]\n          },\n          \"ips\": {\n            \"key_0\": [\n              {\n                \"IP\": \"string\",\n                \"Port\": 7468.486007868621,\n                \"ExternalPort\": 8833.130972115156,\n                \"Protocol\": \"string\"\n              },\n              {\n                \"IP\": \"string\",\n                \"Port\": 4049.830223058241,\n                \"ExternalPort\": 1382.1609155366032,\n                \"Protocol\": \"string\"\n              }\n            ]\n          },\n          \"services\": {\n            \"key_0\": {\n              \"name\": \"string\",\n              \"available\": 4232.9034326439605,\n              \"total\": 7446.958320975583,\n              \"uris\": [\n                \"string\",\n                \"string\"\n              ],\n              \"observed_generation\": 6219.288971199631,\n              \"replicas\": 3198.5014291078405,\n              \"updated_replicas\": 6894.032876805719,\n              \"ready_replicas\": 4920.3054856844565,\n              \"available_replicas\": 9490.526954041563\n            },\n            \"key_1\": {\n              \"name\": \"string\",\n              \"available\": 8569.739412746983,\n              \"total\": 331.31838413410384,\n              \"uris\": [\n                \"string\",\n                \"string\"\n              ],\n              \"observed_generation\": 6647.368897992497,\n              \"replicas\": 7121.741175235431,\n              \"updated_replicas\": 4144.877232340227,\n              \"ready_replicas\": 5671.30917322697,\n              \"available_replicas\": 4588.159220914371\n            }\n          }\n        },\n        \"reason\": \"string\"\n      }\n    ],\n    \"escrow_account\": {\n      \"id\": {\n        \"scope\": \"string\",\n        \"xid\": \"string\"\n      },\n      \"state\": {\n        \"owner\": \"string\",\n        \"state\": \"string\",\n        \"transferred\": [\n          {\n            \"denom\": \"string\",\n            \"amount\": \"string\"\n          },\n          {\n            \"denom\": \"string\",\n            \"amount\": \"string\"\n          }\n        ],\n        \"settled_at\": \"string\",\n        \"funds\": [\n          {\n            \"denom\": \"string\",\n            \"amount\": \"string\"\n          },\n          {\n            \"denom\": \"string\",\n            \"amount\": \"string\"\n          }\n        ],\n        \"deposits\": [\n          {\n            \"owner\": \"string\",\n            \"height\": \"string\",\n            \"source\": \"string\",\n            \"balance\": {\n              \"denom\": \"string\",\n              \"amount\": \"string\"\n            }\n          },\n          {\n            \"owner\": \"string\",\n            \"height\": \"string\",\n            \"source\": \"string\",\n            \"balance\": {\n              \"denom\": \"string\",\n              \"amount\": \"string\"\n            }\n          }\n        ]\n      }\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "244dfc2a-6229-4342-b179-59fef2acb6fe",
+          "name": "Close a deployment",
+          "request": {
+            "name": "Close a deployment",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "deployments",
+                ":dseq"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "dseq",
+                  "description": "(Required) Deployment sequence number"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE"
+          },
+          "response": [
+            {
+              "id": "6e4daffc-3e8f-4c85-ba48-a041cc281827",
+              "name": "Deployment closed successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "deployments",
+                    ":dseq"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dseq",
+                      "description": "(Required) Deployment sequence number"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"success\": false\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a966cba5-dbf3-4449-8c51-c407341bbf2b",
+          "name": "Update a deployment",
+          "request": {
+            "name": "Update a deployment",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "deployments",
+                ":dseq"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "dseq",
+                  "description": "(Required) Deployment sequence number"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"data\": {\n    \"sdl\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "12416ab0-572b-46bf-889a-6aa2f51b0b4d",
+              "name": "Deployment updated successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "deployments",
+                    ":dseq"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dseq",
+                      "description": "(Required) Deployment sequence number"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"sdl\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"deployment\": {\n      \"id\": {\n        \"owner\": \"string\",\n        \"dseq\": \"ddddd\"\n      },\n      \"state\": \"string\",\n      \"hash\": \"string\",\n      \"created_at\": \"string\"\n    },\n    \"leases\": [\n      {\n        \"id\": {\n          \"owner\": \"string\",\n          \"dseq\": \"ddddddddd\",\n          \"gseq\": 1285.729306294665,\n          \"oseq\": 8613.329539804736,\n          \"provider\": \"string\",\n          \"bseq\": 7884.488519987356\n        },\n        \"state\": \"string\",\n        \"price\": {\n          \"denom\": \"string\",\n          \"amount\": \"string\"\n        },\n        \"created_at\": \"string\",\n        \"closed_on\": \"string\",\n        \"status\": {\n          \"forwarded_ports\": {\n            \"key_0\": [\n              {\n                \"port\": 2287.6146218780236,\n                \"externalPort\": 1937.6664323766956,\n                \"host\": \"string\",\n                \"available\": 3894.1263444109186\n              },\n              {\n                \"port\": 568.5283767299699,\n                \"externalPort\": 8059.245722519195,\n                \"host\": \"string\",\n                \"available\": 5906.972070167513\n              }\n            ],\n            \"key_1\": [\n              {\n                \"port\": 5408.260918601796,\n                \"externalPort\": 1487.0648559291199,\n                \"host\": \"string\",\n                \"available\": 2260.957925583984\n              },\n              {\n                \"port\": 7397.618877402152,\n                \"externalPort\": 1743.787845514889,\n                \"host\": \"string\",\n                \"available\": 6282.453449832974\n              }\n            ]\n          },\n          \"ips\": {\n            \"key_0\": [\n              {\n                \"IP\": \"string\",\n                \"Port\": 1528.4551022635073,\n                \"ExternalPort\": 6253.594213528682,\n                \"Protocol\": \"string\"\n              },\n              {\n                \"IP\": \"string\",\n                \"Port\": 1258.8435443551439,\n                \"ExternalPort\": 6817.210035788083,\n                \"Protocol\": \"string\"\n              }\n            ]\n          },\n          \"services\": {\n            \"key_0\": {\n              \"name\": \"string\",\n              \"available\": 71.76634576664065,\n              \"total\": 6187.6556529762975,\n              \"uris\": [\n                \"string\",\n                \"string\"\n              ],\n              \"observed_generation\": 9238.475180379524,\n              \"replicas\": 2799.6282748060075,\n              \"updated_replicas\": 3558.942797268071,\n              \"ready_replicas\": 1103.735686933257,\n              \"available_replicas\": 3980.430280296785\n            },\n            \"key_1\": {\n              \"name\": \"string\",\n              \"available\": 3880.981336957319,\n              \"total\": 300.6669364741454,\n              \"uris\": [\n                \"string\",\n                \"string\"\n              ],\n              \"observed_generation\": 5342.262079272724,\n              \"replicas\": 8268.40550047897,\n              \"updated_replicas\": 9331.070897650643,\n              \"ready_replicas\": 2303.659314767813,\n              \"available_replicas\": 2124.66612673747\n            }\n          }\n        },\n        \"reason\": \"string\"\n      },\n      {\n        \"id\": {\n          \"owner\": \"string\",\n          \"dseq\": \"ddddd\",\n          \"gseq\": 5731.1113306173975,\n          \"oseq\": 4365.760360410998,\n          \"provider\": \"string\",\n          \"bseq\": 7049.682405102005\n        },\n        \"state\": \"string\",\n        \"price\": {\n          \"denom\": \"string\",\n          \"amount\": \"string\"\n        },\n        \"created_at\": \"string\",\n        \"closed_on\": \"string\",\n        \"status\": {\n          \"forwarded_ports\": {\n            \"key_0\": [\n              {\n                \"port\": 7473.123673246938,\n                \"externalPort\": 7863.840329570231,\n                \"host\": \"string\",\n                \"available\": 6954.816900191219\n              },\n              {\n                \"port\": 8516.178340535871,\n                \"externalPort\": 6233.817792956684,\n                \"host\": \"string\",\n                \"available\": 6939.309472783592\n              }\n            ],\n            \"key_1\": [\n              {\n                \"port\": 9431.165889930446,\n                \"externalPort\": 4074.704332993384,\n                \"host\": \"string\",\n                \"available\": 2210.1473919143864\n              },\n              {\n                \"port\": 5564.229482387095,\n                \"externalPort\": 1907.8365390521035,\n                \"host\": \"string\",\n                \"available\": 1872.1333217214165\n              }\n            ]\n          },\n          \"ips\": {\n            \"key_0\": [\n              {\n                \"IP\": \"string\",\n                \"Port\": 7468.486007868621,\n                \"ExternalPort\": 8833.130972115156,\n                \"Protocol\": \"string\"\n              },\n              {\n                \"IP\": \"string\",\n                \"Port\": 4049.830223058241,\n                \"ExternalPort\": 1382.1609155366032,\n                \"Protocol\": \"string\"\n              }\n            ]\n          },\n          \"services\": {\n            \"key_0\": {\n              \"name\": \"string\",\n              \"available\": 4232.9034326439605,\n              \"total\": 7446.958320975583,\n              \"uris\": [\n                \"string\",\n                \"string\"\n              ],\n              \"observed_generation\": 6219.288971199631,\n              \"replicas\": 3198.5014291078405,\n              \"updated_replicas\": 6894.032876805719,\n              \"ready_replicas\": 4920.3054856844565,\n              \"available_replicas\": 9490.526954041563\n            },\n            \"key_1\": {\n              \"name\": \"string\",\n              \"available\": 8569.739412746983,\n              \"total\": 331.31838413410384,\n              \"uris\": [\n                \"string\",\n                \"string\"\n              ],\n              \"observed_generation\": 6647.368897992497,\n              \"replicas\": 7121.741175235431,\n              \"updated_replicas\": 4144.877232340227,\n              \"ready_replicas\": 5671.30917322697,\n              \"available_replicas\": 4588.159220914371\n            }\n          }\n        },\n        \"reason\": \"string\"\n      }\n    ],\n    \"escrow_account\": {\n      \"id\": {\n        \"scope\": \"string\",\n        \"xid\": \"string\"\n      },\n      \"state\": {\n        \"owner\": \"string\",\n        \"state\": \"string\",\n        \"transferred\": [\n          {\n            \"denom\": \"string\",\n            \"amount\": \"string\"\n          },\n          {\n            \"denom\": \"string\",\n            \"amount\": \"string\"\n          }\n        ],\n        \"settled_at\": \"string\",\n        \"funds\": [\n          {\n            \"denom\": \"string\",\n            \"amount\": \"string\"\n          },\n          {\n            \"denom\": \"string\",\n            \"amount\": \"string\"\n          }\n        ],\n        \"deposits\": [\n          {\n            \"owner\": \"string\",\n            \"height\": \"string\",\n            \"source\": \"string\",\n            \"balance\": {\n              \"denom\": \"string\",\n              \"amount\": \"string\"\n            }\n          },\n          {\n            \"owner\": \"string\",\n            \"height\": \"string\",\n            \"source\": \"string\",\n            \"balance\": {\n              \"denom\": \"string\",\n              \"amount\": \"string\"\n            }\n          }\n        ]\n      }\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ec1ebbec-fb86-40be-ae70-60847f9d85d0",
+          "name": "Create new deployment",
+          "request": {
+            "name": "Create new deployment",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "deployments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"data\": {\n    \"sdl\": \"<string>\",\n    \"deposit\": \"<number>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8feb8a29-17e3-4466-aab7-39709ec6a284",
+              "name": "Create deployment successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "deployments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"sdl\": \"<string>\",\n    \"deposit\": \"<number>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"dseq\": \"dddddddd\",\n    \"manifest\": \"string\",\n    \"signTx\": {\n      \"code\": 8861.04160269979,\n      \"transactionHash\": \"string\",\n      \"rawLog\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "eaf3a0b4-4e51-45fc-804c-75db1fe86f1b",
+          "name": "List deployments with pagination and filtering",
+          "request": {
+            "name": "List deployments with pagination and filtering",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "deployments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "skip",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "1000"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "8425854c-97f7-4949-b04c-d5494e1c030a",
+              "name": "Returns paginated list of deployments",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "deployments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "skip",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "1000"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"deployments\": [\n      {\n        \"deployment\": {\n          \"id\": {\n            \"owner\": \"string\",\n            \"dseq\": \"dddd\"\n          },\n          \"state\": \"string\",\n          \"hash\": \"string\",\n          \"created_at\": \"string\"\n        },\n        \"leases\": [\n          {\n            \"id\": {\n              \"owner\": \"string\",\n              \"dseq\": \"dddddddddd\",\n              \"gseq\": 42.08605276350696,\n              \"oseq\": 3031.975114099863,\n              \"provider\": \"string\",\n              \"bseq\": 5538.188362058627\n            },\n            \"state\": \"string\",\n            \"price\": {\n              \"denom\": \"string\",\n              \"amount\": \"string\"\n            },\n            \"created_at\": \"string\",\n            \"closed_on\": \"string\",\n            \"reason\": \"string\"\n          },\n          {\n            \"id\": {\n              \"owner\": \"string\",\n              \"dseq\": \"ddd\",\n              \"gseq\": 3799.941956559859,\n              \"oseq\": 1389.2149284684797,\n              \"provider\": \"string\",\n              \"bseq\": 9358.601982975639\n            },\n            \"state\": \"string\",\n            \"price\": {\n              \"denom\": \"string\",\n              \"amount\": \"string\"\n            },\n            \"created_at\": \"string\",\n            \"closed_on\": \"string\",\n            \"reason\": \"string\"\n          }\n        ],\n        \"escrow_account\": {\n          \"id\": {\n            \"scope\": \"string\",\n            \"xid\": \"string\"\n          },\n          \"state\": {\n            \"owner\": \"string\",\n            \"state\": \"string\",\n            \"transferred\": [\n              {\n                \"denom\": \"string\",\n                \"amount\": \"string\"\n              },\n              {\n                \"denom\": \"string\",\n                \"amount\": \"string\"\n              }\n            ],\n            \"settled_at\": \"string\",\n            \"funds\": [\n              {\n                \"denom\": \"string\",\n                \"amount\": \"string\"\n              },\n              {\n                \"denom\": \"string\",\n                \"amount\": \"string\"\n              }\n            ],\n            \"deposits\": [\n              {\n                \"owner\": \"string\",\n                \"height\": \"string\",\n                \"source\": \"string\",\n                \"balance\": {\n                  \"denom\": \"string\",\n                  \"amount\": \"string\"\n                }\n              },\n              {\n                \"owner\": \"string\",\n                \"height\": \"string\",\n                \"source\": \"string\",\n                \"balance\": {\n                  \"denom\": \"string\",\n                  \"amount\": \"string\"\n                }\n              }\n            ]\n          }\n        }\n      },\n      {\n        \"deployment\": {\n          \"id\": {\n            \"owner\": \"string\",\n            \"dseq\": \"dd\"\n          },\n          \"state\": \"string\",\n          \"hash\": \"string\",\n          \"created_at\": \"string\"\n        },\n        \"leases\": [\n          {\n            \"id\": {\n              \"owner\": \"string\",\n              \"dseq\": \"ddddd\",\n              \"gseq\": 4340.893661775191,\n              \"oseq\": 1752.3620407262829,\n              \"provider\": \"string\",\n              \"bseq\": 8909.573700556728\n            },\n            \"state\": \"string\",\n            \"price\": {\n              \"denom\": \"string\",\n              \"amount\": \"string\"\n            },\n            \"created_at\": \"string\",\n            \"closed_on\": \"string\",\n            \"reason\": \"string\"\n          },\n          {\n            \"id\": {\n              \"owner\": \"string\",\n              \"dseq\": \"ddddd\",\n              \"gseq\": 1475.160822589172,\n              \"oseq\": 2135.8778188246106,\n              \"provider\": \"string\",\n              \"bseq\": 4514.921599880103\n            },\n            \"state\": \"string\",\n            \"price\": {\n              \"denom\": \"string\",\n              \"amount\": \"string\"\n            },\n            \"created_at\": \"string\",\n            \"closed_on\": \"string\",\n            \"reason\": \"string\"\n          }\n        ],\n        \"escrow_account\": {\n          \"id\": {\n            \"scope\": \"string\",\n            \"xid\": \"string\"\n          },\n          \"state\": {\n            \"owner\": \"string\",\n            \"state\": \"string\",\n            \"transferred\": [\n              {\n                \"denom\": \"string\",\n                \"amount\": \"string\"\n              },\n              {\n                \"denom\": \"string\",\n                \"amount\": \"string\"\n              }\n            ],\n            \"settled_at\": \"string\",\n            \"funds\": [\n              {\n                \"denom\": \"string\",\n                \"amount\": \"string\"\n              },\n              {\n                \"denom\": \"string\",\n                \"amount\": \"string\"\n              }\n            ],\n            \"deposits\": [\n              {\n                \"owner\": \"string\",\n                \"height\": \"string\",\n                \"source\": \"string\",\n                \"balance\": {\n                  \"denom\": \"string\",\n                  \"amount\": \"string\"\n                }\n              },\n              {\n                \"owner\": \"string\",\n                \"height\": \"string\",\n                \"source\": \"string\",\n                \"balance\": {\n                  \"denom\": \"string\",\n                  \"amount\": \"string\"\n                }\n              }\n            ]\n          }\n        }\n      }\n    ],\n    \"pagination\": {\n      \"total\": 7025.236328546456,\n      \"skip\": 9411.701646433416,\n      \"limit\": 8254.80772321388,\n      \"hasMore\": false\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a8a68609-f568-4256-8519-64508bf023a4",
+          "name": "Deposit into a deployment",
+          "request": {
+            "name": "Deposit into a deployment",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "deposit-deployment"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"data\": {\n    \"dseq\": \"<string>\",\n    \"deposit\": \"<number>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d712754a-db35-41c8-bd3b-80fe004f7884",
+              "name": "Deposit successful",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "deposit-deployment"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"dseq\": \"<string>\",\n    \"deposit\": \"<number>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"deployment\": {\n      \"id\": {\n        \"owner\": \"string\",\n        \"dseq\": \"ddddd\"\n      },\n      \"state\": \"string\",\n      \"hash\": \"string\",\n      \"created_at\": \"string\"\n    },\n    \"leases\": [\n      {\n        \"id\": {\n          \"owner\": \"string\",\n          \"dseq\": \"ddddddddd\",\n          \"gseq\": 1285.729306294665,\n          \"oseq\": 8613.329539804736,\n          \"provider\": \"string\",\n          \"bseq\": 7884.488519987356\n        },\n        \"state\": \"string\",\n        \"price\": {\n          \"denom\": \"string\",\n          \"amount\": \"string\"\n        },\n        \"created_at\": \"string\",\n        \"closed_on\": \"string\",\n        \"status\": {\n          \"forwarded_ports\": {\n            \"key_0\": [\n              {\n                \"port\": 2287.6146218780236,\n                \"externalPort\": 1937.6664323766956,\n                \"host\": \"string\",\n                \"available\": 3894.1263444109186\n              },\n              {\n                \"port\": 568.5283767299699,\n                \"externalPort\": 8059.245722519195,\n                \"host\": \"string\",\n                \"available\": 5906.972070167513\n              }\n            ],\n            \"key_1\": [\n              {\n                \"port\": 5408.260918601796,\n                \"externalPort\": 1487.0648559291199,\n                \"host\": \"string\",\n                \"available\": 2260.957925583984\n              },\n              {\n                \"port\": 7397.618877402152,\n                \"externalPort\": 1743.787845514889,\n                \"host\": \"string\",\n                \"available\": 6282.453449832974\n              }\n            ]\n          },\n          \"ips\": {\n            \"key_0\": [\n              {\n                \"IP\": \"string\",\n                \"Port\": 1528.4551022635073,\n                \"ExternalPort\": 6253.594213528682,\n                \"Protocol\": \"string\"\n              },\n              {\n                \"IP\": \"string\",\n                \"Port\": 1258.8435443551439,\n                \"ExternalPort\": 6817.210035788083,\n                \"Protocol\": \"string\"\n              }\n            ]\n          },\n          \"services\": {\n            \"key_0\": {\n              \"name\": \"string\",\n              \"available\": 71.76634576664065,\n              \"total\": 6187.6556529762975,\n              \"uris\": [\n                \"string\",\n                \"string\"\n              ],\n              \"observed_generation\": 9238.475180379524,\n              \"replicas\": 2799.6282748060075,\n              \"updated_replicas\": 3558.942797268071,\n              \"ready_replicas\": 1103.735686933257,\n              \"available_replicas\": 3980.430280296785\n            },\n            \"key_1\": {\n              \"name\": \"string\",\n              \"available\": 3880.981336957319,\n              \"total\": 300.6669364741454,\n              \"uris\": [\n                \"string\",\n                \"string\"\n              ],\n              \"observed_generation\": 5342.262079272724,\n              \"replicas\": 8268.40550047897,\n              \"updated_replicas\": 9331.070897650643,\n              \"ready_replicas\": 2303.659314767813,\n              \"available_replicas\": 2124.66612673747\n            }\n          }\n        },\n        \"reason\": \"string\"\n      },\n      {\n        \"id\": {\n          \"owner\": \"string\",\n          \"dseq\": \"ddddd\",\n          \"gseq\": 5731.1113306173975,\n          \"oseq\": 4365.760360410998,\n          \"provider\": \"string\",\n          \"bseq\": 7049.682405102005\n        },\n        \"state\": \"string\",\n        \"price\": {\n          \"denom\": \"string\",\n          \"amount\": \"string\"\n        },\n        \"created_at\": \"string\",\n        \"closed_on\": \"string\",\n        \"status\": {\n          \"forwarded_ports\": {\n            \"key_0\": [\n              {\n                \"port\": 7473.123673246938,\n                \"externalPort\": 7863.840329570231,\n                \"host\": \"string\",\n                \"available\": 6954.816900191219\n              },\n              {\n                \"port\": 8516.178340535871,\n                \"externalPort\": 6233.817792956684,\n                \"host\": \"string\",\n                \"available\": 6939.309472783592\n              }\n            ],\n            \"key_1\": [\n              {\n                \"port\": 9431.165889930446,\n                \"externalPort\": 4074.704332993384,\n                \"host\": \"string\",\n                \"available\": 2210.1473919143864\n              },\n              {\n                \"port\": 5564.229482387095,\n                \"externalPort\": 1907.8365390521035,\n                \"host\": \"string\",\n                \"available\": 1872.1333217214165\n              }\n            ]\n          },\n          \"ips\": {\n            \"key_0\": [\n              {\n                \"IP\": \"string\",\n                \"Port\": 7468.486007868621,\n                \"ExternalPort\": 8833.130972115156,\n                \"Protocol\": \"string\"\n              },\n              {\n                \"IP\": \"string\",\n                \"Port\": 4049.830223058241,\n                \"ExternalPort\": 1382.1609155366032,\n                \"Protocol\": \"string\"\n              }\n            ]\n          },\n          \"services\": {\n            \"key_0\": {\n              \"name\": \"string\",\n              \"available\": 4232.9034326439605,\n              \"total\": 7446.958320975583,\n              \"uris\": [\n                \"string\",\n                \"string\"\n              ],\n              \"observed_generation\": 6219.288971199631,\n              \"replicas\": 3198.5014291078405,\n              \"updated_replicas\": 6894.032876805719,\n              \"ready_replicas\": 4920.3054856844565,\n              \"available_replicas\": 9490.526954041563\n            },\n            \"key_1\": {\n              \"name\": \"string\",\n              \"available\": 8569.739412746983,\n              \"total\": 331.31838413410384,\n              \"uris\": [\n                \"string\",\n                \"string\"\n              ],\n              \"observed_generation\": 6647.368897992497,\n              \"replicas\": 7121.741175235431,\n              \"updated_replicas\": 4144.877232340227,\n              \"ready_replicas\": 5671.30917322697,\n              \"available_replicas\": 4588.159220914371\n            }\n          }\n        },\n        \"reason\": \"string\"\n      }\n    ],\n    \"escrow_account\": {\n      \"id\": {\n        \"scope\": \"string\",\n        \"xid\": \"string\"\n      },\n      \"state\": {\n        \"owner\": \"string\",\n        \"state\": \"string\",\n        \"transferred\": [\n          {\n            \"denom\": \"string\",\n            \"amount\": \"string\"\n          },\n          {\n            \"denom\": \"string\",\n            \"amount\": \"string\"\n          }\n        ],\n        \"settled_at\": \"string\",\n        \"funds\": [\n          {\n            \"denom\": \"string\",\n            \"amount\": \"string\"\n          },\n          {\n            \"denom\": \"string\",\n            \"amount\": \"string\"\n          }\n        ],\n        \"deposits\": [\n          {\n            \"owner\": \"string\",\n            \"height\": \"string\",\n            \"source\": \"string\",\n            \"balance\": {\n              \"denom\": \"string\",\n              \"amount\": \"string\"\n            }\n          },\n          {\n            \"owner\": \"string\",\n            \"height\": \"string\",\n            \"source\": \"string\",\n            \"balance\": {\n              \"denom\": \"string\",\n              \"amount\": \"string\"\n            }\n          }\n        ]\n      }\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4b5b1a04-0a6c-4220-acb5-6e1d770f8059",
+          "name": "Get a list of deployments by owner address.",
+          "request": {
+            "name": "Get a list of deployments by owner address.",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "addresses",
+                ":address",
+                "deployments",
+                ":skip",
+                ":limit"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "reverseSorting",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "address",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "skip",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "limit",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "578a6459-13bd-473f-a54b-703a001cf637",
+              "name": "Returns deployment list",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "addresses",
+                    ":address",
+                    "deployments",
+                    ":skip",
+                    ":limit"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "status",
+                      "value": "closed"
+                    },
+                    {
+                      "key": "reverseSorting",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "address",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "skip",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "limit",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 6339.140983385707,\n  \"results\": [\n    {\n      \"owner\": \"string\",\n      \"dseq\": \"ddd\",\n      \"status\": \"string\",\n      \"createdHeight\": 6905.895792019909,\n      \"cpuUnits\": 9154.299069699224,\n      \"gpuUnits\": 2575.419217333075,\n      \"memoryQuantity\": 2720.553110900491,\n      \"storageQuantity\": 9620.968587545281,\n      \"leases\": [\n        {\n          \"id\": \"string\",\n          \"owner\": \"string\",\n          \"dseq\": \"ddddd\",\n          \"gseq\": 9925.372165166309,\n          \"oseq\": 7633.3484998031845,\n          \"state\": \"string\",\n          \"price\": {\n            \"denom\": \"string\",\n            \"amount\": \"string\"\n          },\n          \"provider\": {\n            \"address\": \"string\",\n            \"hostUri\": \"string\"\n          }\n        },\n        {\n          \"id\": \"string\",\n          \"owner\": \"string\",\n          \"dseq\": \"ddd\",\n          \"gseq\": 7323.773544092034,\n          \"oseq\": 9209.031891147526,\n          \"state\": \"string\",\n          \"price\": {\n            \"denom\": \"string\",\n            \"amount\": \"string\"\n          },\n          \"provider\": {\n            \"address\": \"string\",\n            \"hostUri\": \"string\"\n          }\n        }\n      ]\n    },\n    {\n      \"owner\": \"string\",\n      \"dseq\": \"dddd\",\n      \"status\": \"string\",\n      \"createdHeight\": 8635.975845935516,\n      \"cpuUnits\": 8093.031422051898,\n      \"gpuUnits\": 2959.3650570448935,\n      \"memoryQuantity\": 9570.294753817037,\n      \"storageQuantity\": 8149.18103656153,\n      \"leases\": [\n        {\n          \"id\": \"string\",\n          \"owner\": \"string\",\n          \"dseq\": \"d\",\n          \"gseq\": 761.9859211528745,\n          \"oseq\": 3155.187317378557,\n          \"state\": \"string\",\n          \"price\": {\n            \"denom\": \"string\",\n            \"amount\": \"string\"\n          },\n          \"provider\": {\n            \"address\": \"string\",\n            \"hostUri\": \"string\"\n          }\n        },\n        {\n          \"id\": \"string\",\n          \"owner\": \"string\",\n          \"dseq\": \"ddddddddddd\",\n          \"gseq\": 7597.500677835373,\n          \"oseq\": 9316.245992063077,\n          \"state\": \"string\",\n          \"price\": {\n            \"denom\": \"string\",\n            \"amount\": \"string\"\n          },\n          \"provider\": {\n            \"address\": \"string\",\n            \"hostUri\": \"string\"\n          }\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6ef2aa8e-3e95-4e71-aae8-344e94baccaf",
+              "name": "Invalid address",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "addresses",
+                    ":address",
+                    "deployments",
+                    ":skip",
+                    ":limit"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "status",
+                      "value": "closed"
+                    },
+                    {
+                      "key": "reverseSorting",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "address",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "skip",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "limit",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "17b28ebb-4ed2-415e-8282-5a78e7131e53",
+          "name": "Get deployment details",
+          "request": {
+            "name": "Get deployment details",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "deployment",
+                ":owner",
+                ":dseq"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "owner",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "dseq",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7e0baf3c-c819-4543-96b7-24f00945a8bd",
+              "name": "Returns deployment details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "deployment",
+                    ":owner",
+                    ":dseq"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "owner",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dseq",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"owner\": \"string\",\n  \"dseq\": \"dddd\",\n  \"balance\": 3718.4355143009752,\n  \"denom\": \"string\",\n  \"status\": \"string\",\n  \"totalMonthlyCostUDenom\": 4299.972698814152,\n  \"leases\": [\n    {\n      \"gseq\": 6062.256696025743,\n      \"oseq\": 6632.279761836369,\n      \"provider\": {\n        \"address\": \"string\",\n        \"hostUri\": \"string\",\n        \"isDeleted\": true,\n        \"attributes\": [\n          {\n            \"key\": \"string\",\n            \"value\": \"string\"\n          },\n          {\n            \"key\": \"string\",\n            \"value\": \"string\"\n          }\n        ]\n      },\n      \"status\": \"string\",\n      \"monthlyCostUDenom\": 4408.882870406165,\n      \"cpuUnits\": 8944.189543090148,\n      \"gpuUnits\": 8357.009372313865,\n      \"memoryQuantity\": 83.05166947823794,\n      \"storageQuantity\": 5374.468770544517\n    },\n    {\n      \"gseq\": 1929.1985182138426,\n      \"oseq\": 5986.292383729747,\n      \"provider\": {\n        \"address\": \"string\",\n        \"hostUri\": \"string\",\n        \"isDeleted\": true,\n        \"attributes\": [\n          {\n            \"key\": \"string\",\n            \"value\": \"string\"\n          },\n          {\n            \"key\": \"string\",\n            \"value\": \"string\"\n          }\n        ]\n      },\n      \"status\": \"string\",\n      \"monthlyCostUDenom\": 9237.267854271682,\n      \"cpuUnits\": 1897.0433534831254,\n      \"gpuUnits\": 3932.1402240999614,\n      \"memoryQuantity\": 5838.602086573797,\n      \"storageQuantity\": 5738.846274025621\n    }\n  ],\n  \"events\": [\n    {\n      \"txHash\": \"string\",\n      \"date\": \"string\",\n      \"type\": \"string\"\n    },\n    {\n      \"txHash\": \"string\",\n      \"date\": \"string\",\n      \"type\": \"string\"\n    }\n  ],\n  \"other\": {\n    \"deployment\": {\n      \"id\": {\n        \"owner\": \"string\",\n        \"dseq\": \"string\"\n      },\n      \"state\": \"string\",\n      \"hash\": \"string\",\n      \"created_at\": \"string\"\n    },\n    \"groups\": [\n      {\n        \"id\": {\n          \"owner\": \"string\",\n          \"dseq\": \"string\",\n          \"gseq\": 2225.8717552286657\n        },\n        \"state\": \"string\",\n        \"group_spec\": {\n          \"name\": \"string\",\n          \"requirements\": {\n            \"signed_by\": {\n              \"all_of\": [\n                \"string\",\n                \"string\"\n              ],\n              \"any_of\": [\n                \"string\",\n                \"string\"\n              ]\n            },\n            \"attributes\": [\n              {\n                \"key\": \"string\",\n                \"value\": \"string\"\n              },\n              {\n                \"key\": \"string\",\n                \"value\": \"string\"\n              }\n            ]\n          },\n          \"resources\": [\n            {\n              \"resource\": {\n                \"id\": 304.2371367328511,\n                \"cpu\": {\n                  \"units\": {\n                    \"val\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"attributes\": [\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  ]\n                },\n                \"memory\": {\n                  \"quantity\": {\n                    \"val\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"attributes\": [\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  ]\n                },\n                \"storage\": [\n                  {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"quantity\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"attributes\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"quantity\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"attributes\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  }\n                ],\n                \"gpu\": {\n                  \"units\": {\n                    \"val\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"attributes\": [\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  ]\n                },\n                \"endpoints\": [\n                  {\n                    \"kind\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"sequence_number\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  {\n                    \"kind\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"sequence_number\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  }\n                ]\n              },\n              \"count\": 4856.254037936724,\n              \"price\": {\n                \"denom\": \"string\",\n                \"amount\": \"string\"\n              }\n            },\n            {\n              \"resource\": {\n                \"id\": 6952.781377826776,\n                \"cpu\": {\n                  \"units\": {\n                    \"val\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"attributes\": [\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  ]\n                },\n                \"memory\": {\n                  \"quantity\": {\n                    \"val\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"attributes\": [\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  ]\n                },\n                \"storage\": [\n                  {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"quantity\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"attributes\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"quantity\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"attributes\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  }\n                ],\n                \"gpu\": {\n                  \"units\": {\n                    \"val\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"attributes\": [\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  ]\n                },\n                \"endpoints\": [\n                  {\n                    \"kind\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"sequence_number\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  {\n                    \"kind\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"sequence_number\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  }\n                ]\n              },\n              \"count\": 9985.414550141517,\n              \"price\": {\n                \"denom\": \"string\",\n                \"amount\": \"string\"\n              }\n            }\n          ]\n        },\n        \"created_at\": \"string\"\n      },\n      {\n        \"id\": {\n          \"owner\": \"string\",\n          \"dseq\": \"string\",\n          \"gseq\": 2461.751795537923\n        },\n        \"state\": \"string\",\n        \"group_spec\": {\n          \"name\": \"string\",\n          \"requirements\": {\n            \"signed_by\": {\n              \"all_of\": [\n                \"string\",\n                \"string\"\n              ],\n              \"any_of\": [\n                \"string\",\n                \"string\"\n              ]\n            },\n            \"attributes\": [\n              {\n                \"key\": \"string\",\n                \"value\": \"string\"\n              },\n              {\n                \"key\": \"string\",\n                \"value\": \"string\"\n              }\n            ]\n          },\n          \"resources\": [\n            {\n              \"resource\": {\n                \"id\": 7935.431146301117,\n                \"cpu\": {\n                  \"units\": {\n                    \"val\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"attributes\": [\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  ]\n                },\n                \"memory\": {\n                  \"quantity\": {\n                    \"val\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"attributes\": [\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  ]\n                },\n                \"storage\": [\n                  {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"quantity\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"attributes\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"quantity\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"attributes\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  }\n                ],\n                \"gpu\": {\n                  \"units\": {\n                    \"val\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"attributes\": [\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  ]\n                },\n                \"endpoints\": [\n                  {\n                    \"kind\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"sequence_number\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  {\n                    \"kind\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"sequence_number\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  }\n                ]\n              },\n              \"count\": 7752.278413676251,\n              \"price\": {\n                \"denom\": \"string\",\n                \"amount\": \"string\"\n              }\n            },\n            {\n              \"resource\": {\n                \"id\": 2689.3069981701747,\n                \"cpu\": {\n                  \"units\": {\n                    \"val\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"attributes\": [\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  ]\n                },\n                \"memory\": {\n                  \"quantity\": {\n                    \"val\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"attributes\": [\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  ]\n                },\n                \"storage\": [\n                  {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"quantity\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"attributes\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  {\n                    \"name\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"quantity\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"attributes\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  }\n                ],\n                \"gpu\": {\n                  \"units\": {\n                    \"val\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"attributes\": [\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  ]\n                },\n                \"endpoints\": [\n                  {\n                    \"kind\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"sequence_number\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  {\n                    \"kind\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"sequence_number\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  }\n                ]\n              },\n              \"count\": 1153.848039521932,\n              \"price\": {\n                \"denom\": \"string\",\n                \"amount\": \"string\"\n              }\n            }\n          ]\n        },\n        \"created_at\": \"string\"\n      }\n    ],\n    \"escrow_account\": {\n      \"id\": {\n        \"scope\": \"string\",\n        \"xid\": \"string\"\n      },\n      \"state\": {\n        \"owner\": \"string\",\n        \"state\": \"string\",\n        \"transferred\": [\n          {\n            \"denom\": \"string\",\n            \"amount\": \"string\"\n          },\n          {\n            \"denom\": \"string\",\n            \"amount\": \"string\"\n          }\n        ],\n        \"settled_at\": \"string\",\n        \"funds\": [\n          {\n            \"denom\": \"string\",\n            \"amount\": \"string\"\n          },\n          {\n            \"denom\": \"string\",\n            \"amount\": \"string\"\n          }\n        ],\n        \"deposits\": [\n          {\n            \"owner\": \"string\",\n            \"height\": \"string\",\n            \"source\": \"string\",\n            \"balance\": {\n              \"denom\": \"string\",\n              \"amount\": \"string\"\n            }\n          },\n          {\n            \"owner\": \"string\",\n            \"height\": \"string\",\n            \"source\": \"string\",\n            \"balance\": {\n              \"denom\": \"string\",\n              \"amount\": \"string\"\n            }\n          }\n        ]\n      }\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b1ddabbd-8309-4360-b2c7-5f2ba87ad469",
+              "name": "Invalid address or dseq",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "deployment",
+                    ":owner",
+                    ":dseq"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "owner",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dseq",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9af2ec03-7db7-4598-9140-31bd49e4ddc6",
+              "name": "Deployment not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "deployment",
+                    ":owner",
+                    ":dseq"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "owner",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dseq",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "51a257b9-edfc-4b6b-b489-bf66b39998c4",
+          "name": "List deployments (database fallback)",
+          "request": {
+            "name": "List deployments (database fallback)",
+            "description": {},
+            "url": {
+              "path": [
+                "akash",
+                "deployment",
+                ":version",
+                "deployments",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "filters.owner",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filters.state",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "pagination.offset",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "pagination.limit",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "pagination.key",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "pagination.count_total",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "pagination.reverse",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9be02ca9-9d04-457a-b6cb-1137ebdbd7d9",
+              "name": "Returns paginated list of deployments from database",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "akash",
+                    "deployment",
+                    ":version",
+                    "deployments",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filters.owner",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filters.state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pagination.offset",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pagination.limit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pagination.key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pagination.count_total",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pagination.reverse",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"deployments\": [\n    {\n      \"deployment\": {\n        \"id\": {\n          \"owner\": \"string\",\n          \"dseq\": \"ddddddddddd\"\n        },\n        \"state\": \"string\",\n        \"hash\": \"string\",\n        \"created_at\": \"string\"\n      },\n      \"groups\": [\n        {\n          \"id\": {\n            \"owner\": \"string\",\n            \"dseq\": \"ddddddd\",\n            \"gseq\": 3810.127308019451\n          },\n          \"state\": \"string\",\n          \"group_spec\": {\n            \"name\": \"string\",\n            \"requirements\": {\n              \"signed_by\": {\n                \"all_of\": [\n                  \"string\",\n                  \"string\"\n                ],\n                \"any_of\": [\n                  \"string\",\n                  \"string\"\n                ]\n              },\n              \"attributes\": [\n                {\n                  \"key\": \"string\",\n                  \"value\": \"string\"\n                },\n                {\n                  \"key\": \"string\",\n                  \"value\": \"string\"\n                }\n              ]\n            },\n            \"resources\": [\n              {\n                \"resource\": {\n                  \"id\": 6934.412129984452,\n                  \"cpu\": {\n                    \"units\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"attributes\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"memory\": {\n                    \"quantity\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"attributes\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"storage\": [\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  ],\n                  \"gpu\": {\n                    \"units\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"attributes\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"endpoints\": [\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  ]\n                },\n                \"count\": 7490.214338169858,\n                \"price\": {\n                  \"denom\": \"string\",\n                  \"amount\": \"string\"\n                }\n              },\n              {\n                \"resource\": {\n                  \"id\": 5701.872171063323,\n                  \"cpu\": {\n                    \"units\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"attributes\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"memory\": {\n                    \"quantity\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"attributes\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"storage\": [\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  ],\n                  \"gpu\": {\n                    \"units\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"attributes\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"endpoints\": [\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  ]\n                },\n                \"count\": 9272.91201738712,\n                \"price\": {\n                  \"denom\": \"string\",\n                  \"amount\": \"string\"\n                }\n              }\n            ]\n          },\n          \"created_at\": \"string\"\n        },\n        {\n          \"id\": {\n            \"owner\": \"string\",\n            \"dseq\": \"dddddddddd\",\n            \"gseq\": 2453.9896134878168\n          },\n          \"state\": \"string\",\n          \"group_spec\": {\n            \"name\": \"string\",\n            \"requirements\": {\n              \"signed_by\": {\n                \"all_of\": [\n                  \"string\",\n                  \"string\"\n                ],\n                \"any_of\": [\n                  \"string\",\n                  \"string\"\n                ]\n              },\n              \"attributes\": [\n                {\n                  \"key\": \"string\",\n                  \"value\": \"string\"\n                },\n                {\n                  \"key\": \"string\",\n                  \"value\": \"string\"\n                }\n              ]\n            },\n            \"resources\": [\n              {\n                \"resource\": {\n                  \"id\": 7562.556287037242,\n                  \"cpu\": {\n                    \"units\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"attributes\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"memory\": {\n                    \"quantity\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"attributes\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"storage\": [\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  ],\n                  \"gpu\": {\n                    \"units\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"attributes\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"endpoints\": [\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  ]\n                },\n                \"count\": 2712.8397481957136,\n                \"price\": {\n                  \"denom\": \"string\",\n                  \"amount\": \"string\"\n                }\n              },\n              {\n                \"resource\": {\n                  \"id\": 6348.85130454021,\n                  \"cpu\": {\n                    \"units\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"attributes\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"memory\": {\n                    \"quantity\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"attributes\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"storage\": [\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  ],\n                  \"gpu\": {\n                    \"units\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"attributes\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"endpoints\": [\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  ]\n                },\n                \"count\": 246.15395475483191,\n                \"price\": {\n                  \"denom\": \"string\",\n                  \"amount\": \"string\"\n                }\n              }\n            ]\n          },\n          \"created_at\": \"string\"\n        }\n      ],\n      \"escrow_account\": {\n        \"id\": {\n          \"scope\": \"string\",\n          \"xid\": \"string\"\n        },\n        \"state\": {\n          \"owner\": \"string\",\n          \"state\": \"string\",\n          \"transferred\": [\n            {\n              \"denom\": \"string\",\n              \"amount\": \"string\"\n            },\n            {\n              \"denom\": \"string\",\n              \"amount\": \"string\"\n            }\n          ],\n          \"settled_at\": \"string\",\n          \"funds\": [\n            {\n              \"denom\": \"string\",\n              \"amount\": \"string\"\n            },\n            {\n              \"denom\": \"string\",\n              \"amount\": \"string\"\n            }\n          ],\n          \"deposits\": [\n            {\n              \"owner\": \"string\",\n              \"height\": \"string\",\n              \"source\": \"string\",\n              \"balance\": {\n                \"denom\": \"string\",\n                \"amount\": \"string\"\n              }\n            },\n            {\n              \"owner\": \"string\",\n              \"height\": \"string\",\n              \"source\": \"string\",\n              \"balance\": {\n                \"denom\": \"string\",\n                \"amount\": \"string\"\n              }\n            }\n          ]\n        }\n      }\n    },\n    {\n      \"deployment\": {\n        \"id\": {\n          \"owner\": \"string\",\n          \"dseq\": \"dddd\"\n        },\n        \"state\": \"string\",\n        \"hash\": \"string\",\n        \"created_at\": \"string\"\n      },\n      \"groups\": [\n        {\n          \"id\": {\n            \"owner\": \"string\",\n            \"dseq\": \"ddddddddd\",\n            \"gseq\": 3514.2656209411416\n          },\n          \"state\": \"string\",\n          \"group_spec\": {\n            \"name\": \"string\",\n            \"requirements\": {\n              \"signed_by\": {\n                \"all_of\": [\n                  \"string\",\n                  \"string\"\n                ],\n                \"any_of\": [\n                  \"string\",\n                  \"string\"\n                ]\n              },\n              \"attributes\": [\n                {\n                  \"key\": \"string\",\n                  \"value\": \"string\"\n                },\n                {\n                  \"key\": \"string\",\n                  \"value\": \"string\"\n                }\n              ]\n            },\n            \"resources\": [\n              {\n                \"resource\": {\n                  \"id\": 2800.616785319925,\n                  \"cpu\": {\n                    \"units\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"attributes\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"memory\": {\n                    \"quantity\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"attributes\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"storage\": [\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  ],\n                  \"gpu\": {\n                    \"units\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"attributes\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"endpoints\": [\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  ]\n                },\n                \"count\": 6918.5033839422595,\n                \"price\": {\n                  \"denom\": \"string\",\n                  \"amount\": \"string\"\n                }\n              },\n              {\n                \"resource\": {\n                  \"id\": 8515.10860453609,\n                  \"cpu\": {\n                    \"units\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"attributes\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"memory\": {\n                    \"quantity\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"attributes\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"storage\": [\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  ],\n                  \"gpu\": {\n                    \"units\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"attributes\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"endpoints\": [\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  ]\n                },\n                \"count\": 2150.8692213909408,\n                \"price\": {\n                  \"denom\": \"string\",\n                  \"amount\": \"string\"\n                }\n              }\n            ]\n          },\n          \"created_at\": \"string\"\n        },\n        {\n          \"id\": {\n            \"owner\": \"string\",\n            \"dseq\": \"ddddddddd\",\n            \"gseq\": 4691.069992274669\n          },\n          \"state\": \"string\",\n          \"group_spec\": {\n            \"name\": \"string\",\n            \"requirements\": {\n              \"signed_by\": {\n                \"all_of\": [\n                  \"string\",\n                  \"string\"\n                ],\n                \"any_of\": [\n                  \"string\",\n                  \"string\"\n                ]\n              },\n              \"attributes\": [\n                {\n                  \"key\": \"string\",\n                  \"value\": \"string\"\n                },\n                {\n                  \"key\": \"string\",\n                  \"value\": \"string\"\n                }\n              ]\n            },\n            \"resources\": [\n              {\n                \"resource\": {\n                  \"id\": 3431.1539491321964,\n                  \"cpu\": {\n                    \"units\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"attributes\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"memory\": {\n                    \"quantity\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"attributes\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"storage\": [\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  ],\n                  \"gpu\": {\n                    \"units\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"attributes\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"endpoints\": [\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  ]\n                },\n                \"count\": 2942.1637494260976,\n                \"price\": {\n                  \"denom\": \"string\",\n                  \"amount\": \"string\"\n                }\n              },\n              {\n                \"resource\": {\n                  \"id\": 7454.849230656811,\n                  \"cpu\": {\n                    \"units\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"attributes\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"memory\": {\n                    \"quantity\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"attributes\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"storage\": [\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  ],\n                  \"gpu\": {\n                    \"units\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"attributes\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"endpoints\": [\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  ]\n                },\n                \"count\": 69.57113606344211,\n                \"price\": {\n                  \"denom\": \"string\",\n                  \"amount\": \"string\"\n                }\n              }\n            ]\n          },\n          \"created_at\": \"string\"\n        }\n      ],\n      \"escrow_account\": {\n        \"id\": {\n          \"scope\": \"string\",\n          \"xid\": \"string\"\n        },\n        \"state\": {\n          \"owner\": \"string\",\n          \"state\": \"string\",\n          \"transferred\": [\n            {\n              \"denom\": \"string\",\n              \"amount\": \"string\"\n            },\n            {\n              \"denom\": \"string\",\n              \"amount\": \"string\"\n            }\n          ],\n          \"settled_at\": \"string\",\n          \"funds\": [\n            {\n              \"denom\": \"string\",\n              \"amount\": \"string\"\n            },\n            {\n              \"denom\": \"string\",\n              \"amount\": \"string\"\n            }\n          ],\n          \"deposits\": [\n            {\n              \"owner\": \"string\",\n              \"height\": \"string\",\n              \"source\": \"string\",\n              \"balance\": {\n                \"denom\": \"string\",\n                \"amount\": \"string\"\n              }\n            },\n            {\n              \"owner\": \"string\",\n              \"height\": \"string\",\n              \"source\": \"string\",\n              \"balance\": {\n                \"denom\": \"string\",\n                \"amount\": \"string\"\n              }\n            }\n          ]\n        }\n      }\n    }\n  ],\n  \"pagination\": {\n    \"next_key\": \"string\",\n    \"total\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "50eb35c8-9f41-4dd6-84d7-da1cb24815f7",
+          "name": "Get deployment info (database fallback)",
+          "request": {
+            "name": "Get deployment info (database fallback)",
+            "description": {},
+            "url": {
+              "path": [
+                "akash",
+                "deployment",
+                ":version",
+                "deployments",
+                "info"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "id.owner",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "id.dseq",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "24f9a5c3-6c06-47e8-b9df-6156fd7f2d0b",
+              "name": "Returns deployment info from database",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "akash",
+                    "deployment",
+                    ":version",
+                    "deployments",
+                    "info"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id.owner",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "id.dseq",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 9095.466199209126,\n  \"message\": \"string\",\n  \"details\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5f535d2c-906f-412b-bf9e-8f9ab8a226af",
+              "name": "Deployment not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "akash",
+                    "deployment",
+                    ":version",
+                    "deployments",
+                    "info"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id.owner",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "id.dseq",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "65bf06e3-b997-482e-95ca-ba330646883f",
+          "name": "Get weekly deployment cost",
+          "request": {
+            "name": "Get weekly deployment cost",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "weekly-cost"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "4663f1e3-02d8-4a86-80dd-7a0a97a62c89",
+              "name": "Returns weekly cost for all deployments with auto top-up enabled",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "weekly-cost"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"weeklyCost\": 95.77832092582783\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "682d1141-d48c-489b-b84f-6d49a5ff0aca",
+          "name": "Get a list of deployments for a provider.",
+          "request": {
+            "name": "Get a list of deployments for a provider.",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "providers",
+                ":provider",
+                "deployments",
+                ":skip",
+                ":limit"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "provider",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "skip",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "limit",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "00cd1eab-1877-4d47-84de-f157a5b4e3e5",
+              "name": "Returns deployment list",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "providers",
+                    ":provider",
+                    "deployments",
+                    ":skip",
+                    ":limit"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "status",
+                      "value": "closed"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "provider",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "skip",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "limit",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"total\": 4946.200982486895,\n  \"deployments\": [\n    {\n      \"owner\": \"string\",\n      \"dseq\": \"dd\",\n      \"denom\": \"string\",\n      \"createdHeight\": 7171.245173138035,\n      \"createdDate\": \"string\",\n      \"status\": \"string\",\n      \"balance\": 8528.504280020725,\n      \"transferred\": 1113.283370549586,\n      \"settledAt\": 7895.870539224483,\n      \"resources\": {\n        \"cpu\": 3923.19185698336,\n        \"memory\": 8502.883289882038,\n        \"gpu\": 5329.7043945886135,\n        \"ephemeralStorage\": 1849.534790345231,\n        \"persistentStorage\": 3835.1793955700455\n      },\n      \"leases\": [\n        {\n          \"provider\": \"string\",\n          \"gseq\": 9282.82031891159,\n          \"oseq\": 2066.4215631810066,\n          \"price\": 4925.418135350348,\n          \"createdHeight\": 7894.928404138327,\n          \"createdDate\": \"string\",\n          \"closedHeight\": 4827.813469472429,\n          \"closedDate\": \"string\",\n          \"status\": \"string\",\n          \"resources\": {\n            \"cpu\": 9582.05117847842,\n            \"memory\": 4032.5445782548263,\n            \"gpu\": 5291.162947310879,\n            \"ephemeralStorage\": 6764.311703191383,\n            \"persistentStorage\": 6737.8653908018505\n          }\n        },\n        {\n          \"provider\": \"string\",\n          \"gseq\": 5869.644934487256,\n          \"oseq\": 8086.022222774397,\n          \"price\": 3785.9024114949725,\n          \"createdHeight\": 8796.037189665603,\n          \"createdDate\": \"string\",\n          \"closedHeight\": 650.5091650020389,\n          \"closedDate\": \"string\",\n          \"status\": \"string\",\n          \"resources\": {\n            \"cpu\": 2355.8960858299683,\n            \"memory\": 8334.330105112207,\n            \"gpu\": 3501.43448232738,\n            \"ephemeralStorage\": 9211.440805788417,\n            \"persistentStorage\": 8983.563562462306\n          }\n        }\n      ]\n    },\n    {\n      \"owner\": \"string\",\n      \"dseq\": \"ddddddddddd\",\n      \"denom\": \"string\",\n      \"createdHeight\": 2421.0567613024136,\n      \"createdDate\": \"string\",\n      \"status\": \"string\",\n      \"balance\": 6089.8534183698275,\n      \"transferred\": 6864.785777709956,\n      \"settledAt\": 7600.5496475616865,\n      \"resources\": {\n        \"cpu\": 7008.493676148665,\n        \"memory\": 8412.746458462729,\n        \"gpu\": 6067.402652333368,\n        \"ephemeralStorage\": 5957.339444013304,\n        \"persistentStorage\": 3465.68990661431\n      },\n      \"leases\": [\n        {\n          \"provider\": \"string\",\n          \"gseq\": 3472.80935567992,\n          \"oseq\": 9442.937105762985,\n          \"price\": 6977.201416660167,\n          \"createdHeight\": 7182.593804432668,\n          \"createdDate\": \"string\",\n          \"closedHeight\": 97.68569810479688,\n          \"closedDate\": \"string\",\n          \"status\": \"string\",\n          \"resources\": {\n            \"cpu\": 1645.7740441863666,\n            \"memory\": 1681.6923459894274,\n            \"gpu\": 8551.393642436158,\n            \"ephemeralStorage\": 9100.020607465276,\n            \"persistentStorage\": 7651.854518501361\n          }\n        },\n        {\n          \"provider\": \"string\",\n          \"gseq\": 8642.45426645186,\n          \"oseq\": 4738.145665363593,\n          \"price\": 4324.038122534607,\n          \"createdHeight\": 6279.150573767828,\n          \"createdDate\": \"string\",\n          \"closedHeight\": 4675.747234062528,\n          \"closedDate\": \"string\",\n          \"status\": \"string\",\n          \"resources\": {\n            \"cpu\": 9112.335819222555,\n            \"memory\": 8270.4698282525,\n            \"gpu\": 5189.107516561488,\n            \"ephemeralStorage\": 9044.061210855765,\n            \"persistentStorage\": 2363.1043696440947\n          }\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2e86015b-8bb6-41a1-b80b-7a59462ce2ba",
+              "name": "Invalid status filter",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "providers",
+                    ":provider",
+                    "deployments",
+                    ":skip",
+                    ":limit"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "status",
+                      "value": "closed"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "provider",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "skip",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "limit",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "c61a67dd-f3ab-4f5a-aaab-a6377235f39b",
+    "name": "AKASH - gRPC Gateway docs Addresses Deployments API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "A REST interface for state queries",
+      "type": "text/plain"
+    }
+  }
+}

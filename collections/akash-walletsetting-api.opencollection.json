@@ -1,0 +1,70 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "AKASH - gRPC Gateway docs Addresses WalletSetting API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "WalletSetting",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get wallet settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/wallet-settings"
+          },
+          "docs": "Retrieves the wallet settings for the current user's wallet"
+        },
+        {
+          "info": {
+            "name": "Create wallet settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/wallet-settings",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates wallet settings for a user wallet"
+        },
+        {
+          "info": {
+            "name": "Update wallet settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1/wallet-settings",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates wallet settings for a user wallet"
+        },
+        {
+          "info": {
+            "name": "Delete wallet settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v1/wallet-settings"
+          },
+          "docs": "Deletes wallet settings for a user wallet"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

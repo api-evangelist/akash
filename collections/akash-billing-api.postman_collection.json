@@ -1,0 +1,325 @@
+{
+  "item": [
+    {
+      "id": "d3d31218-76af-4902-909a-37d2db01a1e3",
+      "name": "Billing",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d41c9b2c-26a2-4215-ae1c-174385c39bcf",
+          "name": "Get historical data of billing and usage for a wallet address.",
+          "request": {
+            "name": "Get historical data of billing and usage for a wallet address.",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "usage",
+                "history"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "address",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "startDate",
+                  "value": "<date>"
+                },
+                {
+                  "disabled": false,
+                  "key": "endDate",
+                  "value": "2026-05-20"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "04d71042-c01f-45ba-b91c-9a797c98ca0b",
+              "name": "Returns billing and usage data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "usage",
+                    "history"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "address",
+                      "value": "akash18andxgtd6r08zzfpcdqg9pdr6smks7gv76tyt6"
+                    },
+                    {
+                      "key": "startDate",
+                      "value": "2024-01-01"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "2024-01-31"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"date\": \"2024-01-15\",\n    \"activeDeployments\": 3,\n    \"dailyAktSpent\": 12.5,\n    \"totalAktSpent\": 125.75,\n    \"dailyUsdcSpent\": 5.25,\n    \"totalUsdcSpent\": 52.5,\n    \"dailyActSpent\": 5.25,\n    \"totalActSpent\": 52.5,\n    \"dailyUsdSpent\": 17.75,\n    \"totalUsdSpent\": 178.25\n  },\n  {\n    \"date\": \"2024-01-15\",\n    \"activeDeployments\": 3,\n    \"dailyAktSpent\": 12.5,\n    \"totalAktSpent\": 125.75,\n    \"dailyUsdcSpent\": 5.25,\n    \"totalUsdcSpent\": 52.5,\n    \"dailyActSpent\": 5.25,\n    \"totalActSpent\": 52.5,\n    \"dailyUsdSpent\": 17.75,\n    \"totalUsdSpent\": 178.25\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "eaaa1ba6-3c08-4ba2-ac2d-0c2484f99faf",
+              "name": "Invalid address format",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "usage",
+                    "history"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "address",
+                      "value": "akash18andxgtd6r08zzfpcdqg9pdr6smks7gv76tyt6"
+                    },
+                    {
+                      "key": "startDate",
+                      "value": "2024-01-01"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "2024-01-31"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9cc79d96-a7d7-404c-a9c6-3bf00b43662a",
+          "name": "Get historical usage stats for a wallet address.",
+          "request": {
+            "name": "Get historical usage stats for a wallet address.",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "usage",
+                "history",
+                "stats"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "address",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "startDate",
+                  "value": "<date>"
+                },
+                {
+                  "disabled": false,
+                  "key": "endDate",
+                  "value": "2026-05-20"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3dfc8031-9798-4dba-88bd-23ef05b1fb6a",
+              "name": "Returns usage stats data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "usage",
+                    "history",
+                    "stats"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "address",
+                      "value": "akash18andxgtd6r08zzfpcdqg9pdr6smks7gv76tyt6"
+                    },
+                    {
+                      "key": "startDate",
+                      "value": "2024-01-01"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "2024-01-31"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"totalSpent\": 1234.56,\n  \"averageSpentPerDay\": 12.34,\n  \"totalDeployments\": 15,\n  \"averageDeploymentsPerDay\": 1.5\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d553006e-70a4-4799-b702-a07fab942a31",
+              "name": "Invalid address format",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "usage",
+                    "history",
+                    "stats"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "address",
+                      "value": "akash18andxgtd6r08zzfpcdqg9pdr6smks7gv76tyt6"
+                    },
+                    {
+                      "key": "startDate",
+                      "value": "2024-01-01"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "2024-01-31"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "a7d24862-44c3-4443-bfe2-4ed37f9042c2",
+    "name": "AKASH - gRPC Gateway docs Addresses Billing API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "A REST interface for state queries",
+      "type": "text/plain"
+    }
+  }
+}

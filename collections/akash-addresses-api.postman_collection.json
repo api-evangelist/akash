@@ -1,0 +1,542 @@
+{
+  "item": [
+    {
+      "id": "92785961-7f1d-457d-9498-5c52e7e48f35",
+      "name": "Addresses",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8049e4ad-2680-4a9c-8316-6999fc9069b1",
+          "name": "Get a list of deployments by owner address.",
+          "request": {
+            "name": "Get a list of deployments by owner address.",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "addresses",
+                ":address",
+                "deployments",
+                ":skip",
+                ":limit"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "reverseSorting",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "address",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "skip",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "limit",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e3b7a530-b1f6-4a7d-9816-52675b3ec8be",
+              "name": "Returns deployment list",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "addresses",
+                    ":address",
+                    "deployments",
+                    ":skip",
+                    ":limit"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "status",
+                      "value": "closed"
+                    },
+                    {
+                      "key": "reverseSorting",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "address",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "skip",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "limit",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 261.2309446165262,\n  \"results\": [\n    {\n      \"owner\": \"string\",\n      \"dseq\": \"d\",\n      \"status\": \"string\",\n      \"createdHeight\": 4135.582347943186,\n      \"cpuUnits\": 1201.8090719289787,\n      \"gpuUnits\": 3094.1808869867095,\n      \"memoryQuantity\": 1623.2478436742858,\n      \"storageQuantity\": 1194.0524842039736,\n      \"leases\": [\n        {\n          \"id\": \"string\",\n          \"owner\": \"string\",\n          \"dseq\": \"ddddddd\",\n          \"gseq\": 8507.090525061574,\n          \"oseq\": 1726.5192720576194,\n          \"state\": \"string\",\n          \"price\": {\n            \"denom\": \"string\",\n            \"amount\": \"string\"\n          },\n          \"provider\": {\n            \"address\": \"string\",\n            \"hostUri\": \"string\"\n          }\n        },\n        {\n          \"id\": \"string\",\n          \"owner\": \"string\",\n          \"dseq\": \"ddddd\",\n          \"gseq\": 2395.049860304307,\n          \"oseq\": 5212.435746775107,\n          \"state\": \"string\",\n          \"price\": {\n            \"denom\": \"string\",\n            \"amount\": \"string\"\n          },\n          \"provider\": {\n            \"address\": \"string\",\n            \"hostUri\": \"string\"\n          }\n        }\n      ]\n    },\n    {\n      \"owner\": \"string\",\n      \"dseq\": \"dddd\",\n      \"status\": \"string\",\n      \"createdHeight\": 2606.2504215567337,\n      \"cpuUnits\": 5198.2652260614595,\n      \"gpuUnits\": 9793.88227918827,\n      \"memoryQuantity\": 9782.58324878908,\n      \"storageQuantity\": 3799.5606549755635,\n      \"leases\": [\n        {\n          \"id\": \"string\",\n          \"owner\": \"string\",\n          \"dseq\": \"ddddddddddd\",\n          \"gseq\": 1644.687975970952,\n          \"oseq\": 4606.010668668874,\n          \"state\": \"string\",\n          \"price\": {\n            \"denom\": \"string\",\n            \"amount\": \"string\"\n          },\n          \"provider\": {\n            \"address\": \"string\",\n            \"hostUri\": \"string\"\n          }\n        },\n        {\n          \"id\": \"string\",\n          \"owner\": \"string\",\n          \"dseq\": \"ddddddddddd\",\n          \"gseq\": 2474.4903291407304,\n          \"oseq\": 9065.378643231676,\n          \"state\": \"string\",\n          \"price\": {\n            \"denom\": \"string\",\n            \"amount\": \"string\"\n          },\n          \"provider\": {\n            \"address\": \"string\",\n            \"hostUri\": \"string\"\n          }\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dcdd7658-407b-4a5f-9e9d-fd3e8324c7eb",
+              "name": "Invalid address",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "addresses",
+                    ":address",
+                    "deployments",
+                    ":skip",
+                    ":limit"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "status",
+                      "value": "closed"
+                    },
+                    {
+                      "key": "reverseSorting",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "address",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "skip",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "limit",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "655b6419-9d9d-416d-b1bd-deccf76ceb05",
+          "name": "Get address details",
+          "request": {
+            "name": "Get address details",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "addresses",
+                ":address"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "address",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "175954b2-c643-4b42-b463-dde6bd1384d9",
+              "name": "Returns address details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "addresses",
+                    ":address"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "address",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"total\": 9499.345409868176,\n  \"delegations\": [\n    {\n      \"validator\": {\n        \"address\": \"string\",\n        \"moniker\": \"string\",\n        \"operatorAddress\": \"string\",\n        \"avatarUrl\": \"string\"\n      },\n      \"amount\": 8640.369530963464,\n      \"reward\": 1920.485660972302\n    },\n    {\n      \"validator\": {\n        \"address\": \"string\",\n        \"moniker\": \"string\",\n        \"operatorAddress\": \"string\",\n        \"avatarUrl\": \"string\"\n      },\n      \"amount\": 7935.619535062248,\n      \"reward\": 7616.8697660711905\n    }\n  ],\n  \"available\": 7244.740666483282,\n  \"delegated\": 9150.836086062043,\n  \"rewards\": 7661.101936661462,\n  \"assets\": [\n    {\n      \"amount\": 2237.5531191016585,\n      \"symbol\": \"string\",\n      \"ibcToken\": \"string\",\n      \"logoUrl\": \"string\",\n      \"description\": \"string\"\n    },\n    {\n      \"amount\": 2435.2486394391703,\n      \"symbol\": \"string\",\n      \"ibcToken\": \"string\",\n      \"logoUrl\": \"string\",\n      \"description\": \"string\"\n    }\n  ],\n  \"redelegations\": [\n    {\n      \"srcAddress\": {\n        \"address\": \"string\",\n        \"moniker\": \"string\",\n        \"operatorAddress\": \"string\",\n        \"avatarUrl\": \"string\"\n      },\n      \"dstAddress\": {\n        \"address\": \"string\",\n        \"moniker\": \"string\",\n        \"operatorAddress\": \"string\",\n        \"avatarUrl\": \"string\"\n      },\n      \"creationHeight\": 7208.722200086873,\n      \"completionTime\": \"string\",\n      \"amount\": 9825.355918172025\n    },\n    {\n      \"srcAddress\": {\n        \"address\": \"string\",\n        \"moniker\": \"string\",\n        \"operatorAddress\": \"string\",\n        \"avatarUrl\": \"string\"\n      },\n      \"dstAddress\": {\n        \"address\": \"string\",\n        \"moniker\": \"string\",\n        \"operatorAddress\": \"string\",\n        \"avatarUrl\": \"string\"\n      },\n      \"creationHeight\": 1793.209784391172,\n      \"completionTime\": \"string\",\n      \"amount\": 1367.7828519129653\n    }\n  ],\n  \"commission\": 6607.984966395984,\n  \"latestTransactions\": [\n    {\n      \"height\": 7283.532600107498,\n      \"datetime\": \"string\",\n      \"hash\": \"string\",\n      \"isSuccess\": true,\n      \"error\": \"string\",\n      \"gasUsed\": 7220.2792553710115,\n      \"gasWanted\": 5546.078247908961,\n      \"fee\": 4439.036162481849,\n      \"memo\": \"string\",\n      \"isSigner\": true,\n      \"messages\": [\n        {\n          \"id\": \"string\",\n          \"type\": \"string\",\n          \"amount\": 1806.2525982036836,\n          \"isReceiver\": false\n        },\n        {\n          \"id\": \"string\",\n          \"type\": \"string\",\n          \"amount\": 5885.250903772986,\n          \"isReceiver\": false\n        }\n      ]\n    },\n    {\n      \"height\": 6220.2204867949495,\n      \"datetime\": \"string\",\n      \"hash\": \"string\",\n      \"isSuccess\": false,\n      \"error\": \"string\",\n      \"gasUsed\": 9848.431636768399,\n      \"gasWanted\": 2140.5250564613366,\n      \"fee\": 7494.605127536626,\n      \"memo\": \"string\",\n      \"isSigner\": true,\n      \"messages\": [\n        {\n          \"id\": \"string\",\n          \"type\": \"string\",\n          \"amount\": 4591.529331427475,\n          \"isReceiver\": true\n        },\n        {\n          \"id\": \"string\",\n          \"type\": \"string\",\n          \"amount\": 3679.292381626398,\n          \"isReceiver\": true\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "47e659f1-e3b4-4d62-84e3-a833fa6364f5",
+              "name": "Invalid address",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "addresses",
+                    ":address"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "address",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "005b5a7c-977a-449c-a5c4-fe2debebaac2",
+          "name": "Get a list of transactions for a given address.",
+          "request": {
+            "name": "Get a list of transactions for a given address.",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "addresses",
+                ":address",
+                "transactions",
+                ":skip",
+                ":limit"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "address",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "skip",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "limit",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ae4af2d1-5d7d-4ec8-8a55-b0b9647c9c51",
+              "name": "Returns transaction list",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "addresses",
+                    ":address",
+                    "transactions",
+                    ":skip",
+                    ":limit"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "address",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "skip",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "limit",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 4828.068257572071,\n  \"results\": [\n    {\n      \"height\": 8872.778150463859,\n      \"datetime\": \"string\",\n      \"hash\": \"string\",\n      \"isSuccess\": true,\n      \"error\": \"string\",\n      \"gasUsed\": 7943.259548324655,\n      \"gasWanted\": 4799.971768767476,\n      \"fee\": 8351.153670695154,\n      \"memo\": \"string\",\n      \"isSigner\": false,\n      \"messages\": [\n        {\n          \"id\": \"string\",\n          \"type\": \"string\",\n          \"amount\": 3043.1871024070956,\n          \"isReceiver\": true\n        },\n        {\n          \"id\": \"string\",\n          \"type\": \"string\",\n          \"amount\": 2838.3363223040246,\n          \"isReceiver\": true\n        }\n      ]\n    },\n    {\n      \"height\": 727.9767716164132,\n      \"datetime\": \"string\",\n      \"hash\": \"string\",\n      \"isSuccess\": false,\n      \"error\": \"string\",\n      \"gasUsed\": 45.81364568154722,\n      \"gasWanted\": 3170.7747130654907,\n      \"fee\": 2337.598808800434,\n      \"memo\": \"string\",\n      \"isSigner\": false,\n      \"messages\": [\n        {\n          \"id\": \"string\",\n          \"type\": \"string\",\n          \"amount\": 6507.965505794443,\n          \"isReceiver\": false\n        },\n        {\n          \"id\": \"string\",\n          \"type\": \"string\",\n          \"amount\": 9737.046635272916,\n          \"isReceiver\": false\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1e183b36-7716-4542-ad0c-99e5ac934624",
+              "name": "Invalid address or parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "addresses",
+                    ":address",
+                    "transactions",
+                    ":skip",
+                    ":limit"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "address",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "skip",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "limit",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "50e88e6c-0084-46da-b37f-964cf6ecfb06",
+    "name": "AKASH - gRPC Gateway docs Addresses API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "A REST interface for state queries",
+      "type": "text/plain"
+    }
+  }
+}

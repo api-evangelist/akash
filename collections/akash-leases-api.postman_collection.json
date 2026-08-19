@@ -1,0 +1,297 @@
+{
+  "item": [
+    {
+      "id": "5bde7362-180d-4709-9153-52e310ea9b79",
+      "name": "Leases",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "16d34839-4b95-4eba-a1d9-7ccfe14b91f1",
+          "name": "Create leases and send manifest",
+          "request": {
+            "name": "Create leases and send manifest",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "leases"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"manifest\": \"<string>\",\n  \"leases\": [\n    {\n      \"dseq\": \"<string>\",\n      \"gseq\": \"<number>\",\n      \"oseq\": \"<number>\",\n      \"provider\": \"<string>\"\n    },\n    {\n      \"dseq\": \"<string>\",\n      \"gseq\": \"<number>\",\n      \"oseq\": \"<number>\",\n      \"provider\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "914c2045-8a8f-42eb-a52a-26752ae82a13",
+              "name": "Leases created and manifest sent",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "leases"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"manifest\": \"<string>\",\n  \"leases\": [\n    {\n      \"dseq\": \"<string>\",\n      \"gseq\": \"<number>\",\n      \"oseq\": \"<number>\",\n      \"provider\": \"<string>\"\n    },\n    {\n      \"dseq\": \"<string>\",\n      \"gseq\": \"<number>\",\n      \"oseq\": \"<number>\",\n      \"provider\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"deployment\": {\n      \"id\": {\n        \"owner\": \"string\",\n        \"dseq\": \"d\"\n      },\n      \"state\": \"string\",\n      \"hash\": \"string\",\n      \"created_at\": \"string\"\n    },\n    \"leases\": [\n      {\n        \"id\": {\n          \"owner\": \"string\",\n          \"dseq\": \"ddddd\",\n          \"gseq\": 2740.6560007779644,\n          \"oseq\": 7075.341238078398,\n          \"provider\": \"string\",\n          \"bseq\": 268.67906157754476\n        },\n        \"state\": \"string\",\n        \"price\": {\n          \"denom\": \"string\",\n          \"amount\": \"string\"\n        },\n        \"created_at\": \"string\",\n        \"closed_on\": \"string\",\n        \"status\": {\n          \"forwarded_ports\": {\n            \"key_0\": [\n              {\n                \"port\": 600.244891168149,\n                \"externalPort\": 8201.731082627744,\n                \"host\": \"string\",\n                \"available\": 3009.020323715138\n              },\n              {\n                \"port\": 2299.5819398398976,\n                \"externalPort\": 8997.607016519143,\n                \"host\": \"string\",\n                \"available\": 7675.126771577151\n              }\n            ],\n            \"key_1\": [\n              {\n                \"port\": 1800.7004080956513,\n                \"externalPort\": 7638.004321634001,\n                \"host\": \"string\",\n                \"available\": 3562.5074793039225\n              },\n              {\n                \"port\": 4923.200499305406,\n                \"externalPort\": 3661.872405208123,\n                \"host\": \"string\",\n                \"available\": 5774.906563539347\n              }\n            ],\n            \"key_2\": [\n              {\n                \"port\": 6044.678311819925,\n                \"externalPort\": 4098.922224681845,\n                \"host\": \"string\",\n                \"available\": 4749.759534802929\n              },\n              {\n                \"port\": 6829.443861823687,\n                \"externalPort\": 5625.868455952245,\n                \"host\": \"string\",\n                \"available\": 6371.067745754132\n              }\n            ]\n          },\n          \"ips\": {\n            \"key_0\": [\n              {\n                \"IP\": \"string\",\n                \"Port\": 5234.22956523408,\n                \"ExternalPort\": 2574.4376323277106,\n                \"Protocol\": \"string\"\n              },\n              {\n                \"IP\": \"string\",\n                \"Port\": 8003.247163819715,\n                \"ExternalPort\": 3833.8749333353826,\n                \"Protocol\": \"string\"\n              }\n            ],\n            \"key_1\": [\n              {\n                \"IP\": \"string\",\n                \"Port\": 7540.845711774904,\n                \"ExternalPort\": 3239.5749994666535,\n                \"Protocol\": \"string\"\n              },\n              {\n                \"IP\": \"string\",\n                \"Port\": 724.3833862257231,\n                \"ExternalPort\": 3383.8460099587164,\n                \"Protocol\": \"string\"\n              }\n            ],\n            \"key_2\": [\n              {\n                \"IP\": \"string\",\n                \"Port\": 101.67548255991088,\n                \"ExternalPort\": 5705.2327616492075,\n                \"Protocol\": \"string\"\n              },\n              {\n                \"IP\": \"string\",\n                \"Port\": 5603.173548736881,\n                \"ExternalPort\": 7486.546828180783,\n                \"Protocol\": \"string\"\n              }\n            ],\n            \"key_3\": [\n              {\n                \"IP\": \"string\",\n                \"Port\": 2177.0081230265414,\n                \"ExternalPort\": 8626.30374487356,\n                \"Protocol\": \"string\"\n              },\n              {\n                \"IP\": \"string\",\n                \"Port\": 7921.905173182165,\n                \"ExternalPort\": 3872.884365865682,\n                \"Protocol\": \"string\"\n              }\n            ]\n          },\n          \"services\": {\n            \"key_0\": {\n              \"name\": \"string\",\n              \"available\": 9901.736133256969,\n              \"total\": 9132.738636814742,\n              \"uris\": [\n                \"string\",\n                \"string\"\n              ],\n              \"observed_generation\": 4635.9600556492505,\n              \"replicas\": 9791.1393257895,\n              \"updated_replicas\": 8722.601631501144,\n              \"ready_replicas\": 5594.728041434956,\n              \"available_replicas\": 8194.45678210605\n            }\n          }\n        },\n        \"reason\": \"string\"\n      },\n      {\n        \"id\": {\n          \"owner\": \"string\",\n          \"dseq\": \"dddddddd\",\n          \"gseq\": 2998.732912994302,\n          \"oseq\": 2327.3644089752634,\n          \"provider\": \"string\",\n          \"bseq\": 1188.2925079370598\n        },\n        \"state\": \"string\",\n        \"price\": {\n          \"denom\": \"string\",\n          \"amount\": \"string\"\n        },\n        \"created_at\": \"string\",\n        \"closed_on\": \"string\",\n        \"status\": {\n          \"forwarded_ports\": {\n            \"key_0\": [\n              {\n                \"port\": 7298.937232616529,\n                \"externalPort\": 328.12602224299934,\n                \"host\": \"string\",\n                \"available\": 3134.4740575877127\n              },\n              {\n                \"port\": 9961.179739145899,\n                \"externalPort\": 4841.16127059357,\n                \"host\": \"string\",\n                \"available\": 1978.6646816148568\n              }\n            ]\n          },\n          \"ips\": {\n            \"key_0\": [\n              {\n                \"IP\": \"string\",\n                \"Port\": 4326.178556678889,\n                \"ExternalPort\": 4726.466927224682,\n                \"Protocol\": \"string\"\n              },\n              {\n                \"IP\": \"string\",\n                \"Port\": 4577.078824643002,\n                \"ExternalPort\": 1473.6932662739289,\n                \"Protocol\": \"string\"\n              }\n            ]\n          },\n          \"services\": {\n            \"key_0\": {\n              \"name\": \"string\",\n              \"available\": 6531.984904973083,\n              \"total\": 9391.513527740162,\n              \"uris\": [\n                \"string\",\n                \"string\"\n              ],\n              \"observed_generation\": 5164.588384995027,\n              \"replicas\": 9551.174808369931,\n              \"updated_replicas\": 9473.182574153027,\n              \"ready_replicas\": 3606.8505830858267,\n              \"available_replicas\": 3607.0105657192353\n            },\n            \"key_1\": {\n              \"name\": \"string\",\n              \"available\": 9425.422791241293,\n              \"total\": 8940.560810305082,\n              \"uris\": [\n                \"string\",\n                \"string\"\n              ],\n              \"observed_generation\": 1238.4622966614168,\n              \"replicas\": 2900.053492095337,\n              \"updated_replicas\": 2603.214939197681,\n              \"ready_replicas\": 7431.21199273614,\n              \"available_replicas\": 7473.301452978682\n            },\n            \"key_2\": {\n              \"name\": \"string\",\n              \"available\": 3709.8852630034453,\n              \"total\": 9160.414371156623,\n              \"uris\": [\n                \"string\",\n                \"string\"\n              ],\n              \"observed_generation\": 944.4297447226513,\n              \"replicas\": 3850.026318647244,\n              \"updated_replicas\": 3911.1021862491425,\n              \"ready_replicas\": 8552.467038111847,\n              \"available_replicas\": 8573.05591141415\n            }\n          }\n        },\n        \"reason\": \"string\"\n      }\n    ],\n    \"escrow_account\": {\n      \"id\": {\n        \"scope\": \"string\",\n        \"xid\": \"string\"\n      },\n      \"state\": {\n        \"owner\": \"string\",\n        \"state\": \"string\",\n        \"transferred\": [\n          {\n            \"denom\": \"string\",\n            \"amount\": \"string\"\n          },\n          {\n            \"denom\": \"string\",\n            \"amount\": \"string\"\n          }\n        ],\n        \"settled_at\": \"string\",\n        \"funds\": [\n          {\n            \"denom\": \"string\",\n            \"amount\": \"string\"\n          },\n          {\n            \"denom\": \"string\",\n            \"amount\": \"string\"\n          }\n        ],\n        \"deposits\": [\n          {\n            \"owner\": \"string\",\n            \"height\": \"string\",\n            \"source\": \"string\",\n            \"balance\": {\n              \"denom\": \"string\",\n              \"amount\": \"string\"\n            }\n          },\n          {\n            \"owner\": \"string\",\n            \"height\": \"string\",\n            \"source\": \"string\",\n            \"balance\": {\n              \"denom\": \"string\",\n              \"amount\": \"string\"\n            }\n          }\n        ]\n      }\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3638b40a-3dd6-45ef-98e5-e39fb6b324fe",
+          "name": "List leases (database fallback)",
+          "request": {
+            "name": "List leases (database fallback)",
+            "description": {},
+            "url": {
+              "path": [
+                "akash",
+                "market",
+                ":version",
+                "leases",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "filters.owner",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filters.dseq",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filters.gseq",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filters.oseq",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filters.provider",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filters.state",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "pagination.offset",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "pagination.limit",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "pagination.key",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "pagination.count_total",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "pagination.reverse",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1940c5c1-62b8-44b4-a18b-e8a6e31ec906",
+              "name": "Returns paginated list of leases from database",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "akash",
+                    "market",
+                    ":version",
+                    "leases",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filters.owner",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filters.dseq",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filters.gseq",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filters.oseq",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filters.provider",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filters.state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pagination.offset",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pagination.limit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pagination.key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pagination.count_total",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pagination.reverse",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"leases\": [\n    {\n      \"lease\": {\n        \"id\": {\n          \"owner\": \"string\",\n          \"dseq\": \"dddd\",\n          \"gseq\": 6750.715398471961,\n          \"oseq\": 557.2193072256438,\n          \"provider\": \"string\",\n          \"bseq\": 2528.892588178119\n        },\n        \"state\": \"string\",\n        \"price\": {\n          \"denom\": \"string\",\n          \"amount\": \"string\"\n        },\n        \"created_at\": \"string\",\n        \"closed_on\": \"string\",\n        \"reason\": \"string\"\n      },\n      \"escrow_payment\": {\n        \"id\": {\n          \"aid\": {\n            \"scope\": \"string\",\n            \"xid\": \"string\"\n          },\n          \"xid\": \"string\"\n        },\n        \"state\": {\n          \"owner\": \"string\",\n          \"state\": \"string\",\n          \"rate\": {\n            \"denom\": \"string\",\n            \"amount\": \"string\"\n          },\n          \"balance\": {\n            \"denom\": \"string\",\n            \"amount\": \"string\"\n          },\n          \"unsettled\": {\n            \"denom\": \"string\",\n            \"amount\": \"string\"\n          },\n          \"withdrawn\": {\n            \"denom\": \"string\",\n            \"amount\": \"string\"\n          }\n        }\n      }\n    },\n    {\n      \"lease\": {\n        \"id\": {\n          \"owner\": \"string\",\n          \"dseq\": \"dddddddd\",\n          \"gseq\": 1135.2483113541089,\n          \"oseq\": 5970.797316601747,\n          \"provider\": \"string\",\n          \"bseq\": 1370.6310445869162\n        },\n        \"state\": \"string\",\n        \"price\": {\n          \"denom\": \"string\",\n          \"amount\": \"string\"\n        },\n        \"created_at\": \"string\",\n        \"closed_on\": \"string\",\n        \"reason\": \"string\"\n      },\n      \"escrow_payment\": {\n        \"id\": {\n          \"aid\": {\n            \"scope\": \"string\",\n            \"xid\": \"string\"\n          },\n          \"xid\": \"string\"\n        },\n        \"state\": {\n          \"owner\": \"string\",\n          \"state\": \"string\",\n          \"rate\": {\n            \"denom\": \"string\",\n            \"amount\": \"string\"\n          },\n          \"balance\": {\n            \"denom\": \"string\",\n            \"amount\": \"string\"\n          },\n          \"unsettled\": {\n            \"denom\": \"string\",\n            \"amount\": \"string\"\n          },\n          \"withdrawn\": {\n            \"denom\": \"string\",\n            \"amount\": \"string\"\n          }\n        }\n      }\n    }\n  ],\n  \"pagination\": {\n    \"next_key\": \"string\",\n    \"total\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "787d44a1-e517-490a-bbc7-73fef7053ae9",
+    "name": "AKASH - gRPC Gateway docs Addresses Leases API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "A REST interface for state queries",
+      "type": "text/plain"
+    }
+  }
+}

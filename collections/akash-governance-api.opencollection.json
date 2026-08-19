@@ -1,0 +1,284 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "AKASH - gRPC Gateway docs Addresses Governance API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Governance",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Query proposals",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/gov/proposals",
+            "params": [
+              {
+                "name": "voter",
+                "value": "",
+                "type": "query",
+                "description": "voter address"
+              },
+              {
+                "name": "depositor",
+                "value": "",
+                "type": "query",
+                "description": "depositor address"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "proposal status, valid values can be `\"deposit_period\"`, `\"voting_period\"`, `\"passed\"`, `\"rejected\"`"
+              }
+            ]
+          },
+          "docs": "Query proposals information with parameters"
+        },
+        {
+          "info": {
+            "name": "Submit a proposal",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/gov/proposals"
+          },
+          "docs": "Send transaction to submit a proposal"
+        },
+        {
+          "info": {
+            "name": "Generate a parameter change proposal transaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/gov/proposals/param_change"
+          },
+          "docs": "Generate a parameter change proposal transaction"
+        },
+        {
+          "info": {
+            "name": "Query a proposal",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/gov/proposals/:proposalId",
+            "params": [
+              {
+                "name": "proposalId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Query a proposal by id"
+        },
+        {
+          "info": {
+            "name": "Query proposer",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/gov/proposals/:proposalId/proposer",
+            "params": [
+              {
+                "name": "proposalId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Query for the proposer for a proposal"
+        },
+        {
+          "info": {
+            "name": "Query deposits",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/gov/proposals/:proposalId/deposits",
+            "params": [
+              {
+                "name": "proposalId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Query deposits by proposalId"
+        },
+        {
+          "info": {
+            "name": "Deposit tokens to a proposal",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/gov/proposals/:proposalId/deposits",
+            "params": [
+              {
+                "name": "proposalId",
+                "value": "",
+                "type": "path",
+                "description": "proposal id"
+              }
+            ]
+          },
+          "docs": "Send transaction to deposit tokens to a proposal"
+        },
+        {
+          "info": {
+            "name": "Query deposit",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/gov/proposals/:proposalId/deposits/:depositor",
+            "params": [
+              {
+                "name": "proposalId",
+                "value": "",
+                "type": "path",
+                "description": "proposal id"
+              },
+              {
+                "name": "depositor",
+                "value": "",
+                "type": "path",
+                "description": "Bech32 depositor address"
+              }
+            ]
+          },
+          "docs": "Query deposit by proposalId and depositor address"
+        },
+        {
+          "info": {
+            "name": "Query voters",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/gov/proposals/:proposalId/votes",
+            "params": [
+              {
+                "name": "proposalId",
+                "value": "",
+                "type": "path",
+                "description": "proposal id"
+              }
+            ]
+          },
+          "docs": "Query voters information by proposalId"
+        },
+        {
+          "info": {
+            "name": "Vote a proposal",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/gov/proposals/:proposalId/votes",
+            "params": [
+              {
+                "name": "proposalId",
+                "value": "",
+                "type": "path",
+                "description": "proposal id"
+              }
+            ]
+          },
+          "docs": "Send transaction to vote a proposal"
+        },
+        {
+          "info": {
+            "name": "Query vote",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/gov/proposals/:proposalId/votes/:voter",
+            "params": [
+              {
+                "name": "proposalId",
+                "value": "",
+                "type": "path",
+                "description": "proposal id"
+              },
+              {
+                "name": "voter",
+                "value": "",
+                "type": "path",
+                "description": "Bech32 voter address"
+              }
+            ]
+          },
+          "docs": "Query vote information by proposal Id and voter address"
+        },
+        {
+          "info": {
+            "name": "Get a proposal's tally result at the current time",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/gov/proposals/:proposalId/tally",
+            "params": [
+              {
+                "name": "proposalId",
+                "value": "",
+                "type": "path",
+                "description": "proposal id"
+              }
+            ]
+          },
+          "docs": "Gets a proposal's tally result at the current time. If the proposal is pending deposits (i.e status 'DepositPeriod') it returns an empty tally result."
+        },
+        {
+          "info": {
+            "name": "Query governance deposit parameters",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/gov/parameters/deposit"
+          },
+          "docs": "Query governance deposit parameters. The max_deposit_period units are in nanoseconds."
+        },
+        {
+          "info": {
+            "name": "Query governance tally parameters",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/gov/parameters/tallying"
+          },
+          "docs": "Query governance tally parameters"
+        },
+        {
+          "info": {
+            "name": "Query governance voting parameters",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/gov/parameters/voting"
+          },
+          "docs": "Query governance voting parameters. The voting_period units are in nanoseconds."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

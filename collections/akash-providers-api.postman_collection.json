@@ -1,0 +1,1167 @@
+{
+  "item": [
+    {
+      "id": "0863e4c7-9b8b-4c35-984b-6d3696f2a17a",
+      "name": "Providers",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "421cb595-f9b8-4c52-adcb-3492df8bd567",
+          "name": "Get a list of providers.",
+          "request": {
+            "name": "Get a list of providers.",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "providers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "scope",
+                  "value": "all"
+                },
+                {
+                  "disabled": false,
+                  "key": "addresses",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "af39de1a-4770-4387-8ab4-c17f22485750",
+              "name": "Returns a list of providers",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "providers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "scope",
+                      "value": "all"
+                    },
+                    {
+                      "key": "addresses",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"owner\": \"string\",\n    \"name\": \"string\",\n    \"hostUri\": \"string\",\n    \"createdHeight\": 7534.090759124233,\n    \"cosmosSdkVersion\": \"string\",\n    \"akashVersion\": \"string\",\n    \"ipRegion\": \"string\",\n    \"ipRegionCode\": \"string\",\n    \"ipCountry\": \"string\",\n    \"ipCountryCode\": \"string\",\n    \"ipLat\": \"string\",\n    \"ipLon\": \"string\",\n    \"uptime1d\": 1378.274984205341,\n    \"uptime7d\": 1738.2631510119295,\n    \"uptime30d\": 9500.093110253692,\n    \"isValidVersion\": true,\n    \"isOnline\": false,\n    \"lastOnlineDate\": \"string\",\n    \"isAudited\": false,\n    \"gpuModels\": [\n      {\n        \"vendor\": \"string\",\n        \"model\": \"string\",\n        \"ram\": \"string\",\n        \"interface\": \"string\"\n      },\n      {\n        \"vendor\": \"string\",\n        \"model\": \"string\",\n        \"ram\": \"string\",\n        \"interface\": \"string\"\n      }\n    ],\n    \"attributes\": [\n      {\n        \"key\": \"string\",\n        \"value\": \"string\",\n        \"auditedBy\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      {\n        \"key\": \"string\",\n        \"value\": \"string\",\n        \"auditedBy\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    ],\n    \"host\": \"string\",\n    \"organization\": \"string\",\n    \"statusPage\": \"string\",\n    \"locationRegion\": \"string\",\n    \"country\": \"string\",\n    \"city\": \"string\",\n    \"timezone\": \"string\",\n    \"locationType\": \"string\",\n    \"hostingProvider\": \"string\",\n    \"hardwareCpu\": \"string\",\n    \"hardwareCpuArch\": \"string\",\n    \"hardwareGpuVendor\": \"string\",\n    \"hardwareGpuModels\": [\n      \"string\",\n      \"string\"\n    ],\n    \"hardwareDisk\": [\n      \"string\",\n      \"string\"\n    ],\n    \"featPersistentStorage\": true,\n    \"featPersistentStorageType\": [\n      \"string\",\n      \"string\"\n    ],\n    \"hardwareMemory\": \"string\",\n    \"networkProvider\": \"string\",\n    \"networkSpeedDown\": 5631.213636122864,\n    \"networkSpeedUp\": 7581.986160049997,\n    \"tier\": \"string\",\n    \"featEndpointCustomDomain\": false,\n    \"workloadSupportChia\": false,\n    \"workloadSupportChiaCapabilities\": [\n      \"string\",\n      \"string\"\n    ],\n    \"featEndpointIp\": true,\n    \"email\": \"string\",\n    \"website\": \"string\",\n    \"lastCheckDate\": \"string\",\n    \"deploymentCount\": 3256.6362089214163,\n    \"leaseCount\": 4636.2130027297235\n  },\n  {\n    \"owner\": \"string\",\n    \"name\": \"string\",\n    \"hostUri\": \"string\",\n    \"createdHeight\": 3628.758981073674,\n    \"cosmosSdkVersion\": \"string\",\n    \"akashVersion\": \"string\",\n    \"ipRegion\": \"string\",\n    \"ipRegionCode\": \"string\",\n    \"ipCountry\": \"string\",\n    \"ipCountryCode\": \"string\",\n    \"ipLat\": \"string\",\n    \"ipLon\": \"string\",\n    \"uptime1d\": 2890.638475179812,\n    \"uptime7d\": 456.7973968773065,\n    \"uptime30d\": 8171.449885679024,\n    \"isValidVersion\": false,\n    \"isOnline\": true,\n    \"lastOnlineDate\": \"string\",\n    \"isAudited\": false,\n    \"gpuModels\": [\n      {\n        \"vendor\": \"string\",\n        \"model\": \"string\",\n        \"ram\": \"string\",\n        \"interface\": \"string\"\n      },\n      {\n        \"vendor\": \"string\",\n        \"model\": \"string\",\n        \"ram\": \"string\",\n        \"interface\": \"string\"\n      }\n    ],\n    \"attributes\": [\n      {\n        \"key\": \"string\",\n        \"value\": \"string\",\n        \"auditedBy\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      {\n        \"key\": \"string\",\n        \"value\": \"string\",\n        \"auditedBy\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    ],\n    \"host\": \"string\",\n    \"organization\": \"string\",\n    \"statusPage\": \"string\",\n    \"locationRegion\": \"string\",\n    \"country\": \"string\",\n    \"city\": \"string\",\n    \"timezone\": \"string\",\n    \"locationType\": \"string\",\n    \"hostingProvider\": \"string\",\n    \"hardwareCpu\": \"string\",\n    \"hardwareCpuArch\": \"string\",\n    \"hardwareGpuVendor\": \"string\",\n    \"hardwareGpuModels\": [\n      \"string\",\n      \"string\"\n    ],\n    \"hardwareDisk\": [\n      \"string\",\n      \"string\"\n    ],\n    \"featPersistentStorage\": false,\n    \"featPersistentStorageType\": [\n      \"string\",\n      \"string\"\n    ],\n    \"hardwareMemory\": \"string\",\n    \"networkProvider\": \"string\",\n    \"networkSpeedDown\": 4278.510923205909,\n    \"networkSpeedUp\": 6104.557736265954,\n    \"tier\": \"string\",\n    \"featEndpointCustomDomain\": true,\n    \"workloadSupportChia\": true,\n    \"workloadSupportChiaCapabilities\": [\n      \"string\",\n      \"string\"\n    ],\n    \"featEndpointIp\": false,\n    \"email\": \"string\",\n    \"website\": \"string\",\n    \"lastCheckDate\": \"string\",\n    \"deploymentCount\": 3263.0788030774315,\n    \"leaseCount\": 1896.3019541809601\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "95d2cad3-58dc-48ce-85cf-96cf77d2d7fa",
+          "name": "Get a provider details.",
+          "request": {
+            "name": "Get a provider details.",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "providers",
+                ":address"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "address",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "dcd52107-e5f4-4dfa-a4a0-de863adb86d9",
+              "name": "Return a provider details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "providers",
+                    ":address"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "address",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"owner\": \"string\",\n  \"name\": \"string\",\n  \"hostUri\": \"string\",\n  \"createdHeight\": 1874.640061819186,\n  \"email\": \"string\",\n  \"website\": \"string\",\n  \"lastCheckDate\": \"string\",\n  \"deploymentCount\": 9620.860553351342,\n  \"leaseCount\": 5797.562720943087,\n  \"cosmosSdkVersion\": \"string\",\n  \"akashVersion\": \"string\",\n  \"ipRegion\": \"string\",\n  \"ipRegionCode\": \"string\",\n  \"ipCountry\": \"string\",\n  \"ipCountryCode\": \"string\",\n  \"ipLat\": \"string\",\n  \"ipLon\": \"string\",\n  \"uptime1d\": 2912.5355509977967,\n  \"uptime7d\": 3825.98424283508,\n  \"uptime30d\": 3117.5124667897403,\n  \"isValidVersion\": false,\n  \"isOnline\": true,\n  \"lastOnlineDate\": \"string\",\n  \"isAudited\": true,\n  \"stats\": {\n    \"cpu\": {\n      \"active\": 4940.434839372876,\n      \"available\": 7498.3732346823335,\n      \"pending\": 9882.740059445456\n    },\n    \"gpu\": {\n      \"active\": 5331.695166954871,\n      \"available\": 2271.1255326265314,\n      \"pending\": 7920.001192889944\n    },\n    \"memory\": {\n      \"active\": 5818.291519204724,\n      \"available\": 3717.0751697569094,\n      \"pending\": 4080.817274575369\n    },\n    \"storage\": {\n      \"ephemeral\": {\n        \"active\": 7709.088873168155,\n        \"available\": 1660.2691384102375,\n        \"pending\": 9940.690978087994\n      },\n      \"persistent\": {\n        \"active\": 71.11430101273353,\n        \"available\": 6415.450862000022,\n        \"pending\": 5184.476235630568\n      }\n    }\n  },\n  \"gpuModels\": [\n    {\n      \"vendor\": \"string\",\n      \"model\": \"string\",\n      \"ram\": \"string\",\n      \"interface\": \"string\"\n    },\n    {\n      \"vendor\": \"string\",\n      \"model\": \"string\",\n      \"ram\": \"string\",\n      \"interface\": \"string\"\n    }\n  ],\n  \"attributes\": [\n    {\n      \"key\": \"string\",\n      \"value\": \"string\",\n      \"auditedBy\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"key\": \"string\",\n      \"value\": \"string\",\n      \"auditedBy\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ],\n  \"host\": \"string\",\n  \"organization\": \"string\",\n  \"statusPage\": \"string\",\n  \"locationRegion\": \"string\",\n  \"country\": \"string\",\n  \"city\": \"string\",\n  \"timezone\": \"string\",\n  \"locationType\": \"string\",\n  \"hostingProvider\": \"string\",\n  \"hardwareCpu\": \"string\",\n  \"hardwareCpuArch\": \"string\",\n  \"hardwareGpuVendor\": \"string\",\n  \"hardwareGpuModels\": [\n    \"string\",\n    \"string\"\n  ],\n  \"hardwareDisk\": [\n    \"string\",\n    \"string\"\n  ],\n  \"featPersistentStorage\": false,\n  \"featPersistentStorageType\": [\n    \"string\",\n    \"string\"\n  ],\n  \"hardwareMemory\": \"string\",\n  \"networkProvider\": \"string\",\n  \"networkSpeedDown\": 4043.018717802942,\n  \"networkSpeedUp\": 2016.793823783979,\n  \"tier\": \"string\",\n  \"featEndpointCustomDomain\": true,\n  \"workloadSupportChia\": true,\n  \"workloadSupportChiaCapabilities\": [\n    \"string\",\n    \"string\"\n  ],\n  \"featEndpointIp\": false,\n  \"uptime\": [\n    {\n      \"id\": \"string\",\n      \"isOnline\": true,\n      \"checkDate\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"isOnline\": false,\n      \"checkDate\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "142d72f8-bf17-44e0-99d8-5d0853b4c228",
+              "name": "Invalid address",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "providers",
+                    ":address"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "address",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6d036dc3-10b6-4d2c-bbef-933c173c21a8",
+              "name": "Provider not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "providers",
+                    ":address"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "address",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a14dfbcb-712a-40c5-a202-f827fb41d5f6",
+          "name": "/v1/providers/:providerAddress/active-leases-graph-data",
+          "request": {
+            "name": "/v1/providers/:providerAddress/active-leases-graph-data",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "providers",
+                ":providerAddress",
+                "active-leases-graph-data"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "providerAddress",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f1eb9e2e-55fc-421f-acf9-8973973a3221",
+              "name": "Returns a provider's active leases graph data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "providers",
+                    ":providerAddress",
+                    "active-leases-graph-data"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "providerAddress",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"currentValue\": 8413.623510805348,\n  \"compareValue\": 6499.27814232125,\n  \"snapshots\": [\n    {\n      \"date\": \"2021-07-01T00:00:00.000Z\",\n      \"value\": 100\n    },\n    {\n      \"date\": \"2021-07-01T00:00:00.000Z\",\n      \"value\": 100\n    }\n  ],\n  \"now\": {\n    \"count\": 100\n  },\n  \"compare\": {\n    \"count\": 100\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e3efd607-dcfc-4f60-96c1-6d6faf0ecf96",
+              "name": "Invalid address",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "providers",
+                    ":providerAddress",
+                    "active-leases-graph-data"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "providerAddress",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "100b6e89-8b6c-4a21-a0c1-35bd54ac5e65",
+          "name": "Get a list of auditors.",
+          "request": {
+            "name": "Get a list of auditors.",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "auditors"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b6ad6eb9-fb5d-490b-b528-0e3e57dc83ac",
+              "name": "List of auditors",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "auditors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"address\": \"string\",\n    \"website\": \"string\"\n  },\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"address\": \"string\",\n    \"website\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e6a6ad67-b772-4a37-9fe1-16fc0c0863bf",
+          "name": "Get the provider attributes schema",
+          "request": {
+            "name": "Get the provider attributes schema",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "provider-attributes-schema"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "12e06e04-c06d-4ff0-a802-bdc9b031842f",
+              "name": "Return the provider attributes schema",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "provider-attributes-schema"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"host\": {\n    \"key\": \"string\",\n    \"type\": \"multiple-option\",\n    \"required\": true,\n    \"description\": \"string\",\n    \"values\": [\n      {\n        \"key\": \"string\",\n        \"description\": \"string\",\n        \"value\": {}\n      },\n      {\n        \"key\": \"string\",\n        \"description\": \"string\",\n        \"value\": {}\n      }\n    ]\n  },\n  \"email\": {\n    \"key\": \"string\",\n    \"type\": \"string\",\n    \"required\": false,\n    \"description\": \"string\",\n    \"values\": [\n      {\n        \"key\": \"string\",\n        \"description\": \"string\",\n        \"value\": {}\n      },\n      {\n        \"key\": \"string\",\n        \"description\": \"string\",\n        \"value\": {}\n      }\n    ]\n  },\n  \"organization\": {\n    \"key\": \"string\",\n    \"type\": \"number\",\n    \"required\": true,\n    \"description\": \"string\",\n    \"values\": [\n      {\n        \"key\": \"string\",\n        \"description\": \"string\",\n        \"value\": {}\n      },\n      {\n        \"key\": \"string\",\n        \"description\": \"string\",\n        \"value\": {}\n      }\n    ]\n  },\n  \"website\": {\n    \"key\": \"string\",\n    \"type\": \"number\",\n    \"required\": false,\n    \"description\": \"string\",\n    \"values\": [\n      {\n        \"key\": \"string\",\n        \"description\": \"string\",\n        \"value\": {}\n      },\n      {\n        \"key\": \"string\",\n        \"description\": \"string\",\n        \"value\": {}\n      }\n    ]\n  },\n  \"tier\": {\n    \"key\": \"string\",\n    \"type\": \"number\",\n    \"required\": false,\n    \"description\": \"string\",\n    \"values\": [\n      {\n        \"key\": \"string\",\n        \"description\": \"string\",\n        \"value\": {}\n      },\n      {\n        \"key\": \"string\",\n        \"description\": \"string\",\n        \"value\": {}\n      }\n    ]\n  },\n  \"status-page\": {\n    \"key\": \"string\",\n    \"type\": \"number\",\n    \"required\": false,\n    \"description\": \"string\",\n    \"values\": [\n      {\n        \"key\": \"string\",\n        \"description\": \"string\",\n        \"value\": {}\n      },\n      {\n        \"key\": \"string\",\n        \"description\": \"string\",\n        \"value\": {}\n      }\n    ]\n  },\n  \"location-region\": {\n    \"key\": \"string\",\n    \"type\": \"string\",\n    \"required\": true,\n    \"description\": \"string\",\n    \"values\": [\n      {\n        \"key\": \"string\",\n        \"description\": \"string\",\n        \"value\": {}\n      },\n      {\n        \"key\": \"string\",\n        \"description\": \"string\",\n        \"value\": {}\n      }\n    ]\n  },\n  \"country\": {\n    \"key\": \"string\",\n    \"type\": \"option\",\n    \"required\": false,\n    \"description\": \"string\",\n    \"values\": [\n      {\n        \"key\": \"string\",\n        \"description\": \"string\",\n        \"value\": {}\n      },\n      {\n        \"key\": \"string\",\n        \"description\": \"string\",\n        \"value\": {}\n      }\n    ]\n  },\n  \"city\": {\n    \"key\": \"string\",\n    \"type\": \"option\",\n    \"required\": false,\n    \"description\": \"string\",\n    \"values\": [\n      {\n        \"key\": \"string\",\n        \"description\": \"string\",\n        \"value\": {}\n      },\n      {\n        \"key\": \"string\",\n        \"description\": \"string\",\n        \"value\": {}\n      }\n    ]\n  },\n  \"timezone\": {\n    \"key\": \"string\",\n    \"type\": \"multiple-option\",\n    \"required\": true,\n    \"description\": \"string\",\n    \"values\": [\n      {\n        \"key\": \"string\",\n        \"description\": \"string\",\n        \"value\": {}\n      },\n      {\n        \"key\": \"string\",\n        \"description\": \"string\",\n        \"value\": {}\n      }\n    ]\n  },\n  \"location-type\": {\n    \"key\": \"string\",\n    \"type\": \"number\",\n    \"required\": false,\n    \"description\": \"string\",\n    \"values\": [\n      {\n        \"key\": \"string\",\n        \"description\": \"string\",\n        \"value\": {}\n      },\n      {\n        \"key\": \"string\",\n        \"description\": \"string\",\n        \"value\": {}\n      }\n    ]\n  },\n  \"hosting-provider\": {\n    \"key\": \"string\",\n    \"type\": \"multiple-option\",\n    \"required\": false,\n    \"description\": \"string\",\n    \"values\": [\n      {\n        \"key\": \"string\",\n        \"description\": \"string\",\n        \"value\": {}\n      },\n      {\n        \"key\": \"string\",\n        \"description\": \"string\",\n        \"value\": {}\n      }\n    ]\n  },\n  \"hardware-cpu\": {\n    \"key\": \"string\",\n    \"type\": \"multiple-option\",\n    \"required\": true,\n    \"description\": \"string\",\n    \"values\": [\n      {\n        \"key\": \"string\",\n        \"description\": \"string\",\n        \"value\": {}\n      },\n      {\n        \"key\": \"string\",\n        \"description\": \"string\",\n        \"value\": {}\n      }\n    ]\n  },\n  \"hardware-cpu-arch\": {\n    \"key\": \"string\",\n    \"type\": \"boolean\",\n    \"required\": true,\n    \"description\": \"string\",\n    \"values\": [\n      {\n        \"key\": \"string\",\n        \"description\": \"string\",\n        \"value\": {}\n      },\n      {\n        \"key\": \"string\",\n        \"description\": \"string\",\n        \"value\": {}\n      }\n    ]\n  },\n  \"hardware-gpu\": {\n    \"key\": \"string\",\n    \"type\": \"multiple-option\",\n    \"required\": false,\n    \"description\": \"string\",\n    \"values\": [\n      {\n        \"key\": \"string\",\n        \"description\": \"string\",\n        \"value\": {}\n      },\n      {\n        \"key\": \"string\",\n        \"description\": \"string\",\n        \"value\": {}\n      }\n    ]\n  },\n  \"hardware-gpu-model\": {\n    \"key\": \"string\",\n    \"type\": \"option\",\n    \"required\": true,\n    \"description\": \"string\",\n    \"values\": [\n      {\n        \"key\": \"string\",\n        \"description\": \"string\",\n        \"value\": {}\n      },\n      {\n        \"key\": \"string\",\n        \"description\": \"string\",\n        \"value\": {}\n      }\n    ]\n  },\n  \"hardware-disk\": {\n    \"key\": \"string\",\n    \"type\": \"option\",\n    \"required\": true,\n    \"description\": \"string\",\n    \"values\": [\n      {\n        \"key\": \"string\",\n        \"description\": \"string\",\n        \"value\": {}\n      },\n      {\n        \"key\": \"string\",\n        \"description\": \"string\",\n        \"value\": {}\n      }\n    ]\n  },\n  \"hardware-memory\": {\n    \"key\": \"string\",\n    \"type\": \"number\",\n    \"required\": true,\n    \"description\": \"string\",\n    \"values\": [\n      {\n        \"key\": \"string\",\n        \"description\": \"string\",\n        \"value\": {}\n      },\n      {\n        \"key\": \"string\",\n        \"description\": \"string\",\n        \"value\": {}\n      }\n    ]\n  },\n  \"network-provider\": {\n    \"key\": \"string\",\n    \"type\": \"option\",\n    \"required\": true,\n    \"description\": \"string\",\n    \"values\": [\n      {\n        \"key\": \"string\",\n        \"description\": \"string\",\n        \"value\": {}\n      },\n      {\n        \"key\": \"string\",\n        \"description\": \"string\",\n        \"value\": {}\n      }\n    ]\n  },\n  \"network-speed-up\": {\n    \"key\": \"string\",\n    \"type\": \"string\",\n    \"required\": false,\n    \"description\": \"string\",\n    \"values\": [\n      {\n        \"key\": \"string\",\n        \"description\": \"string\",\n        \"value\": {}\n      },\n      {\n        \"key\": \"string\",\n        \"description\": \"string\",\n        \"value\": {}\n      }\n    ]\n  },\n  \"network-speed-down\": {\n    \"key\": \"string\",\n    \"type\": \"string\",\n    \"required\": true,\n    \"description\": \"string\",\n    \"values\": [\n      {\n        \"key\": \"string\",\n        \"description\": \"string\",\n        \"value\": {}\n      },\n      {\n        \"key\": \"string\",\n        \"description\": \"string\",\n        \"value\": {}\n      }\n    ]\n  },\n  \"feat-persistent-storage\": {\n    \"key\": \"string\",\n    \"type\": \"boolean\",\n    \"required\": true,\n    \"description\": \"string\",\n    \"values\": [\n      {\n        \"key\": \"string\",\n        \"description\": \"string\",\n        \"value\": {}\n      },\n      {\n        \"key\": \"string\",\n        \"description\": \"string\",\n        \"value\": {}\n      }\n    ]\n  },\n  \"feat-persistent-storage-type\": {\n    \"key\": \"string\",\n    \"type\": \"boolean\",\n    \"required\": true,\n    \"description\": \"string\",\n    \"values\": [\n      {\n        \"key\": \"string\",\n        \"description\": \"string\",\n        \"value\": {}\n      },\n      {\n        \"key\": \"string\",\n        \"description\": \"string\",\n        \"value\": {}\n      }\n    ]\n  },\n  \"workload-support-chia\": {\n    \"key\": \"string\",\n    \"type\": \"number\",\n    \"required\": true,\n    \"description\": \"string\",\n    \"values\": [\n      {\n        \"key\": \"string\",\n        \"description\": \"string\",\n        \"value\": {}\n      },\n      {\n        \"key\": \"string\",\n        \"description\": \"string\",\n        \"value\": {}\n      }\n    ]\n  },\n  \"workload-support-chia-capabilities\": {\n    \"key\": \"string\",\n    \"type\": \"multiple-option\",\n    \"required\": true,\n    \"description\": \"string\",\n    \"values\": [\n      {\n        \"key\": \"string\",\n        \"description\": \"string\",\n        \"value\": {}\n      },\n      {\n        \"key\": \"string\",\n        \"description\": \"string\",\n        \"value\": {}\n      }\n    ]\n  },\n  \"feat-endpoint-ip\": {\n    \"key\": \"string\",\n    \"type\": \"number\",\n    \"required\": false,\n    \"description\": \"string\",\n    \"values\": [\n      {\n        \"key\": \"string\",\n        \"description\": \"string\",\n        \"value\": {}\n      },\n      {\n        \"key\": \"string\",\n        \"description\": \"string\",\n        \"value\": {}\n      }\n    ]\n  },\n  \"feat-endpoint-custom-domain\": {\n    \"key\": \"string\",\n    \"type\": \"boolean\",\n    \"required\": true,\n    \"description\": \"string\",\n    \"values\": [\n      {\n        \"key\": \"string\",\n        \"description\": \"string\",\n        \"value\": {}\n      },\n      {\n        \"key\": \"string\",\n        \"description\": \"string\",\n        \"value\": {}\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7e6f0382-3e7e-4d7b-8906-1173babcc0da",
+          "name": "Get a list of provider regions",
+          "request": {
+            "name": "Get a list of provider regions",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "provider-regions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e89208f2-8eb4-46b5-b88a-7558998b4f79",
+              "name": "Return a list of provider regions",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "provider-regions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"providers\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key\": \"string\",\n    \"description\": \"string\",\n    \"value\": \"string\"\n  },\n  {\n    \"providers\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key\": \"string\",\n    \"description\": \"string\",\n    \"value\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9d0a2964-ee93-41e9-bf87-33ba766f6a92",
+          "name": "Get dashboard data for provider console.",
+          "request": {
+            "name": "Get dashboard data for provider console.",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "provider-dashboard",
+                ":owner"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "owner",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6c6a6206-9eb7-4423-abc8-7f7df58e2242",
+              "name": "Dashboard data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "provider-dashboard",
+                    ":owner"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "owner",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"current\": {\n    \"date\": \"string\",\n    \"height\": 4953.355384685817,\n    \"activeLeaseCount\": 5474.588556759361,\n    \"totalLeaseCount\": 5371.817232590341,\n    \"dailyLeaseCount\": 2727.080259123039,\n    \"totalUAktEarned\": 5627.929622742122,\n    \"dailyUAktEarned\": 4770.15126296476,\n    \"totalUUsdcEarned\": 8853.685883691014,\n    \"dailyUUsdcEarned\": 622.2994638748769,\n    \"totalUActEarned\": 4606.643435769604,\n    \"dailyUActEarned\": 4221.549937940317,\n    \"totalUUsdEarned\": 6948.546317744059,\n    \"dailyUUsdEarned\": 2146.427704568291,\n    \"activeCPU\": 2090.858991668454,\n    \"activeGPU\": 9397.32028124441,\n    \"activeMemory\": 72.43558808008865,\n    \"activeEphemeralStorage\": 5494.272548591145,\n    \"activePersistentStorage\": 8088.6122568639175,\n    \"activeStorage\": 9570.227995846313\n  },\n  \"previous\": {\n    \"date\": \"string\",\n    \"height\": 5108.0032242622265,\n    \"activeLeaseCount\": 8180.426368254322,\n    \"totalLeaseCount\": 1565.66528936669,\n    \"dailyLeaseCount\": 2030.3307198163134,\n    \"totalUAktEarned\": 3039.2585931576045,\n    \"dailyUAktEarned\": 7262.011236166504,\n    \"totalUUsdcEarned\": 1823.9018175087929,\n    \"dailyUUsdcEarned\": 8173.742816734528,\n    \"totalUActEarned\": 2412.481639859644,\n    \"dailyUActEarned\": 2054.8542569366723,\n    \"totalUUsdEarned\": 6065.452387612114,\n    \"dailyUUsdEarned\": 9444.19007518389,\n    \"activeCPU\": 9259.041662792513,\n    \"activeGPU\": 7362.460692986738,\n    \"activeMemory\": 7739.894932589806,\n    \"activeEphemeralStorage\": 7842.759133607066,\n    \"activePersistentStorage\": 4358.354133918888,\n    \"activeStorage\": 5404.166804195915\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a08866ec-4641-4341-a4d7-b24a79dfd9d6",
+              "name": "Provider not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "provider-dashboard",
+                    ":owner"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "owner",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8ea700bb-dbe3-46b5-8718-73c15770d25f",
+          "name": "Get earnings data for provider console.",
+          "request": {
+            "name": "Get earnings data for provider console.",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "provider-earnings",
+                ":owner"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<YYYY-MM-DD>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<YYYY-MM-DD>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "owner",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "701a55c5-128e-475b-baba-4a7fe4d78562",
+              "name": "Earnings data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "provider-earnings",
+                    ":owner"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "2023-01-01"
+                    },
+                    {
+                      "key": "to",
+                      "value": "2023-02-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "owner",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"earnings\": {\n    \"totalUAktEarned\": 2994.8952338629942,\n    \"totalUUsdcEarned\": 6870.720376349236,\n    \"totalUActEarned\": 1015.5660945811518,\n    \"totalUUsdEarned\": 5570.787843489401\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "71aa5a03-6f95-4229-9186-0d89dc0bbeec",
+              "name": "Provider not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "provider-earnings",
+                    ":owner"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "2023-01-01"
+                    },
+                    {
+                      "key": "to",
+                      "value": "2023-02-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "owner",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fbd58274-cde5-48ae-8094-fd969a3b9936",
+          "name": "Get providers grouped by version.",
+          "request": {
+            "name": "Get providers grouped by version.",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "provider-versions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "888123d3-904c-4f44-9b9e-bfae24d86ccc",
+              "name": "List of providers grouped by version.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "provider-versions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"key_0\": {\n    \"version\": \"string\",\n    \"count\": 5601.8984760496105,\n    \"ratio\": 8907.070423741508,\n    \"providers\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"key_1\": {\n    \"version\": \"string\",\n    \"count\": 2156.911919105784,\n    \"ratio\": 9652.7891717199,\n    \"providers\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"key_2\": {\n    \"version\": \"string\",\n    \"count\": 9807.820795060494,\n    \"ratio\": 2430.9550941489542,\n    \"providers\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"key_3\": {\n    \"version\": \"string\",\n    \"count\": 9672.910668803914,\n    \"ratio\": 4987.594019714024,\n    \"providers\": [\n      \"string\",\n      \"string\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a4dd388c-f4e0-45c8-b135-b2355628b704",
+          "name": "Get a list of deployments for a provider.",
+          "request": {
+            "name": "Get a list of deployments for a provider.",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "providers",
+                ":provider",
+                "deployments",
+                ":skip",
+                ":limit"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "provider",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "skip",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "limit",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "00916df9-ce71-429e-bb15-4bc4097bb3e4",
+              "name": "Returns deployment list",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "providers",
+                    ":provider",
+                    "deployments",
+                    ":skip",
+                    ":limit"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "status",
+                      "value": "closed"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "provider",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "skip",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "limit",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"total\": 2198.4500648499948,\n  \"deployments\": [\n    {\n      \"owner\": \"string\",\n      \"dseq\": \"d\",\n      \"denom\": \"string\",\n      \"createdHeight\": 7040.359426127468,\n      \"createdDate\": \"string\",\n      \"status\": \"string\",\n      \"balance\": 5988.337563863013,\n      \"transferred\": 5854.829145931346,\n      \"settledAt\": 1639.9030446939466,\n      \"resources\": {\n        \"cpu\": 2552.9439494435637,\n        \"memory\": 3619.6957097811733,\n        \"gpu\": 1218.9941428891082,\n        \"ephemeralStorage\": 6874.48702892425,\n        \"persistentStorage\": 5615.134089421933\n      },\n      \"leases\": [\n        {\n          \"provider\": \"string\",\n          \"gseq\": 7760.698732223733,\n          \"oseq\": 6665.9916453708165,\n          \"price\": 8119.0243044886865,\n          \"createdHeight\": 3731.711138310058,\n          \"createdDate\": \"string\",\n          \"closedHeight\": 7026.658723807018,\n          \"closedDate\": \"string\",\n          \"status\": \"string\",\n          \"resources\": {\n            \"cpu\": 1105.3486293005822,\n            \"memory\": 354.01335523398524,\n            \"gpu\": 7658.321402544074,\n            \"ephemeralStorage\": 3022.532140512402,\n            \"persistentStorage\": 1120.412720833217\n          }\n        },\n        {\n          \"provider\": \"string\",\n          \"gseq\": 6048.562723350489,\n          \"oseq\": 3773.432056825391,\n          \"price\": 2569.85524332649,\n          \"createdHeight\": 5483.436574746432,\n          \"createdDate\": \"string\",\n          \"closedHeight\": 7470.261276178893,\n          \"closedDate\": \"string\",\n          \"status\": \"string\",\n          \"resources\": {\n            \"cpu\": 4297.692224891284,\n            \"memory\": 6687.737438193728,\n            \"gpu\": 6908.752672443737,\n            \"ephemeralStorage\": 9681.468673350453,\n            \"persistentStorage\": 5259.751225680113\n          }\n        }\n      ]\n    },\n    {\n      \"owner\": \"string\",\n      \"dseq\": \"ddddd\",\n      \"denom\": \"string\",\n      \"createdHeight\": 5033.58446254317,\n      \"createdDate\": \"string\",\n      \"status\": \"string\",\n      \"balance\": 5477.181349294688,\n      \"transferred\": 5252.911941990682,\n      \"settledAt\": 3450.1560780669115,\n      \"resources\": {\n        \"cpu\": 6134.979314375864,\n        \"memory\": 3395.8407091579134,\n        \"gpu\": 433.97490772924095,\n        \"ephemeralStorage\": 1385.6977251604353,\n        \"persistentStorage\": 4428.025663243974\n      },\n      \"leases\": [\n        {\n          \"provider\": \"string\",\n          \"gseq\": 9484.18657235642,\n          \"oseq\": 2637.404846203215,\n          \"price\": 6187.61030078051,\n          \"createdHeight\": 6785.055991277438,\n          \"createdDate\": \"string\",\n          \"closedHeight\": 5098.875432830614,\n          \"closedDate\": \"string\",\n          \"status\": \"string\",\n          \"resources\": {\n            \"cpu\": 8991.040242901423,\n            \"memory\": 4508.717183733902,\n            \"gpu\": 1090.3108393414207,\n            \"ephemeralStorage\": 3298.11066316961,\n            \"persistentStorage\": 3683.6599320364126\n          }\n        },\n        {\n          \"provider\": \"string\",\n          \"gseq\": 2409.6746977229923,\n          \"oseq\": 3804.273692874146,\n          \"price\": 5892.369811930833,\n          \"createdHeight\": 6145.149384263433,\n          \"createdDate\": \"string\",\n          \"closedHeight\": 6016.314905910719,\n          \"closedDate\": \"string\",\n          \"status\": \"string\",\n          \"resources\": {\n            \"cpu\": 9720.728659125047,\n            \"memory\": 2038.4065898951276,\n            \"gpu\": 7790.818768974078,\n            \"ephemeralStorage\": 4812.981497199877,\n            \"persistentStorage\": 9171.712062462102\n          }\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "57fc6ba4-4e5e-4240-bcb8-572d36ab4847",
+              "name": "Invalid status filter",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "providers",
+                    ":provider",
+                    "deployments",
+                    ":skip",
+                    ":limit"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "status",
+                      "value": "closed"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "provider",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "skip",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "limit",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "692786a6-a138-404f-91ba-cbbbc1f2b992",
+    "name": "AKASH - gRPC Gateway docs Addresses Providers API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "A REST interface for state queries",
+      "type": "text/plain"
+    }
+  }
+}

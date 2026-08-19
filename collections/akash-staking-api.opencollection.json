@@ -1,0 +1,348 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "AKASH - gRPC Gateway docs Addresses Staking API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Staking",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get all delegations from a delegator",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/staking/delegators/:delegatorAddr/delegations",
+            "params": [
+              {
+                "name": "delegatorAddr",
+                "value": "",
+                "type": "path",
+                "description": "Bech32 AccAddress of Delegator"
+              }
+            ]
+          },
+          "docs": "Get all delegations from a delegator"
+        },
+        {
+          "info": {
+            "name": "Submit delegation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/staking/delegators/:delegatorAddr/delegations",
+            "params": [
+              {
+                "name": "delegatorAddr",
+                "value": "",
+                "type": "path",
+                "description": "Bech32 AccAddress of Delegator"
+              }
+            ]
+          },
+          "docs": "Submit delegation"
+        },
+        {
+          "info": {
+            "name": "Query the current delegation between a delegator and a validator",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/staking/delegators/:delegatorAddr/delegations/:validatorAddr",
+            "params": [
+              {
+                "name": "delegatorAddr",
+                "value": "",
+                "type": "path",
+                "description": "Bech32 AccAddress of Delegator"
+              },
+              {
+                "name": "validatorAddr",
+                "value": "",
+                "type": "path",
+                "description": "Bech32 OperatorAddress of validator"
+              }
+            ]
+          },
+          "docs": "Query the current delegation between a delegator and a validator"
+        },
+        {
+          "info": {
+            "name": "Get all unbonding delegations from a delegator",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/staking/delegators/:delegatorAddr/unbonding_delegations",
+            "params": [
+              {
+                "name": "delegatorAddr",
+                "value": "",
+                "type": "path",
+                "description": "Bech32 AccAddress of Delegator"
+              }
+            ]
+          },
+          "docs": "Get all unbonding delegations from a delegator"
+        },
+        {
+          "info": {
+            "name": "Submit an unbonding delegation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/staking/delegators/:delegatorAddr/unbonding_delegations",
+            "params": [
+              {
+                "name": "delegatorAddr",
+                "value": "",
+                "type": "path",
+                "description": "Bech32 AccAddress of Delegator"
+              }
+            ]
+          },
+          "docs": "Submit an unbonding delegation"
+        },
+        {
+          "info": {
+            "name": "Query all unbonding delegations between a delegator and a validator",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/staking/delegators/:delegatorAddr/unbonding_delegations/:validatorAddr",
+            "params": [
+              {
+                "name": "delegatorAddr",
+                "value": "",
+                "type": "path",
+                "description": "Bech32 AccAddress of Delegator"
+              },
+              {
+                "name": "validatorAddr",
+                "value": "",
+                "type": "path",
+                "description": "Bech32 OperatorAddress of validator"
+              }
+            ]
+          },
+          "docs": "Query all unbonding delegations between a delegator and a validator"
+        },
+        {
+          "info": {
+            "name": "Get all redelegations (filter by query params)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/staking/redelegations",
+            "params": [
+              {
+                "name": "delegator",
+                "value": "",
+                "type": "query",
+                "description": "Bech32 AccAddress of Delegator"
+              },
+              {
+                "name": "validator_from",
+                "value": "",
+                "type": "query",
+                "description": "Bech32 ValAddress of SrcValidator"
+              },
+              {
+                "name": "validator_to",
+                "value": "",
+                "type": "query",
+                "description": "Bech32 ValAddress of DstValidator"
+              }
+            ]
+          },
+          "docs": "Get all redelegations (filter by query params)"
+        },
+        {
+          "info": {
+            "name": "Submit a redelegation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/staking/delegators/:delegatorAddr/redelegations",
+            "params": [
+              {
+                "name": "delegatorAddr",
+                "value": "",
+                "type": "path",
+                "description": "Bech32 AccAddress of Delegator"
+              }
+            ]
+          },
+          "docs": "Submit a redelegation"
+        },
+        {
+          "info": {
+            "name": "Query all validators that a delegator is bonded to",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/staking/delegators/:delegatorAddr/validators",
+            "params": [
+              {
+                "name": "delegatorAddr",
+                "value": "",
+                "type": "path",
+                "description": "Bech32 AccAddress of Delegator"
+              }
+            ]
+          },
+          "docs": "Query all validators that a delegator is bonded to"
+        },
+        {
+          "info": {
+            "name": "Query a validator that a delegator is bonded to",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/staking/delegators/:delegatorAddr/validators/:validatorAddr",
+            "params": [
+              {
+                "name": "delegatorAddr",
+                "value": "",
+                "type": "path",
+                "description": "Bech32 AccAddress of Delegator"
+              },
+              {
+                "name": "validatorAddr",
+                "value": "",
+                "type": "path",
+                "description": "Bech32 ValAddress of Delegator"
+              }
+            ]
+          },
+          "docs": "Query a validator that a delegator is bonded to"
+        },
+        {
+          "info": {
+            "name": "Get all validator candidates. By default it returns only the bonded validators.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/staking/validators",
+            "params": [
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "The validator bond status. Must be either 'bonded', 'unbonded', or 'unbonding'."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "The page number."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of items per page."
+              }
+            ]
+          },
+          "docs": "Get all validator candidates. By default it returns only the bonded validators."
+        },
+        {
+          "info": {
+            "name": "Query the information from a single validator",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/staking/validators/:validatorAddr",
+            "params": [
+              {
+                "name": "validatorAddr",
+                "value": "",
+                "type": "path",
+                "description": "Bech32 OperatorAddress of validator"
+              }
+            ]
+          },
+          "docs": "Query the information from a single validator"
+        },
+        {
+          "info": {
+            "name": "Get all delegations from a validator",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/staking/validators/:validatorAddr/delegations",
+            "params": [
+              {
+                "name": "validatorAddr",
+                "value": "",
+                "type": "path",
+                "description": "Bech32 OperatorAddress of validator"
+              }
+            ]
+          },
+          "docs": "Get all delegations from a validator"
+        },
+        {
+          "info": {
+            "name": "Get all unbonding delegations from a validator",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/staking/validators/:validatorAddr/unbonding_delegations",
+            "params": [
+              {
+                "name": "validatorAddr",
+                "value": "",
+                "type": "path",
+                "description": "Bech32 OperatorAddress of validator"
+              }
+            ]
+          },
+          "docs": "Get all unbonding delegations from a validator"
+        },
+        {
+          "info": {
+            "name": "Get the current state of the staking pool",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/staking/pool"
+          },
+          "docs": "Get the current state of the staking pool"
+        },
+        {
+          "info": {
+            "name": "Get the current staking parameter values",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/staking/parameters"
+          },
+          "docs": "Get the current staking parameter values"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

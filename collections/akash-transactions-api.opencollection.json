@@ -1,0 +1,183 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "AKASH - gRPC Gateway docs Addresses Transactions API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Transactions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get a Tx by hash",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/txs/:hash",
+            "params": [
+              {
+                "name": "hash",
+                "value": "",
+                "type": "path",
+                "description": "Tx hash"
+              }
+            ]
+          },
+          "docs": "Retrieve a transaction using its hash."
+        },
+        {
+          "info": {
+            "name": "Search transactions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/txs",
+            "params": [
+              {
+                "name": "message.action",
+                "value": "",
+                "type": "query",
+                "description": "transaction events such as 'message.action=send' which results in the following endpoint: 'GET /txs?message.action=send'. note that each module documents its own events. look for xx_events.md in the corresponding cosmos-sdk/docs/spec directory"
+              },
+              {
+                "name": "message.sender",
+                "value": "",
+                "type": "query",
+                "description": "transaction tags with sender: 'GET /txs?message.action=send&message.sender=cosmos16xyempempp92x9hyzz9wrgf94r6j9h5f06pxxv'"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of items per page"
+              },
+              {
+                "name": "tx.minheight",
+                "value": "",
+                "type": "query",
+                "description": "transactions on blocks with height greater or equal this value"
+              },
+              {
+                "name": "tx.maxheight",
+                "value": "",
+                "type": "query",
+                "description": "transactions on blocks with height less than or equal this value"
+              }
+            ]
+          },
+          "docs": "Search transactions by events."
+        },
+        {
+          "info": {
+            "name": "Broadcast a signed tx",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/txs"
+          },
+          "docs": "Broadcast a signed tx to a full node"
+        },
+        {
+          "info": {
+            "name": "Encode a transaction to the Amino wire format",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/txs/encode"
+          },
+          "docs": "Encode a transaction (signed or not) from JSON to base64-encoded Amino serialized bytes"
+        },
+        {
+          "info": {
+            "name": "Decode a transaction from the Amino wire format",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/txs/decode"
+          },
+          "docs": "Decode a transaction (signed or not) from base64-encoded Amino serialized bytes to JSON"
+        },
+        {
+          "info": {
+            "name": "Get a list of transactions.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/transactions",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get a list of transactions."
+        },
+        {
+          "info": {
+            "name": "Get a transaction by hash.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/transactions/:hash",
+            "params": [
+              {
+                "name": "hash",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a transaction by hash."
+        },
+        {
+          "info": {
+            "name": "Get a list of transactions for a given address.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/addresses/:address/transactions/:skip/:limit",
+            "params": [
+              {
+                "name": "address",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "skip",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a list of transactions for a given address."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

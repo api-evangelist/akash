@@ -1,0 +1,413 @@
+{
+  "item": [
+    {
+      "id": "38e21a79-82eb-45c7-9f84-549ebad94a9c",
+      "name": "Gpu",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2fedf740-320e-4800-a017-81cc7b1b1880",
+          "name": "Get a list of gpu models and their availability.",
+          "request": {
+            "name": "Get a list of gpu models and their availability.",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "gpu"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "provider",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "vendor",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "model",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "memory_size",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "47154843-6b5e-49e0-84f4-9b2dd327db34",
+              "name": "List of gpu models and their availability.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "gpu"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "provider",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "vendor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "model",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "memory_size",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"gpus\": {\n    \"total\": {\n      \"allocatable\": 2644.9715395860285,\n      \"allocated\": 6932.590744604039\n    },\n    \"details\": {\n      \"key_0\": [\n        {\n          \"model\": \"string\",\n          \"ram\": \"string\",\n          \"interface\": \"string\",\n          \"allocatable\": 8811.157975465605,\n          \"allocated\": 6382.703520156593\n        },\n        {\n          \"model\": \"string\",\n          \"ram\": \"string\",\n          \"interface\": \"string\",\n          \"allocatable\": 5304.428617331288,\n          \"allocated\": 8753.524148741262\n        }\n      ]\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dc5f67b7-1039-4a6a-b05c-1a697dce6b78",
+              "name": "Invalid provider parameter, should be a valid akash address or host uri",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "gpu"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "provider",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "vendor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "model",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "memory_size",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f0832ca2-c456-4e83-bc59-58eaff7a2b58",
+          "name": "Get a list of gpu models per vendor. Based on the content from https://raw.githubusercontent.com/akash-network/provider-configs/main/devices/pcie/gpus.json.",
+          "request": {
+            "name": "Get a list of gpu models per vendor. Based on the content from https://raw.githubusercontent.com/akash-network/provider-configs/main/devices/pcie/gpus.json.",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "gpu-models"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9aafcdcb-284a-4c08-b3f2-61d44e6893df",
+              "name": "List of gpu models per.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "gpu-models"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"name\": \"string\",\n    \"models\": [\n      {\n        \"name\": \"string\",\n        \"memory\": [\n          \"string\",\n          \"string\"\n        ],\n        \"interface\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      {\n        \"name\": \"string\",\n        \"memory\": [\n          \"string\",\n          \"string\"\n        ],\n        \"interface\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    ]\n  },\n  {\n    \"name\": \"string\",\n    \"models\": [\n      {\n        \"name\": \"string\",\n        \"memory\": [\n          \"string\",\n          \"string\"\n        ],\n        \"interface\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      {\n        \"name\": \"string\",\n        \"memory\": [\n          \"string\",\n          \"string\"\n        ],\n        \"interface\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f90540bf-cbf5-4898-bb7a-18d88b53dcda",
+          "name": "Gets gpu analytics breakdown by vendor and model. If no vendor or model is provided, all GPUs are returned.",
+          "request": {
+            "name": "Gets gpu analytics breakdown by vendor and model. If no vendor or model is provided, all GPUs are returned.",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "gpu-breakdown"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "vendor",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "model",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f8beefb3-5af2-44a1-b093-e1abb7de2781",
+              "name": "Gets gpu analytics breakdown by vendor and model. If no vendor or model is provided, all GPUs are returned.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "gpu-breakdown"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "vendor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "model",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"date\": \"string\",\n    \"vendor\": \"string\",\n    \"model\": \"string\",\n    \"providerCount\": 8844.79499812068,\n    \"nodeCount\": 7591.288842169452,\n    \"totalGpus\": 8737.282911065937,\n    \"leasedGpus\": 6732.698537312532,\n    \"gpuUtilization\": 87.89294240663992\n  },\n  {\n    \"date\": \"string\",\n    \"vendor\": \"string\",\n    \"model\": \"string\",\n    \"providerCount\": 8122.412376913022,\n    \"nodeCount\": 3465.9504925997985,\n    \"totalGpus\": 6167.672150757304,\n    \"leasedGpus\": 8868.203022528793,\n    \"gpuUtilization\": 7518.10010898447\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "19db8111-933c-4e71-9478-d64d479f26e3",
+          "name": "Get a list of gpu models with their availability and pricing.",
+          "request": {
+            "name": "Get a list of gpu models with their availability and pricing.",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "gpu-prices"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "53f492b1-5f4e-47dd-96c2-621775cd6a1b",
+              "name": "List of gpu models with their availability and pricing.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "gpu-prices"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"availability\": {\n    \"total\": 6452.280156455492,\n    \"available\": 5632.377775190087\n  },\n  \"models\": [\n    {\n      \"vendor\": \"string\",\n      \"model\": \"string\",\n      \"ram\": \"string\",\n      \"interface\": \"string\",\n      \"availability\": {\n        \"total\": 8769.15029941515,\n        \"available\": 4136.906634317213\n      },\n      \"providerAvailability\": {\n        \"total\": 1308.4610475979164,\n        \"available\": 7755.662638304159\n      },\n      \"price\": {\n        \"currency\": \"USD\",\n        \"min\": 8935.532753452422,\n        \"max\": 4924.1302441927955,\n        \"avg\": 6899.73031900803,\n        \"weightedAverage\": 5212.121353094324,\n        \"med\": 9202.121125698031\n      }\n    },\n    {\n      \"vendor\": \"string\",\n      \"model\": \"string\",\n      \"ram\": \"string\",\n      \"interface\": \"string\",\n      \"availability\": {\n        \"total\": 3891.7542569244947,\n        \"available\": 7817.841616493214\n      },\n      \"providerAvailability\": {\n        \"total\": 9986.139720040062,\n        \"available\": 3374.9943953756747\n      },\n      \"price\": {\n        \"currency\": \"USD\",\n        \"min\": 3699.6118101368593,\n        \"max\": 3123.3023104873314,\n        \"avg\": 5734.599552197903,\n        \"weightedAverage\": 3985.4728482077185,\n        \"med\": 2568.8531548408887\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "b76d0282-1105-4b43-959c-0970a97bfd3f",
+    "name": "AKASH - gRPC Gateway docs Addresses Gpu API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "A REST interface for state queries",
+      "type": "text/plain"
+    }
+  }
+}

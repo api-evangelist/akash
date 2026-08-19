@@ -1,0 +1,2845 @@
+{
+  "item": [
+    {
+      "id": "9cf6b6f5-2cb7-42e0-acbb-98027721ce05",
+      "name": "Staking",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "121fad41-31f3-4149-ba5b-9b66c43a4e98",
+          "name": "Get all delegations from a delegator",
+          "request": {
+            "name": "Get all delegations from a delegator",
+            "description": {},
+            "url": {
+              "path": [
+                "staking",
+                "delegators",
+                ":delegatorAddr",
+                "delegations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "delegatorAddr",
+                  "description": "(Required) Bech32 AccAddress of Delegator"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "95fc6c5a-065b-4f94-bcab-c7043ba356c2",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "staking",
+                    "delegators",
+                    ":delegatorAddr",
+                    "delegations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "delegatorAddr",
+                      "description": "(Required) Bech32 AccAddress of Delegator"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"delegator_address\": \"string\",\n    \"validator_address\": \"string\",\n    \"shares\": \"string\",\n    \"balance\": {\n      \"denom\": \"stake\",\n      \"amount\": \"50\"\n    }\n  },\n  {\n    \"delegator_address\": \"string\",\n    \"validator_address\": \"string\",\n    \"shares\": \"string\",\n    \"balance\": {\n      \"denom\": \"stake\",\n      \"amount\": \"50\"\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9780ed08-8ef9-4591-869d-9c975be2c11d",
+              "name": "Invalid delegator address",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "staking",
+                    "delegators",
+                    ":delegatorAddr",
+                    "delegations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "delegatorAddr",
+                      "description": "(Required) Bech32 AccAddress of Delegator"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "32aa0d64-0529-445d-8932-246e3cdfedaf",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "staking",
+                    "delegators",
+                    ":delegatorAddr",
+                    "delegations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "delegatorAddr",
+                      "description": "(Required) Bech32 AccAddress of Delegator"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "28e73abe-6111-4074-bf45-9502f81f1b6d",
+          "name": "Submit delegation",
+          "request": {
+            "name": "Submit delegation",
+            "description": {},
+            "url": {
+              "path": [
+                "staking",
+                "delegators",
+                ":delegatorAddr",
+                "delegations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "delegatorAddr",
+                  "description": "(Required) Bech32 AccAddress of Delegator"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"base_req\": {\n    \"from\": \"<string>\",\n    \"memo\": \"<string>\",\n    \"chain_id\": \"<string>\",\n    \"account_number\": \"<string>\",\n    \"sequence\": \"<string>\",\n    \"gas\": \"<string>\",\n    \"gas_adjustment\": \"<string>\",\n    \"fees\": [\n      {\n        \"denom\": \"<string>\",\n        \"amount\": \"<string>\"\n      },\n      {\n        \"denom\": \"<string>\",\n        \"amount\": \"<string>\"\n      }\n    ],\n    \"simulate\": \"<boolean>\"\n  },\n  \"delegator_address\": \"<string>\",\n  \"validator_address\": \"<string>\",\n  \"amount\": {\n    \"denom\": \"<string>\",\n    \"amount\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8550ced6-511f-4c2d-841a-f6e345c1bf82",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "staking",
+                    "delegators",
+                    ":delegatorAddr",
+                    "delegations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "delegatorAddr",
+                      "description": "(Required) Bech32 AccAddress of Delegator"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"base_req\": {\n    \"from\": \"cosmos1g9ahr6xhht5rmqven628nklxluzyv8z9jqjcmc\",\n    \"memo\": \"Sent via Cosmos Voyager 🚀\",\n    \"chain_id\": \"Cosmos-Hub\",\n    \"account_number\": \"0\",\n    \"sequence\": \"1\",\n    \"gas\": \"200000\",\n    \"gas_adjustment\": \"1.2\",\n    \"fees\": [\n      {\n        \"denom\": \"stake\",\n        \"amount\": \"50\"\n      },\n      {\n        \"denom\": \"stake\",\n        \"amount\": \"50\"\n      }\n    ],\n    \"simulate\": false\n  },\n  \"delegator_address\": \"cosmos1depk54cuajgkzea6zpgkq36tnjwdzv4afc3d27\",\n  \"validator_address\": \"cosmosvaloper16xyempempp92x9hyzz9wrgf94r6j9h5f2w4n2l\",\n  \"amount\": {\n    \"denom\": \"stake\",\n    \"amount\": \"50\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"msg\": [\n    \"string\",\n    \"string\"\n  ],\n  \"fee\": {\n    \"gas\": \"string\",\n    \"amount\": [\n      {\n        \"denom\": \"stake\",\n        \"amount\": \"50\"\n      },\n      {\n        \"denom\": \"stake\",\n        \"amount\": \"50\"\n      }\n    ]\n  },\n  \"memo\": \"string\",\n  \"signature\": {\n    \"signature\": \"MEUCIQD02fsDPra8MtbRsyB1w7bqTM55Wu138zQbFcWx4+CFyAIge5WNPfKIuvzBZ69MyqHsqD8S1IwiEp+iUb6VSdtlpgY=\",\n    \"pub_key\": {\n      \"type\": \"tendermint/PubKeySecp256k1\",\n      \"value\": \"Avz04VhtKJh8ACCVzlI8aTosGy0ikFXKIVHQ3jKMrosH\"\n    },\n    \"account_number\": \"0\",\n    \"sequence\": \"0\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "466473ac-84d1-4d17-b6a7-edc9f009a22b",
+              "name": "Invalid delegator address or delegation request body",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "staking",
+                    "delegators",
+                    ":delegatorAddr",
+                    "delegations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "delegatorAddr",
+                      "description": "(Required) Bech32 AccAddress of Delegator"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"base_req\": {\n    \"from\": \"cosmos1g9ahr6xhht5rmqven628nklxluzyv8z9jqjcmc\",\n    \"memo\": \"Sent via Cosmos Voyager 🚀\",\n    \"chain_id\": \"Cosmos-Hub\",\n    \"account_number\": \"0\",\n    \"sequence\": \"1\",\n    \"gas\": \"200000\",\n    \"gas_adjustment\": \"1.2\",\n    \"fees\": [\n      {\n        \"denom\": \"stake\",\n        \"amount\": \"50\"\n      },\n      {\n        \"denom\": \"stake\",\n        \"amount\": \"50\"\n      }\n    ],\n    \"simulate\": false\n  },\n  \"delegator_address\": \"cosmos1depk54cuajgkzea6zpgkq36tnjwdzv4afc3d27\",\n  \"validator_address\": \"cosmosvaloper16xyempempp92x9hyzz9wrgf94r6j9h5f2w4n2l\",\n  \"amount\": {\n    \"denom\": \"stake\",\n    \"amount\": \"50\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "03180ea7-3ed6-44b9-847b-859251f43822",
+              "name": "Key password is wrong",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "staking",
+                    "delegators",
+                    ":delegatorAddr",
+                    "delegations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "delegatorAddr",
+                      "description": "(Required) Bech32 AccAddress of Delegator"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"base_req\": {\n    \"from\": \"cosmos1g9ahr6xhht5rmqven628nklxluzyv8z9jqjcmc\",\n    \"memo\": \"Sent via Cosmos Voyager 🚀\",\n    \"chain_id\": \"Cosmos-Hub\",\n    \"account_number\": \"0\",\n    \"sequence\": \"1\",\n    \"gas\": \"200000\",\n    \"gas_adjustment\": \"1.2\",\n    \"fees\": [\n      {\n        \"denom\": \"stake\",\n        \"amount\": \"50\"\n      },\n      {\n        \"denom\": \"stake\",\n        \"amount\": \"50\"\n      }\n    ],\n    \"simulate\": false\n  },\n  \"delegator_address\": \"cosmos1depk54cuajgkzea6zpgkq36tnjwdzv4afc3d27\",\n  \"validator_address\": \"cosmosvaloper16xyempempp92x9hyzz9wrgf94r6j9h5f2w4n2l\",\n  \"amount\": {\n    \"denom\": \"stake\",\n    \"amount\": \"50\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d9cd9caa-69f7-4051-8fe4-20d7a77207f6",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "staking",
+                    "delegators",
+                    ":delegatorAddr",
+                    "delegations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "delegatorAddr",
+                      "description": "(Required) Bech32 AccAddress of Delegator"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"base_req\": {\n    \"from\": \"cosmos1g9ahr6xhht5rmqven628nklxluzyv8z9jqjcmc\",\n    \"memo\": \"Sent via Cosmos Voyager 🚀\",\n    \"chain_id\": \"Cosmos-Hub\",\n    \"account_number\": \"0\",\n    \"sequence\": \"1\",\n    \"gas\": \"200000\",\n    \"gas_adjustment\": \"1.2\",\n    \"fees\": [\n      {\n        \"denom\": \"stake\",\n        \"amount\": \"50\"\n      },\n      {\n        \"denom\": \"stake\",\n        \"amount\": \"50\"\n      }\n    ],\n    \"simulate\": false\n  },\n  \"delegator_address\": \"cosmos1depk54cuajgkzea6zpgkq36tnjwdzv4afc3d27\",\n  \"validator_address\": \"cosmosvaloper16xyempempp92x9hyzz9wrgf94r6j9h5f2w4n2l\",\n  \"amount\": {\n    \"denom\": \"stake\",\n    \"amount\": \"50\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a8eaa015-4be2-49d8-8a40-06abc750af76",
+          "name": "Query the current delegation between a delegator and a validator",
+          "request": {
+            "name": "Query the current delegation between a delegator and a validator",
+            "description": {},
+            "url": {
+              "path": [
+                "staking",
+                "delegators",
+                ":delegatorAddr",
+                "delegations",
+                ":validatorAddr"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "delegatorAddr",
+                  "description": "(Required) Bech32 AccAddress of Delegator"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "validatorAddr",
+                  "description": "(Required) Bech32 OperatorAddress of validator"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "526bdfb3-79f7-4fb5-acf5-fcb12c680d4b",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "staking",
+                    "delegators",
+                    ":delegatorAddr",
+                    "delegations",
+                    ":validatorAddr"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "delegatorAddr",
+                      "description": "(Required) Bech32 AccAddress of Delegator"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "validatorAddr",
+                      "description": "(Required) Bech32 OperatorAddress of validator"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"delegator_address\": \"string\",\n  \"validator_address\": \"string\",\n  \"shares\": \"string\",\n  \"balance\": {\n    \"denom\": \"stake\",\n    \"amount\": \"50\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8d68f659-22d9-4f33-bcb0-bac89b74d45b",
+              "name": "Invalid delegator address or validator address",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "staking",
+                    "delegators",
+                    ":delegatorAddr",
+                    "delegations",
+                    ":validatorAddr"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "delegatorAddr",
+                      "description": "(Required) Bech32 AccAddress of Delegator"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "validatorAddr",
+                      "description": "(Required) Bech32 OperatorAddress of validator"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0fd3ee35-2825-4e38-82fc-afe3cf9ebb3d",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "staking",
+                    "delegators",
+                    ":delegatorAddr",
+                    "delegations",
+                    ":validatorAddr"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "delegatorAddr",
+                      "description": "(Required) Bech32 AccAddress of Delegator"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "validatorAddr",
+                      "description": "(Required) Bech32 OperatorAddress of validator"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d88e02fb-e736-4772-aced-7a8cb197ce50",
+          "name": "Get all unbonding delegations from a delegator",
+          "request": {
+            "name": "Get all unbonding delegations from a delegator",
+            "description": {},
+            "url": {
+              "path": [
+                "staking",
+                "delegators",
+                ":delegatorAddr",
+                "unbonding_delegations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "delegatorAddr",
+                  "description": "(Required) Bech32 AccAddress of Delegator"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4319b82b-123b-4b64-895e-179d2e7b6c0b",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "staking",
+                    "delegators",
+                    ":delegatorAddr",
+                    "unbonding_delegations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "delegatorAddr",
+                      "description": "(Required) Bech32 AccAddress of Delegator"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"delegator_address\": \"string\",\n    \"validator_address\": \"string\",\n    \"initial_balance\": \"string\",\n    \"balance\": \"string\",\n    \"creation_height\": 7563,\n    \"min_time\": 8732\n  },\n  {\n    \"delegator_address\": \"string\",\n    \"validator_address\": \"string\",\n    \"initial_balance\": \"string\",\n    \"balance\": \"string\",\n    \"creation_height\": 3864,\n    \"min_time\": 1644\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8883a3a2-ce5f-447e-ab7a-be2f70d4e3e3",
+              "name": "Invalid delegator address",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "staking",
+                    "delegators",
+                    ":delegatorAddr",
+                    "unbonding_delegations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "delegatorAddr",
+                      "description": "(Required) Bech32 AccAddress of Delegator"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d7f28ae5-438f-4000-b16f-3f6ca7a54a4c",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "staking",
+                    "delegators",
+                    ":delegatorAddr",
+                    "unbonding_delegations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "delegatorAddr",
+                      "description": "(Required) Bech32 AccAddress of Delegator"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ad6ccb5a-69e0-4d01-b491-1b1b779281ec",
+          "name": "Submit an unbonding delegation",
+          "request": {
+            "name": "Submit an unbonding delegation",
+            "description": {},
+            "url": {
+              "path": [
+                "staking",
+                "delegators",
+                ":delegatorAddr",
+                "unbonding_delegations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "delegatorAddr",
+                  "description": "(Required) Bech32 AccAddress of Delegator"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"base_req\": {\n    \"from\": \"<string>\",\n    \"memo\": \"<string>\",\n    \"chain_id\": \"<string>\",\n    \"account_number\": \"<string>\",\n    \"sequence\": \"<string>\",\n    \"gas\": \"<string>\",\n    \"gas_adjustment\": \"<string>\",\n    \"fees\": [\n      {\n        \"denom\": \"<string>\",\n        \"amount\": \"<string>\"\n      },\n      {\n        \"denom\": \"<string>\",\n        \"amount\": \"<string>\"\n      }\n    ],\n    \"simulate\": \"<boolean>\"\n  },\n  \"delegator_address\": \"<string>\",\n  \"validator_address\": \"<string>\",\n  \"amount\": {\n    \"denom\": \"<string>\",\n    \"amount\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "47ce4844-ded9-4cd5-86ec-76fb3e7dec37",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "staking",
+                    "delegators",
+                    ":delegatorAddr",
+                    "unbonding_delegations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "delegatorAddr",
+                      "description": "(Required) Bech32 AccAddress of Delegator"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"base_req\": {\n    \"from\": \"cosmos1g9ahr6xhht5rmqven628nklxluzyv8z9jqjcmc\",\n    \"memo\": \"Sent via Cosmos Voyager 🚀\",\n    \"chain_id\": \"Cosmos-Hub\",\n    \"account_number\": \"0\",\n    \"sequence\": \"1\",\n    \"gas\": \"200000\",\n    \"gas_adjustment\": \"1.2\",\n    \"fees\": [\n      {\n        \"denom\": \"stake\",\n        \"amount\": \"50\"\n      },\n      {\n        \"denom\": \"stake\",\n        \"amount\": \"50\"\n      }\n    ],\n    \"simulate\": false\n  },\n  \"delegator_address\": \"cosmos1depk54cuajgkzea6zpgkq36tnjwdzv4afc3d27\",\n  \"validator_address\": \"cosmosvaloper16xyempempp92x9hyzz9wrgf94r6j9h5f2w4n2l\",\n  \"amount\": {\n    \"denom\": \"stake\",\n    \"amount\": \"50\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"msg\": [\n    \"string\",\n    \"string\"\n  ],\n  \"fee\": {\n    \"gas\": \"string\",\n    \"amount\": [\n      {\n        \"denom\": \"stake\",\n        \"amount\": \"50\"\n      },\n      {\n        \"denom\": \"stake\",\n        \"amount\": \"50\"\n      }\n    ]\n  },\n  \"memo\": \"string\",\n  \"signature\": {\n    \"signature\": \"MEUCIQD02fsDPra8MtbRsyB1w7bqTM55Wu138zQbFcWx4+CFyAIge5WNPfKIuvzBZ69MyqHsqD8S1IwiEp+iUb6VSdtlpgY=\",\n    \"pub_key\": {\n      \"type\": \"tendermint/PubKeySecp256k1\",\n      \"value\": \"Avz04VhtKJh8ACCVzlI8aTosGy0ikFXKIVHQ3jKMrosH\"\n    },\n    \"account_number\": \"0\",\n    \"sequence\": \"0\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0c9312e9-464b-49f6-b10d-8ba00cdbc8fb",
+              "name": "Invalid delegator address or unbonding delegation request body",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "staking",
+                    "delegators",
+                    ":delegatorAddr",
+                    "unbonding_delegations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "delegatorAddr",
+                      "description": "(Required) Bech32 AccAddress of Delegator"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"base_req\": {\n    \"from\": \"cosmos1g9ahr6xhht5rmqven628nklxluzyv8z9jqjcmc\",\n    \"memo\": \"Sent via Cosmos Voyager 🚀\",\n    \"chain_id\": \"Cosmos-Hub\",\n    \"account_number\": \"0\",\n    \"sequence\": \"1\",\n    \"gas\": \"200000\",\n    \"gas_adjustment\": \"1.2\",\n    \"fees\": [\n      {\n        \"denom\": \"stake\",\n        \"amount\": \"50\"\n      },\n      {\n        \"denom\": \"stake\",\n        \"amount\": \"50\"\n      }\n    ],\n    \"simulate\": false\n  },\n  \"delegator_address\": \"cosmos1depk54cuajgkzea6zpgkq36tnjwdzv4afc3d27\",\n  \"validator_address\": \"cosmosvaloper16xyempempp92x9hyzz9wrgf94r6j9h5f2w4n2l\",\n  \"amount\": {\n    \"denom\": \"stake\",\n    \"amount\": \"50\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6e4e888c-e8f3-41f6-84d6-b04a31f0c65a",
+              "name": "Key password is wrong",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "staking",
+                    "delegators",
+                    ":delegatorAddr",
+                    "unbonding_delegations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "delegatorAddr",
+                      "description": "(Required) Bech32 AccAddress of Delegator"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"base_req\": {\n    \"from\": \"cosmos1g9ahr6xhht5rmqven628nklxluzyv8z9jqjcmc\",\n    \"memo\": \"Sent via Cosmos Voyager 🚀\",\n    \"chain_id\": \"Cosmos-Hub\",\n    \"account_number\": \"0\",\n    \"sequence\": \"1\",\n    \"gas\": \"200000\",\n    \"gas_adjustment\": \"1.2\",\n    \"fees\": [\n      {\n        \"denom\": \"stake\",\n        \"amount\": \"50\"\n      },\n      {\n        \"denom\": \"stake\",\n        \"amount\": \"50\"\n      }\n    ],\n    \"simulate\": false\n  },\n  \"delegator_address\": \"cosmos1depk54cuajgkzea6zpgkq36tnjwdzv4afc3d27\",\n  \"validator_address\": \"cosmosvaloper16xyempempp92x9hyzz9wrgf94r6j9h5f2w4n2l\",\n  \"amount\": {\n    \"denom\": \"stake\",\n    \"amount\": \"50\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "51bd0574-a80a-4766-a899-f9c6671c0967",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "staking",
+                    "delegators",
+                    ":delegatorAddr",
+                    "unbonding_delegations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "delegatorAddr",
+                      "description": "(Required) Bech32 AccAddress of Delegator"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"base_req\": {\n    \"from\": \"cosmos1g9ahr6xhht5rmqven628nklxluzyv8z9jqjcmc\",\n    \"memo\": \"Sent via Cosmos Voyager 🚀\",\n    \"chain_id\": \"Cosmos-Hub\",\n    \"account_number\": \"0\",\n    \"sequence\": \"1\",\n    \"gas\": \"200000\",\n    \"gas_adjustment\": \"1.2\",\n    \"fees\": [\n      {\n        \"denom\": \"stake\",\n        \"amount\": \"50\"\n      },\n      {\n        \"denom\": \"stake\",\n        \"amount\": \"50\"\n      }\n    ],\n    \"simulate\": false\n  },\n  \"delegator_address\": \"cosmos1depk54cuajgkzea6zpgkq36tnjwdzv4afc3d27\",\n  \"validator_address\": \"cosmosvaloper16xyempempp92x9hyzz9wrgf94r6j9h5f2w4n2l\",\n  \"amount\": {\n    \"denom\": \"stake\",\n    \"amount\": \"50\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6ed45e5e-d7d0-432a-aad2-8d6add74faf0",
+          "name": "Query all unbonding delegations between a delegator and a validator",
+          "request": {
+            "name": "Query all unbonding delegations between a delegator and a validator",
+            "description": {},
+            "url": {
+              "path": [
+                "staking",
+                "delegators",
+                ":delegatorAddr",
+                "unbonding_delegations",
+                ":validatorAddr"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "delegatorAddr",
+                  "description": "(Required) Bech32 AccAddress of Delegator"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "validatorAddr",
+                  "description": "(Required) Bech32 OperatorAddress of validator"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0189b0e7-7cac-4900-a8ea-4d8a44b7feef",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "staking",
+                    "delegators",
+                    ":delegatorAddr",
+                    "unbonding_delegations",
+                    ":validatorAddr"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "delegatorAddr",
+                      "description": "(Required) Bech32 AccAddress of Delegator"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "validatorAddr",
+                      "description": "(Required) Bech32 OperatorAddress of validator"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"delegator_address\": \"string\",\n  \"validator_address\": \"string\",\n  \"entries\": [\n    {\n      \"initial_balance\": \"string\",\n      \"balance\": \"string\",\n      \"creation_height\": \"string\",\n      \"min_time\": \"string\"\n    },\n    {\n      \"initial_balance\": \"string\",\n      \"balance\": \"string\",\n      \"creation_height\": \"string\",\n      \"min_time\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8b09e997-aedf-4dba-b960-9f2f029bb80f",
+              "name": "Invalid delegator address or validator address",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "staking",
+                    "delegators",
+                    ":delegatorAddr",
+                    "unbonding_delegations",
+                    ":validatorAddr"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "delegatorAddr",
+                      "description": "(Required) Bech32 AccAddress of Delegator"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "validatorAddr",
+                      "description": "(Required) Bech32 OperatorAddress of validator"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d57517a6-913f-4787-bd40-018810af09c9",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "staking",
+                    "delegators",
+                    ":delegatorAddr",
+                    "unbonding_delegations",
+                    ":validatorAddr"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "delegatorAddr",
+                      "description": "(Required) Bech32 AccAddress of Delegator"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "validatorAddr",
+                      "description": "(Required) Bech32 OperatorAddress of validator"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1efbfa24-8d18-492a-9d10-8188626c1100",
+          "name": "Get all redelegations (filter by query params)",
+          "request": {
+            "name": "Get all redelegations (filter by query params)",
+            "description": {},
+            "url": {
+              "path": [
+                "staking",
+                "redelegations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "delegator",
+                  "value": "<string>",
+                  "description": "Bech32 AccAddress of Delegator"
+                },
+                {
+                  "disabled": false,
+                  "key": "validator_from",
+                  "value": "<string>",
+                  "description": "Bech32 ValAddress of SrcValidator"
+                },
+                {
+                  "disabled": false,
+                  "key": "validator_to",
+                  "value": "<string>",
+                  "description": "Bech32 ValAddress of DstValidator"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a4ec2664-1fe6-4bd6-97f9-ae698a798ee3",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "staking",
+                    "redelegations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "delegator",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "validator_from",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "validator_to",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"delegator_address\": \"string\",\n    \"validator_src_address\": \"string\",\n    \"validator_dst_address\": \"string\",\n    \"entries\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/Redelegation detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/Redelegation detected>\"\n      }\n    ]\n  },\n  {\n    \"delegator_address\": \"string\",\n    \"validator_src_address\": \"string\",\n    \"validator_dst_address\": \"string\",\n    \"entries\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/Redelegation detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/Redelegation detected>\"\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dcdfdf3f-d99c-4dc8-86c8-17e274575800",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "staking",
+                    "redelegations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "delegator",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "validator_from",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "validator_to",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2d4deda2-f208-47e0-9ab0-a4886f8bd813",
+          "name": "Submit a redelegation",
+          "request": {
+            "name": "Submit a redelegation",
+            "description": {},
+            "url": {
+              "path": [
+                "staking",
+                "delegators",
+                ":delegatorAddr",
+                "redelegations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "delegatorAddr",
+                  "description": "(Required) Bech32 AccAddress of Delegator"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"base_req\": {\n    \"from\": \"<string>\",\n    \"memo\": \"<string>\",\n    \"chain_id\": \"<string>\",\n    \"account_number\": \"<string>\",\n    \"sequence\": \"<string>\",\n    \"gas\": \"<string>\",\n    \"gas_adjustment\": \"<string>\",\n    \"fees\": [\n      {\n        \"denom\": \"<string>\",\n        \"amount\": \"<string>\"\n      },\n      {\n        \"denom\": \"<string>\",\n        \"amount\": \"<string>\"\n      }\n    ],\n    \"simulate\": \"<boolean>\"\n  },\n  \"delegator_address\": \"<string>\",\n  \"validator_src_addressess\": \"<string>\",\n  \"validator_dst_address\": \"<string>\",\n  \"shares\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "223e9ea9-03b4-4475-8f7b-cb86ebd929e7",
+              "name": "Tx was succesfully generated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "staking",
+                    "delegators",
+                    ":delegatorAddr",
+                    "redelegations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "delegatorAddr",
+                      "description": "(Required) Bech32 AccAddress of Delegator"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"base_req\": {\n    \"from\": \"cosmos1g9ahr6xhht5rmqven628nklxluzyv8z9jqjcmc\",\n    \"memo\": \"Sent via Cosmos Voyager 🚀\",\n    \"chain_id\": \"Cosmos-Hub\",\n    \"account_number\": \"0\",\n    \"sequence\": \"1\",\n    \"gas\": \"200000\",\n    \"gas_adjustment\": \"1.2\",\n    \"fees\": [\n      {\n        \"denom\": \"stake\",\n        \"amount\": \"50\"\n      },\n      {\n        \"denom\": \"stake\",\n        \"amount\": \"50\"\n      }\n    ],\n    \"simulate\": false\n  },\n  \"delegator_address\": \"cosmos1depk54cuajgkzea6zpgkq36tnjwdzv4afc3d27\",\n  \"validator_src_addressess\": \"cosmosvaloper16xyempempp92x9hyzz9wrgf94r6j9h5f2w4n2l\",\n  \"validator_dst_address\": \"cosmosvaloper16xyempempp92x9hyzz9wrgf94r6j9h5f2w4n2l\",\n  \"shares\": \"100\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"msg\": [\n    \"string\",\n    \"string\"\n  ],\n  \"fee\": {\n    \"gas\": \"string\",\n    \"amount\": [\n      {\n        \"denom\": \"stake\",\n        \"amount\": \"50\"\n      },\n      {\n        \"denom\": \"stake\",\n        \"amount\": \"50\"\n      }\n    ]\n  },\n  \"memo\": \"string\",\n  \"signature\": {\n    \"signature\": \"MEUCIQD02fsDPra8MtbRsyB1w7bqTM55Wu138zQbFcWx4+CFyAIge5WNPfKIuvzBZ69MyqHsqD8S1IwiEp+iUb6VSdtlpgY=\",\n    \"pub_key\": {\n      \"type\": \"tendermint/PubKeySecp256k1\",\n      \"value\": \"Avz04VhtKJh8ACCVzlI8aTosGy0ikFXKIVHQ3jKMrosH\"\n    },\n    \"account_number\": \"0\",\n    \"sequence\": \"0\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e3e5af2e-9b0e-44ee-b8f0-efbf9e3f07b1",
+              "name": "Invalid delegator address or redelegation request body",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "staking",
+                    "delegators",
+                    ":delegatorAddr",
+                    "redelegations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "delegatorAddr",
+                      "description": "(Required) Bech32 AccAddress of Delegator"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"base_req\": {\n    \"from\": \"cosmos1g9ahr6xhht5rmqven628nklxluzyv8z9jqjcmc\",\n    \"memo\": \"Sent via Cosmos Voyager 🚀\",\n    \"chain_id\": \"Cosmos-Hub\",\n    \"account_number\": \"0\",\n    \"sequence\": \"1\",\n    \"gas\": \"200000\",\n    \"gas_adjustment\": \"1.2\",\n    \"fees\": [\n      {\n        \"denom\": \"stake\",\n        \"amount\": \"50\"\n      },\n      {\n        \"denom\": \"stake\",\n        \"amount\": \"50\"\n      }\n    ],\n    \"simulate\": false\n  },\n  \"delegator_address\": \"cosmos1depk54cuajgkzea6zpgkq36tnjwdzv4afc3d27\",\n  \"validator_src_addressess\": \"cosmosvaloper16xyempempp92x9hyzz9wrgf94r6j9h5f2w4n2l\",\n  \"validator_dst_address\": \"cosmosvaloper16xyempempp92x9hyzz9wrgf94r6j9h5f2w4n2l\",\n  \"shares\": \"100\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ca05a1fc-db75-406c-a555-12339023a38d",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "staking",
+                    "delegators",
+                    ":delegatorAddr",
+                    "redelegations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "delegatorAddr",
+                      "description": "(Required) Bech32 AccAddress of Delegator"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"base_req\": {\n    \"from\": \"cosmos1g9ahr6xhht5rmqven628nklxluzyv8z9jqjcmc\",\n    \"memo\": \"Sent via Cosmos Voyager 🚀\",\n    \"chain_id\": \"Cosmos-Hub\",\n    \"account_number\": \"0\",\n    \"sequence\": \"1\",\n    \"gas\": \"200000\",\n    \"gas_adjustment\": \"1.2\",\n    \"fees\": [\n      {\n        \"denom\": \"stake\",\n        \"amount\": \"50\"\n      },\n      {\n        \"denom\": \"stake\",\n        \"amount\": \"50\"\n      }\n    ],\n    \"simulate\": false\n  },\n  \"delegator_address\": \"cosmos1depk54cuajgkzea6zpgkq36tnjwdzv4afc3d27\",\n  \"validator_src_addressess\": \"cosmosvaloper16xyempempp92x9hyzz9wrgf94r6j9h5f2w4n2l\",\n  \"validator_dst_address\": \"cosmosvaloper16xyempempp92x9hyzz9wrgf94r6j9h5f2w4n2l\",\n  \"shares\": \"100\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6cb09612-6b2a-4ed8-8415-b389bfa214bd",
+          "name": "Query all validators that a delegator is bonded to",
+          "request": {
+            "name": "Query all validators that a delegator is bonded to",
+            "description": {},
+            "url": {
+              "path": [
+                "staking",
+                "delegators",
+                ":delegatorAddr",
+                "validators"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "delegatorAddr",
+                  "description": "(Required) Bech32 AccAddress of Delegator"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "81a90f77-1a6f-4610-a371-9259f2601513",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "staking",
+                    "delegators",
+                    ":delegatorAddr",
+                    "validators"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "delegatorAddr",
+                      "description": "(Required) Bech32 AccAddress of Delegator"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"operator_address\": \"cosmosvaloper16xyempempp92x9hyzz9wrgf94r6j9h5f2w4n2l\",\n    \"consensus_pubkey\": \"cosmosvalconspub1zcjduepq0vu2zgkgk49efa0nqwzndanq5m4c7pa3u4apz4g2r9gspqg6g9cs3k9cuf\",\n    \"jailed\": false,\n    \"status\": 8182,\n    \"tokens\": \"string\",\n    \"delegator_shares\": \"string\",\n    \"description\": {\n      \"moniker\": \"string\",\n      \"identity\": \"string\",\n      \"website\": \"string\",\n      \"security_contact\": \"string\",\n      \"details\": \"string\"\n    },\n    \"bond_height\": \"0\",\n    \"bond_intra_tx_counter\": 0,\n    \"unbonding_height\": \"0\",\n    \"unbonding_time\": \"1970-01-01T00:00:00Z\",\n    \"commission\": {\n      \"rate\": \"0\",\n      \"max_rate\": \"0\",\n      \"max_change_rate\": \"0\",\n      \"update_time\": \"1970-01-01T00:00:00Z\"\n    }\n  },\n  {\n    \"operator_address\": \"cosmosvaloper16xyempempp92x9hyzz9wrgf94r6j9h5f2w4n2l\",\n    \"consensus_pubkey\": \"cosmosvalconspub1zcjduepq0vu2zgkgk49efa0nqwzndanq5m4c7pa3u4apz4g2r9gspqg6g9cs3k9cuf\",\n    \"jailed\": true,\n    \"status\": 2275,\n    \"tokens\": \"string\",\n    \"delegator_shares\": \"string\",\n    \"description\": {\n      \"moniker\": \"string\",\n      \"identity\": \"string\",\n      \"website\": \"string\",\n      \"security_contact\": \"string\",\n      \"details\": \"string\"\n    },\n    \"bond_height\": \"0\",\n    \"bond_intra_tx_counter\": 0,\n    \"unbonding_height\": \"0\",\n    \"unbonding_time\": \"1970-01-01T00:00:00Z\",\n    \"commission\": {\n      \"rate\": \"0\",\n      \"max_rate\": \"0\",\n      \"max_change_rate\": \"0\",\n      \"update_time\": \"1970-01-01T00:00:00Z\"\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "75da3235-4515-4f68-a08a-9349da33f9b2",
+              "name": "Invalid delegator address",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "staking",
+                    "delegators",
+                    ":delegatorAddr",
+                    "validators"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "delegatorAddr",
+                      "description": "(Required) Bech32 AccAddress of Delegator"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "836f9983-0985-4d42-9194-5157d78a32f7",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "staking",
+                    "delegators",
+                    ":delegatorAddr",
+                    "validators"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "delegatorAddr",
+                      "description": "(Required) Bech32 AccAddress of Delegator"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "efd101ba-b1b7-4806-9514-e0330984dad3",
+          "name": "Query a validator that a delegator is bonded to",
+          "request": {
+            "name": "Query a validator that a delegator is bonded to",
+            "description": {},
+            "url": {
+              "path": [
+                "staking",
+                "delegators",
+                ":delegatorAddr",
+                "validators",
+                ":validatorAddr"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "delegatorAddr",
+                  "description": "(Required) Bech32 AccAddress of Delegator"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "validatorAddr",
+                  "description": "(Required) Bech32 ValAddress of Delegator"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c207b456-5e47-487c-bf60-3c5a2e014ba3",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "staking",
+                    "delegators",
+                    ":delegatorAddr",
+                    "validators",
+                    ":validatorAddr"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "delegatorAddr",
+                      "description": "(Required) Bech32 AccAddress of Delegator"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "validatorAddr",
+                      "description": "(Required) Bech32 ValAddress of Delegator"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"operator_address\": \"cosmosvaloper16xyempempp92x9hyzz9wrgf94r6j9h5f2w4n2l\",\n  \"consensus_pubkey\": \"cosmosvalconspub1zcjduepq0vu2zgkgk49efa0nqwzndanq5m4c7pa3u4apz4g2r9gspqg6g9cs3k9cuf\",\n  \"jailed\": true,\n  \"status\": 6486,\n  \"tokens\": \"string\",\n  \"delegator_shares\": \"string\",\n  \"description\": {\n    \"moniker\": \"string\",\n    \"identity\": \"string\",\n    \"website\": \"string\",\n    \"security_contact\": \"string\",\n    \"details\": \"string\"\n  },\n  \"bond_height\": \"0\",\n  \"bond_intra_tx_counter\": 0,\n  \"unbonding_height\": \"0\",\n  \"unbonding_time\": \"1970-01-01T00:00:00Z\",\n  \"commission\": {\n    \"rate\": \"0\",\n    \"max_rate\": \"0\",\n    \"max_change_rate\": \"0\",\n    \"update_time\": \"1970-01-01T00:00:00Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a5211f65-4450-4d46-8704-9ae0ddcf4421",
+              "name": "Invalid delegator address or validator address",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "staking",
+                    "delegators",
+                    ":delegatorAddr",
+                    "validators",
+                    ":validatorAddr"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "delegatorAddr",
+                      "description": "(Required) Bech32 AccAddress of Delegator"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "validatorAddr",
+                      "description": "(Required) Bech32 ValAddress of Delegator"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "baa2e54b-05ce-40b9-b11f-8e25e9959d8e",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "staking",
+                    "delegators",
+                    ":delegatorAddr",
+                    "validators",
+                    ":validatorAddr"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "delegatorAddr",
+                      "description": "(Required) Bech32 AccAddress of Delegator"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "validatorAddr",
+                      "description": "(Required) Bech32 ValAddress of Delegator"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ba6ece3a-a34e-48e3-a47f-75f3f76abd2d",
+          "name": "Get all validator candidates. By default it returns only the bonded validators.",
+          "request": {
+            "name": "Get all validator candidates. By default it returns only the bonded validators.",
+            "description": {},
+            "url": {
+              "path": [
+                "staking",
+                "validators"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "The validator bond status. Must be either 'bonded', 'unbonded', or 'unbonding'."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "The page number."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "The maximum number of items per page."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5cf09dd6-fb08-47dd-bb16-70402a4f728b",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "staking",
+                    "validators"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "status",
+                      "value": "bonded"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"operator_address\": \"cosmosvaloper16xyempempp92x9hyzz9wrgf94r6j9h5f2w4n2l\",\n    \"consensus_pubkey\": \"cosmosvalconspub1zcjduepq0vu2zgkgk49efa0nqwzndanq5m4c7pa3u4apz4g2r9gspqg6g9cs3k9cuf\",\n    \"jailed\": false,\n    \"status\": 8182,\n    \"tokens\": \"string\",\n    \"delegator_shares\": \"string\",\n    \"description\": {\n      \"moniker\": \"string\",\n      \"identity\": \"string\",\n      \"website\": \"string\",\n      \"security_contact\": \"string\",\n      \"details\": \"string\"\n    },\n    \"bond_height\": \"0\",\n    \"bond_intra_tx_counter\": 0,\n    \"unbonding_height\": \"0\",\n    \"unbonding_time\": \"1970-01-01T00:00:00Z\",\n    \"commission\": {\n      \"rate\": \"0\",\n      \"max_rate\": \"0\",\n      \"max_change_rate\": \"0\",\n      \"update_time\": \"1970-01-01T00:00:00Z\"\n    }\n  },\n  {\n    \"operator_address\": \"cosmosvaloper16xyempempp92x9hyzz9wrgf94r6j9h5f2w4n2l\",\n    \"consensus_pubkey\": \"cosmosvalconspub1zcjduepq0vu2zgkgk49efa0nqwzndanq5m4c7pa3u4apz4g2r9gspqg6g9cs3k9cuf\",\n    \"jailed\": true,\n    \"status\": 2275,\n    \"tokens\": \"string\",\n    \"delegator_shares\": \"string\",\n    \"description\": {\n      \"moniker\": \"string\",\n      \"identity\": \"string\",\n      \"website\": \"string\",\n      \"security_contact\": \"string\",\n      \"details\": \"string\"\n    },\n    \"bond_height\": \"0\",\n    \"bond_intra_tx_counter\": 0,\n    \"unbonding_height\": \"0\",\n    \"unbonding_time\": \"1970-01-01T00:00:00Z\",\n    \"commission\": {\n      \"rate\": \"0\",\n      \"max_rate\": \"0\",\n      \"max_change_rate\": \"0\",\n      \"update_time\": \"1970-01-01T00:00:00Z\"\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5357e502-e55a-4e58-9ccc-7343b9b16d67",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "staking",
+                    "validators"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "status",
+                      "value": "bonded"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "87013808-a059-43ff-8311-07236e534339",
+          "name": "Query the information from a single validator",
+          "request": {
+            "name": "Query the information from a single validator",
+            "description": {},
+            "url": {
+              "path": [
+                "staking",
+                "validators",
+                ":validatorAddr"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "validatorAddr",
+                  "description": "(Required) Bech32 OperatorAddress of validator"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c8776d9c-96c4-4021-8f1b-84f16a8619d0",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "staking",
+                    "validators",
+                    ":validatorAddr"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "validatorAddr",
+                      "description": "(Required) Bech32 OperatorAddress of validator"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"operator_address\": \"cosmosvaloper16xyempempp92x9hyzz9wrgf94r6j9h5f2w4n2l\",\n  \"consensus_pubkey\": \"cosmosvalconspub1zcjduepq0vu2zgkgk49efa0nqwzndanq5m4c7pa3u4apz4g2r9gspqg6g9cs3k9cuf\",\n  \"jailed\": true,\n  \"status\": 6486,\n  \"tokens\": \"string\",\n  \"delegator_shares\": \"string\",\n  \"description\": {\n    \"moniker\": \"string\",\n    \"identity\": \"string\",\n    \"website\": \"string\",\n    \"security_contact\": \"string\",\n    \"details\": \"string\"\n  },\n  \"bond_height\": \"0\",\n  \"bond_intra_tx_counter\": 0,\n  \"unbonding_height\": \"0\",\n  \"unbonding_time\": \"1970-01-01T00:00:00Z\",\n  \"commission\": {\n    \"rate\": \"0\",\n    \"max_rate\": \"0\",\n    \"max_change_rate\": \"0\",\n    \"update_time\": \"1970-01-01T00:00:00Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "20caa716-ce88-4683-84ae-5fe0b8391a71",
+              "name": "Invalid validator address",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "staking",
+                    "validators",
+                    ":validatorAddr"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "validatorAddr",
+                      "description": "(Required) Bech32 OperatorAddress of validator"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0139f63f-af50-41ad-bb1e-94a8a82ca756",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "staking",
+                    "validators",
+                    ":validatorAddr"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "validatorAddr",
+                      "description": "(Required) Bech32 OperatorAddress of validator"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "234e0dea-f5af-4f6f-9cf2-1a36e5d39569",
+          "name": "Get all delegations from a validator",
+          "request": {
+            "name": "Get all delegations from a validator",
+            "description": {},
+            "url": {
+              "path": [
+                "staking",
+                "validators",
+                ":validatorAddr",
+                "delegations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "validatorAddr",
+                  "description": "(Required) Bech32 OperatorAddress of validator"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "832ad3bb-930c-45db-935f-d208fda5ab54",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "staking",
+                    "validators",
+                    ":validatorAddr",
+                    "delegations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "validatorAddr",
+                      "description": "(Required) Bech32 OperatorAddress of validator"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"delegator_address\": \"string\",\n    \"validator_address\": \"string\",\n    \"shares\": \"string\",\n    \"balance\": {\n      \"denom\": \"stake\",\n      \"amount\": \"50\"\n    }\n  },\n  {\n    \"delegator_address\": \"string\",\n    \"validator_address\": \"string\",\n    \"shares\": \"string\",\n    \"balance\": {\n      \"denom\": \"stake\",\n      \"amount\": \"50\"\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "400048c7-6e5a-4a3e-b913-0f2be2f7035c",
+              "name": "Invalid validator address",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "staking",
+                    "validators",
+                    ":validatorAddr",
+                    "delegations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "validatorAddr",
+                      "description": "(Required) Bech32 OperatorAddress of validator"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "29e17072-a328-40f5-9f18-7181a135dc2e",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "staking",
+                    "validators",
+                    ":validatorAddr",
+                    "delegations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "validatorAddr",
+                      "description": "(Required) Bech32 OperatorAddress of validator"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0db021db-caee-4851-964e-4640a1e8fa75",
+          "name": "Get all unbonding delegations from a validator",
+          "request": {
+            "name": "Get all unbonding delegations from a validator",
+            "description": {},
+            "url": {
+              "path": [
+                "staking",
+                "validators",
+                ":validatorAddr",
+                "unbonding_delegations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "validatorAddr",
+                  "description": "(Required) Bech32 OperatorAddress of validator"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2a424b62-2269-4dcc-9372-9e4b183ac1c9",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "staking",
+                    "validators",
+                    ":validatorAddr",
+                    "unbonding_delegations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "validatorAddr",
+                      "description": "(Required) Bech32 OperatorAddress of validator"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"delegator_address\": \"string\",\n    \"validator_address\": \"string\",\n    \"initial_balance\": \"string\",\n    \"balance\": \"string\",\n    \"creation_height\": 7563,\n    \"min_time\": 8732\n  },\n  {\n    \"delegator_address\": \"string\",\n    \"validator_address\": \"string\",\n    \"initial_balance\": \"string\",\n    \"balance\": \"string\",\n    \"creation_height\": 3864,\n    \"min_time\": 1644\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "438f342f-7571-4787-be01-5418d49c49ce",
+              "name": "Invalid validator address",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "staking",
+                    "validators",
+                    ":validatorAddr",
+                    "unbonding_delegations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "validatorAddr",
+                      "description": "(Required) Bech32 OperatorAddress of validator"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b151dcba-2d56-4869-9830-f2cffc3d42db",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "staking",
+                    "validators",
+                    ":validatorAddr",
+                    "unbonding_delegations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "validatorAddr",
+                      "description": "(Required) Bech32 OperatorAddress of validator"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "94bd54bc-a614-4251-9129-49f975ae11e2",
+          "name": "Get the current state of the staking pool",
+          "request": {
+            "name": "Get the current state of the staking pool",
+            "description": {},
+            "url": {
+              "path": [
+                "staking",
+                "pool"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "86379e80-1f49-4fad-a2ac-7cfa8be6af4a",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "staking",
+                    "pool"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"loose_tokens\": \"string\",\n  \"bonded_tokens\": \"string\",\n  \"inflation_last_time\": \"string\",\n  \"inflation\": \"string\",\n  \"date_last_commission_reset\": \"string\",\n  \"prev_bonded_shares\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "55a10fc7-b96e-45e3-b672-b7de52daa2a3",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "staking",
+                    "pool"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bc3da824-a697-4bd5-b1b9-a821850130ba",
+          "name": "Get the current staking parameter values",
+          "request": {
+            "name": "Get the current staking parameter values",
+            "description": {},
+            "url": {
+              "path": [
+                "staking",
+                "parameters"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cf7f063f-3746-409d-ac9a-4f2980c9290c",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "staking",
+                    "parameters"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"inflation_rate_change\": \"string\",\n  \"inflation_max\": \"string\",\n  \"inflation_min\": \"string\",\n  \"goal_bonded\": \"string\",\n  \"unbonding_time\": \"string\",\n  \"max_validators\": 2980,\n  \"bond_denom\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6a2d68fa-aced-4612-b264-fafc9784dd26",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "staking",
+                    "parameters"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "c8027451-0cc3-41aa-b1de-5b316ac706c2",
+    "name": "AKASH - gRPC Gateway docs Addresses Staking API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "A REST interface for state queries",
+      "type": "text/plain"
+    }
+  }
+}

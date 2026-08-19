@@ -1,0 +1,199 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "AKASH - gRPC Gateway docs Addresses Providers API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Providers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get a list of providers.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/providers",
+            "params": [
+              {
+                "name": "scope",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "addresses",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get a list of providers."
+        },
+        {
+          "info": {
+            "name": "Get a provider details.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/providers/:address",
+            "params": [
+              {
+                "name": "address",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a provider details."
+        },
+        {
+          "info": {
+            "name": "GET /v1/providers/{providerAddress}/active-leases-graph-data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/providers/:providerAddress/active-leases-graph-data",
+            "params": [
+              {
+                "name": "providerAddress",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "Get a list of auditors.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/auditors"
+          },
+          "docs": "Get a list of auditors."
+        },
+        {
+          "info": {
+            "name": "Get the provider attributes schema",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/provider-attributes-schema"
+          },
+          "docs": "Get the provider attributes schema"
+        },
+        {
+          "info": {
+            "name": "Get a list of provider regions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/provider-regions"
+          },
+          "docs": "Get a list of provider regions"
+        },
+        {
+          "info": {
+            "name": "Get dashboard data for provider console.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/provider-dashboard/:owner",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get dashboard data for provider console."
+        },
+        {
+          "info": {
+            "name": "Get earnings data for provider console.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/provider-earnings/:owner",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get earnings data for provider console."
+        },
+        {
+          "info": {
+            "name": "Get providers grouped by version.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/provider-versions"
+          },
+          "docs": "Get providers grouped by version."
+        },
+        {
+          "info": {
+            "name": "Get a list of deployments for a provider.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/providers/:provider/deployments/:skip/:limit",
+            "params": [
+              {
+                "name": "provider",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "skip",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get a list of deployments for a provider."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

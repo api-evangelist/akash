@@ -1,0 +1,96 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "AKASH - gRPC Gateway docs Addresses Gpu API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Gpu",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get a list of gpu models and their availability.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/gpu",
+            "params": [
+              {
+                "name": "provider",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "vendor",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "model",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "memory_size",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get a list of gpu models and their availability."
+        },
+        {
+          "info": {
+            "name": "Get a list of gpu models per vendor. Based on the content from https://raw.githubusercontent.com/akash-network/provider-configs/main/devices/pcie/gpus.json.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/gpu-models"
+          },
+          "docs": "Get a list of gpu models per vendor. Based on the content from https://raw.githubusercontent.com/akash-network/provider-configs/main/devices/pcie/gpus.json."
+        },
+        {
+          "info": {
+            "name": "Gets gpu analytics breakdown by vendor and model. If no vendor or model is provided, all GPUs are returned.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/gpu-breakdown",
+            "params": [
+              {
+                "name": "vendor",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "model",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Gets gpu analytics breakdown by vendor and model. If no vendor or model is provided, all GPUs are returned."
+        },
+        {
+          "info": {
+            "name": "Get a list of gpu models with their availability and pricing.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/gpu-prices"
+          },
+          "docs": "Get a list of gpu models with their availability and pricing."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

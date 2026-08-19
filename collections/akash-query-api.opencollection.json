@@ -1,0 +1,2414 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "AKASH - gRPC Gateway docs Addresses Query API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Query",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "AllProvidersAttributes queries all providers\nbuf:lint:ignore RPC_REQUEST_RESPONSE_UNIQUE\nbuf:lint:ignore RPC_RESPONSE_STANDARD_NAME",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/akash/audit/v1beta3/audit/attributes/list",
+            "params": [
+              {
+                "name": "pagination.key",
+                "value": "",
+                "type": "query",
+                "description": "key is a value returned in PageResponse.next_key to begin\nquerying the next page most efficiently. Only one of offset or key\nshould be set."
+              },
+              {
+                "name": "pagination.offset",
+                "value": "",
+                "type": "query",
+                "description": "offset is a numeric offset that can be used when key is unavailable.\nIt is less efficient than using key. Only one of offset or key should\nbe set."
+              },
+              {
+                "name": "pagination.limit",
+                "value": "",
+                "type": "query",
+                "description": "limit is the total number of results to be returned in the result page.\nIf left empty it will default to a value to be set by each app."
+              },
+              {
+                "name": "pagination.count_total",
+                "value": "",
+                "type": "query",
+                "description": "count_total is set to true  to indicate that the result set should include\na count of the total number of items available for pagination in UIs.\ncount_total is only respected when offset is used. It is ignored when key\nis set."
+              },
+              {
+                "name": "pagination.reverse",
+                "value": "",
+                "type": "query",
+                "description": "reverse is set to true if results are to be returned in the descending order.\n\nSince: cosmos-sdk 0.43"
+              }
+            ]
+          },
+          "docs": "AllProvidersAttributes queries all providers\nbuf:lint:ignore RPC_REQUEST_RESPONSE_UNIQUE\nbuf:lint:ignore RPC_RESPONSE_STANDARD_NAME"
+        },
+        {
+          "info": {
+            "name": "ProviderAuditorAttributes queries provider signed attributes by specific auditor\nbuf:lint:ignore RPC_REQUEST_RESPONSE_UNIQUE\nbuf:lint:ignore RPC_RESPONSE_STANDARD_NAME",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/akash/audit/v1beta3/audit/attributes/:auditor/:owner",
+            "params": [
+              {
+                "name": "auditor",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "ProviderAuditorAttributes queries provider signed attributes by specific auditor\nbuf:lint:ignore RPC_REQUEST_RESPONSE_UNIQUE\nbuf:lint:ignore RPC_RESPONSE_STANDARD_NAME"
+        },
+        {
+          "info": {
+            "name": "ProviderAttributes queries all provider signed attributes\nbuf:lint:ignore RPC_REQUEST_RESPONSE_UNIQUE\nbuf:lint:ignore RPC_RESPONSE_STANDARD_NAME",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/akash/audit/v1beta3/audit/attributes/:owner/list",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "pagination.key",
+                "value": "",
+                "type": "query",
+                "description": "key is a value returned in PageResponse.next_key to begin\nquerying the next page most efficiently. Only one of offset or key\nshould be set."
+              },
+              {
+                "name": "pagination.offset",
+                "value": "",
+                "type": "query",
+                "description": "offset is a numeric offset that can be used when key is unavailable.\nIt is less efficient than using key. Only one of offset or key should\nbe set."
+              },
+              {
+                "name": "pagination.limit",
+                "value": "",
+                "type": "query",
+                "description": "limit is the total number of results to be returned in the result page.\nIf left empty it will default to a value to be set by each app."
+              },
+              {
+                "name": "pagination.count_total",
+                "value": "",
+                "type": "query",
+                "description": "count_total is set to true  to indicate that the result set should include\na count of the total number of items available for pagination in UIs.\ncount_total is only respected when offset is used. It is ignored when key\nis set."
+              },
+              {
+                "name": "pagination.reverse",
+                "value": "",
+                "type": "query",
+                "description": "reverse is set to true if results are to be returned in the descending order.\n\nSince: cosmos-sdk 0.43"
+              }
+            ]
+          },
+          "docs": "ProviderAttributes queries all provider signed attributes\nbuf:lint:ignore RPC_REQUEST_RESPONSE_UNIQUE\nbuf:lint:ignore RPC_RESPONSE_STANDARD_NAME"
+        },
+        {
+          "info": {
+            "name": "AuditorAttributes queries all providers signed by this auditor\nbuf:lint:ignore RPC_REQUEST_RESPONSE_UNIQUE\nbuf:lint:ignore RPC_RESPONSE_STANDARD_NAME",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/akash/provider/v1beta3/auditor/:auditor/list",
+            "params": [
+              {
+                "name": "auditor",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "pagination.key",
+                "value": "",
+                "type": "query",
+                "description": "key is a value returned in PageResponse.next_key to begin\nquerying the next page most efficiently. Only one of offset or key\nshould be set."
+              },
+              {
+                "name": "pagination.offset",
+                "value": "",
+                "type": "query",
+                "description": "offset is a numeric offset that can be used when key is unavailable.\nIt is less efficient than using key. Only one of offset or key should\nbe set."
+              },
+              {
+                "name": "pagination.limit",
+                "value": "",
+                "type": "query",
+                "description": "limit is the total number of results to be returned in the result page.\nIf left empty it will default to a value to be set by each app."
+              },
+              {
+                "name": "pagination.count_total",
+                "value": "",
+                "type": "query",
+                "description": "count_total is set to true  to indicate that the result set should include\na count of the total number of items available for pagination in UIs.\ncount_total is only respected when offset is used. It is ignored when key\nis set."
+              },
+              {
+                "name": "pagination.reverse",
+                "value": "",
+                "type": "query",
+                "description": "reverse is set to true if results are to be returned in the descending order.\n\nSince: cosmos-sdk 0.43"
+              }
+            ]
+          },
+          "docs": "AuditorAttributes queries all providers signed by this auditor\nbuf:lint:ignore RPC_REQUEST_RESPONSE_UNIQUE\nbuf:lint:ignore RPC_RESPONSE_STANDARD_NAME"
+        },
+        {
+          "info": {
+            "name": "Certificates queries certificates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/akash/cert/v1beta3/certificates/list",
+            "params": [
+              {
+                "name": "filter.owner",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "filter.serial",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "filter.state",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pagination.key",
+                "value": "",
+                "type": "query",
+                "description": "key is a value returned in PageResponse.next_key to begin\nquerying the next page most efficiently. Only one of offset or key\nshould be set."
+              },
+              {
+                "name": "pagination.offset",
+                "value": "",
+                "type": "query",
+                "description": "offset is a numeric offset that can be used when key is unavailable.\nIt is less efficient than using key. Only one of offset or key should\nbe set."
+              },
+              {
+                "name": "pagination.limit",
+                "value": "",
+                "type": "query",
+                "description": "limit is the total number of results to be returned in the result page.\nIf left empty it will default to a value to be set by each app."
+              },
+              {
+                "name": "pagination.count_total",
+                "value": "",
+                "type": "query",
+                "description": "count_total is set to true  to indicate that the result set should include\na count of the total number of items available for pagination in UIs.\ncount_total is only respected when offset is used. It is ignored when key\nis set."
+              },
+              {
+                "name": "pagination.reverse",
+                "value": "",
+                "type": "query",
+                "description": "reverse is set to true if results are to be returned in the descending order.\n\nSince: cosmos-sdk 0.43"
+              }
+            ]
+          },
+          "docs": "Certificates queries certificates"
+        },
+        {
+          "info": {
+            "name": "Deployment queries deployment details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/akash/deployment/v1beta3/deployments/info",
+            "params": [
+              {
+                "name": "id.owner",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "id.dseq",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Deployment queries deployment details"
+        },
+        {
+          "info": {
+            "name": "Deployments queries deployments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/akash/deployment/v1beta3/deployments/list",
+            "params": [
+              {
+                "name": "filters.owner",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "filters.dseq",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "filters.state",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pagination.key",
+                "value": "",
+                "type": "query",
+                "description": "key is a value returned in PageResponse.next_key to begin\nquerying the next page most efficiently. Only one of offset or key\nshould be set."
+              },
+              {
+                "name": "pagination.offset",
+                "value": "",
+                "type": "query",
+                "description": "offset is a numeric offset that can be used when key is unavailable.\nIt is less efficient than using key. Only one of offset or key should\nbe set."
+              },
+              {
+                "name": "pagination.limit",
+                "value": "",
+                "type": "query",
+                "description": "limit is the total number of results to be returned in the result page.\nIf left empty it will default to a value to be set by each app."
+              },
+              {
+                "name": "pagination.count_total",
+                "value": "",
+                "type": "query",
+                "description": "count_total is set to true  to indicate that the result set should include\na count of the total number of items available for pagination in UIs.\ncount_total is only respected when offset is used. It is ignored when key\nis set."
+              },
+              {
+                "name": "pagination.reverse",
+                "value": "",
+                "type": "query",
+                "description": "reverse is set to true if results are to be returned in the descending order.\n\nSince: cosmos-sdk 0.43"
+              }
+            ]
+          },
+          "docs": "Deployments queries deployments"
+        },
+        {
+          "info": {
+            "name": "Group queries group details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/akash/deployment/v1beta3/groups/info",
+            "params": [
+              {
+                "name": "id.owner",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "id.dseq",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "id.gseq",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Group queries group details"
+        },
+        {
+          "info": {
+            "name": "Bid queries bid details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/akash/market/v1beta3/bids/info",
+            "params": [
+              {
+                "name": "id.owner",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "id.dseq",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "id.gseq",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "id.oseq",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "id.provider",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Bid queries bid details"
+        },
+        {
+          "info": {
+            "name": "Bids queries bids with filters",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/akash/market/v1beta3/bids/list",
+            "params": [
+              {
+                "name": "filters.owner",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "filters.dseq",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "filters.gseq",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "filters.oseq",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "filters.provider",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "filters.state",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pagination.key",
+                "value": "",
+                "type": "query",
+                "description": "key is a value returned in PageResponse.next_key to begin\nquerying the next page most efficiently. Only one of offset or key\nshould be set."
+              },
+              {
+                "name": "pagination.offset",
+                "value": "",
+                "type": "query",
+                "description": "offset is a numeric offset that can be used when key is unavailable.\nIt is less efficient than using key. Only one of offset or key should\nbe set."
+              },
+              {
+                "name": "pagination.limit",
+                "value": "",
+                "type": "query",
+                "description": "limit is the total number of results to be returned in the result page.\nIf left empty it will default to a value to be set by each app."
+              },
+              {
+                "name": "pagination.count_total",
+                "value": "",
+                "type": "query",
+                "description": "count_total is set to true  to indicate that the result set should include\na count of the total number of items available for pagination in UIs.\ncount_total is only respected when offset is used. It is ignored when key\nis set."
+              },
+              {
+                "name": "pagination.reverse",
+                "value": "",
+                "type": "query",
+                "description": "reverse is set to true if results are to be returned in the descending order.\n\nSince: cosmos-sdk 0.43"
+              }
+            ]
+          },
+          "docs": "Bids queries bids with filters"
+        },
+        {
+          "info": {
+            "name": "Lease queries lease details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/akash/market/v1beta3/leases/info",
+            "params": [
+              {
+                "name": "id.owner",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "id.dseq",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "id.gseq",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "id.oseq",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "id.provider",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Lease queries lease details"
+        },
+        {
+          "info": {
+            "name": "Leases queries leases with filters",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/akash/market/v1beta3/leases/list",
+            "params": [
+              {
+                "name": "filters.owner",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "filters.dseq",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "filters.gseq",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "filters.oseq",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "filters.provider",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "filters.state",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pagination.key",
+                "value": "",
+                "type": "query",
+                "description": "key is a value returned in PageResponse.next_key to begin\nquerying the next page most efficiently. Only one of offset or key\nshould be set."
+              },
+              {
+                "name": "pagination.offset",
+                "value": "",
+                "type": "query",
+                "description": "offset is a numeric offset that can be used when key is unavailable.\nIt is less efficient than using key. Only one of offset or key should\nbe set."
+              },
+              {
+                "name": "pagination.limit",
+                "value": "",
+                "type": "query",
+                "description": "limit is the total number of results to be returned in the result page.\nIf left empty it will default to a value to be set by each app."
+              },
+              {
+                "name": "pagination.count_total",
+                "value": "",
+                "type": "query",
+                "description": "count_total is set to true  to indicate that the result set should include\na count of the total number of items available for pagination in UIs.\ncount_total is only respected when offset is used. It is ignored when key\nis set."
+              },
+              {
+                "name": "pagination.reverse",
+                "value": "",
+                "type": "query",
+                "description": "reverse is set to true if results are to be returned in the descending order.\n\nSince: cosmos-sdk 0.43"
+              }
+            ]
+          },
+          "docs": "Leases queries leases with filters"
+        },
+        {
+          "info": {
+            "name": "Order queries order details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/akash/market/v1beta3/orders/info",
+            "params": [
+              {
+                "name": "id.owner",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "id.dseq",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "id.gseq",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "id.oseq",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Order queries order details"
+        },
+        {
+          "info": {
+            "name": "Orders queries orders with filters",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/akash/market/v1beta3/orders/list",
+            "params": [
+              {
+                "name": "filters.owner",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "filters.dseq",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "filters.gseq",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "filters.oseq",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "filters.state",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pagination.key",
+                "value": "",
+                "type": "query",
+                "description": "key is a value returned in PageResponse.next_key to begin\nquerying the next page most efficiently. Only one of offset or key\nshould be set."
+              },
+              {
+                "name": "pagination.offset",
+                "value": "",
+                "type": "query",
+                "description": "offset is a numeric offset that can be used when key is unavailable.\nIt is less efficient than using key. Only one of offset or key should\nbe set."
+              },
+              {
+                "name": "pagination.limit",
+                "value": "",
+                "type": "query",
+                "description": "limit is the total number of results to be returned in the result page.\nIf left empty it will default to a value to be set by each app."
+              },
+              {
+                "name": "pagination.count_total",
+                "value": "",
+                "type": "query",
+                "description": "count_total is set to true  to indicate that the result set should include\na count of the total number of items available for pagination in UIs.\ncount_total is only respected when offset is used. It is ignored when key\nis set."
+              },
+              {
+                "name": "pagination.reverse",
+                "value": "",
+                "type": "query",
+                "description": "reverse is set to true if results are to be returned in the descending order.\n\nSince: cosmos-sdk 0.43"
+              }
+            ]
+          },
+          "docs": "Orders queries orders with filters"
+        },
+        {
+          "info": {
+            "name": "Providers queries providers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/akash/provider/v1beta3/providers",
+            "params": [
+              {
+                "name": "pagination.key",
+                "value": "",
+                "type": "query",
+                "description": "key is a value returned in PageResponse.next_key to begin\nquerying the next page most efficiently. Only one of offset or key\nshould be set."
+              },
+              {
+                "name": "pagination.offset",
+                "value": "",
+                "type": "query",
+                "description": "offset is a numeric offset that can be used when key is unavailable.\nIt is less efficient than using key. Only one of offset or key should\nbe set."
+              },
+              {
+                "name": "pagination.limit",
+                "value": "",
+                "type": "query",
+                "description": "limit is the total number of results to be returned in the result page.\nIf left empty it will default to a value to be set by each app."
+              },
+              {
+                "name": "pagination.count_total",
+                "value": "",
+                "type": "query",
+                "description": "count_total is set to true  to indicate that the result set should include\na count of the total number of items available for pagination in UIs.\ncount_total is only respected when offset is used. It is ignored when key\nis set."
+              },
+              {
+                "name": "pagination.reverse",
+                "value": "",
+                "type": "query",
+                "description": "reverse is set to true if results are to be returned in the descending order.\n\nSince: cosmos-sdk 0.43"
+              }
+            ]
+          },
+          "docs": "Providers queries providers"
+        },
+        {
+          "info": {
+            "name": "Provider queries provider details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/akash/provider/v1beta3/providers/:owner",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Provider queries provider details"
+        },
+        {
+          "info": {
+            "name": "Accounts returns all the existing accounts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/cosmos/auth/v1beta1/accounts",
+            "params": [
+              {
+                "name": "pagination.key",
+                "value": "",
+                "type": "query",
+                "description": "key is a value returned in PageResponse.next_key to begin\nquerying the next page most efficiently. Only one of offset or key\nshould be set."
+              },
+              {
+                "name": "pagination.offset",
+                "value": "",
+                "type": "query",
+                "description": "offset is a numeric offset that can be used when key is unavailable.\nIt is less efficient than using key. Only one of offset or key should\nbe set."
+              },
+              {
+                "name": "pagination.limit",
+                "value": "",
+                "type": "query",
+                "description": "limit is the total number of results to be returned in the result page.\nIf left empty it will default to a value to be set by each app."
+              },
+              {
+                "name": "pagination.count_total",
+                "value": "",
+                "type": "query",
+                "description": "count_total is set to true  to indicate that the result set should include\na count of the total number of items available for pagination in UIs.\ncount_total is only respected when offset is used. It is ignored when key\nis set."
+              },
+              {
+                "name": "pagination.reverse",
+                "value": "",
+                "type": "query",
+                "description": "reverse is set to true if results are to be returned in the descending order."
+              }
+            ]
+          },
+          "docs": "Accounts returns all the existing accounts"
+        },
+        {
+          "info": {
+            "name": "Account returns account details based on address.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/cosmos/auth/v1beta1/accounts/:address",
+            "params": [
+              {
+                "name": "address",
+                "value": "",
+                "type": "path",
+                "description": "address defines the address to query for."
+              }
+            ]
+          },
+          "docs": "Account returns account details based on address."
+        },
+        {
+          "info": {
+            "name": "Params queries all parameters.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/cosmos/auth/v1beta1/params"
+          },
+          "docs": "Params queries all parameters."
+        },
+        {
+          "info": {
+            "name": "AllBalances queries the balance of all coins for a single account.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/cosmos/bank/v1beta1/balances/:address",
+            "params": [
+              {
+                "name": "address",
+                "value": "",
+                "type": "path",
+                "description": "address is the address to query balances for."
+              },
+              {
+                "name": "pagination.key",
+                "value": "",
+                "type": "query",
+                "description": "key is a value returned in PageResponse.next_key to begin\nquerying the next page most efficiently. Only one of offset or key\nshould be set."
+              },
+              {
+                "name": "pagination.offset",
+                "value": "",
+                "type": "query",
+                "description": "offset is a numeric offset that can be used when key is unavailable.\nIt is less efficient than using key. Only one of offset or key should\nbe set."
+              },
+              {
+                "name": "pagination.limit",
+                "value": "",
+                "type": "query",
+                "description": "limit is the total number of results to be returned in the result page.\nIf left empty it will default to a value to be set by each app."
+              },
+              {
+                "name": "pagination.count_total",
+                "value": "",
+                "type": "query",
+                "description": "count_total is set to true  to indicate that the result set should include\na count of the total number of items available for pagination in UIs.\ncount_total is only respected when offset is used. It is ignored when key\nis set."
+              },
+              {
+                "name": "pagination.reverse",
+                "value": "",
+                "type": "query",
+                "description": "reverse is set to true if results are to be returned in the descending order."
+              }
+            ]
+          },
+          "docs": "AllBalances queries the balance of all coins for a single account."
+        },
+        {
+          "info": {
+            "name": "Balance queries the balance of a single coin for a single account.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/cosmos/bank/v1beta1/balances/:address/:denom",
+            "params": [
+              {
+                "name": "address",
+                "value": "",
+                "type": "path",
+                "description": "address is the address to query balances for."
+              },
+              {
+                "name": "denom",
+                "value": "",
+                "type": "path",
+                "description": "denom is the coin denom to query balances for."
+              }
+            ]
+          },
+          "docs": "Balance queries the balance of a single coin for a single account."
+        },
+        {
+          "info": {
+            "name": "DenomOwners queries for all account addresses that own a particular token\ndenomination.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/cosmos/bank/v1beta1/denom_owners/:denom",
+            "params": [
+              {
+                "name": "denom",
+                "value": "",
+                "type": "path",
+                "description": "denom defines the coin denomination to query all account holders for."
+              },
+              {
+                "name": "pagination.key",
+                "value": "",
+                "type": "query",
+                "description": "key is a value returned in PageResponse.next_key to begin\nquerying the next page most efficiently. Only one of offset or key\nshould be set."
+              },
+              {
+                "name": "pagination.offset",
+                "value": "",
+                "type": "query",
+                "description": "offset is a numeric offset that can be used when key is unavailable.\nIt is less efficient than using key. Only one of offset or key should\nbe set."
+              },
+              {
+                "name": "pagination.limit",
+                "value": "",
+                "type": "query",
+                "description": "limit is the total number of results to be returned in the result page.\nIf left empty it will default to a value to be set by each app."
+              },
+              {
+                "name": "pagination.count_total",
+                "value": "",
+                "type": "query",
+                "description": "count_total is set to true  to indicate that the result set should include\na count of the total number of items available for pagination in UIs.\ncount_total is only respected when offset is used. It is ignored when key\nis set."
+              },
+              {
+                "name": "pagination.reverse",
+                "value": "",
+                "type": "query",
+                "description": "reverse is set to true if results are to be returned in the descending order."
+              }
+            ]
+          },
+          "docs": "DenomOwners queries for all account addresses that own a particular token\ndenomination."
+        },
+        {
+          "info": {
+            "name": "DenomsMetadata queries the client metadata for all registered coin\ndenominations.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/cosmos/bank/v1beta1/denoms_metadata",
+            "params": [
+              {
+                "name": "pagination.key",
+                "value": "",
+                "type": "query",
+                "description": "key is a value returned in PageResponse.next_key to begin\nquerying the next page most efficiently. Only one of offset or key\nshould be set."
+              },
+              {
+                "name": "pagination.offset",
+                "value": "",
+                "type": "query",
+                "description": "offset is a numeric offset that can be used when key is unavailable.\nIt is less efficient than using key. Only one of offset or key should\nbe set."
+              },
+              {
+                "name": "pagination.limit",
+                "value": "",
+                "type": "query",
+                "description": "limit is the total number of results to be returned in the result page.\nIf left empty it will default to a value to be set by each app."
+              },
+              {
+                "name": "pagination.count_total",
+                "value": "",
+                "type": "query",
+                "description": "count_total is set to true  to indicate that the result set should include\na count of the total number of items available for pagination in UIs.\ncount_total is only respected when offset is used. It is ignored when key\nis set."
+              },
+              {
+                "name": "pagination.reverse",
+                "value": "",
+                "type": "query",
+                "description": "reverse is set to true if results are to be returned in the descending order."
+              }
+            ]
+          },
+          "docs": "DenomsMetadata queries the client metadata for all registered coin\ndenominations."
+        },
+        {
+          "info": {
+            "name": "DenomsMetadata queries the client metadata of a given coin denomination.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/cosmos/bank/v1beta1/denoms_metadata/:denom",
+            "params": [
+              {
+                "name": "denom",
+                "value": "",
+                "type": "path",
+                "description": "denom is the coin denom to query the metadata for."
+              }
+            ]
+          },
+          "docs": "DenomsMetadata queries the client metadata of a given coin denomination."
+        },
+        {
+          "info": {
+            "name": "Params queries the parameters of x/bank module.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/cosmos/bank/v1beta1/params"
+          },
+          "docs": "Params queries the parameters of x/bank module."
+        },
+        {
+          "info": {
+            "name": "TotalSupply queries the total supply of all coins.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/cosmos/bank/v1beta1/supply",
+            "params": [
+              {
+                "name": "pagination.key",
+                "value": "",
+                "type": "query",
+                "description": "key is a value returned in PageResponse.next_key to begin\nquerying the next page most efficiently. Only one of offset or key\nshould be set."
+              },
+              {
+                "name": "pagination.offset",
+                "value": "",
+                "type": "query",
+                "description": "offset is a numeric offset that can be used when key is unavailable.\nIt is less efficient than using key. Only one of offset or key should\nbe set."
+              },
+              {
+                "name": "pagination.limit",
+                "value": "",
+                "type": "query",
+                "description": "limit is the total number of results to be returned in the result page.\nIf left empty it will default to a value to be set by each app."
+              },
+              {
+                "name": "pagination.count_total",
+                "value": "",
+                "type": "query",
+                "description": "count_total is set to true  to indicate that the result set should include\na count of the total number of items available for pagination in UIs.\ncount_total is only respected when offset is used. It is ignored when key\nis set."
+              },
+              {
+                "name": "pagination.reverse",
+                "value": "",
+                "type": "query",
+                "description": "reverse is set to true if results are to be returned in the descending order."
+              }
+            ]
+          },
+          "docs": "TotalSupply queries the total supply of all coins."
+        },
+        {
+          "info": {
+            "name": "SupplyOf queries the supply of a single coin.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/cosmos/bank/v1beta1/supply/:denom",
+            "params": [
+              {
+                "name": "denom",
+                "value": "",
+                "type": "path",
+                "description": "denom is the coin denom to query balances for."
+              }
+            ]
+          },
+          "docs": "SupplyOf queries the supply of a single coin."
+        },
+        {
+          "info": {
+            "name": "CommunityPool queries the community pool coins.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/cosmos/distribution/v1beta1/community_pool"
+          },
+          "docs": "CommunityPool queries the community pool coins."
+        },
+        {
+          "info": {
+            "name": "DelegationTotalRewards queries the total rewards accrued by a each\nvalidator.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/cosmos/distribution/v1beta1/delegators/:delegator_address/rewards",
+            "params": [
+              {
+                "name": "delegator_address",
+                "value": "",
+                "type": "path",
+                "description": "delegator_address defines the delegator address to query for."
+              }
+            ]
+          },
+          "docs": "DelegationTotalRewards queries the total rewards accrued by a each\nvalidator."
+        },
+        {
+          "info": {
+            "name": "DelegationRewards queries the total rewards accrued by a delegation.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/cosmos/distribution/v1beta1/delegators/:delegator_address/rewards/:validator_address",
+            "params": [
+              {
+                "name": "delegator_address",
+                "value": "",
+                "type": "path",
+                "description": "delegator_address defines the delegator address to query for."
+              },
+              {
+                "name": "validator_address",
+                "value": "",
+                "type": "path",
+                "description": "validator_address defines the validator address to query for."
+              }
+            ]
+          },
+          "docs": "DelegationRewards queries the total rewards accrued by a delegation."
+        },
+        {
+          "info": {
+            "name": "DelegatorValidators queries the validators of a delegator.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/cosmos/distribution/v1beta1/delegators/:delegator_address/validators",
+            "params": [
+              {
+                "name": "delegator_address",
+                "value": "",
+                "type": "path",
+                "description": "delegator_address defines the delegator address to query for."
+              }
+            ]
+          },
+          "docs": "DelegatorValidators queries the validators of a delegator."
+        },
+        {
+          "info": {
+            "name": "DelegatorWithdrawAddress queries withdraw address of a delegator.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/cosmos/distribution/v1beta1/delegators/:delegator_address/withdraw_address",
+            "params": [
+              {
+                "name": "delegator_address",
+                "value": "",
+                "type": "path",
+                "description": "delegator_address defines the delegator address to query for."
+              }
+            ]
+          },
+          "docs": "DelegatorWithdrawAddress queries withdraw address of a delegator."
+        },
+        {
+          "info": {
+            "name": "Params queries params of the distribution module.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/cosmos/distribution/v1beta1/params"
+          },
+          "docs": "Params queries params of the distribution module."
+        },
+        {
+          "info": {
+            "name": "ValidatorCommission queries accumulated commission for a validator.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/cosmos/distribution/v1beta1/validators/:validator_address/commission",
+            "params": [
+              {
+                "name": "validator_address",
+                "value": "",
+                "type": "path",
+                "description": "validator_address defines the validator address to query for."
+              }
+            ]
+          },
+          "docs": "ValidatorCommission queries accumulated commission for a validator."
+        },
+        {
+          "info": {
+            "name": "ValidatorOutstandingRewards queries rewards of a validator address.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/cosmos/distribution/v1beta1/validators/:validator_address/outstanding_rewards",
+            "params": [
+              {
+                "name": "validator_address",
+                "value": "",
+                "type": "path",
+                "description": "validator_address defines the validator address to query for."
+              }
+            ]
+          },
+          "docs": "ValidatorOutstandingRewards queries rewards of a validator address."
+        },
+        {
+          "info": {
+            "name": "ValidatorSlashes queries slash events of a validator.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/cosmos/distribution/v1beta1/validators/:validator_address/slashes",
+            "params": [
+              {
+                "name": "validator_address",
+                "value": "",
+                "type": "path",
+                "description": "validator_address defines the validator address to query for."
+              },
+              {
+                "name": "starting_height",
+                "value": "",
+                "type": "query",
+                "description": "starting_height defines the optional starting height to query the slashes."
+              },
+              {
+                "name": "ending_height",
+                "value": "",
+                "type": "query",
+                "description": "starting_height defines the optional ending height to query the slashes."
+              },
+              {
+                "name": "pagination.key",
+                "value": "",
+                "type": "query",
+                "description": "key is a value returned in PageResponse.next_key to begin\nquerying the next page most efficiently. Only one of offset or key\nshould be set."
+              },
+              {
+                "name": "pagination.offset",
+                "value": "",
+                "type": "query",
+                "description": "offset is a numeric offset that can be used when key is unavailable.\nIt is less efficient than using key. Only one of offset or key should\nbe set."
+              },
+              {
+                "name": "pagination.limit",
+                "value": "",
+                "type": "query",
+                "description": "limit is the total number of results to be returned in the result page.\nIf left empty it will default to a value to be set by each app."
+              },
+              {
+                "name": "pagination.count_total",
+                "value": "",
+                "type": "query",
+                "description": "count_total is set to true  to indicate that the result set should include\na count of the total number of items available for pagination in UIs.\ncount_total is only respected when offset is used. It is ignored when key\nis set."
+              },
+              {
+                "name": "pagination.reverse",
+                "value": "",
+                "type": "query",
+                "description": "reverse is set to true if results are to be returned in the descending order."
+              }
+            ]
+          },
+          "docs": "ValidatorSlashes queries slash events of a validator."
+        },
+        {
+          "info": {
+            "name": "AllEvidence queries all evidence.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/cosmos/evidence/v1beta1/evidence",
+            "params": [
+              {
+                "name": "pagination.key",
+                "value": "",
+                "type": "query",
+                "description": "key is a value returned in PageResponse.next_key to begin\nquerying the next page most efficiently. Only one of offset or key\nshould be set."
+              },
+              {
+                "name": "pagination.offset",
+                "value": "",
+                "type": "query",
+                "description": "offset is a numeric offset that can be used when key is unavailable.\nIt is less efficient than using key. Only one of offset or key should\nbe set."
+              },
+              {
+                "name": "pagination.limit",
+                "value": "",
+                "type": "query",
+                "description": "limit is the total number of results to be returned in the result page.\nIf left empty it will default to a value to be set by each app."
+              },
+              {
+                "name": "pagination.count_total",
+                "value": "",
+                "type": "query",
+                "description": "count_total is set to true  to indicate that the result set should include\na count of the total number of items available for pagination in UIs.\ncount_total is only respected when offset is used. It is ignored when key\nis set."
+              },
+              {
+                "name": "pagination.reverse",
+                "value": "",
+                "type": "query",
+                "description": "reverse is set to true if results are to be returned in the descending order."
+              }
+            ]
+          },
+          "docs": "AllEvidence queries all evidence."
+        },
+        {
+          "info": {
+            "name": "Evidence queries evidence based on evidence hash.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/cosmos/evidence/v1beta1/evidence/:evidence_hash",
+            "params": [
+              {
+                "name": "evidence_hash",
+                "value": "",
+                "type": "path",
+                "description": "evidence_hash defines the hash of the requested evidence."
+              }
+            ]
+          },
+          "docs": "Evidence queries evidence based on evidence hash."
+        },
+        {
+          "info": {
+            "name": "Params queries all parameters of the gov module.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/cosmos/gov/v1beta1/params/:params_type",
+            "params": [
+              {
+                "name": "params_type",
+                "value": "",
+                "type": "path",
+                "description": "params_type defines which parameters to query for, can be one of \"voting\",\n\"tallying\" or \"deposit\"."
+              }
+            ]
+          },
+          "docs": "Params queries all parameters of the gov module."
+        },
+        {
+          "info": {
+            "name": "Proposals queries all proposals based on given status.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/cosmos/gov/v1beta1/proposals",
+            "params": [
+              {
+                "name": "proposal_status",
+                "value": "",
+                "type": "query",
+                "description": "proposal_status defines the status of the proposals.\n\n - PROPOSAL_STATUS_UNSPECIFIED: PROPOSAL_STATUS_UNSPECIFIED defines the default propopsal status.\n - PROPOSAL_STATUS_DEPOSIT_PERIOD: PROPOSAL_STATUS_DEPOSIT_PERIOD defines a proposal status during the deposit\nperiod.\n - PROPOSAL_STATUS_VOTING_PERIOD: PROPOSAL_STATUS_VOTING_PERIOD defines a proposal status during the voting\nperiod.\n - PROPOSAL_STATUS_PASSED: PROPOSAL_STATUS_PASSED defines a proposal status of a proposal that has\npassed.\n - PROPOSAL_STATUS_REJECTED: PROPOSAL_STATUS_REJECTED defines a proposal status of a proposal that has\nbeen rejected.\n - PROPOSAL_STATUS_FAILED: PROPOSAL_STATUS_FAILED defines a proposal status of a proposal that has\nfailed."
+              },
+              {
+                "name": "voter",
+                "value": "",
+                "type": "query",
+                "description": "voter defines the voter address for the proposals."
+              },
+              {
+                "name": "depositor",
+                "value": "",
+                "type": "query",
+                "description": "depositor defines the deposit addresses from the proposals."
+              },
+              {
+                "name": "pagination.key",
+                "value": "",
+                "type": "query",
+                "description": "key is a value returned in PageResponse.next_key to begin\nquerying the next page most efficiently. Only one of offset or key\nshould be set."
+              },
+              {
+                "name": "pagination.offset",
+                "value": "",
+                "type": "query",
+                "description": "offset is a numeric offset that can be used when key is unavailable.\nIt is less efficient than using key. Only one of offset or key should\nbe set."
+              },
+              {
+                "name": "pagination.limit",
+                "value": "",
+                "type": "query",
+                "description": "limit is the total number of results to be returned in the result page.\nIf left empty it will default to a value to be set by each app."
+              },
+              {
+                "name": "pagination.count_total",
+                "value": "",
+                "type": "query",
+                "description": "count_total is set to true  to indicate that the result set should include\na count of the total number of items available for pagination in UIs.\ncount_total is only respected when offset is used. It is ignored when key\nis set."
+              },
+              {
+                "name": "pagination.reverse",
+                "value": "",
+                "type": "query",
+                "description": "reverse is set to true if results are to be returned in the descending order."
+              }
+            ]
+          },
+          "docs": "Proposals queries all proposals based on given status."
+        },
+        {
+          "info": {
+            "name": "Proposal queries proposal details based on ProposalID.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/cosmos/gov/v1beta1/proposals/:proposal_id",
+            "params": [
+              {
+                "name": "proposal_id",
+                "value": "",
+                "type": "path",
+                "description": "proposal_id defines the unique id of the proposal."
+              }
+            ]
+          },
+          "docs": "Proposal queries proposal details based on ProposalID."
+        },
+        {
+          "info": {
+            "name": "Deposits queries all deposits of a single proposal.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/cosmos/gov/v1beta1/proposals/:proposal_id/deposits",
+            "params": [
+              {
+                "name": "proposal_id",
+                "value": "",
+                "type": "path",
+                "description": "proposal_id defines the unique id of the proposal."
+              },
+              {
+                "name": "pagination.key",
+                "value": "",
+                "type": "query",
+                "description": "key is a value returned in PageResponse.next_key to begin\nquerying the next page most efficiently. Only one of offset or key\nshould be set."
+              },
+              {
+                "name": "pagination.offset",
+                "value": "",
+                "type": "query",
+                "description": "offset is a numeric offset that can be used when key is unavailable.\nIt is less efficient than using key. Only one of offset or key should\nbe set."
+              },
+              {
+                "name": "pagination.limit",
+                "value": "",
+                "type": "query",
+                "description": "limit is the total number of results to be returned in the result page.\nIf left empty it will default to a value to be set by each app."
+              },
+              {
+                "name": "pagination.count_total",
+                "value": "",
+                "type": "query",
+                "description": "count_total is set to true  to indicate that the result set should include\na count of the total number of items available for pagination in UIs.\ncount_total is only respected when offset is used. It is ignored when key\nis set."
+              },
+              {
+                "name": "pagination.reverse",
+                "value": "",
+                "type": "query",
+                "description": "reverse is set to true if results are to be returned in the descending order."
+              }
+            ]
+          },
+          "docs": "Deposits queries all deposits of a single proposal."
+        },
+        {
+          "info": {
+            "name": "Deposit queries single deposit information based proposalID, depositAddr.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/cosmos/gov/v1beta1/proposals/:proposal_id/deposits/:depositor",
+            "params": [
+              {
+                "name": "proposal_id",
+                "value": "",
+                "type": "path",
+                "description": "proposal_id defines the unique id of the proposal."
+              },
+              {
+                "name": "depositor",
+                "value": "",
+                "type": "path",
+                "description": "depositor defines the deposit addresses from the proposals."
+              }
+            ]
+          },
+          "docs": "Deposit queries single deposit information based proposalID, depositAddr."
+        },
+        {
+          "info": {
+            "name": "TallyResult queries the tally of a proposal vote.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/cosmos/gov/v1beta1/proposals/:proposal_id/tally",
+            "params": [
+              {
+                "name": "proposal_id",
+                "value": "",
+                "type": "path",
+                "description": "proposal_id defines the unique id of the proposal."
+              }
+            ]
+          },
+          "docs": "TallyResult queries the tally of a proposal vote."
+        },
+        {
+          "info": {
+            "name": "Votes queries votes of a given proposal.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/cosmos/gov/v1beta1/proposals/:proposal_id/votes",
+            "params": [
+              {
+                "name": "proposal_id",
+                "value": "",
+                "type": "path",
+                "description": "proposal_id defines the unique id of the proposal."
+              },
+              {
+                "name": "pagination.key",
+                "value": "",
+                "type": "query",
+                "description": "key is a value returned in PageResponse.next_key to begin\nquerying the next page most efficiently. Only one of offset or key\nshould be set."
+              },
+              {
+                "name": "pagination.offset",
+                "value": "",
+                "type": "query",
+                "description": "offset is a numeric offset that can be used when key is unavailable.\nIt is less efficient than using key. Only one of offset or key should\nbe set."
+              },
+              {
+                "name": "pagination.limit",
+                "value": "",
+                "type": "query",
+                "description": "limit is the total number of results to be returned in the result page.\nIf left empty it will default to a value to be set by each app."
+              },
+              {
+                "name": "pagination.count_total",
+                "value": "",
+                "type": "query",
+                "description": "count_total is set to true  to indicate that the result set should include\na count of the total number of items available for pagination in UIs.\ncount_total is only respected when offset is used. It is ignored when key\nis set."
+              },
+              {
+                "name": "pagination.reverse",
+                "value": "",
+                "type": "query",
+                "description": "reverse is set to true if results are to be returned in the descending order."
+              }
+            ]
+          },
+          "docs": "Votes queries votes of a given proposal."
+        },
+        {
+          "info": {
+            "name": "Vote queries voted information based on proposalID, voterAddr.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/cosmos/gov/v1beta1/proposals/:proposal_id/votes/:voter",
+            "params": [
+              {
+                "name": "proposal_id",
+                "value": "",
+                "type": "path",
+                "description": "proposal_id defines the unique id of the proposal."
+              },
+              {
+                "name": "voter",
+                "value": "",
+                "type": "path",
+                "description": "voter defines the oter address for the proposals."
+              }
+            ]
+          },
+          "docs": "Vote queries voted information based on proposalID, voterAddr."
+        },
+        {
+          "info": {
+            "name": "AnnualProvisions current minting annual provisions value.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/cosmos/mint/v1beta1/annual_provisions"
+          },
+          "docs": "AnnualProvisions current minting annual provisions value."
+        },
+        {
+          "info": {
+            "name": "Inflation returns the current minting inflation value.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/cosmos/mint/v1beta1/inflation"
+          },
+          "docs": "Inflation returns the current minting inflation value."
+        },
+        {
+          "info": {
+            "name": "Params returns the total set of minting parameters.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/cosmos/mint/v1beta1/params"
+          },
+          "docs": "Params returns the total set of minting parameters."
+        },
+        {
+          "info": {
+            "name": "Params queries a specific parameter of a module, given its subspace and\nkey.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/cosmos/params/v1beta1/params",
+            "params": [
+              {
+                "name": "subspace",
+                "value": "",
+                "type": "query",
+                "description": "subspace defines the module to query the parameter for."
+              },
+              {
+                "name": "key",
+                "value": "",
+                "type": "query",
+                "description": "key defines the key of the parameter in the subspace."
+              }
+            ]
+          },
+          "docs": "Params queries a specific parameter of a module, given its subspace and\nkey."
+        },
+        {
+          "info": {
+            "name": "Params queries the parameters of slashing module",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/cosmos/slashing/v1beta1/params"
+          },
+          "docs": "Params queries the parameters of slashing module"
+        },
+        {
+          "info": {
+            "name": "SigningInfos queries signing info of all validators",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/cosmos/slashing/v1beta1/signing_infos",
+            "params": [
+              {
+                "name": "pagination.key",
+                "value": "",
+                "type": "query",
+                "description": "key is a value returned in PageResponse.next_key to begin\nquerying the next page most efficiently. Only one of offset or key\nshould be set."
+              },
+              {
+                "name": "pagination.offset",
+                "value": "",
+                "type": "query",
+                "description": "offset is a numeric offset that can be used when key is unavailable.\nIt is less efficient than using key. Only one of offset or key should\nbe set."
+              },
+              {
+                "name": "pagination.limit",
+                "value": "",
+                "type": "query",
+                "description": "limit is the total number of results to be returned in the result page.\nIf left empty it will default to a value to be set by each app."
+              },
+              {
+                "name": "pagination.count_total",
+                "value": "",
+                "type": "query",
+                "description": "count_total is set to true  to indicate that the result set should include\na count of the total number of items available for pagination in UIs.\ncount_total is only respected when offset is used. It is ignored when key\nis set."
+              },
+              {
+                "name": "pagination.reverse",
+                "value": "",
+                "type": "query",
+                "description": "reverse is set to true if results are to be returned in the descending order."
+              }
+            ]
+          },
+          "docs": "SigningInfos queries signing info of all validators"
+        },
+        {
+          "info": {
+            "name": "SigningInfo queries the signing info of given cons address",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/cosmos/slashing/v1beta1/signing_infos/:cons_address",
+            "params": [
+              {
+                "name": "cons_address",
+                "value": "",
+                "type": "path",
+                "description": "cons_address is the address to query signing info of"
+              }
+            ]
+          },
+          "docs": "SigningInfo queries the signing info of given cons address"
+        },
+        {
+          "info": {
+            "name": "DelegatorDelegations queries all delegations of a given delegator address.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/cosmos/staking/v1beta1/delegations/:delegator_addr",
+            "params": [
+              {
+                "name": "delegator_addr",
+                "value": "",
+                "type": "path",
+                "description": "delegator_addr defines the delegator address to query for."
+              },
+              {
+                "name": "pagination.key",
+                "value": "",
+                "type": "query",
+                "description": "key is a value returned in PageResponse.next_key to begin\nquerying the next page most efficiently. Only one of offset or key\nshould be set."
+              },
+              {
+                "name": "pagination.offset",
+                "value": "",
+                "type": "query",
+                "description": "offset is a numeric offset that can be used when key is unavailable.\nIt is less efficient than using key. Only one of offset or key should\nbe set."
+              },
+              {
+                "name": "pagination.limit",
+                "value": "",
+                "type": "query",
+                "description": "limit is the total number of results to be returned in the result page.\nIf left empty it will default to a value to be set by each app."
+              },
+              {
+                "name": "pagination.count_total",
+                "value": "",
+                "type": "query",
+                "description": "count_total is set to true  to indicate that the result set should include\na count of the total number of items available for pagination in UIs.\ncount_total is only respected when offset is used. It is ignored when key\nis set."
+              },
+              {
+                "name": "pagination.reverse",
+                "value": "",
+                "type": "query",
+                "description": "reverse is set to true if results are to be returned in the descending order."
+              }
+            ]
+          },
+          "docs": "DelegatorDelegations queries all delegations of a given delegator address."
+        },
+        {
+          "info": {
+            "name": "Redelegations queries redelegations of given address.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/cosmos/staking/v1beta1/delegators/:delegator_addr/redelegations",
+            "params": [
+              {
+                "name": "delegator_addr",
+                "value": "",
+                "type": "path",
+                "description": "delegator_addr defines the delegator address to query for."
+              },
+              {
+                "name": "src_validator_addr",
+                "value": "",
+                "type": "query",
+                "description": "src_validator_addr defines the validator address to redelegate from."
+              },
+              {
+                "name": "dst_validator_addr",
+                "value": "",
+                "type": "query",
+                "description": "dst_validator_addr defines the validator address to redelegate to."
+              },
+              {
+                "name": "pagination.key",
+                "value": "",
+                "type": "query",
+                "description": "key is a value returned in PageResponse.next_key to begin\nquerying the next page most efficiently. Only one of offset or key\nshould be set."
+              },
+              {
+                "name": "pagination.offset",
+                "value": "",
+                "type": "query",
+                "description": "offset is a numeric offset that can be used when key is unavailable.\nIt is less efficient than using key. Only one of offset or key should\nbe set."
+              },
+              {
+                "name": "pagination.limit",
+                "value": "",
+                "type": "query",
+                "description": "limit is the total number of results to be returned in the result page.\nIf left empty it will default to a value to be set by each app."
+              },
+              {
+                "name": "pagination.count_total",
+                "value": "",
+                "type": "query",
+                "description": "count_total is set to true  to indicate that the result set should include\na count of the total number of items available for pagination in UIs.\ncount_total is only respected when offset is used. It is ignored when key\nis set."
+              },
+              {
+                "name": "pagination.reverse",
+                "value": "",
+                "type": "query",
+                "description": "reverse is set to true if results are to be returned in the descending order."
+              }
+            ]
+          },
+          "docs": "Redelegations queries redelegations of given address."
+        },
+        {
+          "info": {
+            "name": "DelegatorUnbondingDelegations queries all unbonding delegations of a given\ndelegator address.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/cosmos/staking/v1beta1/delegators/:delegator_addr/unbonding_delegations",
+            "params": [
+              {
+                "name": "delegator_addr",
+                "value": "",
+                "type": "path",
+                "description": "delegator_addr defines the delegator address to query for."
+              },
+              {
+                "name": "pagination.key",
+                "value": "",
+                "type": "query",
+                "description": "key is a value returned in PageResponse.next_key to begin\nquerying the next page most efficiently. Only one of offset or key\nshould be set."
+              },
+              {
+                "name": "pagination.offset",
+                "value": "",
+                "type": "query",
+                "description": "offset is a numeric offset that can be used when key is unavailable.\nIt is less efficient than using key. Only one of offset or key should\nbe set."
+              },
+              {
+                "name": "pagination.limit",
+                "value": "",
+                "type": "query",
+                "description": "limit is the total number of results to be returned in the result page.\nIf left empty it will default to a value to be set by each app."
+              },
+              {
+                "name": "pagination.count_total",
+                "value": "",
+                "type": "query",
+                "description": "count_total is set to true  to indicate that the result set should include\na count of the total number of items available for pagination in UIs.\ncount_total is only respected when offset is used. It is ignored when key\nis set."
+              },
+              {
+                "name": "pagination.reverse",
+                "value": "",
+                "type": "query",
+                "description": "reverse is set to true if results are to be returned in the descending order."
+              }
+            ]
+          },
+          "docs": "DelegatorUnbondingDelegations queries all unbonding delegations of a given\ndelegator address."
+        },
+        {
+          "info": {
+            "name": "DelegatorValidators queries all validators info for given delegator\naddress.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/cosmos/staking/v1beta1/delegators/:delegator_addr/validators",
+            "params": [
+              {
+                "name": "delegator_addr",
+                "value": "",
+                "type": "path",
+                "description": "delegator_addr defines the delegator address to query for."
+              },
+              {
+                "name": "pagination.key",
+                "value": "",
+                "type": "query",
+                "description": "key is a value returned in PageResponse.next_key to begin\nquerying the next page most efficiently. Only one of offset or key\nshould be set."
+              },
+              {
+                "name": "pagination.offset",
+                "value": "",
+                "type": "query",
+                "description": "offset is a numeric offset that can be used when key is unavailable.\nIt is less efficient than using key. Only one of offset or key should\nbe set."
+              },
+              {
+                "name": "pagination.limit",
+                "value": "",
+                "type": "query",
+                "description": "limit is the total number of results to be returned in the result page.\nIf left empty it will default to a value to be set by each app."
+              },
+              {
+                "name": "pagination.count_total",
+                "value": "",
+                "type": "query",
+                "description": "count_total is set to true  to indicate that the result set should include\na count of the total number of items available for pagination in UIs.\ncount_total is only respected when offset is used. It is ignored when key\nis set."
+              },
+              {
+                "name": "pagination.reverse",
+                "value": "",
+                "type": "query",
+                "description": "reverse is set to true if results are to be returned in the descending order."
+              }
+            ]
+          },
+          "docs": "DelegatorValidators queries all validators info for given delegator\naddress."
+        },
+        {
+          "info": {
+            "name": "DelegatorValidator queries validator info for given delegator validator\npair.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/cosmos/staking/v1beta1/delegators/:delegator_addr/validators/:validator_addr",
+            "params": [
+              {
+                "name": "delegator_addr",
+                "value": "",
+                "type": "path",
+                "description": "delegator_addr defines the delegator address to query for."
+              },
+              {
+                "name": "validator_addr",
+                "value": "",
+                "type": "path",
+                "description": "validator_addr defines the validator address to query for."
+              }
+            ]
+          },
+          "docs": "DelegatorValidator queries validator info for given delegator validator\npair."
+        },
+        {
+          "info": {
+            "name": "HistoricalInfo queries the historical info for given height.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/cosmos/staking/v1beta1/historical_info/:height",
+            "params": [
+              {
+                "name": "height",
+                "value": "",
+                "type": "path",
+                "description": "height defines at which height to query the historical info."
+              }
+            ]
+          },
+          "docs": "HistoricalInfo queries the historical info for given height."
+        },
+        {
+          "info": {
+            "name": "Parameters queries the staking parameters.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/cosmos/staking/v1beta1/params"
+          },
+          "docs": "Parameters queries the staking parameters."
+        },
+        {
+          "info": {
+            "name": "Pool queries the pool info.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/cosmos/staking/v1beta1/pool"
+          },
+          "docs": "Pool queries the pool info."
+        },
+        {
+          "info": {
+            "name": "Validators queries all validators that match the given status.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/cosmos/staking/v1beta1/validators",
+            "params": [
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "status enables to query for validators matching a given status."
+              },
+              {
+                "name": "pagination.key",
+                "value": "",
+                "type": "query",
+                "description": "key is a value returned in PageResponse.next_key to begin\nquerying the next page most efficiently. Only one of offset or key\nshould be set."
+              },
+              {
+                "name": "pagination.offset",
+                "value": "",
+                "type": "query",
+                "description": "offset is a numeric offset that can be used when key is unavailable.\nIt is less efficient than using key. Only one of offset or key should\nbe set."
+              },
+              {
+                "name": "pagination.limit",
+                "value": "",
+                "type": "query",
+                "description": "limit is the total number of results to be returned in the result page.\nIf left empty it will default to a value to be set by each app."
+              },
+              {
+                "name": "pagination.count_total",
+                "value": "",
+                "type": "query",
+                "description": "count_total is set to true  to indicate that the result set should include\na count of the total number of items available for pagination in UIs.\ncount_total is only respected when offset is used. It is ignored when key\nis set."
+              },
+              {
+                "name": "pagination.reverse",
+                "value": "",
+                "type": "query",
+                "description": "reverse is set to true if results are to be returned in the descending order."
+              }
+            ]
+          },
+          "docs": "Validators queries all validators that match the given status."
+        },
+        {
+          "info": {
+            "name": "Validator queries validator info for given validator address.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/cosmos/staking/v1beta1/validators/:validator_addr",
+            "params": [
+              {
+                "name": "validator_addr",
+                "value": "",
+                "type": "path",
+                "description": "validator_addr defines the validator address to query for."
+              }
+            ]
+          },
+          "docs": "Validator queries validator info for given validator address."
+        },
+        {
+          "info": {
+            "name": "ValidatorDelegations queries delegate info for given validator.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/cosmos/staking/v1beta1/validators/:validator_addr/delegations",
+            "params": [
+              {
+                "name": "validator_addr",
+                "value": "",
+                "type": "path",
+                "description": "validator_addr defines the validator address to query for."
+              },
+              {
+                "name": "pagination.key",
+                "value": "",
+                "type": "query",
+                "description": "key is a value returned in PageResponse.next_key to begin\nquerying the next page most efficiently. Only one of offset or key\nshould be set."
+              },
+              {
+                "name": "pagination.offset",
+                "value": "",
+                "type": "query",
+                "description": "offset is a numeric offset that can be used when key is unavailable.\nIt is less efficient than using key. Only one of offset or key should\nbe set."
+              },
+              {
+                "name": "pagination.limit",
+                "value": "",
+                "type": "query",
+                "description": "limit is the total number of results to be returned in the result page.\nIf left empty it will default to a value to be set by each app."
+              },
+              {
+                "name": "pagination.count_total",
+                "value": "",
+                "type": "query",
+                "description": "count_total is set to true  to indicate that the result set should include\na count of the total number of items available for pagination in UIs.\ncount_total is only respected when offset is used. It is ignored when key\nis set."
+              },
+              {
+                "name": "pagination.reverse",
+                "value": "",
+                "type": "query",
+                "description": "reverse is set to true if results are to be returned in the descending order."
+              }
+            ]
+          },
+          "docs": "ValidatorDelegations queries delegate info for given validator."
+        },
+        {
+          "info": {
+            "name": "Delegation queries delegate info for given validator delegator pair.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/cosmos/staking/v1beta1/validators/:validator_addr/delegations/:delegator_addr",
+            "params": [
+              {
+                "name": "validator_addr",
+                "value": "",
+                "type": "path",
+                "description": "validator_addr defines the validator address to query for."
+              },
+              {
+                "name": "delegator_addr",
+                "value": "",
+                "type": "path",
+                "description": "delegator_addr defines the delegator address to query for."
+              }
+            ]
+          },
+          "docs": "Delegation queries delegate info for given validator delegator pair."
+        },
+        {
+          "info": {
+            "name": "UnbondingDelegation queries unbonding info for given validator delegator\npair.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/cosmos/staking/v1beta1/validators/:validator_addr/delegations/:delegator_addr/unbonding_delegation",
+            "params": [
+              {
+                "name": "validator_addr",
+                "value": "",
+                "type": "path",
+                "description": "validator_addr defines the validator address to query for."
+              },
+              {
+                "name": "delegator_addr",
+                "value": "",
+                "type": "path",
+                "description": "delegator_addr defines the delegator address to query for."
+              }
+            ]
+          },
+          "docs": "UnbondingDelegation queries unbonding info for given validator delegator\npair."
+        },
+        {
+          "info": {
+            "name": "ValidatorUnbondingDelegations queries unbonding delegations of a validator.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/cosmos/staking/v1beta1/validators/:validator_addr/unbonding_delegations",
+            "params": [
+              {
+                "name": "validator_addr",
+                "value": "",
+                "type": "path",
+                "description": "validator_addr defines the validator address to query for."
+              },
+              {
+                "name": "pagination.key",
+                "value": "",
+                "type": "query",
+                "description": "key is a value returned in PageResponse.next_key to begin\nquerying the next page most efficiently. Only one of offset or key\nshould be set."
+              },
+              {
+                "name": "pagination.offset",
+                "value": "",
+                "type": "query",
+                "description": "offset is a numeric offset that can be used when key is unavailable.\nIt is less efficient than using key. Only one of offset or key should\nbe set."
+              },
+              {
+                "name": "pagination.limit",
+                "value": "",
+                "type": "query",
+                "description": "limit is the total number of results to be returned in the result page.\nIf left empty it will default to a value to be set by each app."
+              },
+              {
+                "name": "pagination.count_total",
+                "value": "",
+                "type": "query",
+                "description": "count_total is set to true  to indicate that the result set should include\na count of the total number of items available for pagination in UIs.\ncount_total is only respected when offset is used. It is ignored when key\nis set."
+              },
+              {
+                "name": "pagination.reverse",
+                "value": "",
+                "type": "query",
+                "description": "reverse is set to true if results are to be returned in the descending order."
+              }
+            ]
+          },
+          "docs": "ValidatorUnbondingDelegations queries unbonding delegations of a validator."
+        },
+        {
+          "info": {
+            "name": "AppliedPlan queries a previously applied upgrade plan by its name.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/cosmos/upgrade/v1beta1/applied_plan/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "name is the name of the applied plan to query for."
+              }
+            ]
+          },
+          "docs": "AppliedPlan queries a previously applied upgrade plan by its name."
+        },
+        {
+          "info": {
+            "name": "CurrentPlan queries the current upgrade plan.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/cosmos/upgrade/v1beta1/current_plan"
+          },
+          "docs": "CurrentPlan queries the current upgrade plan."
+        },
+        {
+          "info": {
+            "name": "ModuleVersions queries the list of module versions from state.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/cosmos/upgrade/v1beta1/module_versions",
+            "params": [
+              {
+                "name": "module_name",
+                "value": "",
+                "type": "query",
+                "description": "module_name is a field to query a specific module\nconsensus version from state. Leaving this empty will\nfetch the full list of module versions from state."
+              }
+            ]
+          },
+          "docs": "ModuleVersions queries the list of module versions from state."
+        },
+        {
+          "info": {
+            "name": "UpgradedConsensusState queries the consensus state that will serve\nas a trusted kernel for the next version of this chain. It will only be\nstored at the last height of this chain.\nUpgradedConsensusState RPC not supported with legacy querier",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/cosmos/upgrade/v1beta1/upgraded_consensus_state/:last_height",
+            "params": [
+              {
+                "name": "last_height",
+                "value": "",
+                "type": "path",
+                "description": "last height of the current chain must be sent in request\nas this is the height under which next consensus state is stored"
+              }
+            ]
+          },
+          "docs": "UpgradedConsensusState queries the consensus state that will serve\nas a trusted kernel for the next version of this chain. It will only be\nstored at the last height of this chain.\nUpgradedConsensusState RPC not supported with legacy querier"
+        },
+        {
+          "info": {
+            "name": "Returns list of `Authorization`, granted to the grantee by the granter.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/cosmos/authz/v1beta1/grants",
+            "params": [
+              {
+                "name": "granter",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "grantee",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "msg_type_url",
+                "value": "",
+                "type": "query",
+                "description": "Optional, msg_type_url, when set, will query only grants matching given msg type."
+              },
+              {
+                "name": "pagination.key",
+                "value": "",
+                "type": "query",
+                "description": "key is a value returned in PageResponse.next_key to begin\nquerying the next page most efficiently. Only one of offset or key\nshould be set."
+              },
+              {
+                "name": "pagination.offset",
+                "value": "",
+                "type": "query",
+                "description": "offset is a numeric offset that can be used when key is unavailable.\nIt is less efficient than using key. Only one of offset or key should\nbe set."
+              },
+              {
+                "name": "pagination.limit",
+                "value": "",
+                "type": "query",
+                "description": "limit is the total number of results to be returned in the result page.\nIf left empty it will default to a value to be set by each app."
+              },
+              {
+                "name": "pagination.count_total",
+                "value": "",
+                "type": "query",
+                "description": "count_total is set to true  to indicate that the result set should include\na count of the total number of items available for pagination in UIs.\ncount_total is only respected when offset is used. It is ignored when key\nis set."
+              },
+              {
+                "name": "pagination.reverse",
+                "value": "",
+                "type": "query",
+                "description": "reverse is set to true if results are to be returned in the descending order."
+              }
+            ]
+          },
+          "docs": "Returns list of `Authorization`, granted to the grantee by the granter."
+        },
+        {
+          "info": {
+            "name": "Allowance returns fee granted to the grantee by the granter.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/cosmos/feegrant/v1beta1/allowance/:granter/:grantee",
+            "params": [
+              {
+                "name": "granter",
+                "value": "",
+                "type": "path",
+                "description": "granter is the address of the user granting an allowance of their funds."
+              },
+              {
+                "name": "grantee",
+                "value": "",
+                "type": "path",
+                "description": "grantee is the address of the user being granted an allowance of another user's funds."
+              }
+            ]
+          },
+          "docs": "Allowance returns fee granted to the grantee by the granter."
+        },
+        {
+          "info": {
+            "name": "Allowances returns all the grants for address.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/cosmos/feegrant/v1beta1/allowances/:grantee",
+            "params": [
+              {
+                "name": "grantee",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "pagination.key",
+                "value": "",
+                "type": "query",
+                "description": "key is a value returned in PageResponse.next_key to begin\nquerying the next page most efficiently. Only one of offset or key\nshould be set."
+              },
+              {
+                "name": "pagination.offset",
+                "value": "",
+                "type": "query",
+                "description": "offset is a numeric offset that can be used when key is unavailable.\nIt is less efficient than using key. Only one of offset or key should\nbe set."
+              },
+              {
+                "name": "pagination.limit",
+                "value": "",
+                "type": "query",
+                "description": "limit is the total number of results to be returned in the result page.\nIf left empty it will default to a value to be set by each app."
+              },
+              {
+                "name": "pagination.count_total",
+                "value": "",
+                "type": "query",
+                "description": "count_total is set to true  to indicate that the result set should include\na count of the total number of items available for pagination in UIs.\ncount_total is only respected when offset is used. It is ignored when key\nis set."
+              },
+              {
+                "name": "pagination.reverse",
+                "value": "",
+                "type": "query",
+                "description": "reverse is set to true if results are to be returned in the descending order."
+              }
+            ]
+          },
+          "docs": "Allowances returns all the grants for address."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

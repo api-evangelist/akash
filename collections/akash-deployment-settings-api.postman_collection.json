@@ -1,0 +1,840 @@
+{
+  "item": [
+    {
+      "id": "10299640-571d-448f-970d-93de7bbe9532",
+      "name": "Deployment Settings",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8a6ffa63-b495-49ae-aef0-235a4ee980a9",
+          "name": "Get deployment settings by user ID and dseq",
+          "request": {
+            "name": "Get deployment settings by user ID and dseq",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "deployment-settings",
+                ":userId",
+                ":dseq"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "dseq",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "3d197529-8b03-43bb-b711-a509f2fe5386",
+              "name": "Returns deployment settings",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "deployment-settings",
+                    ":userId",
+                    ":dseq"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dseq",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"id\": \"f6e47e07-9d48-49c5-586c-cd821bb4f9bf\",\n    \"userId\": \"string\",\n    \"dseq\": \"dddddddddd\",\n    \"autoTopUpEnabled\": true,\n    \"estimatedTopUpAmount\": 2341.458273098369,\n    \"topUpFrequencyMs\": 8767.168765655439,\n    \"createdAt\": \"2019-10-23T10:03:26.539Z\",\n    \"updatedAt\": \"1953-11-26T03:25:38.371Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "03953da3-917d-43fa-a3a0-bc1244b5a71f",
+              "name": "Deployment settings not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "deployment-settings",
+                    ":userId",
+                    ":dseq"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dseq",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a3f355fe-9d2d-4258-93c1-8acfac33d120",
+          "name": "Update deployment settings",
+          "request": {
+            "name": "Update deployment settings",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "deployment-settings",
+                ":userId",
+                ":dseq"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "dseq",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"data\": {\n    \"autoTopUpEnabled\": \"<boolean>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "fc63ed5d-a702-442a-8c2b-b99c663d2def",
+              "name": "Deployment settings updated successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "deployment-settings",
+                    ":userId",
+                    ":dseq"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dseq",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"id\": \"f6e47e07-9d48-49c5-586c-cd821bb4f9bf\",\n    \"userId\": \"string\",\n    \"dseq\": \"dddddddddd\",\n    \"autoTopUpEnabled\": true,\n    \"estimatedTopUpAmount\": 2341.458273098369,\n    \"topUpFrequencyMs\": 8767.168765655439,\n    \"createdAt\": \"2019-10-23T10:03:26.539Z\",\n    \"updatedAt\": \"1953-11-26T03:25:38.371Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5ca96841-34a6-4e24-a23d-137b4722a1ca",
+              "name": "Deployment settings not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "deployment-settings",
+                    ":userId",
+                    ":dseq"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dseq",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c3a8c1c7-7d1f-4427-8d5d-0ff251d914ed",
+          "name": "Create deployment settings",
+          "request": {
+            "name": "Create deployment settings",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "deployment-settings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"data\": {\n    \"userId\": \"<string>\",\n    \"dseq\": \"<string>\",\n    \"autoTopUpEnabled\": false\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8b9e0b0c-bc7b-4f95-a83f-e1547787ccae",
+              "name": "Deployment settings created successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "deployment-settings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"userId\": \"<string>\",\n    \"dseq\": \"<string>\",\n    \"autoTopUpEnabled\": false\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"id\": \"f6e47e07-9d48-49c5-586c-cd821bb4f9bf\",\n    \"userId\": \"string\",\n    \"dseq\": \"dddddddddd\",\n    \"autoTopUpEnabled\": true,\n    \"estimatedTopUpAmount\": 2341.458273098369,\n    \"topUpFrequencyMs\": 8767.168765655439,\n    \"createdAt\": \"2019-10-23T10:03:26.539Z\",\n    \"updatedAt\": \"1953-11-26T03:25:38.371Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "072e74d4-2cb0-4621-a340-c3ad20f266e2",
+          "name": "Get deployment settings by dseq",
+          "request": {
+            "name": "Get deployment settings by dseq",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "deployment-settings",
+                ":dseq"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "userId",
+                  "value": "<uuid>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "dseq",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "f8a79c71-10f9-40d7-b008-6a47639ccfa4",
+              "name": "Returns deployment settings",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "deployment-settings",
+                    ":dseq"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "userId",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dseq",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"id\": \"f6e47e07-9d48-49c5-586c-cd821bb4f9bf\",\n    \"userId\": \"string\",\n    \"dseq\": \"dddddddddd\",\n    \"autoTopUpEnabled\": true,\n    \"estimatedTopUpAmount\": 2341.458273098369,\n    \"topUpFrequencyMs\": 8767.168765655439,\n    \"createdAt\": \"2019-10-23T10:03:26.539Z\",\n    \"updatedAt\": \"1953-11-26T03:25:38.371Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dc7a108f-35f7-4d53-84f7-3ea1c490a969",
+              "name": "Deployment settings not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "deployment-settings",
+                    ":dseq"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "userId",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dseq",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3d5cd643-848e-478b-96b5-5ed69f9b25a1",
+          "name": "Update deployment settings",
+          "request": {
+            "name": "Update deployment settings",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "deployment-settings",
+                ":dseq"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "userId",
+                  "value": "<uuid>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "dseq",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"data\": {\n    \"autoTopUpEnabled\": \"<boolean>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "62465f86-e1f9-4b9a-8a0c-da0e3a8d2c80",
+              "name": "Deployment settings updated successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "deployment-settings",
+                    ":dseq"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "userId",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dseq",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"id\": \"f6e47e07-9d48-49c5-586c-cd821bb4f9bf\",\n    \"userId\": \"string\",\n    \"dseq\": \"dddddddddd\",\n    \"autoTopUpEnabled\": true,\n    \"estimatedTopUpAmount\": 2341.458273098369,\n    \"topUpFrequencyMs\": 8767.168765655439,\n    \"createdAt\": \"2019-10-23T10:03:26.539Z\",\n    \"updatedAt\": \"1953-11-26T03:25:38.371Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2e87e04a-ffdc-4165-937c-2e1dba91b849",
+              "name": "Deployment settings not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "deployment-settings",
+                    ":dseq"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "userId",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dseq",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "26e22f8f-1da8-48a6-a639-bc3415801701",
+          "name": "Create deployment settings",
+          "request": {
+            "name": "Create deployment settings",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "deployment-settings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"data\": {\n    \"dseq\": \"<string>\",\n    \"autoTopUpEnabled\": false,\n    \"userId\": \"<uuid>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "21700354-0b36-4dd3-be05-bd0ee781f331",
+              "name": "Deployment settings created successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "deployment-settings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"dseq\": \"<string>\",\n    \"autoTopUpEnabled\": false,\n    \"userId\": \"<uuid>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"id\": \"f6e47e07-9d48-49c5-586c-cd821bb4f9bf\",\n    \"userId\": \"string\",\n    \"dseq\": \"dddddddddd\",\n    \"autoTopUpEnabled\": true,\n    \"estimatedTopUpAmount\": 2341.458273098369,\n    \"topUpFrequencyMs\": 8767.168765655439,\n    \"createdAt\": \"2019-10-23T10:03:26.539Z\",\n    \"updatedAt\": \"1953-11-26T03:25:38.371Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "73fa35f6-0704-4191-a1b7-ed1f24161b64",
+    "name": "AKASH - gRPC Gateway docs Addresses Deployment Settings API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "A REST interface for state queries",
+      "type": "text/plain"
+    }
+  }
+}

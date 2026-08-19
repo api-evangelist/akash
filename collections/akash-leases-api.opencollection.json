@@ -1,0 +1,101 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "AKASH - gRPC Gateway docs Addresses Leases API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Leases",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create leases and send manifest",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/leases",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create leases and send manifest"
+        },
+        {
+          "info": {
+            "name": "List leases (database fallback)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/akash/market/:version/leases/list",
+            "params": [
+              {
+                "name": "filters.owner",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "filters.dseq",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "filters.gseq",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "filters.oseq",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "filters.provider",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "filters.state",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pagination.offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pagination.limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pagination.key",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pagination.count_total",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pagination.reverse",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List leases (database fallback)"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

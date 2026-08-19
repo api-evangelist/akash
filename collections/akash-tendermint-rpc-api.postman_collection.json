@@ -1,0 +1,727 @@
+{
+  "item": [
+    {
+      "id": "93d7f835-f34d-44df-bc8a-446d4a506652",
+      "name": "Tendermint RPC",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7ea8c36f-6d07-41fb-9483-dfde792188ed",
+          "name": "Syncing state of node",
+          "request": {
+            "name": "Syncing state of node",
+            "description": {
+              "content": "Get if the node is currently syning with other nodes",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "syncing"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "dae7a477-f810-4887-8f0a-b11e572b2d29",
+              "name": "Node syncing status",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "syncing"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"syncing\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "370710be-32e1-405e-adb4-ca3db1697e11",
+              "name": "Server internal error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "syncing"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "05bad722-cef2-45cf-8a28-427aadb01799",
+          "name": "Get the latest block",
+          "request": {
+            "name": "Get the latest block",
+            "description": {},
+            "url": {
+              "path": [
+                "blocks",
+                "latest"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f0e4f93f-83b2-49b8-95b6-1c3430b37623",
+              "name": "The latest block",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "blocks",
+                    "latest"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"block_meta\": {\n    \"header\": {\n      \"chain_id\": \"cosmoshub-2\",\n      \"height\": 1,\n      \"time\": \"2017-12-30T05:53:09.287+01:00\",\n      \"num_txs\": 0,\n      \"last_block_id\": {\n        \"hash\": \"EE5F3404034C524501629B56E0DDC38FAD651F04\",\n        \"parts\": {\n          \"total\": 0,\n          \"hash\": \"EE5F3404034C524501629B56E0DDC38FAD651F04\"\n        }\n      },\n      \"total_txs\": 35,\n      \"last_commit_hash\": \"EE5F3404034C524501629B56E0DDC38FAD651F04\",\n      \"data_hash\": \"EE5F3404034C524501629B56E0DDC38FAD651F04\",\n      \"validators_hash\": \"EE5F3404034C524501629B56E0DDC38FAD651F04\",\n      \"next_validators_hash\": \"EE5F3404034C524501629B56E0DDC38FAD651F04\",\n      \"consensus_hash\": \"EE5F3404034C524501629B56E0DDC38FAD651F04\",\n      \"app_hash\": \"EE5F3404034C524501629B56E0DDC38FAD651F04\",\n      \"last_results_hash\": \"EE5F3404034C524501629B56E0DDC38FAD651F04\",\n      \"evidence_hash\": \"EE5F3404034C524501629B56E0DDC38FAD651F04\",\n      \"proposer_address\": \"cosmos1depk54cuajgkzea6zpgkq36tnjwdzv4afc3d27\",\n      \"version\": {\n        \"block\": \"string\",\n        \"app\": \"string\"\n      }\n    },\n    \"block_id\": {\n      \"hash\": \"EE5F3404034C524501629B56E0DDC38FAD651F04\",\n      \"parts\": {\n        \"total\": 0,\n        \"hash\": \"EE5F3404034C524501629B56E0DDC38FAD651F04\"\n      }\n    }\n  },\n  \"block\": {\n    \"header\": {\n      \"chain_id\": \"cosmoshub-2\",\n      \"height\": 1,\n      \"time\": \"2017-12-30T05:53:09.287+01:00\",\n      \"num_txs\": 0,\n      \"last_block_id\": {\n        \"hash\": \"EE5F3404034C524501629B56E0DDC38FAD651F04\",\n        \"parts\": {\n          \"total\": 0,\n          \"hash\": \"EE5F3404034C524501629B56E0DDC38FAD651F04\"\n        }\n      },\n      \"total_txs\": 35,\n      \"last_commit_hash\": \"EE5F3404034C524501629B56E0DDC38FAD651F04\",\n      \"data_hash\": \"EE5F3404034C524501629B56E0DDC38FAD651F04\",\n      \"validators_hash\": \"EE5F3404034C524501629B56E0DDC38FAD651F04\",\n      \"next_validators_hash\": \"EE5F3404034C524501629B56E0DDC38FAD651F04\",\n      \"consensus_hash\": \"EE5F3404034C524501629B56E0DDC38FAD651F04\",\n      \"app_hash\": \"EE5F3404034C524501629B56E0DDC38FAD651F04\",\n      \"last_results_hash\": \"EE5F3404034C524501629B56E0DDC38FAD651F04\",\n      \"evidence_hash\": \"EE5F3404034C524501629B56E0DDC38FAD651F04\",\n      \"proposer_address\": \"cosmos1depk54cuajgkzea6zpgkq36tnjwdzv4afc3d27\",\n      \"version\": {\n        \"block\": \"string\",\n        \"app\": \"string\"\n      }\n    },\n    \"txs\": [\n      \"string\",\n      \"string\"\n    ],\n    \"evidence\": [\n      \"string\",\n      \"string\"\n    ],\n    \"last_commit\": {\n      \"block_id\": {\n        \"hash\": \"EE5F3404034C524501629B56E0DDC38FAD651F04\",\n        \"parts\": {\n          \"total\": 0,\n          \"hash\": \"EE5F3404034C524501629B56E0DDC38FAD651F04\"\n        }\n      },\n      \"precommits\": [\n        {\n          \"validator_address\": \"string\",\n          \"validator_index\": \"0\",\n          \"height\": \"0\",\n          \"round\": \"0\",\n          \"timestamp\": \"2017-12-30T05:53:09.287+01:00\",\n          \"type\": 2,\n          \"block_id\": {\n            \"hash\": \"EE5F3404034C524501629B56E0DDC38FAD651F04\",\n            \"parts\": {\n              \"total\": 0,\n              \"hash\": \"EE5F3404034C524501629B56E0DDC38FAD651F04\"\n            }\n          },\n          \"signature\": \"7uTC74QlknqYWEwg7Vn6M8Om7FuZ0EO4bjvuj6rwH1mTUJrRuMMZvAAqT9VjNgP0RA/TDp6u/92AqrZfXJSpBQ==\"\n        },\n        {\n          \"validator_address\": \"string\",\n          \"validator_index\": \"0\",\n          \"height\": \"0\",\n          \"round\": \"0\",\n          \"timestamp\": \"2017-12-30T05:53:09.287+01:00\",\n          \"type\": 2,\n          \"block_id\": {\n            \"hash\": \"EE5F3404034C524501629B56E0DDC38FAD651F04\",\n            \"parts\": {\n              \"total\": 0,\n              \"hash\": \"EE5F3404034C524501629B56E0DDC38FAD651F04\"\n            }\n          },\n          \"signature\": \"7uTC74QlknqYWEwg7Vn6M8Om7FuZ0EO4bjvuj6rwH1mTUJrRuMMZvAAqT9VjNgP0RA/TDp6u/92AqrZfXJSpBQ==\"\n        }\n      ]\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "aa1173e3-76f8-45f9-8b22-bd8d88d301ac",
+              "name": "Server internal error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "blocks",
+                    "latest"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d1d2e7a1-93bb-4d41-b85c-82eddf4e997b",
+          "name": "Get a block at a certain height",
+          "request": {
+            "name": "Get a block at a certain height",
+            "description": {},
+            "url": {
+              "path": [
+                "blocks",
+                ":height"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "height",
+                  "description": "(Required) Block height"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "10b8e8c8-3de4-43fc-a84e-524bbc19e9a1",
+              "name": "The block at a specific height",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "blocks",
+                    ":height"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "height",
+                      "description": "(Required) Block height"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"block_meta\": {\n    \"header\": {\n      \"chain_id\": \"cosmoshub-2\",\n      \"height\": 1,\n      \"time\": \"2017-12-30T05:53:09.287+01:00\",\n      \"num_txs\": 0,\n      \"last_block_id\": {\n        \"hash\": \"EE5F3404034C524501629B56E0DDC38FAD651F04\",\n        \"parts\": {\n          \"total\": 0,\n          \"hash\": \"EE5F3404034C524501629B56E0DDC38FAD651F04\"\n        }\n      },\n      \"total_txs\": 35,\n      \"last_commit_hash\": \"EE5F3404034C524501629B56E0DDC38FAD651F04\",\n      \"data_hash\": \"EE5F3404034C524501629B56E0DDC38FAD651F04\",\n      \"validators_hash\": \"EE5F3404034C524501629B56E0DDC38FAD651F04\",\n      \"next_validators_hash\": \"EE5F3404034C524501629B56E0DDC38FAD651F04\",\n      \"consensus_hash\": \"EE5F3404034C524501629B56E0DDC38FAD651F04\",\n      \"app_hash\": \"EE5F3404034C524501629B56E0DDC38FAD651F04\",\n      \"last_results_hash\": \"EE5F3404034C524501629B56E0DDC38FAD651F04\",\n      \"evidence_hash\": \"EE5F3404034C524501629B56E0DDC38FAD651F04\",\n      \"proposer_address\": \"cosmos1depk54cuajgkzea6zpgkq36tnjwdzv4afc3d27\",\n      \"version\": {\n        \"block\": \"string\",\n        \"app\": \"string\"\n      }\n    },\n    \"block_id\": {\n      \"hash\": \"EE5F3404034C524501629B56E0DDC38FAD651F04\",\n      \"parts\": {\n        \"total\": 0,\n        \"hash\": \"EE5F3404034C524501629B56E0DDC38FAD651F04\"\n      }\n    }\n  },\n  \"block\": {\n    \"header\": {\n      \"chain_id\": \"cosmoshub-2\",\n      \"height\": 1,\n      \"time\": \"2017-12-30T05:53:09.287+01:00\",\n      \"num_txs\": 0,\n      \"last_block_id\": {\n        \"hash\": \"EE5F3404034C524501629B56E0DDC38FAD651F04\",\n        \"parts\": {\n          \"total\": 0,\n          \"hash\": \"EE5F3404034C524501629B56E0DDC38FAD651F04\"\n        }\n      },\n      \"total_txs\": 35,\n      \"last_commit_hash\": \"EE5F3404034C524501629B56E0DDC38FAD651F04\",\n      \"data_hash\": \"EE5F3404034C524501629B56E0DDC38FAD651F04\",\n      \"validators_hash\": \"EE5F3404034C524501629B56E0DDC38FAD651F04\",\n      \"next_validators_hash\": \"EE5F3404034C524501629B56E0DDC38FAD651F04\",\n      \"consensus_hash\": \"EE5F3404034C524501629B56E0DDC38FAD651F04\",\n      \"app_hash\": \"EE5F3404034C524501629B56E0DDC38FAD651F04\",\n      \"last_results_hash\": \"EE5F3404034C524501629B56E0DDC38FAD651F04\",\n      \"evidence_hash\": \"EE5F3404034C524501629B56E0DDC38FAD651F04\",\n      \"proposer_address\": \"cosmos1depk54cuajgkzea6zpgkq36tnjwdzv4afc3d27\",\n      \"version\": {\n        \"block\": \"string\",\n        \"app\": \"string\"\n      }\n    },\n    \"txs\": [\n      \"string\",\n      \"string\"\n    ],\n    \"evidence\": [\n      \"string\",\n      \"string\"\n    ],\n    \"last_commit\": {\n      \"block_id\": {\n        \"hash\": \"EE5F3404034C524501629B56E0DDC38FAD651F04\",\n        \"parts\": {\n          \"total\": 0,\n          \"hash\": \"EE5F3404034C524501629B56E0DDC38FAD651F04\"\n        }\n      },\n      \"precommits\": [\n        {\n          \"validator_address\": \"string\",\n          \"validator_index\": \"0\",\n          \"height\": \"0\",\n          \"round\": \"0\",\n          \"timestamp\": \"2017-12-30T05:53:09.287+01:00\",\n          \"type\": 2,\n          \"block_id\": {\n            \"hash\": \"EE5F3404034C524501629B56E0DDC38FAD651F04\",\n            \"parts\": {\n              \"total\": 0,\n              \"hash\": \"EE5F3404034C524501629B56E0DDC38FAD651F04\"\n            }\n          },\n          \"signature\": \"7uTC74QlknqYWEwg7Vn6M8Om7FuZ0EO4bjvuj6rwH1mTUJrRuMMZvAAqT9VjNgP0RA/TDp6u/92AqrZfXJSpBQ==\"\n        },\n        {\n          \"validator_address\": \"string\",\n          \"validator_index\": \"0\",\n          \"height\": \"0\",\n          \"round\": \"0\",\n          \"timestamp\": \"2017-12-30T05:53:09.287+01:00\",\n          \"type\": 2,\n          \"block_id\": {\n            \"hash\": \"EE5F3404034C524501629B56E0DDC38FAD651F04\",\n            \"parts\": {\n              \"total\": 0,\n              \"hash\": \"EE5F3404034C524501629B56E0DDC38FAD651F04\"\n            }\n          },\n          \"signature\": \"7uTC74QlknqYWEwg7Vn6M8Om7FuZ0EO4bjvuj6rwH1mTUJrRuMMZvAAqT9VjNgP0RA/TDp6u/92AqrZfXJSpBQ==\"\n        }\n      ]\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cdc60662-1c7e-4800-afaf-78ba625a1580",
+              "name": "Invalid height",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "blocks",
+                    ":height"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "height",
+                      "description": "(Required) Block height"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "436eeae9-e871-4185-a688-f5c21d97738a",
+              "name": "Request block height doesn't",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "blocks",
+                    ":height"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "height",
+                      "description": "(Required) Block height"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1c949488-8944-4add-a502-3791ccd79c5d",
+              "name": "Server internal error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "blocks",
+                    ":height"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "height",
+                      "description": "(Required) Block height"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8230c6f6-5261-4076-a748-fee28e157d6c",
+          "name": "Get the latest validator set",
+          "request": {
+            "name": "Get the latest validator set",
+            "description": {},
+            "url": {
+              "path": [
+                "validatorsets",
+                "latest"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "806f6c17-b0ba-40d6-a034-621c9853d6f7",
+              "name": "The validator set at the latest block height",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "validatorsets",
+                    "latest"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"block_height\": \"string\",\n  \"validators\": [\n    {\n      \"address\": \"cosmosvaloper16xyempempp92x9hyzz9wrgf94r6j9h5f2w4n2l\",\n      \"pub_key\": \"cosmosvalconspub1zcjduepq0vu2zgkgk49efa0nqwzndanq5m4c7pa3u4apz4g2r9gspqg6g9cs3k9cuf\",\n      \"voting_power\": \"1000\",\n      \"proposer_priority\": \"1000\"\n    },\n    {\n      \"address\": \"cosmosvaloper16xyempempp92x9hyzz9wrgf94r6j9h5f2w4n2l\",\n      \"pub_key\": \"cosmosvalconspub1zcjduepq0vu2zgkgk49efa0nqwzndanq5m4c7pa3u4apz4g2r9gspqg6g9cs3k9cuf\",\n      \"voting_power\": \"1000\",\n      \"proposer_priority\": \"1000\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c0363c19-5ee6-4ad8-a5c4-e6d1d66221d6",
+              "name": "Server internal error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "validatorsets",
+                    "latest"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "653ee17e-85bb-445d-b9c0-0874054eb87a",
+          "name": "Get a validator set a certain height",
+          "request": {
+            "name": "Get a validator set a certain height",
+            "description": {},
+            "url": {
+              "path": [
+                "validatorsets",
+                ":height"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "height",
+                  "description": "(Required) Block height"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5710478a-d725-46a6-a450-48c781d87b32",
+              "name": "The validator set at a specific block height",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "validatorsets",
+                    ":height"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "height",
+                      "description": "(Required) Block height"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"block_height\": \"string\",\n  \"validators\": [\n    {\n      \"address\": \"cosmosvaloper16xyempempp92x9hyzz9wrgf94r6j9h5f2w4n2l\",\n      \"pub_key\": \"cosmosvalconspub1zcjduepq0vu2zgkgk49efa0nqwzndanq5m4c7pa3u4apz4g2r9gspqg6g9cs3k9cuf\",\n      \"voting_power\": \"1000\",\n      \"proposer_priority\": \"1000\"\n    },\n    {\n      \"address\": \"cosmosvaloper16xyempempp92x9hyzz9wrgf94r6j9h5f2w4n2l\",\n      \"pub_key\": \"cosmosvalconspub1zcjduepq0vu2zgkgk49efa0nqwzndanq5m4c7pa3u4apz4g2r9gspqg6g9cs3k9cuf\",\n      \"voting_power\": \"1000\",\n      \"proposer_priority\": \"1000\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5c64e975-2ae7-421d-8dab-e22fb9c2263d",
+              "name": "Invalid height",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "validatorsets",
+                    ":height"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "height",
+                      "description": "(Required) Block height"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "de23a648-125f-4ab3-854a-347f98a277f6",
+              "name": "Block at height not available",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "validatorsets",
+                    ":height"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "height",
+                      "description": "(Required) Block height"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2f7351f4-2d06-4034-a712-ac6ee043b5d6",
+              "name": "Server internal error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "validatorsets",
+                    ":height"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "height",
+                      "description": "(Required) Block height"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "f3eacf15-2f3e-40a8-be0a-93c1f1c356cf",
+    "name": "AKASH - gRPC Gateway docs Addresses Tendermint RPC API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "A REST interface for state queries",
+      "type": "text/plain"
+    }
+  }
+}

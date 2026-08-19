@@ -1,0 +1,86 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "AKASH - gRPC Gateway docs Addresses Bank API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Bank",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get the account balances",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/bank/balances/:address",
+            "params": [
+              {
+                "name": "address",
+                "value": "",
+                "type": "path",
+                "description": "Account address in bech32 format"
+              }
+            ]
+          },
+          "docs": "Get the account balances"
+        },
+        {
+          "info": {
+            "name": "Send coins from one account to another",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/bank/accounts/:address/transfers",
+            "params": [
+              {
+                "name": "address",
+                "value": "",
+                "type": "path",
+                "description": "Account address in bech32 format"
+              }
+            ]
+          },
+          "docs": "Send coins from one account to another"
+        },
+        {
+          "info": {
+            "name": "Total supply of coins in the chain",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/bank/total"
+          },
+          "docs": "Total supply of coins in the chain"
+        },
+        {
+          "info": {
+            "name": "Total supply of a single coin denomination",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/bank/total/:denomination",
+            "params": [
+              {
+                "name": "denomination",
+                "value": "",
+                "type": "path",
+                "description": "Coin denomination"
+              }
+            ]
+          },
+          "docs": "Total supply of a single coin denomination"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

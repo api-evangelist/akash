@@ -1,0 +1,131 @@
+{
+  "item": [
+    {
+      "id": "27aa5f3b-e75a-4771-985c-34fba2643fef",
+      "name": "Gaia REST",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a6237c08-568d-4f31-9dcb-14d507675926",
+          "name": "The properties of the connected node",
+          "request": {
+            "name": "The properties of the connected node",
+            "description": {
+              "content": "Information about the connected node",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "node_info"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ac359009-a175-4976-b22c-fe10838304c8",
+              "name": "Node status",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "node_info"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"application_version\": {\n    \"build_tags\": \"string\",\n    \"client_name\": \"string\",\n    \"commit\": \"string\",\n    \"go\": \"string\",\n    \"name\": \"string\",\n    \"server_name\": \"string\",\n    \"version\": \"string\"\n  },\n  \"node_info\": {\n    \"id\": \"string\",\n    \"moniker\": \"validator-name\",\n    \"protocol_version\": {\n      \"p2p\": \"string\",\n      \"block\": \"string\",\n      \"app\": \"string\"\n    },\n    \"network\": \"gaia-2\",\n    \"channels\": \"string\",\n    \"listen_addr\": \"192.168.56.1:26656\",\n    \"version\": \"0.15.0\",\n    \"other\": {\n      \"tx_index\": \"on\",\n      \"rpc_address\": \"tcp://0.0.0.0:26657\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ca3912d1-d16f-4266-bf27-ef3eb7d7daa4",
+              "name": "Failed to query node status",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "node_info"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "46d7894b-3c3f-462a-869e-05409f898bdf",
+    "name": "AKASH - gRPC Gateway docs Addresses Gaia REST API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "A REST interface for state queries",
+      "type": "text/plain"
+    }
+  }
+}

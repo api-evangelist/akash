@@ -1,0 +1,266 @@
+{
+  "item": [
+    {
+      "id": "2adcd91b-e660-48b0-a206-d086097412f4",
+      "name": "Proposals",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f47610e5-a711-40fc-b939-247302e90dd7",
+          "name": "/v1/proposals",
+          "request": {
+            "name": "/v1/proposals",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "proposals"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a4a8a5c3-0a28-41df-8aa6-3361d24b782f",
+              "name": "Returns a list of proposals",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "proposals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 3276.405435075318,\n    \"title\": \"string\",\n    \"status\": \"string\",\n    \"submitTime\": \"string\",\n    \"votingStartTime\": \"string\",\n    \"votingEndTime\": \"string\",\n    \"totalDeposit\": 2936.4648682556026\n  },\n  {\n    \"id\": 8218.249249160905,\n    \"title\": \"string\",\n    \"status\": \"string\",\n    \"submitTime\": \"string\",\n    \"votingStartTime\": \"string\",\n    \"votingEndTime\": \"string\",\n    \"totalDeposit\": 66.88191743234984\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "75c2c718-74cd-4d98-a2f9-a9c9594bc85e",
+          "name": "/v1/proposals/:id",
+          "request": {
+            "name": "/v1/proposals/:id",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "proposals",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "64e09541-32eb-40ad-95ba-e588d993de71",
+              "name": "Return a proposal by id",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "proposals",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 937.1094235415256,\n  \"title\": \"string\",\n  \"description\": \"string\",\n  \"status\": \"string\",\n  \"submitTime\": \"string\",\n  \"votingStartTime\": \"string\",\n  \"votingEndTime\": \"string\",\n  \"totalDeposit\": 310.16873769404873,\n  \"tally\": {\n    \"yes\": 6662.73369628735,\n    \"abstain\": 4517.763026359789,\n    \"no\": 7565.899067482656,\n    \"noWithVeto\": 2965.013128213219,\n    \"total\": 6352.038744532389\n  },\n  \"paramChanges\": [\n    {\n      \"subspace\": \"string\",\n      \"key\": \"string\",\n      \"value\": {}\n    },\n    {\n      \"subspace\": \"string\",\n      \"key\": \"string\",\n      \"value\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e37cd487-88dc-41b3-a0ee-0ef8fcc5a67c",
+              "name": "Invalid proposal id",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "proposals",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3a897ff5-45bf-4740-ba80-3b135d26f9cf",
+              "name": "Proposal not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "proposals",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "71dcc20e-b62b-4c35-9f00-bb9e35bdbdce",
+    "name": "AKASH - gRPC Gateway docs Addresses Proposals API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "A REST interface for state queries",
+      "type": "text/plain"
+    }
+  }
+}

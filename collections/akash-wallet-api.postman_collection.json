@@ -1,0 +1,419 @@
+{
+  "item": [
+    {
+      "id": "3ff01fbb-8dd6-4932-8691-b7fa0f2b1d2c",
+      "name": "Wallet",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "dd95b4eb-b80e-4349-9524-3dee3128f53f",
+          "name": "Start a trial period for a user",
+          "request": {
+            "name": "Start a trial period for a user",
+            "description": {
+              "content": "Creates a managed wallet for a user and initiates a trial period. This endpoint handles payment method validation and may require 3D Secure authentication for certain payment methods. Returns wallet information and trial status.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "start-trial"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"data\": {\n    \"userId\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c9a8963a-5199-4bbd-8f29-061c525a5fe6",
+              "name": "Trial started successfully and wallet created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "start-trial"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"userId\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"id\": 7349.067843926526,\n    \"userId\": \"string\",\n    \"creditAmount\": 4453.305547489785,\n    \"address\": \"string\",\n    \"denom\": \"string\",\n    \"isTrialing\": true,\n    \"createdAt\": \"string\",\n    \"requires3DS\": false,\n    \"clientSecret\": \"string\",\n    \"paymentIntentId\": \"string\",\n    \"paymentMethodId\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "37ad1032-bb42-4f27-9b8c-af3264a10745",
+              "name": "3D Secure authentication required to complete trial setup",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "start-trial"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"userId\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"id\": 7349.067843926526,\n    \"userId\": \"string\",\n    \"creditAmount\": 4453.305547489785,\n    \"address\": \"string\",\n    \"denom\": \"string\",\n    \"isTrialing\": true,\n    \"createdAt\": \"string\",\n    \"requires3DS\": false,\n    \"clientSecret\": \"string\",\n    \"paymentIntentId\": \"string\",\n    \"paymentMethodId\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "58056fca-9b8b-4351-87aa-382b6a78a668",
+          "name": "Get a list of wallets",
+          "request": {
+            "name": "Get a list of wallets",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "wallets"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "userId",
+                  "value": "<uuid>",
+                  "description": "(Required) The ID of the user to get the wallets for"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "c7db6d5d-c7ae-4fce-aaaf-7efd55032a5a",
+              "name": "Returns a created wallet",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "wallets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "userId",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": 9614.425353240975,\n      \"userId\": \"string\",\n      \"creditAmount\": 9706.256909433623,\n      \"address\": \"string\",\n      \"denom\": \"string\",\n      \"isTrialing\": true,\n      \"createdAt\": \"string\",\n      \"requires3DS\": false,\n      \"clientSecret\": \"string\",\n      \"paymentIntentId\": \"string\",\n      \"paymentMethodId\": \"string\"\n    },\n    {\n      \"id\": 6021.57106479964,\n      \"userId\": \"string\",\n      \"creditAmount\": 8697.448000778608,\n      \"address\": \"string\",\n      \"denom\": \"string\",\n      \"isTrialing\": false,\n      \"createdAt\": \"string\",\n      \"requires3DS\": true,\n      \"clientSecret\": \"string\",\n      \"paymentIntentId\": \"string\",\n      \"paymentMethodId\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "acc73786-9c66-4349-b894-87aa74cc4857",
+          "name": "Signs a transaction via a user managed wallet",
+          "request": {
+            "name": "Signs a transaction via a user managed wallet",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "tx"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"data\": {\n    \"userId\": \"<string>\",\n    \"messages\": [\n      {\n        \"typeUrl\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    ]\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "62975989-fe13-4763-8f3b-e764a6754454",
+              "name": "Returns a signed transaction",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "tx"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"userId\": \"<string>\",\n    \"messages\": [\n      {\n        \"typeUrl\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"code\": 4916.4053218284635,\n    \"transactionHash\": \"string\",\n    \"rawLog\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c015df7f-5901-4c7a-a578-27eceb905497",
+          "name": "Get user balances",
+          "request": {
+            "name": "Get user balances",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "balances"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "address",
+                  "value": "<string>",
+                  "description": "Optional wallet address to fetch balances for instead of the current user"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "dc97a7e7-3eee-4fb6-b5bd-382dd5bae217",
+              "name": "Returns user balances",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "balances"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "address",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"balance\": 3406.3856027821794,\n    \"deployments\": 4000.4816101980355,\n    \"total\": 7884.0158788709405\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "80cbea79-f408-4149-84f4-ef8a2ab36e07",
+    "name": "AKASH - gRPC Gateway docs Addresses Wallet API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "A REST interface for state queries",
+      "type": "text/plain"
+    }
+  }
+}

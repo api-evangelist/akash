@@ -1,0 +1,1247 @@
+{
+  "item": [
+    {
+      "id": "1db5445a-f73e-472a-856a-e015e943ef31",
+      "name": "Transactions",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "bb3e281b-80b9-4277-8cda-a75b08718b2b",
+          "name": "Get a Tx by hash",
+          "request": {
+            "name": "Get a Tx by hash",
+            "description": {
+              "content": "Retrieve a transaction using its hash.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "txs",
+                ":hash"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "hash",
+                  "description": "(Required) Tx hash"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "09fd75fa-ff9e-483d-8e71-4a766752eb1b",
+              "name": "Tx with the provided hash",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "txs",
+                    ":hash"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "hash",
+                      "description": "(Required) Tx hash"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"hash\": \"D085138D913993919295FF4B0A9107F1F2CDE0D37A87CE0644E217CBF3B49656\",\n  \"height\": 368,\n  \"tx\": {\n    \"msg\": [\n      \"string\",\n      \"string\"\n    ],\n    \"fee\": {\n      \"gas\": \"string\",\n      \"amount\": [\n        {\n          \"denom\": \"stake\",\n          \"amount\": \"50\"\n        },\n        {\n          \"denom\": \"stake\",\n          \"amount\": \"50\"\n        }\n      ]\n    },\n    \"memo\": \"string\",\n    \"signature\": {\n      \"signature\": \"MEUCIQD02fsDPra8MtbRsyB1w7bqTM55Wu138zQbFcWx4+CFyAIge5WNPfKIuvzBZ69MyqHsqD8S1IwiEp+iUb6VSdtlpgY=\",\n      \"pub_key\": {\n        \"type\": \"tendermint/PubKeySecp256k1\",\n        \"value\": \"Avz04VhtKJh8ACCVzlI8aTosGy0ikFXKIVHQ3jKMrosH\"\n      },\n      \"account_number\": \"0\",\n      \"sequence\": \"0\"\n    }\n  },\n  \"result\": {\n    \"log\": \"string\",\n    \"gas_wanted\": \"200000\",\n    \"gas_used\": \"26354\",\n    \"tags\": [\n      {\n        \"key\": \"string\",\n        \"value\": \"string\"\n      },\n      {\n        \"key\": \"string\",\n        \"value\": \"string\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8357744e-7d84-4bcb-9170-450cb1c02740",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "txs",
+                    ":hash"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "hash",
+                      "description": "(Required) Tx hash"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "40aa886c-7dd7-4786-a404-210e7a5abc12",
+          "name": "Search transactions",
+          "request": {
+            "name": "Search transactions",
+            "description": {
+              "content": "Search transactions by events.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "txs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "message.action",
+                  "value": "<string>",
+                  "description": "transaction events such as 'message.action=send' which results in the following endpoint: 'GET /txs?message.action=send'. note that each module documents its own events. look for xx_events.md in the corresponding cosmos-sdk/docs/spec directory"
+                },
+                {
+                  "disabled": false,
+                  "key": "message.sender",
+                  "value": "<string>",
+                  "description": "transaction tags with sender: 'GET /txs?message.action=send&message.sender=cosmos16xyempempp92x9hyzz9wrgf94r6j9h5f06pxxv'"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "Page number"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Maximum number of items per page"
+                },
+                {
+                  "disabled": false,
+                  "key": "tx.minheight",
+                  "value": "<integer>",
+                  "description": "transactions on blocks with height greater or equal this value"
+                },
+                {
+                  "disabled": false,
+                  "key": "tx.maxheight",
+                  "value": "<integer>",
+                  "description": "transactions on blocks with height less than or equal this value"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "68eb4e43-b830-4fc6-8c2e-28a648887203",
+              "name": "All txs matching the provided events",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "txs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "message.action",
+                      "value": "send"
+                    },
+                    {
+                      "key": "message.sender",
+                      "value": "cosmos16xyempempp92x9hyzz9wrgf94r6j9h5f06pxxv"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "1"
+                    },
+                    {
+                      "key": "tx.minheight",
+                      "value": "25"
+                    },
+                    {
+                      "key": "tx.maxheight",
+                      "value": "800000"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"total_count\": 1,\n  \"count\": 1,\n  \"page_number\": 1,\n  \"page_total\": 1,\n  \"limit\": 30,\n  \"txs\": [\n    {\n      \"hash\": \"D085138D913993919295FF4B0A9107F1F2CDE0D37A87CE0644E217CBF3B49656\",\n      \"height\": 368,\n      \"tx\": {\n        \"msg\": [\n          \"string\",\n          \"string\"\n        ],\n        \"fee\": {\n          \"gas\": \"string\",\n          \"amount\": [\n            {\n              \"denom\": \"stake\",\n              \"amount\": \"50\"\n            },\n            {\n              \"denom\": \"stake\",\n              \"amount\": \"50\"\n            }\n          ]\n        },\n        \"memo\": \"string\",\n        \"signature\": {\n          \"signature\": \"MEUCIQD02fsDPra8MtbRsyB1w7bqTM55Wu138zQbFcWx4+CFyAIge5WNPfKIuvzBZ69MyqHsqD8S1IwiEp+iUb6VSdtlpgY=\",\n          \"pub_key\": {\n            \"type\": \"tendermint/PubKeySecp256k1\",\n            \"value\": \"Avz04VhtKJh8ACCVzlI8aTosGy0ikFXKIVHQ3jKMrosH\"\n          },\n          \"account_number\": \"0\",\n          \"sequence\": \"0\"\n        }\n      },\n      \"result\": {\n        \"log\": \"string\",\n        \"gas_wanted\": \"200000\",\n        \"gas_used\": \"26354\",\n        \"tags\": [\n          {\n            \"key\": \"string\",\n            \"value\": \"string\"\n          },\n          {\n            \"key\": \"string\",\n            \"value\": \"string\"\n          }\n        ]\n      }\n    },\n    {\n      \"hash\": \"D085138D913993919295FF4B0A9107F1F2CDE0D37A87CE0644E217CBF3B49656\",\n      \"height\": 368,\n      \"tx\": {\n        \"msg\": [\n          \"string\",\n          \"string\"\n        ],\n        \"fee\": {\n          \"gas\": \"string\",\n          \"amount\": [\n            {\n              \"denom\": \"stake\",\n              \"amount\": \"50\"\n            },\n            {\n              \"denom\": \"stake\",\n              \"amount\": \"50\"\n            }\n          ]\n        },\n        \"memo\": \"string\",\n        \"signature\": {\n          \"signature\": \"MEUCIQD02fsDPra8MtbRsyB1w7bqTM55Wu138zQbFcWx4+CFyAIge5WNPfKIuvzBZ69MyqHsqD8S1IwiEp+iUb6VSdtlpgY=\",\n          \"pub_key\": {\n            \"type\": \"tendermint/PubKeySecp256k1\",\n            \"value\": \"Avz04VhtKJh8ACCVzlI8aTosGy0ikFXKIVHQ3jKMrosH\"\n          },\n          \"account_number\": \"0\",\n          \"sequence\": \"0\"\n        }\n      },\n      \"result\": {\n        \"log\": \"string\",\n        \"gas_wanted\": \"200000\",\n        \"gas_used\": \"26354\",\n        \"tags\": [\n          {\n            \"key\": \"string\",\n            \"value\": \"string\"\n          },\n          {\n            \"key\": \"string\",\n            \"value\": \"string\"\n          }\n        ]\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "01cb7610-074e-41af-9861-b0f783936a11",
+              "name": "Invalid search events",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "txs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "message.action",
+                      "value": "send"
+                    },
+                    {
+                      "key": "message.sender",
+                      "value": "cosmos16xyempempp92x9hyzz9wrgf94r6j9h5f06pxxv"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "1"
+                    },
+                    {
+                      "key": "tx.minheight",
+                      "value": "25"
+                    },
+                    {
+                      "key": "tx.maxheight",
+                      "value": "800000"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1d3408ad-934c-4795-8501-561382438e54",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "txs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "message.action",
+                      "value": "send"
+                    },
+                    {
+                      "key": "message.sender",
+                      "value": "cosmos16xyempempp92x9hyzz9wrgf94r6j9h5f06pxxv"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "1"
+                    },
+                    {
+                      "key": "tx.minheight",
+                      "value": "25"
+                    },
+                    {
+                      "key": "tx.maxheight",
+                      "value": "800000"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e4bbfdae-064a-499f-8a44-31949ea914d4",
+          "name": "Broadcast a signed tx",
+          "request": {
+            "name": "Broadcast a signed tx",
+            "description": {
+              "content": "Broadcast a signed tx to a full node",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "txs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tx\": {\n    \"msg\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"fee\": {\n      \"gas\": \"<string>\",\n      \"amount\": [\n        {\n          \"denom\": \"<string>\",\n          \"amount\": \"<string>\"\n        },\n        {\n          \"denom\": \"<string>\",\n          \"amount\": \"<string>\"\n        }\n      ]\n    },\n    \"memo\": \"<string>\",\n    \"signature\": {\n      \"signature\": \"<string>\",\n      \"pub_key\": {\n        \"type\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      \"account_number\": \"<string>\",\n      \"sequence\": \"<string>\"\n    }\n  },\n  \"mode\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "46f0c287-8a97-44a6-97a3-247f0bc1a256",
+              "name": "Tx broadcasting result",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "txs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tx\": {\n    \"msg\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"fee\": {\n      \"gas\": \"<string>\",\n      \"amount\": [\n        {\n          \"denom\": \"stake\",\n          \"amount\": \"50\"\n        },\n        {\n          \"denom\": \"stake\",\n          \"amount\": \"50\"\n        }\n      ]\n    },\n    \"memo\": \"<string>\",\n    \"signature\": {\n      \"signature\": \"MEUCIQD02fsDPra8MtbRsyB1w7bqTM55Wu138zQbFcWx4+CFyAIge5WNPfKIuvzBZ69MyqHsqD8S1IwiEp+iUb6VSdtlpgY=\",\n      \"pub_key\": {\n        \"type\": \"tendermint/PubKeySecp256k1\",\n        \"value\": \"Avz04VhtKJh8ACCVzlI8aTosGy0ikFXKIVHQ3jKMrosH\"\n      },\n      \"account_number\": \"0\",\n      \"sequence\": \"0\"\n    }\n  },\n  \"mode\": \"block\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"check_tx\": {\n    \"code\": 8212,\n    \"data\": \"string\",\n    \"gas_used\": 8513,\n    \"gas_wanted\": 5613,\n    \"info\": \"string\",\n    \"log\": \"string\",\n    \"tags\": [\n      {\n        \"key\": \"string\",\n        \"value\": \"string\"\n      },\n      {\n        \"key\": \"string\",\n        \"value\": \"string\"\n      }\n    ]\n  },\n  \"deliver_tx\": {\n    \"code\": 6915,\n    \"data\": \"string\",\n    \"gas_used\": 9450,\n    \"gas_wanted\": 8213,\n    \"info\": \"string\",\n    \"log\": \"string\",\n    \"tags\": [\n      {\n        \"key\": \"string\",\n        \"value\": \"string\"\n      },\n      {\n        \"key\": \"string\",\n        \"value\": \"string\"\n      }\n    ]\n  },\n  \"hash\": \"EE5F3404034C524501629B56E0DDC38FAD651F04\",\n  \"height\": 9674\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7c494991-ef3e-4a5b-9b7d-2f9163c5a29d",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "txs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tx\": {\n    \"msg\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"fee\": {\n      \"gas\": \"<string>\",\n      \"amount\": [\n        {\n          \"denom\": \"stake\",\n          \"amount\": \"50\"\n        },\n        {\n          \"denom\": \"stake\",\n          \"amount\": \"50\"\n        }\n      ]\n    },\n    \"memo\": \"<string>\",\n    \"signature\": {\n      \"signature\": \"MEUCIQD02fsDPra8MtbRsyB1w7bqTM55Wu138zQbFcWx4+CFyAIge5WNPfKIuvzBZ69MyqHsqD8S1IwiEp+iUb6VSdtlpgY=\",\n      \"pub_key\": {\n        \"type\": \"tendermint/PubKeySecp256k1\",\n        \"value\": \"Avz04VhtKJh8ACCVzlI8aTosGy0ikFXKIVHQ3jKMrosH\"\n      },\n      \"account_number\": \"0\",\n      \"sequence\": \"0\"\n    }\n  },\n  \"mode\": \"block\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5ea1249a-9d71-44a0-8524-a289e90f0c7d",
+          "name": "Encode a transaction to the Amino wire format",
+          "request": {
+            "name": "Encode a transaction to the Amino wire format",
+            "description": {
+              "content": "Encode a transaction (signed or not) from JSON to base64-encoded Amino serialized bytes",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "txs",
+                "encode"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tx\": {\n    \"msg\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"fee\": {\n      \"gas\": \"<string>\",\n      \"amount\": [\n        {\n          \"denom\": \"<string>\",\n          \"amount\": \"<string>\"\n        },\n        {\n          \"denom\": \"<string>\",\n          \"amount\": \"<string>\"\n        }\n      ]\n    },\n    \"memo\": \"<string>\",\n    \"signature\": {\n      \"signature\": \"<string>\",\n      \"pub_key\": {\n        \"type\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      \"account_number\": \"<string>\",\n      \"sequence\": \"<string>\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "101f6572-6d52-46aa-8436-876f33eaf622",
+              "name": "The tx was successfully decoded and re-encoded",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "txs",
+                    "encode"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tx\": {\n    \"msg\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"fee\": {\n      \"gas\": \"<string>\",\n      \"amount\": [\n        {\n          \"denom\": \"stake\",\n          \"amount\": \"50\"\n        },\n        {\n          \"denom\": \"stake\",\n          \"amount\": \"50\"\n        }\n      ]\n    },\n    \"memo\": \"<string>\",\n    \"signature\": {\n      \"signature\": \"MEUCIQD02fsDPra8MtbRsyB1w7bqTM55Wu138zQbFcWx4+CFyAIge5WNPfKIuvzBZ69MyqHsqD8S1IwiEp+iUb6VSdtlpgY=\",\n      \"pub_key\": {\n        \"type\": \"tendermint/PubKeySecp256k1\",\n        \"value\": \"Avz04VhtKJh8ACCVzlI8aTosGy0ikFXKIVHQ3jKMrosH\"\n      },\n      \"account_number\": \"0\",\n      \"sequence\": \"0\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"tx\": \"The base64-encoded Amino-serialized bytes for the tx\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9512aba3-0e0b-4189-a165-d1ab40c4e805",
+              "name": "The tx was malformated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "txs",
+                    "encode"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tx\": {\n    \"msg\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"fee\": {\n      \"gas\": \"<string>\",\n      \"amount\": [\n        {\n          \"denom\": \"stake\",\n          \"amount\": \"50\"\n        },\n        {\n          \"denom\": \"stake\",\n          \"amount\": \"50\"\n        }\n      ]\n    },\n    \"memo\": \"<string>\",\n    \"signature\": {\n      \"signature\": \"MEUCIQD02fsDPra8MtbRsyB1w7bqTM55Wu138zQbFcWx4+CFyAIge5WNPfKIuvzBZ69MyqHsqD8S1IwiEp+iUb6VSdtlpgY=\",\n      \"pub_key\": {\n        \"type\": \"tendermint/PubKeySecp256k1\",\n        \"value\": \"Avz04VhtKJh8ACCVzlI8aTosGy0ikFXKIVHQ3jKMrosH\"\n      },\n      \"account_number\": \"0\",\n      \"sequence\": \"0\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "39837661-df59-4181-8a44-e5083c97fe62",
+              "name": "Server internal error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "txs",
+                    "encode"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tx\": {\n    \"msg\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"fee\": {\n      \"gas\": \"<string>\",\n      \"amount\": [\n        {\n          \"denom\": \"stake\",\n          \"amount\": \"50\"\n        },\n        {\n          \"denom\": \"stake\",\n          \"amount\": \"50\"\n        }\n      ]\n    },\n    \"memo\": \"<string>\",\n    \"signature\": {\n      \"signature\": \"MEUCIQD02fsDPra8MtbRsyB1w7bqTM55Wu138zQbFcWx4+CFyAIge5WNPfKIuvzBZ69MyqHsqD8S1IwiEp+iUb6VSdtlpgY=\",\n      \"pub_key\": {\n        \"type\": \"tendermint/PubKeySecp256k1\",\n        \"value\": \"Avz04VhtKJh8ACCVzlI8aTosGy0ikFXKIVHQ3jKMrosH\"\n      },\n      \"account_number\": \"0\",\n      \"sequence\": \"0\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "830be393-34de-4649-b117-52f2964a689b",
+          "name": "Decode a transaction from the Amino wire format",
+          "request": {
+            "name": "Decode a transaction from the Amino wire format",
+            "description": {
+              "content": "Decode a transaction (signed or not) from base64-encoded Amino serialized bytes to JSON",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "txs",
+                "decode"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tx\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "50ac3223-f9b9-46d7-bcd2-290a70cbf946",
+              "name": "The tx was successfully decoded",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "txs",
+                    "decode"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tx\": \"SvBiXe4KPqijYZoKFFHEzJ8c2HPAfv2EFUcIhx0yPagwEhTy0vPA+GGhCEslKXa4Af0uB+mfShoMCgVzdGFrZRIDMTAwEgQQwJoM\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"msg\": [\n    \"string\",\n    \"string\"\n  ],\n  \"fee\": {\n    \"gas\": \"string\",\n    \"amount\": [\n      {\n        \"denom\": \"stake\",\n        \"amount\": \"50\"\n      },\n      {\n        \"denom\": \"stake\",\n        \"amount\": \"50\"\n      }\n    ]\n  },\n  \"memo\": \"string\",\n  \"signature\": {\n    \"signature\": \"MEUCIQD02fsDPra8MtbRsyB1w7bqTM55Wu138zQbFcWx4+CFyAIge5WNPfKIuvzBZ69MyqHsqD8S1IwiEp+iUb6VSdtlpgY=\",\n    \"pub_key\": {\n      \"type\": \"tendermint/PubKeySecp256k1\",\n      \"value\": \"Avz04VhtKJh8ACCVzlI8aTosGy0ikFXKIVHQ3jKMrosH\"\n    },\n    \"account_number\": \"0\",\n    \"sequence\": \"0\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f088c3b6-4502-49db-b66a-b232155c578a",
+              "name": "The tx was malformated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "txs",
+                    "decode"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tx\": \"SvBiXe4KPqijYZoKFFHEzJ8c2HPAfv2EFUcIhx0yPagwEhTy0vPA+GGhCEslKXa4Af0uB+mfShoMCgVzdGFrZRIDMTAwEgQQwJoM\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e39eba9f-d0cb-4332-b6e8-7210b4d2fe1e",
+              "name": "Server internal error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "txs",
+                    "decode"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tx\": \"SvBiXe4KPqijYZoKFFHEzJ8c2HPAfv2EFUcIhx0yPagwEhTy0vPA+GGhCEslKXa4Af0uB+mfShoMCgVzdGFrZRIDMTAwEgQQwJoM\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fd21a9bc-bd9c-414f-aa93-5ee999137ad9",
+          "name": "Get a list of transactions.",
+          "request": {
+            "name": "Get a list of transactions.",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "transactions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2b049b12-6c34-4656-99d0-ffa692c55660",
+              "name": "Returns transaction list",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "transactions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"height\": 2941.1295356076794,\n    \"datetime\": \"string\",\n    \"hash\": \"string\",\n    \"isSuccess\": true,\n    \"error\": \"string\",\n    \"gasUsed\": 3861.6464182072095,\n    \"gasWanted\": 9945.81887892746,\n    \"fee\": 5054.877404722244,\n    \"memo\": \"string\",\n    \"messages\": [\n      {\n        \"id\": \"string\",\n        \"type\": \"string\",\n        \"amount\": 296.2727977073365\n      },\n      {\n        \"id\": \"string\",\n        \"type\": \"string\",\n        \"amount\": 4994.142332926752\n      }\n    ]\n  },\n  {\n    \"height\": 3373.743710656333,\n    \"datetime\": \"string\",\n    \"hash\": \"string\",\n    \"isSuccess\": false,\n    \"error\": \"string\",\n    \"gasUsed\": 9563.912192152548,\n    \"gasWanted\": 6826.314813353735,\n    \"fee\": 9880.825541651804,\n    \"memo\": \"string\",\n    \"messages\": [\n      {\n        \"id\": \"string\",\n        \"type\": \"string\",\n        \"amount\": 4970.498020497977\n      },\n      {\n        \"id\": \"string\",\n        \"type\": \"string\",\n        \"amount\": 1293.2343681943225\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7161e4ee-45c0-4cf1-9033-8fc3b1666f46",
+          "name": "Get a transaction by hash.",
+          "request": {
+            "name": "Get a transaction by hash.",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "transactions",
+                ":hash"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "hash",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "883bf8fa-c2b8-4959-87b1-2deed3ef1a3a",
+              "name": "Returns predicted block date",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "transactions",
+                    ":hash"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "hash",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"height\": 9112.03030035808,\n  \"datetime\": \"string\",\n  \"hash\": \"string\",\n  \"isSuccess\": true,\n  \"signers\": [\n    \"string\",\n    \"string\"\n  ],\n  \"error\": \"string\",\n  \"gasUsed\": 2815.2100783666533,\n  \"gasWanted\": 6774.479467973978,\n  \"fee\": 2106.371236680661,\n  \"memo\": \"string\",\n  \"messages\": [\n    {\n      \"id\": \"string\",\n      \"type\": \"string\",\n      \"data\": {\n        \"key_0\": \"string\"\n      },\n      \"relatedDeploymentId\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"type\": \"string\",\n      \"data\": {\n        \"key_0\": \"string\"\n      },\n      \"relatedDeploymentId\": \"string\"\n    }\n  ],\n  \"multisigThreshold\": 6533.3041155549845\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1501c7c0-7678-4512-b9a0-bf96a888d1a3",
+              "name": "Transaction not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "transactions",
+                    ":hash"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "hash",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2d7212d0-b3f4-4f7c-aeae-e8235cbb76fb",
+          "name": "Get a list of transactions for a given address.",
+          "request": {
+            "name": "Get a list of transactions for a given address.",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "addresses",
+                ":address",
+                "transactions",
+                ":skip",
+                ":limit"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "address",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "skip",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "limit",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b8866d2e-c71e-4d32-8fb3-c51c624fe867",
+              "name": "Returns transaction list",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "addresses",
+                    ":address",
+                    "transactions",
+                    ":skip",
+                    ":limit"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "address",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "skip",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "limit",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 3861.1855731053292,\n  \"results\": [\n    {\n      \"height\": 7036.247193897835,\n      \"datetime\": \"string\",\n      \"hash\": \"string\",\n      \"isSuccess\": true,\n      \"error\": \"string\",\n      \"gasUsed\": 476.81596278707275,\n      \"gasWanted\": 6995.1907497616885,\n      \"fee\": 9147.658429178055,\n      \"memo\": \"string\",\n      \"isSigner\": false,\n      \"messages\": [\n        {\n          \"id\": \"string\",\n          \"type\": \"string\",\n          \"amount\": 8711.699507123258,\n          \"isReceiver\": true\n        },\n        {\n          \"id\": \"string\",\n          \"type\": \"string\",\n          \"amount\": 6961.442695111308,\n          \"isReceiver\": false\n        }\n      ]\n    },\n    {\n      \"height\": 6666.815806636653,\n      \"datetime\": \"string\",\n      \"hash\": \"string\",\n      \"isSuccess\": true,\n      \"error\": \"string\",\n      \"gasUsed\": 3122.135446930776,\n      \"gasWanted\": 769.7546935367538,\n      \"fee\": 3892.7893334737205,\n      \"memo\": \"string\",\n      \"isSigner\": false,\n      \"messages\": [\n        {\n          \"id\": \"string\",\n          \"type\": \"string\",\n          \"amount\": 7195.167138831049,\n          \"isReceiver\": false\n        },\n        {\n          \"id\": \"string\",\n          \"type\": \"string\",\n          \"amount\": 7390.1860666352295,\n          \"isReceiver\": true\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "09f8f7fa-b659-4a14-bc0a-59fc8fc3e3e6",
+              "name": "Invalid address or parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "addresses",
+                    ":address",
+                    "transactions",
+                    ":skip",
+                    ":limit"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "address",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "skip",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "limit",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "1d472426-2ef6-4c43-a112-230b6c1e1b7b",
+    "name": "AKASH - gRPC Gateway docs Addresses Transactions API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "A REST interface for state queries",
+      "type": "text/plain"
+    }
+  }
+}

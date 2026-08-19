@@ -1,0 +1,2939 @@
+{
+  "item": [
+    {
+      "id": "493c685d-c61a-4ac4-97ad-71aa0728b5b5",
+      "name": "Governance",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "62109e29-cbea-466e-9824-6c666202f4af",
+          "name": "Submit a proposal",
+          "request": {
+            "name": "Submit a proposal",
+            "description": {
+              "content": "Send transaction to submit a proposal",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "gov",
+                "proposals"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"base_req\": {\n    \"from\": \"<string>\",\n    \"memo\": \"<string>\",\n    \"chain_id\": \"<string>\",\n    \"account_number\": \"<string>\",\n    \"sequence\": \"<string>\",\n    \"gas\": \"<string>\",\n    \"gas_adjustment\": \"<string>\",\n    \"fees\": [\n      {\n        \"denom\": \"<string>\",\n        \"amount\": \"<string>\"\n      },\n      {\n        \"denom\": \"<string>\",\n        \"amount\": \"<string>\"\n      }\n    ],\n    \"simulate\": \"<boolean>\"\n  },\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"proposal_type\": \"<string>\",\n  \"proposer\": \"<string>\",\n  \"initial_deposit\": [\n    {\n      \"denom\": \"<string>\",\n      \"amount\": \"<string>\"\n    },\n    {\n      \"denom\": \"<string>\",\n      \"amount\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4e180271-d31f-470c-a5cf-f084753a96f4",
+              "name": "Tx was succesfully generated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gov",
+                    "proposals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"base_req\": {\n    \"from\": \"cosmos1g9ahr6xhht5rmqven628nklxluzyv8z9jqjcmc\",\n    \"memo\": \"Sent via Cosmos Voyager 🚀\",\n    \"chain_id\": \"Cosmos-Hub\",\n    \"account_number\": \"0\",\n    \"sequence\": \"1\",\n    \"gas\": \"200000\",\n    \"gas_adjustment\": \"1.2\",\n    \"fees\": [\n      {\n        \"denom\": \"stake\",\n        \"amount\": \"50\"\n      },\n      {\n        \"denom\": \"stake\",\n        \"amount\": \"50\"\n      }\n    ],\n    \"simulate\": false\n  },\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"proposal_type\": \"text\",\n  \"proposer\": \"cosmos1depk54cuajgkzea6zpgkq36tnjwdzv4afc3d27\",\n  \"initial_deposit\": [\n    {\n      \"denom\": \"stake\",\n      \"amount\": \"50\"\n    },\n    {\n      \"denom\": \"stake\",\n      \"amount\": \"50\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"msg\": [\n    \"string\",\n    \"string\"\n  ],\n  \"fee\": {\n    \"gas\": \"string\",\n    \"amount\": [\n      {\n        \"denom\": \"stake\",\n        \"amount\": \"50\"\n      },\n      {\n        \"denom\": \"stake\",\n        \"amount\": \"50\"\n      }\n    ]\n  },\n  \"memo\": \"string\",\n  \"signature\": {\n    \"signature\": \"MEUCIQD02fsDPra8MtbRsyB1w7bqTM55Wu138zQbFcWx4+CFyAIge5WNPfKIuvzBZ69MyqHsqD8S1IwiEp+iUb6VSdtlpgY=\",\n    \"pub_key\": {\n      \"type\": \"tendermint/PubKeySecp256k1\",\n      \"value\": \"Avz04VhtKJh8ACCVzlI8aTosGy0ikFXKIVHQ3jKMrosH\"\n    },\n    \"account_number\": \"0\",\n    \"sequence\": \"0\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7b383106-e08f-44a7-ab9a-9e3f910e4324",
+              "name": "Invalid proposal body",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gov",
+                    "proposals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"base_req\": {\n    \"from\": \"cosmos1g9ahr6xhht5rmqven628nklxluzyv8z9jqjcmc\",\n    \"memo\": \"Sent via Cosmos Voyager 🚀\",\n    \"chain_id\": \"Cosmos-Hub\",\n    \"account_number\": \"0\",\n    \"sequence\": \"1\",\n    \"gas\": \"200000\",\n    \"gas_adjustment\": \"1.2\",\n    \"fees\": [\n      {\n        \"denom\": \"stake\",\n        \"amount\": \"50\"\n      },\n      {\n        \"denom\": \"stake\",\n        \"amount\": \"50\"\n      }\n    ],\n    \"simulate\": false\n  },\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"proposal_type\": \"text\",\n  \"proposer\": \"cosmos1depk54cuajgkzea6zpgkq36tnjwdzv4afc3d27\",\n  \"initial_deposit\": [\n    {\n      \"denom\": \"stake\",\n      \"amount\": \"50\"\n    },\n    {\n      \"denom\": \"stake\",\n      \"amount\": \"50\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ac7b92b0-bb27-4ce7-9f41-cc1a0a067b6c",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gov",
+                    "proposals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"base_req\": {\n    \"from\": \"cosmos1g9ahr6xhht5rmqven628nklxluzyv8z9jqjcmc\",\n    \"memo\": \"Sent via Cosmos Voyager 🚀\",\n    \"chain_id\": \"Cosmos-Hub\",\n    \"account_number\": \"0\",\n    \"sequence\": \"1\",\n    \"gas\": \"200000\",\n    \"gas_adjustment\": \"1.2\",\n    \"fees\": [\n      {\n        \"denom\": \"stake\",\n        \"amount\": \"50\"\n      },\n      {\n        \"denom\": \"stake\",\n        \"amount\": \"50\"\n      }\n    ],\n    \"simulate\": false\n  },\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"proposal_type\": \"text\",\n  \"proposer\": \"cosmos1depk54cuajgkzea6zpgkq36tnjwdzv4afc3d27\",\n  \"initial_deposit\": [\n    {\n      \"denom\": \"stake\",\n      \"amount\": \"50\"\n    },\n    {\n      \"denom\": \"stake\",\n      \"amount\": \"50\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2c19efca-c69e-45b2-972a-5eaf2830c5e0",
+          "name": "Query proposals",
+          "request": {
+            "name": "Query proposals",
+            "description": {
+              "content": "Query proposals information with parameters",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "gov",
+                "proposals"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "voter",
+                  "value": "<string>",
+                  "description": "voter address"
+                },
+                {
+                  "disabled": false,
+                  "key": "depositor",
+                  "value": "<string>",
+                  "description": "depositor address"
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "proposal status, valid values can be `\"deposit_period\"`, `\"voting_period\"`, `\"passed\"`, `\"rejected\"`"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "619c0e46-a745-4b8f-bd81-12b997572743",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gov",
+                    "proposals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "voter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "depositor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"proposal_id\": 9091,\n    \"title\": \"string\",\n    \"description\": \"string\",\n    \"proposal_type\": \"string\",\n    \"proposal_status\": \"string\",\n    \"final_tally_result\": {\n      \"yes\": \"0.0000000000\",\n      \"abstain\": \"0.0000000000\",\n      \"no\": \"0.0000000000\",\n      \"no_with_veto\": \"0.0000000000\"\n    },\n    \"submit_time\": \"string\",\n    \"total_deposit\": [\n      {\n        \"denom\": \"stake\",\n        \"amount\": \"50\"\n      },\n      {\n        \"denom\": \"stake\",\n        \"amount\": \"50\"\n      }\n    ],\n    \"voting_start_time\": \"string\"\n  },\n  {\n    \"proposal_id\": 2823,\n    \"title\": \"string\",\n    \"description\": \"string\",\n    \"proposal_type\": \"string\",\n    \"proposal_status\": \"string\",\n    \"final_tally_result\": {\n      \"yes\": \"0.0000000000\",\n      \"abstain\": \"0.0000000000\",\n      \"no\": \"0.0000000000\",\n      \"no_with_veto\": \"0.0000000000\"\n    },\n    \"submit_time\": \"string\",\n    \"total_deposit\": [\n      {\n        \"denom\": \"stake\",\n        \"amount\": \"50\"\n      },\n      {\n        \"denom\": \"stake\",\n        \"amount\": \"50\"\n      }\n    ],\n    \"voting_start_time\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8d4603b9-5161-4b3e-a958-c489f2212e4d",
+              "name": "Invalid query parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gov",
+                    "proposals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "voter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "depositor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4ec8a1ce-c3f7-4a0f-9883-480b3be485d9",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gov",
+                    "proposals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "voter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "depositor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b5cfdbc6-3661-4fdd-bbd2-d3924db4ae7f",
+          "name": "Generate a parameter change proposal transaction",
+          "request": {
+            "name": "Generate a parameter change proposal transaction",
+            "description": {
+              "content": "Generate a parameter change proposal transaction",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "gov",
+                "proposals",
+                "param_change"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"base_req\": {\n    \"from\": \"<string>\",\n    \"memo\": \"<string>\",\n    \"chain_id\": \"<string>\",\n    \"account_number\": \"<string>\",\n    \"sequence\": \"<string>\",\n    \"gas\": \"<string>\",\n    \"gas_adjustment\": \"<string>\",\n    \"fees\": [\n      {\n        \"denom\": \"<string>\",\n        \"amount\": \"<string>\"\n      },\n      {\n        \"denom\": \"<string>\",\n        \"amount\": \"<string>\"\n      }\n    ],\n    \"simulate\": \"<boolean>\"\n  },\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"proposer\": \"<string>\",\n  \"deposit\": [\n    {\n      \"denom\": \"<string>\",\n      \"amount\": \"<string>\"\n    },\n    {\n      \"denom\": \"<string>\",\n      \"amount\": \"<string>\"\n    }\n  ],\n  \"changes\": [\n    {\n      \"subspace\": \"<string>\",\n      \"key\": \"<string>\",\n      \"subkey\": \"<string>\",\n      \"value\": \"<object>\"\n    },\n    {\n      \"subspace\": \"<string>\",\n      \"key\": \"<string>\",\n      \"subkey\": \"<string>\",\n      \"value\": \"<object>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "87fe6a00-d96b-4f17-9607-e25561e40528",
+              "name": "The transaction was succesfully generated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gov",
+                    "proposals",
+                    "param_change"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"base_req\": {\n    \"from\": \"cosmos1g9ahr6xhht5rmqven628nklxluzyv8z9jqjcmc\",\n    \"memo\": \"Sent via Cosmos Voyager 🚀\",\n    \"chain_id\": \"Cosmos-Hub\",\n    \"account_number\": \"0\",\n    \"sequence\": \"1\",\n    \"gas\": \"200000\",\n    \"gas_adjustment\": \"1.2\",\n    \"fees\": [\n      {\n        \"denom\": \"stake\",\n        \"amount\": \"50\"\n      },\n      {\n        \"denom\": \"stake\",\n        \"amount\": \"50\"\n      }\n    ],\n    \"simulate\": false\n  },\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"proposer\": \"cosmos1depk54cuajgkzea6zpgkq36tnjwdzv4afc3d27\",\n  \"deposit\": [\n    {\n      \"denom\": \"stake\",\n      \"amount\": \"50\"\n    },\n    {\n      \"denom\": \"stake\",\n      \"amount\": \"50\"\n    }\n  ],\n  \"changes\": [\n    {\n      \"subspace\": \"staking\",\n      \"key\": \"MaxValidators\",\n      \"subkey\": \"\",\n      \"value\": \"<object>\"\n    },\n    {\n      \"subspace\": \"staking\",\n      \"key\": \"MaxValidators\",\n      \"subkey\": \"\",\n      \"value\": \"<object>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"msg\": [\n    \"string\",\n    \"string\"\n  ],\n  \"fee\": {\n    \"gas\": \"string\",\n    \"amount\": [\n      {\n        \"denom\": \"stake\",\n        \"amount\": \"50\"\n      },\n      {\n        \"denom\": \"stake\",\n        \"amount\": \"50\"\n      }\n    ]\n  },\n  \"memo\": \"string\",\n  \"signature\": {\n    \"signature\": \"MEUCIQD02fsDPra8MtbRsyB1w7bqTM55Wu138zQbFcWx4+CFyAIge5WNPfKIuvzBZ69MyqHsqD8S1IwiEp+iUb6VSdtlpgY=\",\n    \"pub_key\": {\n      \"type\": \"tendermint/PubKeySecp256k1\",\n      \"value\": \"Avz04VhtKJh8ACCVzlI8aTosGy0ikFXKIVHQ3jKMrosH\"\n    },\n    \"account_number\": \"0\",\n    \"sequence\": \"0\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7e585003-84ec-4cef-b496-09fcb3919256",
+              "name": "Invalid proposal body",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gov",
+                    "proposals",
+                    "param_change"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"base_req\": {\n    \"from\": \"cosmos1g9ahr6xhht5rmqven628nklxluzyv8z9jqjcmc\",\n    \"memo\": \"Sent via Cosmos Voyager 🚀\",\n    \"chain_id\": \"Cosmos-Hub\",\n    \"account_number\": \"0\",\n    \"sequence\": \"1\",\n    \"gas\": \"200000\",\n    \"gas_adjustment\": \"1.2\",\n    \"fees\": [\n      {\n        \"denom\": \"stake\",\n        \"amount\": \"50\"\n      },\n      {\n        \"denom\": \"stake\",\n        \"amount\": \"50\"\n      }\n    ],\n    \"simulate\": false\n  },\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"proposer\": \"cosmos1depk54cuajgkzea6zpgkq36tnjwdzv4afc3d27\",\n  \"deposit\": [\n    {\n      \"denom\": \"stake\",\n      \"amount\": \"50\"\n    },\n    {\n      \"denom\": \"stake\",\n      \"amount\": \"50\"\n    }\n  ],\n  \"changes\": [\n    {\n      \"subspace\": \"staking\",\n      \"key\": \"MaxValidators\",\n      \"subkey\": \"\",\n      \"value\": \"<object>\"\n    },\n    {\n      \"subspace\": \"staking\",\n      \"key\": \"MaxValidators\",\n      \"subkey\": \"\",\n      \"value\": \"<object>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "18ca5527-b785-4170-9f30-7ce5dd986279",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gov",
+                    "proposals",
+                    "param_change"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"base_req\": {\n    \"from\": \"cosmos1g9ahr6xhht5rmqven628nklxluzyv8z9jqjcmc\",\n    \"memo\": \"Sent via Cosmos Voyager 🚀\",\n    \"chain_id\": \"Cosmos-Hub\",\n    \"account_number\": \"0\",\n    \"sequence\": \"1\",\n    \"gas\": \"200000\",\n    \"gas_adjustment\": \"1.2\",\n    \"fees\": [\n      {\n        \"denom\": \"stake\",\n        \"amount\": \"50\"\n      },\n      {\n        \"denom\": \"stake\",\n        \"amount\": \"50\"\n      }\n    ],\n    \"simulate\": false\n  },\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"proposer\": \"cosmos1depk54cuajgkzea6zpgkq36tnjwdzv4afc3d27\",\n  \"deposit\": [\n    {\n      \"denom\": \"stake\",\n      \"amount\": \"50\"\n    },\n    {\n      \"denom\": \"stake\",\n      \"amount\": \"50\"\n    }\n  ],\n  \"changes\": [\n    {\n      \"subspace\": \"staking\",\n      \"key\": \"MaxValidators\",\n      \"subkey\": \"\",\n      \"value\": \"<object>\"\n    },\n    {\n      \"subspace\": \"staking\",\n      \"key\": \"MaxValidators\",\n      \"subkey\": \"\",\n      \"value\": \"<object>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "05014376-3002-4efa-9198-f6ed32166ab1",
+          "name": "Query a proposal",
+          "request": {
+            "name": "Query a proposal",
+            "description": {
+              "content": "Query a proposal by id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "gov",
+                "proposals",
+                ":proposalId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "proposalId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e8efdf07-43c2-4dc5-b841-4fe7fd4c548d",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gov",
+                    "proposals",
+                    ":proposalId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "proposalId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"proposal_id\": 8421,\n  \"title\": \"string\",\n  \"description\": \"string\",\n  \"proposal_type\": \"string\",\n  \"proposal_status\": \"string\",\n  \"final_tally_result\": {\n    \"yes\": \"0.0000000000\",\n    \"abstain\": \"0.0000000000\",\n    \"no\": \"0.0000000000\",\n    \"no_with_veto\": \"0.0000000000\"\n  },\n  \"submit_time\": \"string\",\n  \"total_deposit\": [\n    {\n      \"denom\": \"stake\",\n      \"amount\": \"50\"\n    },\n    {\n      \"denom\": \"stake\",\n      \"amount\": \"50\"\n    }\n  ],\n  \"voting_start_time\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6957eecf-8d04-4d1e-b739-524911ba985e",
+              "name": "Invalid proposal id",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gov",
+                    "proposals",
+                    ":proposalId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "proposalId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d5cea2cf-8fc4-4f6a-8c66-c11aff7f67aa",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gov",
+                    "proposals",
+                    ":proposalId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "proposalId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e902dc52-7177-49ef-ab36-e26d50fc52cd",
+          "name": "Query proposer",
+          "request": {
+            "name": "Query proposer",
+            "description": {
+              "content": "Query for the proposer for a proposal",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "gov",
+                "proposals",
+                ":proposalId",
+                "proposer"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "proposalId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fe62e583-530b-483d-9a70-a7ce8a86117f",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gov",
+                    "proposals",
+                    ":proposalId",
+                    "proposer"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "proposalId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"proposal_id\": \"string\",\n  \"proposer\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1706f399-e898-490c-89f1-1899f7a7a1d8",
+              "name": "Invalid proposal ID",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gov",
+                    "proposals",
+                    ":proposalId",
+                    "proposer"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "proposalId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ca4a3d7c-7b50-41ca-99d4-91c62b1c6d99",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gov",
+                    "proposals",
+                    ":proposalId",
+                    "proposer"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "proposalId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1becc881-2405-4b48-ab1c-21cc220dc82b",
+          "name": "Query deposits",
+          "request": {
+            "name": "Query deposits",
+            "description": {
+              "content": "Query deposits by proposalId",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "gov",
+                "proposals",
+                ":proposalId",
+                "deposits"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "proposalId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "88686d76-a568-44ec-947e-8d83eb959ee6",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gov",
+                    "proposals",
+                    ":proposalId",
+                    "deposits"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "proposalId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"amount\": [\n      {\n        \"denom\": \"stake\",\n        \"amount\": \"50\"\n      },\n      {\n        \"denom\": \"stake\",\n        \"amount\": \"50\"\n      }\n    ],\n    \"proposal_id\": \"string\",\n    \"depositor\": \"cosmos1depk54cuajgkzea6zpgkq36tnjwdzv4afc3d27\"\n  },\n  {\n    \"amount\": [\n      {\n        \"denom\": \"stake\",\n        \"amount\": \"50\"\n      },\n      {\n        \"denom\": \"stake\",\n        \"amount\": \"50\"\n      }\n    ],\n    \"proposal_id\": \"string\",\n    \"depositor\": \"cosmos1depk54cuajgkzea6zpgkq36tnjwdzv4afc3d27\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f6fbe956-549e-499c-beea-ed2cba0b8cd8",
+              "name": "Invalid proposal id",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gov",
+                    "proposals",
+                    ":proposalId",
+                    "deposits"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "proposalId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "424665f9-22a1-46be-9b12-2497f5b72062",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gov",
+                    "proposals",
+                    ":proposalId",
+                    "deposits"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "proposalId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "72e04b4e-316e-41c2-9573-3d777dcaef9e",
+          "name": "Deposit tokens to a proposal",
+          "request": {
+            "name": "Deposit tokens to a proposal",
+            "description": {
+              "content": "Send transaction to deposit tokens to a proposal",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "gov",
+                "proposals",
+                ":proposalId",
+                "deposits"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "proposalId",
+                  "description": "(Required) proposal id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"base_req\": {\n    \"from\": \"<string>\",\n    \"memo\": \"<string>\",\n    \"chain_id\": \"<string>\",\n    \"account_number\": \"<string>\",\n    \"sequence\": \"<string>\",\n    \"gas\": \"<string>\",\n    \"gas_adjustment\": \"<string>\",\n    \"fees\": [\n      {\n        \"denom\": \"<string>\",\n        \"amount\": \"<string>\"\n      },\n      {\n        \"denom\": \"<string>\",\n        \"amount\": \"<string>\"\n      }\n    ],\n    \"simulate\": \"<boolean>\"\n  },\n  \"depositor\": \"<string>\",\n  \"amount\": [\n    {\n      \"denom\": \"<string>\",\n      \"amount\": \"<string>\"\n    },\n    {\n      \"denom\": \"<string>\",\n      \"amount\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6ef11cc4-8472-47cf-81c4-5bcc5634e61f",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gov",
+                    "proposals",
+                    ":proposalId",
+                    "deposits"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "proposalId",
+                      "description": "(Required) proposal id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"base_req\": {\n    \"from\": \"cosmos1g9ahr6xhht5rmqven628nklxluzyv8z9jqjcmc\",\n    \"memo\": \"Sent via Cosmos Voyager 🚀\",\n    \"chain_id\": \"Cosmos-Hub\",\n    \"account_number\": \"0\",\n    \"sequence\": \"1\",\n    \"gas\": \"200000\",\n    \"gas_adjustment\": \"1.2\",\n    \"fees\": [\n      {\n        \"denom\": \"stake\",\n        \"amount\": \"50\"\n      },\n      {\n        \"denom\": \"stake\",\n        \"amount\": \"50\"\n      }\n    ],\n    \"simulate\": false\n  },\n  \"depositor\": \"cosmos1depk54cuajgkzea6zpgkq36tnjwdzv4afc3d27\",\n  \"amount\": [\n    {\n      \"denom\": \"stake\",\n      \"amount\": \"50\"\n    },\n    {\n      \"denom\": \"stake\",\n      \"amount\": \"50\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"msg\": [\n    \"string\",\n    \"string\"\n  ],\n  \"fee\": {\n    \"gas\": \"string\",\n    \"amount\": [\n      {\n        \"denom\": \"stake\",\n        \"amount\": \"50\"\n      },\n      {\n        \"denom\": \"stake\",\n        \"amount\": \"50\"\n      }\n    ]\n  },\n  \"memo\": \"string\",\n  \"signature\": {\n    \"signature\": \"MEUCIQD02fsDPra8MtbRsyB1w7bqTM55Wu138zQbFcWx4+CFyAIge5WNPfKIuvzBZ69MyqHsqD8S1IwiEp+iUb6VSdtlpgY=\",\n    \"pub_key\": {\n      \"type\": \"tendermint/PubKeySecp256k1\",\n      \"value\": \"Avz04VhtKJh8ACCVzlI8aTosGy0ikFXKIVHQ3jKMrosH\"\n    },\n    \"account_number\": \"0\",\n    \"sequence\": \"0\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f5cb84a8-a536-4a83-9349-9f3856233e5e",
+              "name": "Invalid proposal id or deposit body",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gov",
+                    "proposals",
+                    ":proposalId",
+                    "deposits"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "proposalId",
+                      "description": "(Required) proposal id"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"base_req\": {\n    \"from\": \"cosmos1g9ahr6xhht5rmqven628nklxluzyv8z9jqjcmc\",\n    \"memo\": \"Sent via Cosmos Voyager 🚀\",\n    \"chain_id\": \"Cosmos-Hub\",\n    \"account_number\": \"0\",\n    \"sequence\": \"1\",\n    \"gas\": \"200000\",\n    \"gas_adjustment\": \"1.2\",\n    \"fees\": [\n      {\n        \"denom\": \"stake\",\n        \"amount\": \"50\"\n      },\n      {\n        \"denom\": \"stake\",\n        \"amount\": \"50\"\n      }\n    ],\n    \"simulate\": false\n  },\n  \"depositor\": \"cosmos1depk54cuajgkzea6zpgkq36tnjwdzv4afc3d27\",\n  \"amount\": [\n    {\n      \"denom\": \"stake\",\n      \"amount\": \"50\"\n    },\n    {\n      \"denom\": \"stake\",\n      \"amount\": \"50\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "40baa934-0347-4dcc-9638-783fab47dc27",
+              "name": "Key password is wrong",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gov",
+                    "proposals",
+                    ":proposalId",
+                    "deposits"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "proposalId",
+                      "description": "(Required) proposal id"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"base_req\": {\n    \"from\": \"cosmos1g9ahr6xhht5rmqven628nklxluzyv8z9jqjcmc\",\n    \"memo\": \"Sent via Cosmos Voyager 🚀\",\n    \"chain_id\": \"Cosmos-Hub\",\n    \"account_number\": \"0\",\n    \"sequence\": \"1\",\n    \"gas\": \"200000\",\n    \"gas_adjustment\": \"1.2\",\n    \"fees\": [\n      {\n        \"denom\": \"stake\",\n        \"amount\": \"50\"\n      },\n      {\n        \"denom\": \"stake\",\n        \"amount\": \"50\"\n      }\n    ],\n    \"simulate\": false\n  },\n  \"depositor\": \"cosmos1depk54cuajgkzea6zpgkq36tnjwdzv4afc3d27\",\n  \"amount\": [\n    {\n      \"denom\": \"stake\",\n      \"amount\": \"50\"\n    },\n    {\n      \"denom\": \"stake\",\n      \"amount\": \"50\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "20303b76-d0db-4dfc-a6ec-26cb1f4688f1",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gov",
+                    "proposals",
+                    ":proposalId",
+                    "deposits"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "proposalId",
+                      "description": "(Required) proposal id"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"base_req\": {\n    \"from\": \"cosmos1g9ahr6xhht5rmqven628nklxluzyv8z9jqjcmc\",\n    \"memo\": \"Sent via Cosmos Voyager 🚀\",\n    \"chain_id\": \"Cosmos-Hub\",\n    \"account_number\": \"0\",\n    \"sequence\": \"1\",\n    \"gas\": \"200000\",\n    \"gas_adjustment\": \"1.2\",\n    \"fees\": [\n      {\n        \"denom\": \"stake\",\n        \"amount\": \"50\"\n      },\n      {\n        \"denom\": \"stake\",\n        \"amount\": \"50\"\n      }\n    ],\n    \"simulate\": false\n  },\n  \"depositor\": \"cosmos1depk54cuajgkzea6zpgkq36tnjwdzv4afc3d27\",\n  \"amount\": [\n    {\n      \"denom\": \"stake\",\n      \"amount\": \"50\"\n    },\n    {\n      \"denom\": \"stake\",\n      \"amount\": \"50\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bf49ec72-d54b-4a72-bd75-117a3a4ebac2",
+          "name": "Query deposit",
+          "request": {
+            "name": "Query deposit",
+            "description": {
+              "content": "Query deposit by proposalId and depositor address",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "gov",
+                "proposals",
+                ":proposalId",
+                "deposits",
+                ":depositor"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "proposalId",
+                  "description": "(Required) proposal id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "depositor",
+                  "description": "(Required) Bech32 depositor address"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "af653fcb-7c77-445c-9e80-914c219f262a",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gov",
+                    "proposals",
+                    ":proposalId",
+                    "deposits",
+                    ":depositor"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "proposalId",
+                      "description": "(Required) proposal id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "depositor",
+                      "description": "(Required) Bech32 depositor address"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"amount\": [\n    {\n      \"denom\": \"stake\",\n      \"amount\": \"50\"\n    },\n    {\n      \"denom\": \"stake\",\n      \"amount\": \"50\"\n    }\n  ],\n  \"proposal_id\": \"string\",\n  \"depositor\": \"cosmos1depk54cuajgkzea6zpgkq36tnjwdzv4afc3d27\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "645515f9-2f23-45e7-aa63-6329034b99b4",
+              "name": "Invalid proposal id or depositor address",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gov",
+                    "proposals",
+                    ":proposalId",
+                    "deposits",
+                    ":depositor"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "proposalId",
+                      "description": "(Required) proposal id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "depositor",
+                      "description": "(Required) Bech32 depositor address"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "efd6fc48-3ad3-40f9-8988-10841990bb42",
+              "name": "Found no deposit",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gov",
+                    "proposals",
+                    ":proposalId",
+                    "deposits",
+                    ":depositor"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "proposalId",
+                      "description": "(Required) proposal id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "depositor",
+                      "description": "(Required) Bech32 depositor address"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "be74e1d3-f9ad-4acc-bc79-2c716d9f3159",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gov",
+                    "proposals",
+                    ":proposalId",
+                    "deposits",
+                    ":depositor"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "proposalId",
+                      "description": "(Required) proposal id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "depositor",
+                      "description": "(Required) Bech32 depositor address"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "803c5eca-e158-4f3a-9009-1523b86fdd38",
+          "name": "Query voters",
+          "request": {
+            "name": "Query voters",
+            "description": {
+              "content": "Query voters information by proposalId",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "gov",
+                "proposals",
+                ":proposalId",
+                "votes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "proposalId",
+                  "description": "(Required) proposal id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e05b0bed-a902-45d4-ac29-dcf5a01b6bfd",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gov",
+                    "proposals",
+                    ":proposalId",
+                    "votes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "proposalId",
+                      "description": "(Required) proposal id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"voter\": \"string\",\n    \"proposal_id\": \"string\",\n    \"option\": \"string\"\n  },\n  {\n    \"voter\": \"string\",\n    \"proposal_id\": \"string\",\n    \"option\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5aaa6a77-abef-41af-b48e-a190c78011cc",
+              "name": "Invalid proposal id",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gov",
+                    "proposals",
+                    ":proposalId",
+                    "votes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "proposalId",
+                      "description": "(Required) proposal id"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "257c8a61-1407-4a1c-ae62-b2d144f5f020",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gov",
+                    "proposals",
+                    ":proposalId",
+                    "votes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "proposalId",
+                      "description": "(Required) proposal id"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "907623f5-a7d8-4130-bb46-fd3c4824a1d7",
+          "name": "Vote a proposal",
+          "request": {
+            "name": "Vote a proposal",
+            "description": {
+              "content": "Send transaction to vote a proposal",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "gov",
+                "proposals",
+                ":proposalId",
+                "votes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "proposalId",
+                  "description": "(Required) proposal id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"base_req\": {\n    \"from\": \"<string>\",\n    \"memo\": \"<string>\",\n    \"chain_id\": \"<string>\",\n    \"account_number\": \"<string>\",\n    \"sequence\": \"<string>\",\n    \"gas\": \"<string>\",\n    \"gas_adjustment\": \"<string>\",\n    \"fees\": [\n      {\n        \"denom\": \"<string>\",\n        \"amount\": \"<string>\"\n      },\n      {\n        \"denom\": \"<string>\",\n        \"amount\": \"<string>\"\n      }\n    ],\n    \"simulate\": \"<boolean>\"\n  },\n  \"voter\": \"<string>\",\n  \"option\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7ae5c95b-36d2-4679-bb4b-279623a10669",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gov",
+                    "proposals",
+                    ":proposalId",
+                    "votes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "proposalId",
+                      "description": "(Required) proposal id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"base_req\": {\n    \"from\": \"cosmos1g9ahr6xhht5rmqven628nklxluzyv8z9jqjcmc\",\n    \"memo\": \"Sent via Cosmos Voyager 🚀\",\n    \"chain_id\": \"Cosmos-Hub\",\n    \"account_number\": \"0\",\n    \"sequence\": \"1\",\n    \"gas\": \"200000\",\n    \"gas_adjustment\": \"1.2\",\n    \"fees\": [\n      {\n        \"denom\": \"stake\",\n        \"amount\": \"50\"\n      },\n      {\n        \"denom\": \"stake\",\n        \"amount\": \"50\"\n      }\n    ],\n    \"simulate\": false\n  },\n  \"voter\": \"cosmos1depk54cuajgkzea6zpgkq36tnjwdzv4afc3d27\",\n  \"option\": \"yes\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"msg\": [\n    \"string\",\n    \"string\"\n  ],\n  \"fee\": {\n    \"gas\": \"string\",\n    \"amount\": [\n      {\n        \"denom\": \"stake\",\n        \"amount\": \"50\"\n      },\n      {\n        \"denom\": \"stake\",\n        \"amount\": \"50\"\n      }\n    ]\n  },\n  \"memo\": \"string\",\n  \"signature\": {\n    \"signature\": \"MEUCIQD02fsDPra8MtbRsyB1w7bqTM55Wu138zQbFcWx4+CFyAIge5WNPfKIuvzBZ69MyqHsqD8S1IwiEp+iUb6VSdtlpgY=\",\n    \"pub_key\": {\n      \"type\": \"tendermint/PubKeySecp256k1\",\n      \"value\": \"Avz04VhtKJh8ACCVzlI8aTosGy0ikFXKIVHQ3jKMrosH\"\n    },\n    \"account_number\": \"0\",\n    \"sequence\": \"0\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d2530f28-dd6f-4836-94c9-990c3b0bd563",
+              "name": "Invalid proposal id or vote body",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gov",
+                    "proposals",
+                    ":proposalId",
+                    "votes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "proposalId",
+                      "description": "(Required) proposal id"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"base_req\": {\n    \"from\": \"cosmos1g9ahr6xhht5rmqven628nklxluzyv8z9jqjcmc\",\n    \"memo\": \"Sent via Cosmos Voyager 🚀\",\n    \"chain_id\": \"Cosmos-Hub\",\n    \"account_number\": \"0\",\n    \"sequence\": \"1\",\n    \"gas\": \"200000\",\n    \"gas_adjustment\": \"1.2\",\n    \"fees\": [\n      {\n        \"denom\": \"stake\",\n        \"amount\": \"50\"\n      },\n      {\n        \"denom\": \"stake\",\n        \"amount\": \"50\"\n      }\n    ],\n    \"simulate\": false\n  },\n  \"voter\": \"cosmos1depk54cuajgkzea6zpgkq36tnjwdzv4afc3d27\",\n  \"option\": \"yes\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ace9f49a-5c87-4a54-ac28-0d60254d1f58",
+              "name": "Key password is wrong",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gov",
+                    "proposals",
+                    ":proposalId",
+                    "votes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "proposalId",
+                      "description": "(Required) proposal id"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"base_req\": {\n    \"from\": \"cosmos1g9ahr6xhht5rmqven628nklxluzyv8z9jqjcmc\",\n    \"memo\": \"Sent via Cosmos Voyager 🚀\",\n    \"chain_id\": \"Cosmos-Hub\",\n    \"account_number\": \"0\",\n    \"sequence\": \"1\",\n    \"gas\": \"200000\",\n    \"gas_adjustment\": \"1.2\",\n    \"fees\": [\n      {\n        \"denom\": \"stake\",\n        \"amount\": \"50\"\n      },\n      {\n        \"denom\": \"stake\",\n        \"amount\": \"50\"\n      }\n    ],\n    \"simulate\": false\n  },\n  \"voter\": \"cosmos1depk54cuajgkzea6zpgkq36tnjwdzv4afc3d27\",\n  \"option\": \"yes\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8584d0bb-fc03-41c3-be46-1d3670c48544",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gov",
+                    "proposals",
+                    ":proposalId",
+                    "votes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "proposalId",
+                      "description": "(Required) proposal id"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"base_req\": {\n    \"from\": \"cosmos1g9ahr6xhht5rmqven628nklxluzyv8z9jqjcmc\",\n    \"memo\": \"Sent via Cosmos Voyager 🚀\",\n    \"chain_id\": \"Cosmos-Hub\",\n    \"account_number\": \"0\",\n    \"sequence\": \"1\",\n    \"gas\": \"200000\",\n    \"gas_adjustment\": \"1.2\",\n    \"fees\": [\n      {\n        \"denom\": \"stake\",\n        \"amount\": \"50\"\n      },\n      {\n        \"denom\": \"stake\",\n        \"amount\": \"50\"\n      }\n    ],\n    \"simulate\": false\n  },\n  \"voter\": \"cosmos1depk54cuajgkzea6zpgkq36tnjwdzv4afc3d27\",\n  \"option\": \"yes\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "055d66a6-1dd1-4fa3-82ae-d7f5046356b0",
+          "name": "Query vote",
+          "request": {
+            "name": "Query vote",
+            "description": {
+              "content": "Query vote information by proposal Id and voter address",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "gov",
+                "proposals",
+                ":proposalId",
+                "votes",
+                ":voter"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "proposalId",
+                  "description": "(Required) proposal id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "voter",
+                  "description": "(Required) Bech32 voter address"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c26907d5-0d37-4ad2-b249-5633e7a87102",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gov",
+                    "proposals",
+                    ":proposalId",
+                    "votes",
+                    ":voter"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "proposalId",
+                      "description": "(Required) proposal id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "voter",
+                      "description": "(Required) Bech32 voter address"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"voter\": \"string\",\n  \"proposal_id\": \"string\",\n  \"option\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bcdcb24d-280f-4925-a51e-3f9fda489137",
+              "name": "Invalid proposal id or voter address",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gov",
+                    "proposals",
+                    ":proposalId",
+                    "votes",
+                    ":voter"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "proposalId",
+                      "description": "(Required) proposal id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "voter",
+                      "description": "(Required) Bech32 voter address"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8ba7937b-b8de-401e-a594-4d41a7955dbd",
+              "name": "Found no vote",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gov",
+                    "proposals",
+                    ":proposalId",
+                    "votes",
+                    ":voter"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "proposalId",
+                      "description": "(Required) proposal id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "voter",
+                      "description": "(Required) Bech32 voter address"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e5b6388e-65c7-4681-99ca-b5105d95bd7f",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gov",
+                    "proposals",
+                    ":proposalId",
+                    "votes",
+                    ":voter"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "proposalId",
+                      "description": "(Required) proposal id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "voter",
+                      "description": "(Required) Bech32 voter address"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5b6a16d4-d45e-4f70-a227-3f67ffeceec7",
+          "name": "Get a proposal's tally result at the current time",
+          "request": {
+            "name": "Get a proposal's tally result at the current time",
+            "description": {
+              "content": "Gets a proposal's tally result at the current time. If the proposal is pending deposits (i.e status 'DepositPeriod') it returns an empty tally result.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "gov",
+                "proposals",
+                ":proposalId",
+                "tally"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "proposalId",
+                  "description": "(Required) proposal id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "df483d7c-daa2-47cc-a563-18d93be2c66c",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gov",
+                    "proposals",
+                    ":proposalId",
+                    "tally"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "proposalId",
+                      "description": "(Required) proposal id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"yes\": \"0.0000000000\",\n  \"abstain\": \"0.0000000000\",\n  \"no\": \"0.0000000000\",\n  \"no_with_veto\": \"0.0000000000\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ea464781-80d8-42f3-aeed-82eec0f436ad",
+              "name": "Invalid proposal id",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gov",
+                    "proposals",
+                    ":proposalId",
+                    "tally"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "proposalId",
+                      "description": "(Required) proposal id"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5d670990-3114-4f76-a3d4-68632041ab34",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gov",
+                    "proposals",
+                    ":proposalId",
+                    "tally"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "proposalId",
+                      "description": "(Required) proposal id"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "490aae2a-e185-4759-9f2c-24ccb34efdd2",
+          "name": "Query governance deposit parameters",
+          "request": {
+            "name": "Query governance deposit parameters",
+            "description": {
+              "content": "Query governance deposit parameters. The max_deposit_period units are in nanoseconds.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "gov",
+                "parameters",
+                "deposit"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "68f24dfe-5dfc-4696-8502-b2e95713bd70",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gov",
+                    "parameters",
+                    "deposit"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"min_deposit\": [\n    {\n      \"denom\": \"stake\",\n      \"amount\": \"50\"\n    },\n    {\n      \"denom\": \"stake\",\n      \"amount\": \"50\"\n    }\n  ],\n  \"max_deposit_period\": \"86400000000000\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "00b6dbd7-dabe-4769-a2d4-937fce499530",
+              "name": "<other_path> is not a valid query request path",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gov",
+                    "parameters",
+                    "deposit"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5eddfa43-6f0c-4427-b80a-b511079cd1be",
+              "name": "Found no deposit parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gov",
+                    "parameters",
+                    "deposit"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "02a2b30e-0946-43e7-8ad3-19f46817e651",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gov",
+                    "parameters",
+                    "deposit"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "df53bd67-f1a1-4229-981b-473b891c351c",
+          "name": "Query governance tally parameters",
+          "request": {
+            "name": "Query governance tally parameters",
+            "description": {
+              "content": "Query governance tally parameters",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "gov",
+                "parameters",
+                "tallying"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6a6a8867-10df-4193-9c1d-de75dd5bcd7b",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gov",
+                    "parameters",
+                    "tallying"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"threshold\": \"0.5000000000\",\n  \"veto\": \"0.3340000000\",\n  \"governance_penalty\": \"0.0100000000\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d3e10932-7c29-4ae2-a230-702c3fd576c2",
+              "name": "<other_path> is not a valid query request path",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gov",
+                    "parameters",
+                    "tallying"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "59214943-8461-435d-b811-51ed8912814d",
+              "name": "Found no tally parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gov",
+                    "parameters",
+                    "tallying"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c5512da5-9092-44ee-b0dc-f7f69f947758",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gov",
+                    "parameters",
+                    "tallying"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "db8fbee0-b103-446f-8377-b9240c04f42e",
+          "name": "Query governance voting parameters",
+          "request": {
+            "name": "Query governance voting parameters",
+            "description": {
+              "content": "Query governance voting parameters. The voting_period units are in nanoseconds.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "gov",
+                "parameters",
+                "voting"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f4f6be22-4ab6-43f4-bd3d-d85a7392f18c",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gov",
+                    "parameters",
+                    "voting"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"voting_period\": \"86400000000000\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7c559d0e-3915-4f8b-b280-d672f5ff3548",
+              "name": "<other_path> is not a valid query request path",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gov",
+                    "parameters",
+                    "voting"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "fc4f1506-98c7-4545-93bc-0c907c2c0a45",
+              "name": "Found no voting parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gov",
+                    "parameters",
+                    "voting"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c3116c64-d7c7-47cf-8cc9-de36b163cd69",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gov",
+                    "parameters",
+                    "voting"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "bf546db1-e5cd-4471-bc35-9d0ed0190f46",
+    "name": "AKASH - gRPC Gateway docs Addresses Governance API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "A REST interface for state queries",
+      "type": "text/plain"
+    }
+  }
+}

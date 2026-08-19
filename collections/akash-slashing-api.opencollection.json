@@ -1,0 +1,73 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "AKASH - gRPC Gateway docs Addresses Slashing API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Slashing",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get sign info of given all validators",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/slashing/signing_infos",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of items per page"
+              }
+            ]
+          },
+          "docs": "Get sign info of all validators"
+        },
+        {
+          "info": {
+            "name": "Unjail a jailed validator",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/slashing/validators/:validatorAddr/unjail",
+            "params": [
+              {
+                "name": "validatorAddr",
+                "value": "",
+                "type": "path",
+                "description": "Bech32 validator address"
+              }
+            ]
+          },
+          "docs": "Send transaction to unjail a jailed validator"
+        },
+        {
+          "info": {
+            "name": "Get the current slashing parameters",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/slashing/parameters"
+          },
+          "docs": "Get the current slashing parameters"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

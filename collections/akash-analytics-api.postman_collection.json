@@ -1,0 +1,953 @@
+{
+  "item": [
+    {
+      "id": "61674fa5-633c-4919-88e6-2fe3bf3c9ba8",
+      "name": "Analytics",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3e4e4180-072e-4686-a6e2-0366d2357b61",
+          "name": "/v1/providers/:providerAddress/active-leases-graph-data",
+          "request": {
+            "name": "/v1/providers/:providerAddress/active-leases-graph-data",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "providers",
+                ":providerAddress",
+                "active-leases-graph-data"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "providerAddress",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5eeddb66-de3f-4d9b-bbaa-45a972f28583",
+              "name": "Returns a provider's active leases graph data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "providers",
+                    ":providerAddress",
+                    "active-leases-graph-data"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "providerAddress",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"currentValue\": 6373.67097263449,\n  \"compareValue\": 1400.7053521936707,\n  \"snapshots\": [\n    {\n      \"date\": \"2021-07-01T00:00:00.000Z\",\n      \"value\": 100\n    },\n    {\n      \"date\": \"2021-07-01T00:00:00.000Z\",\n      \"value\": 100\n    }\n  ],\n  \"now\": {\n    \"count\": 100\n  },\n  \"compare\": {\n    \"count\": 100\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "feafcdbf-7e9c-4f8f-b040-584896ce0468",
+              "name": "Invalid address",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "providers",
+                    ":providerAddress",
+                    "active-leases-graph-data"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "providerAddress",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cbbe62b9-aeb9-495d-96f4-a2950d3011b9",
+          "name": "/v1/provider-graph-data/:dataName",
+          "request": {
+            "name": "/v1/provider-graph-data/:dataName",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "provider-graph-data",
+                ":dataName"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "dataName",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "33e0a8e4-1873-4d42-a1fc-0e91638c77c3",
+              "name": "Returns provider graph data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "provider-graph-data",
+                    ":dataName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dataName",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"currentValue\": 1839.6891150478878,\n  \"compareValue\": 1141.4576954253964,\n  \"snapshots\": [\n    {\n      \"date\": \"2021-07-01T00:00:00.000Z\",\n      \"value\": 100\n    },\n    {\n      \"date\": \"2021-07-01T00:00:00.000Z\",\n      \"value\": 100\n    }\n  ],\n  \"now\": {\n    \"count\": 100,\n    \"cpu\": 100,\n    \"gpu\": 100,\n    \"memory\": 100,\n    \"storage\": 100\n  },\n  \"compare\": {\n    \"count\": 100,\n    \"cpu\": 100,\n    \"gpu\": 100,\n    \"memory\": 100,\n    \"storage\": 100\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f4a9a8eb-9362-4e1f-a087-4b2dbbe0122a",
+              "name": "Graph data not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "provider-graph-data",
+                    ":dataName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dataName",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2f7cdcd5-3cb4-4be7-9724-4602a0d7f4b0",
+          "name": "/v1/graph-data/:dataName",
+          "request": {
+            "name": "/v1/graph-data/:dataName",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "graph-data",
+                ":dataName"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "dataName",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "01db9fd2-6dec-4872-a46f-348d45d58b42",
+              "name": "Returns graph data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "graph-data",
+                    ":dataName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dataName",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"currentValue\": 5635.306271298796,\n  \"compareValue\": 9568.704306150486,\n  \"snapshots\": [\n    {\n      \"date\": \"2021-07-01T00:00:00.000Z\",\n      \"value\": 100\n    },\n    {\n      \"date\": \"2021-07-01T00:00:00.000Z\",\n      \"value\": 100\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7fe4806b-3982-4aa3-903e-f65511c64d10",
+              "name": "Graph data not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "graph-data",
+                    ":dataName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dataName",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dee71ed4-8dbf-41ff-a464-67839d6177ba",
+          "name": "/v1/bme/dashboard-data",
+          "request": {
+            "name": "/v1/bme/dashboard-data",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "bme",
+                "dashboard-data"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ea73f085-fa88-48dd-b0cc-52909c3e1c31",
+              "name": "Returns BME dashboard data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "bme",
+                    "dashboard-data"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"now\": {\n    \"date\": \"string\",\n    \"outstandingAct\": 9877.849065844952,\n    \"vaultAkt\": 3290.43774608176,\n    \"collateralRatio\": 6420.520615444447,\n    \"dailyAktBurnedForAct\": 3483.596878704659,\n    \"totalAktBurnedForAct\": 2818.769909710368,\n    \"dailyActMinted\": 602.8836417575856,\n    \"totalActMinted\": 4077.997094966552,\n    \"dailyActBurnedForAkt\": 7599.685830229141,\n    \"totalActBurnedForAkt\": 422.5579198243512,\n    \"dailyAktReminted\": 102.48988942130555,\n    \"totalAktReminted\": 9742.63342371708,\n    \"dailyNetAktBurned\": 3062.8642819502306,\n    \"netAktBurned\": 559.4391341442296\n  },\n  \"compare\": {\n    \"date\": \"string\",\n    \"outstandingAct\": 1835.0496817775563,\n    \"vaultAkt\": 9323.881678905174,\n    \"collateralRatio\": 2867.1489139845917,\n    \"dailyAktBurnedForAct\": 2550.1298566003807,\n    \"totalAktBurnedForAct\": 7916.019884359017,\n    \"dailyActMinted\": 1015.9722299836138,\n    \"totalActMinted\": 5409.220470001145,\n    \"dailyActBurnedForAkt\": 9101.440372693765,\n    \"totalActBurnedForAkt\": 6000.270406842252,\n    \"dailyAktReminted\": 7099.923171062908,\n    \"totalAktReminted\": 8737.27405642613,\n    \"dailyNetAktBurned\": 251.19716000875815,\n    \"netAktBurned\": 1979.3867725066793\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b19b33fd-ddf3-4c58-a53e-11785623279e",
+          "name": "/v1/bme/status-history",
+          "request": {
+            "name": "/v1/bme/status-history",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "bme",
+                "status-history"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "42ae83d1-cf64-4fa5-b44a-9be0ced0559b",
+              "name": "Returns BME circuit breaker status change history",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "bme",
+                    "status-history"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"height\": 12345678,\n    \"date\": \"2024-01-01T00:00:00.000Z\",\n    \"previousStatus\": \"healthy\",\n    \"newStatus\": \"warning\",\n    \"collateralRatio\": 1.5\n  },\n  {\n    \"height\": 12345678,\n    \"date\": \"2024-01-01T00:00:00.000Z\",\n    \"previousStatus\": \"healthy\",\n    \"newStatus\": \"warning\",\n    \"collateralRatio\": 1.5\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0db40788-44ab-4be3-89e0-58d960993697",
+          "name": "/v1/dashboard-data",
+          "request": {
+            "name": "/v1/dashboard-data",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "dashboard-data"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4435ac86-9f3c-4c4f-b96c-4c46005f1105",
+              "name": "Returns dashboard data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "dashboard-data"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"chainStats\": {\n    \"height\": 2792.151366624577,\n    \"transactionCount\": 4092.7520915322502,\n    \"bondedTokens\": 1789.4425860829556,\n    \"totalSupply\": 7693.593700778315,\n    \"communityPool\": 3576.518228116198,\n    \"inflation\": 5241.733232721871,\n    \"stakingAPR\": 1811.900338872302\n  },\n  \"now\": {\n    \"date\": \"string\",\n    \"height\": 1469.6517631375027,\n    \"activeLeaseCount\": 5318.547446981889,\n    \"totalLeaseCount\": 6827.937517190392,\n    \"dailyLeaseCount\": 9747.448648486477,\n    \"totalUAktSpent\": 1461.7609185555925,\n    \"dailyUAktSpent\": 817.1326968749026,\n    \"totalUActSpent\": 1603.7572035799185,\n    \"dailyUActSpent\": 5790.224485870921,\n    \"totalUUsdcSpent\": 4565.525103100111,\n    \"dailyUUsdcSpent\": 799.4915070836684,\n    \"totalUUsdSpent\": 3573.6848477659664,\n    \"dailyUUsdSpent\": 940.0544649296505,\n    \"activeCPU\": 6741.152955357032,\n    \"activeGPU\": 4859.167648869299,\n    \"activeMemory\": 4332.288528329163,\n    \"activeStorage\": 5978.885305921645\n  },\n  \"compare\": {\n    \"date\": \"string\",\n    \"height\": 6829.447252335204,\n    \"activeLeaseCount\": 1793.904689375726,\n    \"totalLeaseCount\": 4964.952714808107,\n    \"dailyLeaseCount\": 1744.8458863464812,\n    \"totalUAktSpent\": 9683.502066612256,\n    \"dailyUAktSpent\": 2952.889428057818,\n    \"totalUActSpent\": 7025.473024296672,\n    \"dailyUActSpent\": 5775.2134895056615,\n    \"totalUUsdcSpent\": 6015.813367772837,\n    \"dailyUUsdcSpent\": 1772.2525662863497,\n    \"totalUUsdSpent\": 4095.5553881530227,\n    \"dailyUUsdSpent\": 5147.989149511976,\n    \"activeCPU\": 2911.189821092457,\n    \"activeGPU\": 5045.422790467229,\n    \"activeMemory\": 2293.2177202870676,\n    \"activeStorage\": 1795.5575801060043\n  },\n  \"networkCapacity\": {\n    \"activeProviderCount\": 3444.1928288475674,\n    \"activeCPU\": 7734.084263118404,\n    \"activeGPU\": 214.1897937846937,\n    \"activeMemory\": 463.06721927907745,\n    \"activeStorage\": 7883.052167354098,\n    \"pendingCPU\": 4245.260830571158,\n    \"pendingGPU\": 2733.504805919058,\n    \"pendingMemory\": 5485.134475975635,\n    \"pendingStorage\": 6919.170401210474,\n    \"availableCPU\": 9635.911305555344,\n    \"availableGPU\": 3212.876693903093,\n    \"availableMemory\": 5352.755735964395,\n    \"availableStorage\": 3165.4736787419133,\n    \"totalCPU\": 9642.301754974786,\n    \"totalGPU\": 3211.6348846836527,\n    \"totalMemory\": 8036.346373329711,\n    \"totalStorage\": 2626.8738255441317,\n    \"activeEphemeralStorage\": 6854.377059922241,\n    \"pendingEphemeralStorage\": 5200.4851120287785,\n    \"availableEphemeralStorage\": 5117.010413551031,\n    \"activePersistentStorage\": 6223.42971586665,\n    \"pendingPersistentStorage\": 8041.869396301849,\n    \"availablePersistentStorage\": 2516.943572398709,\n    \"totalEphemeralStorage\": 7379.490043896476,\n    \"totalPersistentStorage\": 7863.483101536428\n  },\n  \"networkCapacityStats\": {\n    \"currentValue\": 9855.454772973028,\n    \"compareValue\": 3315.2159839114915,\n    \"snapshots\": [\n      {\n        \"date\": \"string\",\n        \"value\": 3955.0211121846\n      },\n      {\n        \"date\": \"string\",\n        \"value\": 6843.2497317426\n      }\n    ],\n    \"now\": {\n      \"count\": 5991.443730652483,\n      \"cpu\": 6292.132159133293,\n      \"gpu\": 8889.571195617047,\n      \"memory\": 8954.819301131854,\n      \"storage\": 3365.994839408889\n    },\n    \"compare\": {\n      \"count\": 3114.7332317659993,\n      \"cpu\": 3692.479110694422,\n      \"gpu\": 6465.025827810521,\n      \"memory\": 4562.409498665465,\n      \"storage\": 8458.654977908114\n    }\n  },\n  \"latestBlocks\": [\n    {\n      \"height\": 3174.639970532068,\n      \"proposer\": {\n        \"address\": \"string\",\n        \"operatorAddress\": \"string\",\n        \"moniker\": \"string\",\n        \"avatarUrl\": \"string\"\n      },\n      \"transactionCount\": 802.8466286114111,\n      \"totalTransactionCount\": 3532.705444695574,\n      \"datetime\": \"string\"\n    },\n    {\n      \"height\": 6657.206674663081,\n      \"proposer\": {\n        \"address\": \"string\",\n        \"operatorAddress\": \"string\",\n        \"moniker\": \"string\",\n        \"avatarUrl\": \"string\"\n      },\n      \"transactionCount\": 2411.1915596413414,\n      \"totalTransactionCount\": 8043.691142828489,\n      \"datetime\": \"string\"\n    }\n  ],\n  \"latestTransactions\": [\n    {\n      \"height\": 6447.626451442526,\n      \"datetime\": \"string\",\n      \"hash\": \"string\",\n      \"isSuccess\": false,\n      \"error\": \"string\",\n      \"gasUsed\": 3781.995203102283,\n      \"gasWanted\": 5361.719225230885,\n      \"fee\": 2136.339876482751,\n      \"memo\": \"string\",\n      \"messages\": [\n        {\n          \"id\": \"string\",\n          \"type\": \"string\",\n          \"amount\": 2041.4979630619766\n        },\n        {\n          \"id\": \"string\",\n          \"type\": \"string\",\n          \"amount\": 4954.770006266443\n        }\n      ]\n    },\n    {\n      \"height\": 2655.1937911362857,\n      \"datetime\": \"string\",\n      \"hash\": \"string\",\n      \"isSuccess\": true,\n      \"error\": \"string\",\n      \"gasUsed\": 5740.123577585778,\n      \"gasWanted\": 4382.175462078477,\n      \"fee\": 5100.246652652617,\n      \"memo\": \"string\",\n      \"messages\": [\n        {\n          \"id\": \"string\",\n          \"type\": \"string\",\n          \"amount\": 6001.5444877422415\n        },\n        {\n          \"id\": \"string\",\n          \"type\": \"string\",\n          \"amount\": 7296.370075332399\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0c60b8e9-945b-4038-a15c-107328d51dfc",
+          "name": "/v1/network-capacity",
+          "request": {
+            "name": "/v1/network-capacity",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "network-capacity"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "601df2e0-61b2-4db3-aaa2-7eeb42010f3f",
+              "name": "Returns network capacity stats",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "network-capacity"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"activeProviderCount\": 9121.212500997717,\n  \"resources\": {\n    \"cpu\": {\n      \"active\": 6495.6279013847225,\n      \"pending\": 498.7239909557317,\n      \"available\": 3839.4774624555316,\n      \"total\": 8822.038853754957\n    },\n    \"gpu\": {\n      \"active\": 3514.016315344878,\n      \"pending\": 9697.301758679214,\n      \"available\": 9019.216070537135,\n      \"total\": 4115.4933229046865\n    },\n    \"memory\": {\n      \"active\": 9533.479386510571,\n      \"pending\": 3008.8913965019883,\n      \"available\": 3962.4144740896472,\n      \"total\": 8132.15535351545\n    },\n    \"storage\": {\n      \"ephemeral\": {\n        \"active\": 2173.607171830755,\n        \"pending\": 7291.087145948645,\n        \"available\": 495.90270960426676,\n        \"total\": 3563.0477334650413\n      },\n      \"persistent\": {\n        \"active\": 6301.341760188271,\n        \"pending\": 2463.5371871341326,\n        \"available\": 1979.0660487340128,\n        \"total\": 6746.865124581487\n      },\n      \"total\": {\n        \"active\": 9799.775569521937,\n        \"pending\": 943.466824371656,\n        \"available\": 5562.174930685897,\n        \"total\": 3465.5113748101253\n      }\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "66f69ea3-4359-48fa-aec4-36ca8bff3348",
+          "name": "/v1/market-data/:coin?",
+          "request": {
+            "name": "/v1/market-data/:coin?",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "market-data",
+                ":coin"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "",
+                  "value": "null"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "akt",
+                  "key": "coin",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "769ca699-972f-456c-b859-029722242494",
+              "name": "Returns market stats",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "market-data",
+                    ":coin"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "akt",
+                      "key": "coin",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"price\": 2914.6035596822207,\n  \"volume\": 1663.3061951773986,\n  \"marketCap\": 9208.832718505333,\n  \"marketCapRank\": 3135.168648423515,\n  \"priceChange24h\": 5773.629736631695,\n  \"priceChangePercentage24\": 3011.965463641283\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "89375539-4824-44c7-834c-7cd29e9796de",
+          "name": "Get leases durations.",
+          "request": {
+            "name": "Get leases durations.",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "leases-duration",
+                ":owner"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "dseq",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "startDate",
+                  "value": "2000-01-01"
+                },
+                {
+                  "disabled": false,
+                  "key": "endDate",
+                  "value": "2100-01-01"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "owner",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "42f3fc90-0c3f-47c4-ab66-e9c31e6eb421",
+              "name": "List of leases durations and total duration.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "leases-duration",
+                    ":owner"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "dseq",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "startDate",
+                      "value": "2000-01-01"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "2100-01-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "owner",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"leaseCount\": 5714.957782229157,\n  \"totalDurationInSeconds\": 6268.494760893916,\n  \"totalDurationInHours\": 1014.1705352466768,\n  \"leases\": [\n    {\n      \"dseq\": \"dddddddddd\",\n      \"oseq\": 7276.460619700433,\n      \"gseq\": 1787.9420618603635,\n      \"provider\": \"string\",\n      \"startHeight\": 7764.407367864842,\n      \"startDate\": \"string\",\n      \"closedHeight\": 4133.001668216546,\n      \"closedDate\": \"string\",\n      \"durationInBlocks\": 8790.475331416485,\n      \"durationInSeconds\": 1791.8740613759098,\n      \"durationInHours\": 3365.987353700184\n    },\n    {\n      \"dseq\": \"dddd\",\n      \"oseq\": 2236.7200163070024,\n      \"gseq\": 1868.8900742785663,\n      \"provider\": \"string\",\n      \"startHeight\": 3071.6023213560607,\n      \"startDate\": \"string\",\n      \"closedHeight\": 2330.914276982614,\n      \"closedDate\": \"string\",\n      \"durationInBlocks\": 2649.777582430368,\n      \"durationInSeconds\": 6332.063201488448,\n      \"durationInHours\": 697.2482933058444\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3ed44043-4a3a-419b-b5ef-061e1d0c1c95",
+              "name": "Invalid start date, must be in the following format: YYYY-MM-DD",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "leases-duration",
+                    ":owner"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "dseq",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "startDate",
+                      "value": "2000-01-01"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "2100-01-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "owner",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "6dc6eb3d-5007-4655-8e5a-3acd8ef2e8f1",
+    "name": "AKASH - gRPC Gateway docs Addresses Analytics API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "A REST interface for state queries",
+      "type": "text/plain"
+    }
+  }
+}

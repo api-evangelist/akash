@@ -1,0 +1,242 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "AKASH - gRPC Gateway docs Addresses Distribution API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Distribution",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get the total rewards balance from all delegations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/distribution/delegators/:delegatorAddr/rewards",
+            "params": [
+              {
+                "name": "delegatorAddr",
+                "value": "",
+                "type": "path",
+                "description": "Bech32 AccAddress of Delegator"
+              }
+            ]
+          },
+          "docs": "Get the sum of all the rewards earned by delegations by a single delegator"
+        },
+        {
+          "info": {
+            "name": "Withdraw all the delegator's delegation rewards",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/distribution/delegators/:delegatorAddr/rewards",
+            "params": [
+              {
+                "name": "delegatorAddr",
+                "value": "",
+                "type": "path",
+                "description": "Bech32 AccAddress of Delegator"
+              }
+            ]
+          },
+          "docs": "Withdraw all the delegator's delegation rewards"
+        },
+        {
+          "info": {
+            "name": "Query a delegation reward",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/distribution/delegators/:delegatorAddr/rewards/:validatorAddr",
+            "params": [
+              {
+                "name": "delegatorAddr",
+                "value": "",
+                "type": "path",
+                "description": "Bech32 AccAddress of Delegator"
+              },
+              {
+                "name": "validatorAddr",
+                "value": "",
+                "type": "path",
+                "description": "Bech32 OperatorAddress of validator"
+              }
+            ]
+          },
+          "docs": "Query a single delegation reward by a delegator"
+        },
+        {
+          "info": {
+            "name": "Withdraw a delegation reward",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/distribution/delegators/:delegatorAddr/rewards/:validatorAddr",
+            "params": [
+              {
+                "name": "delegatorAddr",
+                "value": "",
+                "type": "path",
+                "description": "Bech32 AccAddress of Delegator"
+              },
+              {
+                "name": "validatorAddr",
+                "value": "",
+                "type": "path",
+                "description": "Bech32 OperatorAddress of validator"
+              }
+            ]
+          },
+          "docs": "Withdraw a delegator's delegation reward from a single validator"
+        },
+        {
+          "info": {
+            "name": "Get the rewards withdrawal address",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/distribution/delegators/:delegatorAddr/withdraw_address",
+            "params": [
+              {
+                "name": "delegatorAddr",
+                "value": "",
+                "type": "path",
+                "description": "Bech32 AccAddress of Delegator"
+              }
+            ]
+          },
+          "docs": "Get the delegations' rewards withdrawal address. This is the address in which the user will receive the reward funds"
+        },
+        {
+          "info": {
+            "name": "Replace the rewards withdrawal address",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/distribution/delegators/:delegatorAddr/withdraw_address",
+            "params": [
+              {
+                "name": "delegatorAddr",
+                "value": "",
+                "type": "path",
+                "description": "Bech32 AccAddress of Delegator"
+              }
+            ]
+          },
+          "docs": "Replace the delegations' rewards withdrawal address for a new one."
+        },
+        {
+          "info": {
+            "name": "Validator distribution information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/distribution/validators/:validatorAddr",
+            "params": [
+              {
+                "name": "validatorAddr",
+                "value": "",
+                "type": "path",
+                "description": "Bech32 OperatorAddress of validator"
+              }
+            ]
+          },
+          "docs": "Query the distribution information of a single validator"
+        },
+        {
+          "info": {
+            "name": "Fee distribution outstanding rewards of a single validator",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/distribution/validators/:validatorAddr/outstanding_rewards",
+            "params": [
+              {
+                "name": "validatorAddr",
+                "value": "",
+                "type": "path",
+                "description": "Bech32 OperatorAddress of validator"
+              }
+            ]
+          },
+          "docs": "Fee distribution outstanding rewards of a single validator"
+        },
+        {
+          "info": {
+            "name": "Commission and self-delegation rewards of a single validator",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/distribution/validators/:validatorAddr/rewards",
+            "params": [
+              {
+                "name": "validatorAddr",
+                "value": "",
+                "type": "path",
+                "description": "Bech32 OperatorAddress of validator"
+              }
+            ]
+          },
+          "docs": "Query the commission and self-delegation rewards of validator."
+        },
+        {
+          "info": {
+            "name": "Withdraw the validator's rewards",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/distribution/validators/:validatorAddr/rewards",
+            "params": [
+              {
+                "name": "validatorAddr",
+                "value": "",
+                "type": "path",
+                "description": "Bech32 OperatorAddress of validator"
+              }
+            ]
+          },
+          "docs": "Withdraw the validator's self-delegation and commissions rewards"
+        },
+        {
+          "info": {
+            "name": "Community pool parameters",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/distribution/community_pool"
+          },
+          "docs": "Community pool parameters"
+        },
+        {
+          "info": {
+            "name": "Fee distribution parameters",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/distribution/parameters"
+          },
+          "docs": "Fee distribution parameters"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

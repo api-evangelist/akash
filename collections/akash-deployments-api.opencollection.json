@@ -1,0 +1,308 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "AKASH - gRPC Gateway docs Addresses Deployments API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Deployments",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get a deployment",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/deployments/:dseq",
+            "params": [
+              {
+                "name": "dseq",
+                "value": "",
+                "type": "path",
+                "description": "Deployment sequence number"
+              }
+            ]
+          },
+          "docs": "Get a deployment"
+        },
+        {
+          "info": {
+            "name": "Update a deployment",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1/deployments/:dseq",
+            "params": [
+              {
+                "name": "dseq",
+                "value": "",
+                "type": "path",
+                "description": "Deployment sequence number"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a deployment"
+        },
+        {
+          "info": {
+            "name": "Close a deployment",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v1/deployments/:dseq",
+            "params": [
+              {
+                "name": "dseq",
+                "value": "",
+                "type": "path",
+                "description": "Deployment sequence number"
+              }
+            ]
+          },
+          "docs": "Close a deployment"
+        },
+        {
+          "info": {
+            "name": "List deployments with pagination and filtering",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/deployments",
+            "params": [
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List deployments with pagination and filtering"
+        },
+        {
+          "info": {
+            "name": "Create new deployment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/deployments",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create new deployment"
+        },
+        {
+          "info": {
+            "name": "Deposit into a deployment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/deposit-deployment",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Deposit into a deployment"
+        },
+        {
+          "info": {
+            "name": "Get a list of deployments by owner address.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/addresses/:address/deployments/:skip/:limit",
+            "params": [
+              {
+                "name": "address",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "skip",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "reverseSorting",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get a list of deployments by owner address."
+        },
+        {
+          "info": {
+            "name": "Get deployment details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/deployment/:owner/:dseq",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "dseq",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get deployment details"
+        },
+        {
+          "info": {
+            "name": "List deployments (database fallback)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/akash/deployment/:version/deployments/list",
+            "params": [
+              {
+                "name": "filters.owner",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "filters.state",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pagination.offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pagination.limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pagination.key",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pagination.count_total",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pagination.reverse",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List deployments (database fallback)"
+        },
+        {
+          "info": {
+            "name": "Get deployment info (database fallback)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/akash/deployment/:version/deployments/info",
+            "params": [
+              {
+                "name": "id.owner",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "id.dseq",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get deployment info (database fallback)"
+        },
+        {
+          "info": {
+            "name": "Get weekly deployment cost",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/weekly-cost"
+          },
+          "docs": "Get weekly deployment cost"
+        },
+        {
+          "info": {
+            "name": "Get a list of deployments for a provider.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/providers/:provider/deployments/:skip/:limit",
+            "params": [
+              {
+                "name": "provider",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "skip",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get a list of deployments for a provider."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

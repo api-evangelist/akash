@@ -1,0 +1,100 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "AKASH - gRPC Gateway docs Addresses Blocks API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Blocks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get a list of recent blocks.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/blocks",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get a list of recent blocks."
+        },
+        {
+          "info": {
+            "name": "Get a block by height.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/blocks/:height",
+            "params": [
+              {
+                "name": "height",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a block by height."
+        },
+        {
+          "info": {
+            "name": "Get the estimated date of a future block.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/predicted-block-date/:height",
+            "params": [
+              {
+                "name": "height",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "blockWindow",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get the estimated date of a future block."
+        },
+        {
+          "info": {
+            "name": "Get the estimated height of a future date and time.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/predicted-date-height/:timestamp",
+            "params": [
+              {
+                "name": "timestamp",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "blockWindow",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get the estimated height of a future date and time."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

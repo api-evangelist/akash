@@ -1,0 +1,51 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "AKASH - gRPC Gateway docs Addresses Mint API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Mint",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Minting module parameters",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/minting/parameters"
+          },
+          "docs": "Minting module parameters"
+        },
+        {
+          "info": {
+            "name": "Current minting inflation value",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/minting/inflation"
+          },
+          "docs": "Current minting inflation value"
+        },
+        {
+          "info": {
+            "name": "Current minting annual provisions value",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/minting/annual-provisions"
+          },
+          "docs": "Current minting annual provisions value"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

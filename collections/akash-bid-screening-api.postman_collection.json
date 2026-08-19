@@ -1,0 +1,160 @@
+{
+  "item": [
+    {
+      "id": "77fe5892-39d7-458d-9cf9-7c4239ceacdb",
+      "name": "Bid Screening",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b45554a5-c2b2-4315-866c-d89fd56612c6",
+          "name": "Screen providers by deployment resource requirements",
+          "request": {
+            "name": "Screen providers by deployment resource requirements",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "bid-screening"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"resources\": [\n    {\n      \"resource\": {\n        \"id\": \"<integer>\",\n        \"cpu\": {\n          \"units\": {\n            \"val\": \"<string>\"\n          },\n          \"attributes\": [\n            {\n              \"key\": \"<string>\",\n              \"value\": \"<string>\"\n            },\n            {\n              \"key\": \"<string>\",\n              \"value\": \"<string>\"\n            }\n          ]\n        },\n        \"memory\": {\n          \"quantity\": {\n            \"val\": \"<string>\"\n          },\n          \"attributes\": [\n            {\n              \"key\": \"<string>\",\n              \"value\": \"<string>\"\n            },\n            {\n              \"key\": \"<string>\",\n              \"value\": \"<string>\"\n            }\n          ]\n        },\n        \"gpu\": {\n          \"units\": {\n            \"val\": \"<string>\"\n          },\n          \"attributes\": [\n            {\n              \"key\": \"<string>\",\n              \"value\": \"<string>\"\n            },\n            {\n              \"key\": \"<string>\",\n              \"value\": \"<string>\"\n            }\n          ]\n        },\n        \"storage\": [\n          {\n            \"name\": \"<string>\",\n            \"quantity\": {\n              \"val\": \"<string>\"\n            },\n            \"attributes\": [\n              {\n                \"key\": \"<string>\",\n                \"value\": \"<string>\"\n              },\n              {\n                \"key\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            ]\n          },\n          {\n            \"name\": \"<string>\",\n            \"quantity\": {\n              \"val\": \"<string>\"\n            },\n            \"attributes\": [\n              {\n                \"key\": \"<string>\",\n                \"value\": \"<string>\"\n              },\n              {\n                \"key\": \"<string>\",\n                \"value\": \"<string>\"\n              }\n            ]\n          }\n        ]\n      },\n      \"count\": \"<integer>\",\n      \"price\": {\n        \"denom\": \"<string>\",\n        \"amount\": \"<string>\"\n      }\n    }\n  ],\n  \"requirements\": {}\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "25e91478-ca81-462b-9cfd-36deb0b0be40",
+              "name": "Returns matching providers",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "bid-screening"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"westcoast\",\n  \"resources\": [\n    {\n      \"resource\": {\n        \"id\": 1,\n        \"cpu\": {\n          \"units\": {\n            \"val\": \"<string>\"\n          },\n          \"attributes\": [\n            {\n              \"key\": \"persistent\",\n              \"value\": \"false\"\n            },\n            {\n              \"key\": \"persistent\",\n              \"value\": \"false\"\n            }\n          ]\n        },\n        \"memory\": {\n          \"quantity\": {\n            \"val\": \"<string>\"\n          },\n          \"attributes\": [\n            {\n              \"key\": \"persistent\",\n              \"value\": \"false\"\n            },\n            {\n              \"key\": \"persistent\",\n              \"value\": \"false\"\n            }\n          ]\n        },\n        \"gpu\": {\n          \"units\": {\n            \"val\": \"<string>\"\n          },\n          \"attributes\": [\n            {\n              \"key\": \"persistent\",\n              \"value\": \"false\"\n            },\n            {\n              \"key\": \"persistent\",\n              \"value\": \"false\"\n            }\n          ]\n        },\n        \"storage\": [\n          {\n            \"name\": \"default\",\n            \"quantity\": {\n              \"val\": \"<string>\"\n            },\n            \"attributes\": [\n              {\n                \"key\": \"persistent\",\n                \"value\": \"false\"\n              },\n              {\n                \"key\": \"persistent\",\n                \"value\": \"false\"\n              }\n            ]\n          },\n          {\n            \"name\": \"default\",\n            \"quantity\": {\n              \"val\": \"<string>\"\n            },\n            \"attributes\": [\n              {\n                \"key\": \"persistent\",\n                \"value\": \"false\"\n              },\n              {\n                \"key\": \"persistent\",\n                \"value\": \"false\"\n              }\n            ]\n          }\n        ]\n      },\n      \"count\": 1,\n      \"price\": {\n        \"denom\": \"<string>\",\n        \"amount\": \"<string>\"\n      }\n    }\n  ],\n  \"requirements\": {}\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"providers\": [\n    {\n      \"owner\": \"akash1q7spv2cw06yszgfp4f9ed59lkka6ytn8g4tkjf\",\n      \"hostUri\": \"https://provider.europlots.com:8443\",\n      \"isAudited\": true,\n      \"createdAt\": \"2026-01-01T00:00:00.000Z\"\n    },\n    {\n      \"owner\": \"akash1q7spv2cw06yszgfp4f9ed59lkka6ytn8g4tkjf\",\n      \"hostUri\": \"https://provider.europlots.com:8443\",\n      \"isAudited\": false,\n      \"createdAt\": \"2026-01-01T00:00:00.000Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4c69cd54-4cef-4969-8659-2acd35ab3255",
+              "name": "Invalid request body",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "bid-screening"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"westcoast\",\n  \"resources\": [\n    {\n      \"resource\": {\n        \"id\": 1,\n        \"cpu\": {\n          \"units\": {\n            \"val\": \"<string>\"\n          },\n          \"attributes\": [\n            {\n              \"key\": \"persistent\",\n              \"value\": \"false\"\n            },\n            {\n              \"key\": \"persistent\",\n              \"value\": \"false\"\n            }\n          ]\n        },\n        \"memory\": {\n          \"quantity\": {\n            \"val\": \"<string>\"\n          },\n          \"attributes\": [\n            {\n              \"key\": \"persistent\",\n              \"value\": \"false\"\n            },\n            {\n              \"key\": \"persistent\",\n              \"value\": \"false\"\n            }\n          ]\n        },\n        \"gpu\": {\n          \"units\": {\n            \"val\": \"<string>\"\n          },\n          \"attributes\": [\n            {\n              \"key\": \"persistent\",\n              \"value\": \"false\"\n            },\n            {\n              \"key\": \"persistent\",\n              \"value\": \"false\"\n            }\n          ]\n        },\n        \"storage\": [\n          {\n            \"name\": \"default\",\n            \"quantity\": {\n              \"val\": \"<string>\"\n            },\n            \"attributes\": [\n              {\n                \"key\": \"persistent\",\n                \"value\": \"false\"\n              },\n              {\n                \"key\": \"persistent\",\n                \"value\": \"false\"\n              }\n            ]\n          },\n          {\n            \"name\": \"default\",\n            \"quantity\": {\n              \"val\": \"<string>\"\n            },\n            \"attributes\": [\n              {\n                \"key\": \"persistent\",\n                \"value\": \"false\"\n              },\n              {\n                \"key\": \"persistent\",\n                \"value\": \"false\"\n              }\n            ]\n          }\n        ]\n      },\n      \"count\": 1,\n      \"price\": {\n        \"denom\": \"<string>\",\n        \"amount\": \"<string>\"\n      }\n    }\n  ],\n  \"requirements\": {}\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "760b93ec-c93b-498b-91fc-2dc47399d1d0",
+    "name": "AKASH - gRPC Gateway docs Addresses Bid Screening API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "A REST interface for state queries",
+      "type": "text/plain"
+    }
+  }
+}

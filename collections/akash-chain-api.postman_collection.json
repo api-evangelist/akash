@@ -1,0 +1,101 @@
+{
+  "item": [
+    {
+      "id": "35575694-d431-4a73-bb61-9d2cda7a71c6",
+      "name": "Chain",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f4a8f7d2-1046-4e0a-b0d8-d84149f66d52",
+          "name": "Get blockchain reachability status",
+          "request": {
+            "name": "Get blockchain reachability status",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "blockchain-status"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8243265c-6d40-4bfe-97de-80e1a55cf0bb",
+              "name": "Returns blockchain reachability status",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "blockchain-status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"isBlockchainReachable\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "0cbdb8d7-a0dc-4279-a340-ce05d59238f0",
+    "name": "AKASH - gRPC Gateway docs Addresses Chain API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "A REST interface for state queries",
+      "type": "text/plain"
+    }
+  }
+}

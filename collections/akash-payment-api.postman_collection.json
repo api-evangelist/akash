@@ -1,0 +1,1160 @@
+{
+  "item": [
+    {
+      "id": "d004b372-7fa5-4510-81ff-f09a1e8fcdee",
+      "name": "Payment",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "31519841-1c2b-4de6-a24d-aff87fc1d1ff",
+          "name": "Get available Stripe pricing options",
+          "request": {
+            "name": "Get available Stripe pricing options",
+            "description": {
+              "content": "Retrieves the list of available pricing options for wallet top-ups, including custom amounts and standard pricing tiers",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "stripe",
+                "prices"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "03a17845-6b15-43b4-ad67-f3b192b4bbb9",
+              "name": "Available pricing options retrieved successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "stripe",
+                    "prices"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"currency\": \"string\",\n      \"unitAmount\": 1222.447852420302,\n      \"isCustom\": false\n    },\n    {\n      \"currency\": \"string\",\n      \"unitAmount\": 2344.054630441188,\n      \"isCustom\": true\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7577b697-8603-47a1-a1d8-a6c982e5bd92",
+          "name": "Apply a coupon to the current user",
+          "request": {
+            "name": "Apply a coupon to the current user",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "stripe",
+                "coupons",
+                "apply"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"data\": {\n    \"couponId\": \"<string>\",\n    \"userId\": \"<string>\",\n    \"awaitResolved\": \"<boolean>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c354c241-b56f-46e3-be63-24c5fed5deba",
+              "name": "Coupon applied successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "stripe",
+                    "coupons",
+                    "apply"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"couponId\": \"<string>\",\n    \"userId\": \"<string>\",\n    \"awaitResolved\": \"<boolean>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"coupon\": {\n      \"id\": \"string\",\n      \"percent_off\": 4957.7695146295355,\n      \"amount_off\": 2406.9796499630534,\n      \"valid\": true,\n      \"name\": \"string\",\n      \"description\": \"string\"\n    },\n    \"amountAdded\": 4433.436608013913,\n    \"transactionId\": \"string\",\n    \"transactionStatus\": \"refunded\",\n    \"error\": {\n      \"message\": \"string\",\n      \"code\": \"string\",\n      \"type\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a767c68c-bf06-4e99-886e-f58544061dab",
+          "name": "Update customer organization",
+          "request": {
+            "name": "Update customer organization",
+            "description": {
+              "content": "Updates the organization/business name for the current user's Stripe customer account",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "stripe",
+                "customers",
+                "organization"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"organization\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "96b1def8-be81-474f-b901-7c7871e626d1",
+              "name": "Organization updated successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "stripe",
+                    "customers",
+                    "organization"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"organization\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1d17df6d-a169-4d33-b7e0-996c5fb28cdc",
+          "name": "Create a Stripe SetupIntent for adding a payment method",
+          "request": {
+            "name": "Create a Stripe SetupIntent for adding a payment method",
+            "description": {
+              "content": "Creates a Stripe SetupIntent that allows users to securely add payment methods to their account. The SetupIntent provides a client secret that can be used with Stripe's frontend SDKs to collect payment method details.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "stripe",
+                "payment-methods",
+                "setup"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST"
+          },
+          "response": [
+            {
+              "id": "2ee568b5-ddf6-4fb9-8cbb-fc49252c4ea3",
+              "name": "SetupIntent created successfully with client secret",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "stripe",
+                    "payment-methods",
+                    "setup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"clientSecret\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a0c363d0-e57d-409c-acb0-c24b9187287d",
+          "name": "Marks a payment method as the default.",
+          "request": {
+            "name": "Marks a payment method as the default.",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "stripe",
+                "payment-methods",
+                "default"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"data\": {\n    \"id\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "797cc827-6073-4a0d-b91d-7e2b5a7e3f5b",
+              "name": "Payment method is marked as the default successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "stripe",
+                    "payment-methods",
+                    "default"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"id\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "003307ad-9425-4f2a-953c-046b0403e622",
+          "name": "Get the default payment method for the current user",
+          "request": {
+            "name": "Get the default payment method for the current user",
+            "description": {
+              "content": "Retrieves the default payment method associated with the current user's account, including card details, validation status, and billing information.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "stripe",
+                "payment-methods",
+                "default"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "539f0f79-949f-424f-8efb-aa7c485e22cb",
+              "name": "Default payment method retrieved successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "stripe",
+                    "payment-methods",
+                    "default"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"type\": \"string\",\n    \"validated\": false,\n    \"isDefault\": false,\n    \"card\": {\n      \"brand\": \"string\",\n      \"last4\": \"string\",\n      \"exp_month\": 3450.1677091040992,\n      \"exp_year\": 6748.217212763907,\n      \"funding\": \"string\",\n      \"country\": \"string\",\n      \"network\": \"string\",\n      \"three_d_secure_usage\": {\n        \"supported\": true\n      }\n    },\n    \"link\": {\n      \"email\": \"string\"\n    },\n    \"billing_details\": {\n      \"address\": {\n        \"city\": \"string\",\n        \"country\": \"string\",\n        \"line1\": \"string\",\n        \"line2\": \"string\",\n        \"postal_code\": \"string\",\n        \"state\": \"string\"\n      },\n      \"email\": \"string\",\n      \"name\": \"string\",\n      \"phone\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7827e4e4-24b2-4b0a-8ffb-66171e60f371",
+              "name": "Default payment method not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "stripe",
+                    "payment-methods",
+                    "default"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d2f6ea5b-c5e9-4737-9093-d598baaf7303",
+          "name": "Get all payment methods for the current user",
+          "request": {
+            "name": "Get all payment methods for the current user",
+            "description": {
+              "content": "Retrieves all saved payment methods associated with the current user's account, including card details, validation status, and billing information.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "stripe",
+                "payment-methods"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "e0c2dbac-619a-4411-b285-dd1d3072359b",
+              "name": "Payment methods retrieved successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "stripe",
+                    "payment-methods"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"type\": \"string\",\n      \"validated\": false,\n      \"isDefault\": false,\n      \"card\": {\n        \"brand\": \"string\",\n        \"last4\": \"string\",\n        \"exp_month\": 1637.0516084664976,\n        \"exp_year\": 9806.758435461461,\n        \"funding\": \"string\",\n        \"country\": \"string\",\n        \"network\": \"string\",\n        \"three_d_secure_usage\": {\n          \"supported\": false\n        }\n      },\n      \"link\": {\n        \"email\": \"string\"\n      },\n      \"billing_details\": {\n        \"address\": {\n          \"city\": \"string\",\n          \"country\": \"string\",\n          \"line1\": \"string\",\n          \"line2\": \"string\",\n          \"postal_code\": \"string\",\n          \"state\": \"string\"\n        },\n        \"email\": \"string\",\n        \"name\": \"string\",\n        \"phone\": \"string\"\n      }\n    },\n    {\n      \"type\": \"string\",\n      \"validated\": false,\n      \"isDefault\": true,\n      \"card\": {\n        \"brand\": \"string\",\n        \"last4\": \"string\",\n        \"exp_month\": 6581.745412669905,\n        \"exp_year\": 3853.808511315301,\n        \"funding\": \"string\",\n        \"country\": \"string\",\n        \"network\": \"string\",\n        \"three_d_secure_usage\": {\n          \"supported\": true\n        }\n      },\n      \"link\": {\n        \"email\": \"string\"\n      },\n      \"billing_details\": {\n        \"address\": {\n          \"city\": \"string\",\n          \"country\": \"string\",\n          \"line1\": \"string\",\n          \"line2\": \"string\",\n          \"postal_code\": \"string\",\n          \"state\": \"string\"\n        },\n        \"email\": \"string\",\n        \"name\": \"string\",\n        \"phone\": \"string\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "06b49438-e586-4007-aef2-05e3c5959445",
+          "name": "Remove a payment method",
+          "request": {
+            "name": "Remove a payment method",
+            "description": {
+              "content": "Permanently removes a saved payment method from the user's account. This action cannot be undone.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "stripe",
+                "payment-methods",
+                ":paymentMethodId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "paymentMethodId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE"
+          },
+          "response": [
+            {
+              "id": "7a8a5016-3594-4b62-84e5-1e17dbac6b89",
+              "name": "Payment method removed successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "stripe",
+                    "payment-methods",
+                    ":paymentMethodId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "paymentMethodId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3a3a3403-d5b8-458f-91e5-cecdc27cf6dd",
+          "name": "Validates a payment method after 3D Secure authentication",
+          "request": {
+            "name": "Validates a payment method after 3D Secure authentication",
+            "description": {
+              "content": "Completes the validation process for a payment method that required 3D Secure authentication. This endpoint should be called after the user completes the 3D Secure challenge.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "stripe",
+                "payment-methods",
+                "validate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"data\": {\n    \"paymentMethodId\": \"<string>\",\n    \"paymentIntentId\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5efdce45-a388-4462-937a-45851261fc20",
+              "name": "Payment method validated successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "stripe",
+                    "payment-methods",
+                    "validate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"paymentMethodId\": \"<string>\",\n    \"paymentIntentId\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b162fd27-0cbc-41d2-a098-d0bc496089e4",
+          "name": "Confirm a payment using a saved payment method",
+          "request": {
+            "name": "Confirm a payment using a saved payment method",
+            "description": {
+              "content": "Processes a payment using a previously saved payment method. This endpoint handles wallet top-ups and may require 3D Secure authentication for certain payment methods or amounts.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "stripe",
+                "transactions",
+                "confirm"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"data\": {\n    \"userId\": \"<string>\",\n    \"paymentMethodId\": \"<string>\",\n    \"amount\": \"<number>\",\n    \"currency\": \"<string>\",\n    \"awaitResolved\": \"<boolean>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "96922e0b-de09-4da5-a6ee-2fcbe223eef9",
+              "name": "Payment processed successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "stripe",
+                    "transactions",
+                    "confirm"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"userId\": \"<string>\",\n    \"paymentMethodId\": \"<string>\",\n    \"amount\": \"<number>\",\n    \"currency\": \"<string>\",\n    \"awaitResolved\": \"<boolean>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"success\": true,\n    \"transactionId\": \"string\",\n    \"requiresAction\": true,\n    \"clientSecret\": \"string\",\n    \"paymentIntentId\": \"string\",\n    \"transactionStatus\": \"canceled\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d542347e-a612-418e-af0b-5559652b8c61",
+              "name": "3D Secure authentication required to complete payment",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "stripe",
+                    "transactions",
+                    "confirm"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"userId\": \"<string>\",\n    \"paymentMethodId\": \"<string>\",\n    \"amount\": \"<number>\",\n    \"currency\": \"<string>\",\n    \"awaitResolved\": \"<boolean>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"success\": true,\n    \"transactionId\": \"string\",\n    \"requiresAction\": true,\n    \"clientSecret\": \"string\",\n    \"paymentIntentId\": \"string\",\n    \"transactionStatus\": \"canceled\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "51b5f25f-cf7d-4277-85a1-bdfaefdbe032",
+          "name": "Get transaction history for the current customer",
+          "request": {
+            "name": "Get transaction history for the current customer",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "stripe",
+                "transactions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "100"
+                },
+                {
+                  "disabled": false,
+                  "key": "startingAfter",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "endingBefore",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "startDate",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "endDate",
+                  "value": "<dateTime>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "d4f405de-abc5-480f-8114-b369c194831c",
+              "name": "Customer transactions retrieved successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "stripe",
+                    "transactions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "startingAfter",
+                      "value": "ch_1234567890"
+                    },
+                    {
+                      "key": "endingBefore",
+                      "value": "ch_0987654321"
+                    },
+                    {
+                      "key": "startDate",
+                      "value": "2025-01-01T00:00:00Z"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "2025-01-02T00:00:00Z"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"transactions\": [\n      {\n        \"id\": \"string\",\n        \"amount\": 5857.236245169549,\n        \"currency\": \"string\",\n        \"status\": \"string\",\n        \"created\": 2969.855239629613,\n        \"paymentMethod\": {\n          \"type\": \"string\",\n          \"validated\": true,\n          \"isDefault\": true,\n          \"card\": {\n            \"brand\": \"string\",\n            \"last4\": \"string\",\n            \"exp_month\": 5664.217853764796,\n            \"exp_year\": 7681.909069573313,\n            \"funding\": \"string\",\n            \"country\": \"string\",\n            \"network\": \"string\",\n            \"three_d_secure_usage\": {\n              \"supported\": false\n            }\n          },\n          \"link\": {\n            \"email\": \"string\"\n          },\n          \"billing_details\": {\n            \"address\": {\n              \"city\": \"string\",\n              \"country\": \"string\",\n              \"line1\": \"string\",\n              \"line2\": \"string\",\n              \"postal_code\": \"string\",\n              \"state\": \"string\"\n            },\n            \"email\": \"string\",\n            \"name\": \"string\",\n            \"phone\": \"string\"\n          }\n        },\n        \"receiptUrl\": \"string\",\n        \"description\": \"string\",\n        \"metadata\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\"\n        }\n      },\n      {\n        \"id\": \"string\",\n        \"amount\": 730.2694042629831,\n        \"currency\": \"string\",\n        \"status\": \"string\",\n        \"created\": 5667.647460245309,\n        \"paymentMethod\": {\n          \"type\": \"string\",\n          \"validated\": true,\n          \"isDefault\": true,\n          \"card\": {\n            \"brand\": \"string\",\n            \"last4\": \"string\",\n            \"exp_month\": 35.12281407625717,\n            \"exp_year\": 572.6724826557961,\n            \"funding\": \"string\",\n            \"country\": \"string\",\n            \"network\": \"string\",\n            \"three_d_secure_usage\": {\n              \"supported\": true\n            }\n          },\n          \"link\": {\n            \"email\": \"string\"\n          },\n          \"billing_details\": {\n            \"address\": {\n              \"city\": \"string\",\n              \"country\": \"string\",\n              \"line1\": \"string\",\n              \"line2\": \"string\",\n              \"postal_code\": \"string\",\n              \"state\": \"string\"\n            },\n            \"email\": \"string\",\n            \"name\": \"string\",\n            \"phone\": \"string\"\n          }\n        },\n        \"receiptUrl\": \"string\",\n        \"description\": \"string\",\n        \"metadata\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\",\n          \"key_2\": \"string\"\n        }\n      }\n    ],\n    \"hasMore\": true,\n    \"nextPage\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fdaed2ea-d7c8-47b7-9ef7-ac494bdaf3c3",
+          "name": "Export transaction history as CSV for the current customer",
+          "request": {
+            "name": "Export transaction history as CSV for the current customer",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "stripe",
+                "transactions",
+                "export"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "timezone",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "startDate",
+                  "value": "<dateTime>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "endDate",
+                  "value": "<dateTime>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/csv"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "078e6f8a-a2a7-4ba4-8428-658097eafb22",
+              "name": "CSV file with transaction data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "stripe",
+                    "transactions",
+                    "export"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "timezone",
+                      "value": "America/New_York"
+                    },
+                    {
+                      "key": "startDate",
+                      "value": "2025-01-01T00:00:00Z"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "2025-01-02T00:00:00Z"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/csv"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/csv"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "6071455d-687c-41db-b340-91e2ea740496",
+    "name": "AKASH - gRPC Gateway docs Addresses Payment API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "A REST interface for state queries",
+      "type": "text/plain"
+    }
+  }
+}
