@@ -50,6 +50,12 @@ apis:
   humanURL: https://akash.network/docs/api-documentation/console-api/
   baseURL: https://console-api.akash.network
   tags:
+  - Deployment
+  - Leases
+  - Bids
+  - Escrow
+  - Cloud
+  tags_raw:
   - Deployments
   - Leases
   - Bids
@@ -127,6 +133,13 @@ apis:
   tags:
   - Blockchain
   - Cosmos SDK
+  - Deployment
+  - Staking
+  - Governance
+  - gRPC-Gateway
+  tags_raw:
+  - Blockchain
+  - Cosmos SDK
   - Deployments
   - Staking
   - Governance
@@ -156,6 +169,14 @@ apis:
   humanURL: https://akash.network/blog/akashml-managed-ai-inference-on-the-decentralized-supercloud/
   baseURL: https://api.akashml.com
   tags:
+  - Artificial Intelligence
+  - LLM
+  - Inference
+  - OpenAI-Compatible
+  - Chat Completions
+  - Llama
+  - DeepSeek
+  tags_raw:
   - AI
   - LLM
   - Inference
@@ -228,6 +249,8 @@ apis:
   humanURL: https://akash.network/docs/api-documentation/console-api/
   baseURL: https://console-api.akash.network
   tags:
+  - APIKeys
+  tags_raw:
   - API Keys
   properties:
   - type: OpenAPI
@@ -238,6 +261,8 @@ apis:
   humanURL: https://akash.network/docs/api-documentation/console-api/
   baseURL: https://console-api.akash.network
   tags:
+  - Authentication
+  tags_raw:
   - Auth
   properties:
   - type: OpenAPI
@@ -338,6 +363,8 @@ apis:
   humanURL: https://akash.network/docs/api-documentation/console-api/
   baseURL: https://console-api.akash.network
   tags:
+  - Deployment
+  tags_raw:
   - Deployments
   properties:
   - type: OpenAPI
@@ -378,6 +405,8 @@ apis:
   humanURL: https://akash.network/docs/api-documentation/console-api/
   baseURL: https://console-api.akash.network
   tags:
+  - GPU
+  tags_raw:
   - Gpu
   properties:
   - type: OpenAPI
@@ -427,7 +456,8 @@ apis:
   description: The Other API from Akash Network — 3 operation(s) for other.
   humanURL: https://akash.network/docs/api-documentation/console-api/
   baseURL: https://console-api.akash.network
-  tags:
+  tags: []
+  tags_raw:
   - Other
   properties:
   - type: OpenAPI
@@ -518,6 +548,8 @@ apis:
   humanURL: https://akash.network/docs/api-documentation/console-api/
   baseURL: https://console-api.akash.network
   tags:
+  - Transaction
+  tags_raw:
   - Transactions
   properties:
   - type: OpenAPI
@@ -528,6 +560,8 @@ apis:
   humanURL: https://akash.network/docs/api-documentation/console-api/
   baseURL: https://console-api.akash.network
   tags:
+  - User
+  tags_raw:
   - Users
   properties:
   - type: OpenAPI
@@ -548,6 +582,8 @@ apis:
   humanURL: https://akash.network/docs/api-documentation/console-api/
   baseURL: https://console-api.akash.network
   tags:
+  - Wallets
+  tags_raw:
   - Wallet
   properties:
   - type: OpenAPI
