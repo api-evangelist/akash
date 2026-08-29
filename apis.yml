@@ -611,6 +611,9 @@ apis:
   - type: OpenAPI
     url: openapi/akash-walletsetting-api-openapi.yml
 common:
+  - type: CapabilityMap
+    url: capabilities/akash-capability-edges.yml
+    name: Akash Network Business Capability Map
   - type: AgenticAccess
     url: agentic-access/akash-agentic-access.yml
   - type: DomainSecurity
