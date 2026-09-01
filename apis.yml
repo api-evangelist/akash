@@ -417,7 +417,7 @@ apis:
   humanURL: https://akash.network/docs/api-documentation/console-api/
   baseURL: https://console-api.akash.network
   tags:
-  - Gpu
+  - GPU
   tags_raw:
   - Gpu
   properties:
