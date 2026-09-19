@@ -478,6 +478,8 @@ apis:
   humanURL: https://akash.network/docs/api-documentation/console-api/
   baseURL: https://console-api.akash.network
   tags:
+  - Payments
+  tags_raw:
   - Payment
   properties:
   - type: OpenAPI
@@ -518,6 +520,8 @@ apis:
   humanURL: https://akash.network/docs/api-documentation/console-api/
   baseURL: https://console-api.akash.network
   tags:
+  - Services
+  tags_raw:
   - Service
   properties:
   - type: OpenAPI
@@ -582,6 +586,8 @@ apis:
   humanURL: https://akash.network/docs/api-documentation/console-api/
   baseURL: https://console-api.akash.network
   tags:
+  - Validator
+  tags_raw:
   - Validators
   properties:
   - type: OpenAPI
@@ -664,7 +670,7 @@ apis:
   humanURL: https://akash.network/docs/providers/
   baseURL: https://github.com/akash-network/provider
   tags:
-  - Provider
+  - Providers
   - Leases
   - Deployment
   tags_raw:
