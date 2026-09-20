@@ -11,7 +11,7 @@ capability_model:
   attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
     CC BY 4.0
   notice: NOTICE
-edge_count: 2
+edge_count: 3
 edges:
 - tag: Payment
   spec_file: akash-payment-api-openapi.yml
@@ -36,3 +36,14 @@ edges:
   reason: The operations provision, update, fund and tear down containerized compute workloads on leased
     cloud capacity — i.e. management of compute infrastructure. Maps to IT Infrastructure Management;
     some ambiguity versus deployment-orchestration framing keeps confidence below 0.8.
+- tag: API Keys
+  spec_file: akash-api-keys-api-openapi.yml
+  capability_id: BC-4270.40
+  capability_id_l1: BC-4270
+  capability_name: Developer Identity & Credential Management
+  confidence: 0.7
+  evidence: '''List all API keys'', ''Create new API key'', ''Update API key'', ''Delete API key''; vendor
+    ''offers REST APIs for deployment management, provider discovery...'''
+  reason: Lifecycle of API credentials issued to developers consuming the platform's public API maps to
+    Developer Identity & Credential Management. Could alternatively be read as generic IAM, hence 0.7.
+  recovered_from: sweep-20260829T005356Z-edges.json
