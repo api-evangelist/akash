@@ -743,6 +743,10 @@ apis:
   - type: Application
     url: https://console.akash.network/
 common:
+- type: Pricing
+  url: https://akash.network/pricing/gpus/
+- type: Plans
+  url: plans/plans.yml
 - type: CapabilityMap
   url: capabilities/akash-capability-edges.yml
   name: Akash Network Business Capability Map
