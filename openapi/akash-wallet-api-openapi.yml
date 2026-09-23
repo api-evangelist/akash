@@ -1,8 +1,10 @@
-swagger: '2.0'
+openapi: 3.2.0
 info:
-  title: AKASH - gRPC Gateway docs Addresses Wallet API
-  description: A REST interface for state queries
-  version: 1.0.0
+  title: Akash Network Console Wallet API
+  description: API providing data to the Akash Network Console
+  version: v1
+servers:
+- url: https://console-api-sandbox.akash.network
 tags:
 - name: Wallet
 paths:
@@ -40,34 +42,41 @@ paths:
                     type: object
                     properties:
                       id:
-                        type: number
-                        nullable: true
+                        type:
+                        - number
+                        - 'null'
                       userId:
-                        type: string
-                        nullable: true
+                        type:
+                        - string
+                        - 'null'
                       creditAmount:
                         type: number
                       address:
-                        type: string
-                        nullable: true
+                        type:
+                        - string
+                        - 'null'
                       denom:
                         type: string
                       isTrialing:
                         type: boolean
                       createdAt:
-                        type: string
-                        nullable: true
+                        type:
+                        - string
+                        - 'null'
                       requires3DS:
                         type: boolean
                       clientSecret:
-                        type: string
-                        nullable: true
+                        type:
+                        - string
+                        - 'null'
                       paymentIntentId:
-                        type: string
-                        nullable: true
+                        type:
+                        - string
+                        - 'null'
                       paymentMethodId:
-                        type: string
-                        nullable: true
+                        type:
+                        - string
+                        - 'null'
                     required:
                     - id
                     - userId
@@ -90,34 +99,41 @@ paths:
                     type: object
                     properties:
                       id:
-                        type: number
-                        nullable: true
+                        type:
+                        - number
+                        - 'null'
                       userId:
-                        type: string
-                        nullable: true
+                        type:
+                        - string
+                        - 'null'
                       creditAmount:
                         type: number
                       address:
-                        type: string
-                        nullable: true
+                        type:
+                        - string
+                        - 'null'
                       denom:
                         type: string
                       isTrialing:
                         type: boolean
                       createdAt:
-                        type: string
-                        nullable: true
+                        type:
+                        - string
+                        - 'null'
                       requires3DS:
                         type: boolean
                       clientSecret:
-                        type: string
-                        nullable: true
+                        type:
+                        - string
+                        - 'null'
                       paymentIntentId:
-                        type: string
-                        nullable: true
+                        type:
+                        - string
+                        - 'null'
                       paymentMethodId:
-                        type: string
-                        nullable: true
+                        type:
+                        - string
+                        - 'null'
                     required:
                     - id
                     - userId
@@ -129,6 +145,8 @@ paths:
                     additionalProperties: false
                 required:
                 - data
+      operationId: postV1StartTrial
+      x-operation-id-source: derived
   /v1/wallets:
     get:
       summary: Get a list of wallets
@@ -159,34 +177,41 @@ paths:
                       type: object
                       properties:
                         id:
-                          type: number
-                          nullable: true
+                          type:
+                          - number
+                          - 'null'
                         userId:
-                          type: string
-                          nullable: true
+                          type:
+                          - string
+                          - 'null'
                         creditAmount:
                           type: number
                         address:
-                          type: string
-                          nullable: true
+                          type:
+                          - string
+                          - 'null'
                         denom:
                           type: string
                         isTrialing:
                           type: boolean
                         createdAt:
-                          type: string
-                          nullable: true
+                          type:
+                          - string
+                          - 'null'
                         requires3DS:
                           type: boolean
                         clientSecret:
-                          type: string
-                          nullable: true
+                          type:
+                          - string
+                          - 'null'
                         paymentIntentId:
-                          type: string
-                          nullable: true
+                          type:
+                          - string
+                          - 'null'
                         paymentMethodId:
-                          type: string
-                          nullable: true
+                          type:
+                          - string
+                          - 'null'
                       required:
                       - id
                       - userId
@@ -197,6 +222,8 @@ paths:
                       - createdAt
                 required:
                 - data
+      operationId: getV1Wallets
+      x-operation-id-source: derived
   /v1/tx:
     post:
       summary: Signs a transaction via a user managed wallet
@@ -264,6 +291,8 @@ paths:
                     - rawLog
                 required:
                 - data
+      operationId: postV1Tx
+      x-operation-id-source: derived
   /v1/balances:
     get:
       summary: Get user balances
@@ -301,6 +330,25 @@ paths:
                     - total
                 required:
                 - data
-securityDefinitions:
-  kms:
-    type: basic
+      operationId: getV1Balances
+      x-operation-id-source: derived
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: 'JWT token for authenticated users, sent in "Authorization: Bearer %token" header.'
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-api-key
+      description: API key for programmatic access.
+    x-user-id:
+      type: apiKey
+      in: header
+      name: x-user-id
+    x-owner-address:
+      type: apiKey
+      in: header
+      name: x-owner-address

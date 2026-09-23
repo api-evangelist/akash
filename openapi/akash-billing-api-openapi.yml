@@ -1,14 +1,16 @@
-swagger: '2.0'
+openapi: 3.2.0
 info:
-  title: AKASH - gRPC Gateway docs Addresses Billing API
-  description: A REST interface for state queries
-  version: 1.0.0
+  title: Akash Network Console Billing API
+  description: API providing data to the Akash Network Console
+  version: v1
+servers:
+- url: https://console-api-sandbox.akash.network
 tags:
 - name: Billing
 paths:
   /v1/usage/history:
     get:
-      summary: Get historical data of billing and usage for a wallet address.
+      summary: Get historical data of billing and usage for a wallet address
       tags:
       - Billing
       security: []
@@ -100,9 +102,11 @@ paths:
                   - totalUsdSpent
         '400':
           description: Invalid address format
+      operationId: getV1UsageHistory
+      x-operation-id-source: derived
   /v1/usage/history/stats:
     get:
-      summary: Get historical usage stats for a wallet address.
+      summary: Get historical usage stats for a wallet address
       tags:
       - Billing
       security: []
@@ -162,6 +166,25 @@ paths:
                 - averageDeploymentsPerDay
         '400':
           description: Invalid address format
-securityDefinitions:
-  kms:
-    type: basic
+      operationId: getV1UsageHistoryStats
+      x-operation-id-source: derived
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: 'JWT token for authenticated users, sent in "Authorization: Bearer %token" header.'
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-api-key
+      description: API key for programmatic access.
+    x-user-id:
+      type: apiKey
+      in: header
+      name: x-user-id
+    x-owner-address:
+      type: apiKey
+      in: header
+      name: x-owner-address

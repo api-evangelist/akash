@@ -1,6 +1,6 @@
-swagger: '2.0'
+openapi: 3.2.0
 info:
-  title: AKASH - gRPC Gateway docs Addresses Mint API
+  title: AKASH - gRPC Gateway docs Mint API
   description: A REST interface for state queries
   version: 1.0.0
 tags:
@@ -12,57 +12,65 @@ paths:
       summary: Minting module parameters
       tags:
       - Mint
-      produces:
-      - application/json
       responses:
         '200':
           description: OK
-          schema:
-            properties:
-              mint_denom:
-                type: string
-              inflation_rate_change:
-                type: string
-              inflation_max:
-                type: string
-              inflation_min:
-                type: string
-              goal_bonded:
-                type: string
-              blocks_per_year:
-                type: string
+          content:
+            application/json:
+              schema:
+                properties:
+                  mint_denom:
+                    type: string
+                  inflation_rate_change:
+                    type: string
+                  inflation_max:
+                    type: string
+                  inflation_min:
+                    type: string
+                  goal_bonded:
+                    type: string
+                  blocks_per_year:
+                    type: string
         '500':
           description: Internal Server Error
+      operationId: getMintingParameters
+      x-operation-id-source: derived
   /minting/inflation:
     get:
       deprecated: true
       summary: Current minting inflation value
       tags:
       - Mint
-      produces:
-      - application/json
       responses:
         '200':
           description: OK
-          schema:
-            type: string
+          content:
+            application/json:
+              schema:
+                type: string
         '500':
           description: Internal Server Error
+      operationId: getMintingInflation
+      x-operation-id-source: derived
   /minting/annual-provisions:
     get:
       deprecated: true
       summary: Current minting annual provisions value
       tags:
       - Mint
-      produces:
-      - application/json
       responses:
         '200':
           description: OK
-          schema:
-            type: string
+          content:
+            application/json:
+              schema:
+                type: string
         '500':
           description: Internal Server Error
-securityDefinitions:
-  kms:
-    type: basic
+      operationId: getMintingAnnualProvisions
+      x-operation-id-source: derived
+components:
+  securitySchemes:
+    kms:
+      type: http
+      scheme: basic

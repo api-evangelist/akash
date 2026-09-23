@@ -1,8 +1,10 @@
-swagger: '2.0'
+openapi: 3.2.0
 info:
-  title: AKASH - gRPC Gateway docs Addresses Proposals API
-  description: A REST interface for state queries
-  version: 1.0.0
+  title: Akash Network Console Proposals API
+  description: API providing data to the Akash Network Console
+  version: v1
+servers:
+- url: https://console-api-sandbox.akash.network
 tags:
 - name: Proposals
 paths:
@@ -43,6 +45,10 @@ paths:
                   - votingStartTime
                   - votingEndTime
                   - totalDeposit
+      summary: Get proposals
+      x-summary-source: derived
+      operationId: getV1Proposals
+      x-operation-id-source: derived
   /v1/proposals/{id}:
     get:
       tags:
@@ -50,8 +56,9 @@ paths:
       security: []
       parameters:
       - schema:
-          type: number
-          nullable: true
+          type:
+          - number
+          - 'null'
           description: Proposal ID
           example: 1
         required: false
@@ -109,8 +116,7 @@ paths:
                           type: string
                         key:
                           type: string
-                        value:
-                          nullable: true
+                        value: {}
                       required:
                       - subspace
                       - key
@@ -129,6 +135,27 @@ paths:
           description: Invalid proposal id
         '404':
           description: Proposal not found
-securityDefinitions:
-  kms:
-    type: basic
+      summary: Get proposals by id
+      x-summary-source: derived
+      operationId: getV1ProposalsById
+      x-operation-id-source: derived
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: 'JWT token for authenticated users, sent in "Authorization: Bearer %token" header.'
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-api-key
+      description: API key for programmatic access.
+    x-user-id:
+      type: apiKey
+      in: header
+      name: x-user-id
+    x-owner-address:
+      type: apiKey
+      in: header
+      name: x-owner-address

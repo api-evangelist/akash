@@ -1,14 +1,16 @@
-swagger: '2.0'
+openapi: 3.2.0
 info:
-  title: AKASH - gRPC Gateway docs Addresses Gpu API
-  description: A REST interface for state queries
-  version: 1.0.0
+  title: Akash Network Console Gpu API
+  description: API providing data to the Akash Network Console
+  version: v1
+servers:
+- url: https://console-api-sandbox.akash.network
 tags:
 - name: Gpu
 paths:
   /v1/gpu:
     get:
-      summary: Get a list of gpu models and their availability.
+      summary: Get a list of gpu models and their availability
       tags:
       - Gpu
       security: []
@@ -84,9 +86,11 @@ paths:
                 - gpus
         '400':
           description: Invalid provider parameter, should be a valid akash address or host uri
+      operationId: getV1Gpu
+      x-operation-id-source: derived
   /v1/gpu-models:
     get:
-      summary: Get a list of gpu models per vendor. Based on the content from https://raw.githubusercontent.com/akash-network/provider-configs/main/devices/pcie/gpus.json.
+      summary: Get a list of gpu models per vendor.
       tags:
       - Gpu
       security: []
@@ -124,12 +128,14 @@ paths:
                   required:
                   - name
                   - models
+      operationId: getV1GpuModels
+      x-operation-id-source: derived
   /v1/gpu-breakdown:
     get:
       tags:
       - Gpu
       security: []
-      summary: Gets gpu analytics breakdown by vendor and model. If no vendor or model is provided, all GPUs are returned.
+      summary: Gets gpu analytics breakdown by vendor and model.
       parameters:
       - schema:
           type: string
@@ -176,9 +182,11 @@ paths:
                   - totalGpus
                   - leasedGpus
                   - gpuUtilization
+      operationId: getV1GpuBreakdown
+      x-operation-id-source: derived
   /v1/gpu-prices:
     get:
-      summary: Get a list of gpu models with their availability and pricing.
+      summary: Get a list of gpu models with their availability and pricing
       operationId: listGpuPrices
       tags:
       - Gpu
@@ -235,8 +243,9 @@ paths:
                           - total
                           - available
                         price:
-                          type: object
-                          nullable: true
+                          type:
+                          - object
+                          - 'null'
                           properties:
                             currency:
                               type: string
@@ -269,6 +278,23 @@ paths:
                 required:
                 - availability
                 - models
-securityDefinitions:
-  kms:
-    type: basic
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: 'JWT token for authenticated users, sent in "Authorization: Bearer %token" header.'
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-api-key
+      description: API key for programmatic access.
+    x-user-id:
+      type: apiKey
+      in: header
+      name: x-user-id
+    x-owner-address:
+      type: apiKey
+      in: header
+      name: x-owner-address

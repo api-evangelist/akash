@@ -1,8 +1,10 @@
-swagger: '2.0'
+openapi: 3.2.0
 info:
-  title: AKASH - gRPC Gateway docs Addresses Auth API
-  description: A REST interface for state queries
-  version: 1.0.0
+  title: Akash Auth API
+  version: '1.0'
+  description: 'Operations tagged Auth across 2 of this provider''s published API definitions: akash-blockchain-rest-api.yaml, akash-console-deployment-api.json. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://console-api-sandbox.akash.network
 tags:
 - name: Auth
 paths:
@@ -12,52 +14,55 @@ paths:
       summary: Get the account information on blockchain
       tags:
       - Auth
-      produces:
-      - application/json
       parameters:
       - in: path
         name: address
         description: Account address
         required: true
-        type: string
         x-example: cosmos16xyempempp92x9hyzz9wrgf94r6j9h5f06pxxv
+        schema:
+          type: string
       responses:
         '200':
           description: Account information on the blockchain
-          schema:
-            type: object
-            properties:
-              type:
-                type: string
-              value:
+          content:
+            application/json:
+              schema:
                 type: object
                 properties:
-                  account_number:
+                  type:
                     type: string
-                  address:
-                    type: string
-                  coins:
-                    type: array
-                    items:
-                      type: object
-                      properties:
-                        denom:
-                          type: string
-                          example: stake
-                        amount:
-                          type: string
-                          example: '50'
-                  public_key:
+                  value:
                     type: object
                     properties:
-                      type:
+                      account_number:
                         type: string
-                      value:
+                      address:
                         type: string
-                  sequence:
-                    type: string
+                      coins:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            denom:
+                              type: string
+                              example: stake
+                            amount:
+                              type: string
+                              example: '50'
+                      public_key:
+                        type: object
+                        properties:
+                          type:
+                            type: string
+                          value:
+                            type: string
+                      sequence:
+                        type: string
         '500':
           description: Server internel error
+      operationId: getAuthAccountsByAddress
+      x-operation-id-source: derived
   /v1/auth/signup:
     post:
       summary: Creates a new user without sending a verification email
@@ -83,6 +88,33 @@ paths:
       responses:
         '204':
           description: User created successfully
-securityDefinitions:
-  kms:
-    type: basic
+      operationId: postV1AuthSignup
+      x-operation-id-source: derived
+    servers:
+    - url: https://console-api-sandbox.akash.network
+components:
+  securitySchemes:
+    kms:
+      type: http
+      scheme: basic
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: 'JWT token for authenticated users, sent in "Authorization: Bearer %token" header.'
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-api-key
+      description: API key for programmatic access.
+    x-user-id:
+      type: apiKey
+      in: header
+      name: x-user-id
+    x-owner-address:
+      type: apiKey
+      in: header
+      name: x-owner-address
+x-refined-from:
+- akash-blockchain-rest-api.yaml
+- akash-console-deployment-api.json

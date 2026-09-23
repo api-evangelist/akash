@@ -1,8 +1,10 @@
-swagger: '2.0'
+openapi: 3.2.0
 info:
-  title: AKASH - gRPC Gateway docs Addresses Other API
-  description: A REST interface for state queries
-  version: 1.0.0
+  title: Akash Network Console Other API
+  description: API providing data to the Akash Network Console
+  version: v1
+servers:
+- url: https://console-api-sandbox.akash.network
 tags:
 - name: Other
 paths:
@@ -11,7 +13,7 @@ paths:
       tags:
       - Other
       security: []
-      summary: Estimate the price of a deployment on akash and other cloud providers.
+      summary: Estimate the price of a deployment on akash and other cloud providers
       requestBody:
         description: Deployment specs to use for the price estimation. **An array of specs can also be sent, in that case an array of estimations will be returned in the same order.**
         content:
@@ -151,6 +153,8 @@ paths:
                     - azure
         '400':
           description: Invalid parameters
+      operationId: postV1Pricing
+      x-operation-id-source: derived
   /v1/templates-list:
     get:
       tags:
@@ -181,8 +185,9 @@ paths:
                               name:
                                 type: string
                               logoUrl:
-                                type: string
-                                nullable: true
+                                type:
+                                - string
+                                - 'null'
                               summary:
                                 type: string
                               tags:
@@ -199,6 +204,10 @@ paths:
                       - templates
                 required:
                 - data
+      summary: Get templates list
+      x-summary-source: derived
+      operationId: getV1TemplatesList
+      x-operation-id-source: derived
   /v1/templates/{id}:
     get:
       tags:
@@ -230,8 +239,9 @@ paths:
                       path:
                         type: string
                       logoUrl:
-                        type: string
-                        nullable: true
+                        type:
+                        - string
+                        - 'null'
                       summary:
                         type: string
                       readme:
@@ -264,6 +274,27 @@ paths:
                 - data
         '404':
           description: Template not found
-securityDefinitions:
-  kms:
-    type: basic
+      summary: Get templates by id
+      x-summary-source: derived
+      operationId: getV1TemplatesById
+      x-operation-id-source: derived
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: 'JWT token for authenticated users, sent in "Authorization: Bearer %token" header.'
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-api-key
+      description: API key for programmatic access.
+    x-user-id:
+      type: apiKey
+      in: header
+      name: x-user-id
+    x-owner-address:
+      type: apiKey
+      in: header
+      name: x-owner-address

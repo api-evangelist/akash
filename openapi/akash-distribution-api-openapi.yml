@@ -1,6 +1,6 @@
-swagger: '2.0'
+openapi: 3.2.0
 info:
-  title: AKASH - gRPC Gateway docs Addresses Distribution API
+  title: AKASH - gRPC Gateway docs Distribution API
   description: A REST interface for state queries
   version: 1.0.0
 tags:
@@ -12,32 +12,153 @@ paths:
       name: delegatorAddr
       description: Bech32 AccAddress of Delegator
       required: true
-      type: string
       x-example: cosmos167w96tdvmazakdwkw2u57227eduula2cy572lf
+      schema:
+        type: string
     get:
       deprecated: true
       summary: Get the total rewards balance from all delegations
       description: Get the sum of all the rewards earned by delegations by a single delegator
-      produces:
-      - application/json
       tags:
       - Distribution
       responses:
         '200':
           description: OK
-          schema:
-            type: object
-            properties:
-              rewards:
-                type: array
-                items:
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  rewards:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        validator_address:
+                          type: string
+                          description: bech32 encoded address
+                          example: cosmosvaloper16xyempempp92x9hyzz9wrgf94r6j9h5f2w4n2l
+                        reward:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              denom:
+                                type: string
+                                example: stake
+                              amount:
+                                type: string
+                                example: '50'
+                  total:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        denom:
+                          type: string
+                          example: stake
+                        amount:
+                          type: string
+                          example: '50'
+        '400':
+          description: Invalid delegator address
+        '500':
+          description: Internal Server Error
+      operationId: getDistributionDelegatorsByDelegatorAddrRewards
+      x-operation-id-source: derived
+    post:
+      deprecated: true
+      summary: Withdraw all the delegator's delegation rewards
+      tags:
+      - Distribution
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  msg:
+                    type: array
+                    items:
+                      type: string
+                  fee:
+                    type: object
+                    properties:
+                      gas:
+                        type: string
+                      amount:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            denom:
+                              type: string
+                              example: stake
+                            amount:
+                              type: string
+                              example: '50'
+                  memo:
+                    type: string
+                  signature:
+                    type: object
+                    properties:
+                      signature:
+                        type: string
+                        example: MEUCIQD02fsDPra8MtbRsyB1w7bqTM55Wu138zQbFcWx4+CFyAIge5WNPfKIuvzBZ69MyqHsqD8S1IwiEp+iUb6VSdtlpgY=
+                      pub_key:
+                        type: object
+                        properties:
+                          type:
+                            type: string
+                            example: tendermint/PubKeySecp256k1
+                          value:
+                            type: string
+                            example: Avz04VhtKJh8ACCVzlI8aTosGy0ikFXKIVHQ3jKMrosH
+                      account_number:
+                        type: string
+                        example: '0'
+                      sequence:
+                        type: string
+                        example: '0'
+        '400':
+          description: Invalid delegator address
+        '401':
+          description: Key password is wrong
+        '500':
+          description: Internal Server Error
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                base_req:
                   type: object
                   properties:
-                    validator_address:
+                    from:
                       type: string
-                      description: bech32 encoded address
-                      example: cosmosvaloper16xyempempp92x9hyzz9wrgf94r6j9h5f2w4n2l
-                    reward:
+                      example: cosmos1g9ahr6xhht5rmqven628nklxluzyv8z9jqjcmc
+                      description: Sender address or Keybase name to generate a transaction
+                    memo:
+                      type: string
+                      example: Sent via Cosmos Voyager 🚀
+                    chain_id:
+                      type: string
+                      example: Cosmos-Hub
+                    account_number:
+                      type: string
+                      example: '0'
+                    sequence:
+                      type: string
+                      example: '1'
+                    gas:
+                      type: string
+                      example: '200000'
+                    gas_adjustment:
+                      type: string
+                      example: '1.2'
+                    fees:
                       type: array
                       items:
                         type: object
@@ -48,610 +169,338 @@ paths:
                           amount:
                             type: string
                             example: '50'
-              total:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    denom:
-                      type: string
-                      example: stake
-                    amount:
-                      type: string
-                      example: '50'
-        '400':
-          description: Invalid delegator address
-        '500':
-          description: Internal Server Error
-    post:
-      deprecated: true
-      summary: Withdraw all the delegator's delegation rewards
-      description: Withdraw all the delegator's delegation rewards
-      tags:
-      - Distribution
-      consumes:
-      - application/json
-      produces:
-      - application/json
-      parameters:
-      - in: body
-        name: Withdraw request body
-        schema:
-          properties:
-            base_req:
-              type: object
-              properties:
-                from:
-                  type: string
-                  example: cosmos1g9ahr6xhht5rmqven628nklxluzyv8z9jqjcmc
-                  description: Sender address or Keybase name to generate a transaction
-                memo:
-                  type: string
-                  example: Sent via Cosmos Voyager 🚀
-                chain_id:
-                  type: string
-                  example: Cosmos-Hub
-                account_number:
-                  type: string
-                  example: '0'
-                sequence:
-                  type: string
-                  example: '1'
-                gas:
-                  type: string
-                  example: '200000'
-                gas_adjustment:
-                  type: string
-                  example: '1.2'
-                fees:
-                  type: array
-                  items:
-                    type: object
-                    properties:
-                      denom:
-                        type: string
-                        example: stake
-                      amount:
-                        type: string
-                        example: '50'
-                simulate:
-                  type: boolean
-                  example: false
-                  description: Estimate gas for a transaction (cannot be used in conjunction with generate_only)
-      responses:
-        '200':
-          description: OK
-          schema:
-            type: object
-            properties:
-              msg:
-                type: array
-                items:
-                  type: string
-              fee:
-                type: object
-                properties:
-                  gas:
-                    type: string
-                  amount:
-                    type: array
-                    items:
-                      type: object
-                      properties:
-                        denom:
-                          type: string
-                          example: stake
-                        amount:
-                          type: string
-                          example: '50'
-              memo:
-                type: string
-              signature:
-                type: object
-                properties:
-                  signature:
-                    type: string
-                    example: MEUCIQD02fsDPra8MtbRsyB1w7bqTM55Wu138zQbFcWx4+CFyAIge5WNPfKIuvzBZ69MyqHsqD8S1IwiEp+iUb6VSdtlpgY=
-                  pub_key:
-                    type: object
-                    properties:
-                      type:
-                        type: string
-                        example: tendermint/PubKeySecp256k1
-                      value:
-                        type: string
-                        example: Avz04VhtKJh8ACCVzlI8aTosGy0ikFXKIVHQ3jKMrosH
-                  account_number:
-                    type: string
-                    example: '0'
-                  sequence:
-                    type: string
-                    example: '0'
-        '400':
-          description: Invalid delegator address
-        '401':
-          description: Key password is wrong
-        '500':
-          description: Internal Server Error
+                    simulate:
+                      type: boolean
+                      example: false
+                      description: Estimate gas for a transaction (cannot be used in conjunction with generate_only)
+      operationId: postDistributionDelegatorsByDelegatorAddrRewards
+      x-operation-id-source: derived
   /distribution/delegators/{delegatorAddr}/rewards/{validatorAddr}:
     parameters:
     - in: path
       name: delegatorAddr
       description: Bech32 AccAddress of Delegator
       required: true
-      type: string
       x-example: cosmos16xyempempp92x9hyzz9wrgf94r6j9h5f06pxxv
+      schema:
+        type: string
     - in: path
       name: validatorAddr
       description: Bech32 OperatorAddress of validator
       required: true
-      type: string
       x-example: cosmosvaloper16xyempempp92x9hyzz9wrgf94r6j9h5f2w4n2l
+      schema:
+        type: string
     get:
       deprecated: true
       summary: Query a delegation reward
       description: Query a single delegation reward by a delegator
       tags:
       - Distribution
-      produces:
-      - application/json
       responses:
         '200':
           description: OK
-          schema:
-            type: array
-            items:
-              type: object
-              properties:
-                denom:
-                  type: string
-                  example: stake
-                amount:
-                  type: string
-                  example: '50'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    denom:
+                      type: string
+                      example: stake
+                    amount:
+                      type: string
+                      example: '50'
         '400':
           description: Invalid delegator address
         '500':
           description: Internal Server Error
+      operationId: getDistributionDelegatorsByDelegatorAddrRewardsByValidatorAddr
+      x-operation-id-source: derived
     post:
       deprecated: true
       summary: Withdraw a delegation reward
       description: Withdraw a delegator's delegation reward from a single validator
       tags:
       - Distribution
-      consumes:
-      - application/json
-      produces:
-      - application/json
-      parameters:
-      - in: body
-        name: Withdraw request body
-        schema:
-          properties:
-            base_req:
-              type: object
-              properties:
-                from:
-                  type: string
-                  example: cosmos1g9ahr6xhht5rmqven628nklxluzyv8z9jqjcmc
-                  description: Sender address or Keybase name to generate a transaction
-                memo:
-                  type: string
-                  example: Sent via Cosmos Voyager 🚀
-                chain_id:
-                  type: string
-                  example: Cosmos-Hub
-                account_number:
-                  type: string
-                  example: '0'
-                sequence:
-                  type: string
-                  example: '1'
-                gas:
-                  type: string
-                  example: '200000'
-                gas_adjustment:
-                  type: string
-                  example: '1.2'
-                fees:
-                  type: array
-                  items:
-                    type: object
-                    properties:
-                      denom:
-                        type: string
-                        example: stake
-                      amount:
-                        type: string
-                        example: '50'
-                simulate:
-                  type: boolean
-                  example: false
-                  description: Estimate gas for a transaction (cannot be used in conjunction with generate_only)
       responses:
         '200':
           description: OK
-          schema:
-            type: object
-            properties:
-              msg:
-                type: array
-                items:
-                  type: string
-              fee:
+          content:
+            application/json:
+              schema:
                 type: object
                 properties:
-                  gas:
-                    type: string
-                  amount:
+                  msg:
                     type: array
                     items:
-                      type: object
-                      properties:
-                        denom:
-                          type: string
-                          example: stake
-                        amount:
-                          type: string
-                          example: '50'
-              memo:
-                type: string
-              signature:
-                type: object
-                properties:
-                  signature:
-                    type: string
-                    example: MEUCIQD02fsDPra8MtbRsyB1w7bqTM55Wu138zQbFcWx4+CFyAIge5WNPfKIuvzBZ69MyqHsqD8S1IwiEp+iUb6VSdtlpgY=
-                  pub_key:
+                      type: string
+                  fee:
                     type: object
                     properties:
-                      type:
+                      gas:
                         type: string
-                        example: tendermint/PubKeySecp256k1
-                      value:
+                      amount:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            denom:
+                              type: string
+                              example: stake
+                            amount:
+                              type: string
+                              example: '50'
+                  memo:
+                    type: string
+                  signature:
+                    type: object
+                    properties:
+                      signature:
                         type: string
-                        example: Avz04VhtKJh8ACCVzlI8aTosGy0ikFXKIVHQ3jKMrosH
-                  account_number:
-                    type: string
-                    example: '0'
-                  sequence:
-                    type: string
-                    example: '0'
+                        example: MEUCIQD02fsDPra8MtbRsyB1w7bqTM55Wu138zQbFcWx4+CFyAIge5WNPfKIuvzBZ69MyqHsqD8S1IwiEp+iUb6VSdtlpgY=
+                      pub_key:
+                        type: object
+                        properties:
+                          type:
+                            type: string
+                            example: tendermint/PubKeySecp256k1
+                          value:
+                            type: string
+                            example: Avz04VhtKJh8ACCVzlI8aTosGy0ikFXKIVHQ3jKMrosH
+                      account_number:
+                        type: string
+                        example: '0'
+                      sequence:
+                        type: string
+                        example: '0'
         '400':
           description: Invalid delegator address or delegation body
         '401':
           description: Key password is wrong
         '500':
           description: Internal Server Error
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                base_req:
+                  type: object
+                  properties:
+                    from:
+                      type: string
+                      example: cosmos1g9ahr6xhht5rmqven628nklxluzyv8z9jqjcmc
+                      description: Sender address or Keybase name to generate a transaction
+                    memo:
+                      type: string
+                      example: Sent via Cosmos Voyager 🚀
+                    chain_id:
+                      type: string
+                      example: Cosmos-Hub
+                    account_number:
+                      type: string
+                      example: '0'
+                    sequence:
+                      type: string
+                      example: '1'
+                    gas:
+                      type: string
+                      example: '200000'
+                    gas_adjustment:
+                      type: string
+                      example: '1.2'
+                    fees:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          denom:
+                            type: string
+                            example: stake
+                          amount:
+                            type: string
+                            example: '50'
+                    simulate:
+                      type: boolean
+                      example: false
+                      description: Estimate gas for a transaction (cannot be used in conjunction with generate_only)
+      operationId: postDistributionDelegatorsByDelegatorAddrRewardsByValidatorAddr
+      x-operation-id-source: derived
   /distribution/delegators/{delegatorAddr}/withdraw_address:
     parameters:
     - in: path
       name: delegatorAddr
       description: Bech32 AccAddress of Delegator
       required: true
-      type: string
       x-example: cosmos167w96tdvmazakdwkw2u57227eduula2cy572lf
+      schema:
+        type: string
     get:
       deprecated: true
       summary: Get the rewards withdrawal address
       description: Get the delegations' rewards withdrawal address. This is the address in which the user will receive the reward funds
       tags:
       - Distribution
-      produces:
-      - application/json
       responses:
         '200':
           description: OK
-          schema:
-            type: string
-            description: bech32 encoded address
-            example: cosmos1depk54cuajgkzea6zpgkq36tnjwdzv4afc3d27
+          content:
+            application/json:
+              schema:
+                type: string
+                description: bech32 encoded address
+                example: cosmos1depk54cuajgkzea6zpgkq36tnjwdzv4afc3d27
         '400':
           description: Invalid delegator address
         '500':
           description: Internal Server Error
+      operationId: getDistributionDelegatorsByDelegatorAddrWithdrawAddress
+      x-operation-id-source: derived
     post:
       deprecated: true
       summary: Replace the rewards withdrawal address
       description: Replace the delegations' rewards withdrawal address for a new one.
       tags:
       - Distribution
-      consumes:
-      - application/json
-      produces:
-      - application/json
-      parameters:
-      - in: body
-        name: Withdraw request body
-        schema:
-          properties:
-            base_req:
-              type: object
-              properties:
-                from:
-                  type: string
-                  example: cosmos1g9ahr6xhht5rmqven628nklxluzyv8z9jqjcmc
-                  description: Sender address or Keybase name to generate a transaction
-                memo:
-                  type: string
-                  example: Sent via Cosmos Voyager 🚀
-                chain_id:
-                  type: string
-                  example: Cosmos-Hub
-                account_number:
-                  type: string
-                  example: '0'
-                sequence:
-                  type: string
-                  example: '1'
-                gas:
-                  type: string
-                  example: '200000'
-                gas_adjustment:
-                  type: string
-                  example: '1.2'
-                fees:
-                  type: array
-                  items:
-                    type: object
-                    properties:
-                      denom:
-                        type: string
-                        example: stake
-                      amount:
-                        type: string
-                        example: '50'
-                simulate:
-                  type: boolean
-                  example: false
-                  description: Estimate gas for a transaction (cannot be used in conjunction with generate_only)
-            withdraw_address:
-              type: string
-              description: bech32 encoded address
-              example: cosmos1depk54cuajgkzea6zpgkq36tnjwdzv4afc3d27
       responses:
         '200':
           description: OK
-          schema:
-            type: object
-            properties:
-              msg:
-                type: array
-                items:
-                  type: string
-              fee:
+          content:
+            application/json:
+              schema:
                 type: object
                 properties:
-                  gas:
-                    type: string
-                  amount:
+                  msg:
                     type: array
                     items:
-                      type: object
-                      properties:
-                        denom:
-                          type: string
-                          example: stake
-                        amount:
-                          type: string
-                          example: '50'
-              memo:
-                type: string
-              signature:
-                type: object
-                properties:
-                  signature:
-                    type: string
-                    example: MEUCIQD02fsDPra8MtbRsyB1w7bqTM55Wu138zQbFcWx4+CFyAIge5WNPfKIuvzBZ69MyqHsqD8S1IwiEp+iUb6VSdtlpgY=
-                  pub_key:
+                      type: string
+                  fee:
                     type: object
                     properties:
-                      type:
+                      gas:
                         type: string
-                        example: tendermint/PubKeySecp256k1
-                      value:
+                      amount:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            denom:
+                              type: string
+                              example: stake
+                            amount:
+                              type: string
+                              example: '50'
+                  memo:
+                    type: string
+                  signature:
+                    type: object
+                    properties:
+                      signature:
                         type: string
-                        example: Avz04VhtKJh8ACCVzlI8aTosGy0ikFXKIVHQ3jKMrosH
-                  account_number:
-                    type: string
-                    example: '0'
-                  sequence:
-                    type: string
-                    example: '0'
+                        example: MEUCIQD02fsDPra8MtbRsyB1w7bqTM55Wu138zQbFcWx4+CFyAIge5WNPfKIuvzBZ69MyqHsqD8S1IwiEp+iUb6VSdtlpgY=
+                      pub_key:
+                        type: object
+                        properties:
+                          type:
+                            type: string
+                            example: tendermint/PubKeySecp256k1
+                          value:
+                            type: string
+                            example: Avz04VhtKJh8ACCVzlI8aTosGy0ikFXKIVHQ3jKMrosH
+                      account_number:
+                        type: string
+                        example: '0'
+                      sequence:
+                        type: string
+                        example: '0'
         '400':
           description: Invalid delegator or withdraw address
         '401':
           description: Key password is wrong
         '500':
           description: Internal Server Error
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                base_req:
+                  type: object
+                  properties:
+                    from:
+                      type: string
+                      example: cosmos1g9ahr6xhht5rmqven628nklxluzyv8z9jqjcmc
+                      description: Sender address or Keybase name to generate a transaction
+                    memo:
+                      type: string
+                      example: Sent via Cosmos Voyager 🚀
+                    chain_id:
+                      type: string
+                      example: Cosmos-Hub
+                    account_number:
+                      type: string
+                      example: '0'
+                    sequence:
+                      type: string
+                      example: '1'
+                    gas:
+                      type: string
+                      example: '200000'
+                    gas_adjustment:
+                      type: string
+                      example: '1.2'
+                    fees:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          denom:
+                            type: string
+                            example: stake
+                          amount:
+                            type: string
+                            example: '50'
+                    simulate:
+                      type: boolean
+                      example: false
+                      description: Estimate gas for a transaction (cannot be used in conjunction with generate_only)
+                withdraw_address:
+                  type: string
+                  description: bech32 encoded address
+                  example: cosmos1depk54cuajgkzea6zpgkq36tnjwdzv4afc3d27
+      operationId: postDistributionDelegatorsByDelegatorAddrWithdrawAddress
+      x-operation-id-source: derived
   /distribution/validators/{validatorAddr}:
     parameters:
     - in: path
       name: validatorAddr
       description: Bech32 OperatorAddress of validator
       required: true
-      type: string
       x-example: cosmosvaloper16xyempempp92x9hyzz9wrgf94r6j9h5f2w4n2l
+      schema:
+        type: string
     get:
       deprecated: true
       summary: Validator distribution information
       description: Query the distribution information of a single validator
       tags:
       - Distribution
-      produces:
-      - application/json
       responses:
         '200':
           description: OK
-          schema:
-            type: object
-            properties:
-              operator_address:
-                type: string
-                description: bech32 encoded address
-                example: cosmosvaloper16xyempempp92x9hyzz9wrgf94r6j9h5f2w4n2l
-              self_bond_rewards:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    denom:
-                      type: string
-                      example: stake
-                    amount:
-                      type: string
-                      example: '50'
-              val_commission:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    denom:
-                      type: string
-                      example: stake
-                    amount:
-                      type: string
-                      example: '50'
-        '400':
-          description: Invalid validator address
-        '500':
-          description: Internal Server Error
-  /distribution/validators/{validatorAddr}/outstanding_rewards:
-    parameters:
-    - in: path
-      name: validatorAddr
-      description: Bech32 OperatorAddress of validator
-      required: true
-      type: string
-      x-example: cosmosvaloper16xyempempp92x9hyzz9wrgf94r6j9h5f2w4n2l
-    get:
-      deprecated: true
-      summary: Fee distribution outstanding rewards of a single validator
-      tags:
-      - Distribution
-      produces:
-      - application/json
-      responses:
-        '200':
-          description: OK
-          schema:
-            type: array
-            items:
-              type: object
-              properties:
-                denom:
-                  type: string
-                  example: stake
-                amount:
-                  type: string
-                  example: '50'
-        '500':
-          description: Internal Server Error
-  /distribution/validators/{validatorAddr}/rewards:
-    parameters:
-    - in: path
-      name: validatorAddr
-      description: Bech32 OperatorAddress of validator
-      required: true
-      type: string
-      x-example: cosmosvaloper16xyempempp92x9hyzz9wrgf94r6j9h5f2w4n2l
-    get:
-      deprecated: true
-      summary: Commission and self-delegation rewards of a single validator
-      description: Query the commission and self-delegation rewards of validator.
-      tags:
-      - Distribution
-      produces:
-      - application/json
-      responses:
-        '200':
-          description: OK
-          schema:
-            type: array
-            items:
-              type: object
-              properties:
-                denom:
-                  type: string
-                  example: stake
-                amount:
-                  type: string
-                  example: '50'
-        '400':
-          description: Invalid validator address
-        '500':
-          description: Internal Server Error
-    post:
-      deprecated: true
-      summary: Withdraw the validator's rewards
-      description: Withdraw the validator's self-delegation and commissions rewards
-      tags:
-      - Distribution
-      consumes:
-      - application/json
-      produces:
-      - application/json
-      parameters:
-      - in: body
-        name: Withdraw request body
-        schema:
-          properties:
-            base_req:
-              type: object
-              properties:
-                from:
-                  type: string
-                  example: cosmos1g9ahr6xhht5rmqven628nklxluzyv8z9jqjcmc
-                  description: Sender address or Keybase name to generate a transaction
-                memo:
-                  type: string
-                  example: Sent via Cosmos Voyager 🚀
-                chain_id:
-                  type: string
-                  example: Cosmos-Hub
-                account_number:
-                  type: string
-                  example: '0'
-                sequence:
-                  type: string
-                  example: '1'
-                gas:
-                  type: string
-                  example: '200000'
-                gas_adjustment:
-                  type: string
-                  example: '1.2'
-                fees:
-                  type: array
-                  items:
-                    type: object
-                    properties:
-                      denom:
-                        type: string
-                        example: stake
-                      amount:
-                        type: string
-                        example: '50'
-                simulate:
-                  type: boolean
-                  example: false
-                  description: Estimate gas for a transaction (cannot be used in conjunction with generate_only)
-      responses:
-        '200':
-          description: OK
-          schema:
-            type: object
-            properties:
-              msg:
-                type: array
-                items:
-                  type: string
-              fee:
+          content:
+            application/json:
+              schema:
                 type: object
                 properties:
-                  gas:
+                  operator_address:
                     type: string
-                  amount:
+                    description: bech32 encoded address
+                    example: cosmosvaloper16xyempempp92x9hyzz9wrgf94r6j9h5f2w4n2l
+                  self_bond_rewards:
                     type: array
                     items:
                       type: object
@@ -662,80 +511,255 @@ paths:
                         amount:
                           type: string
                           example: '50'
-              memo:
-                type: string
-              signature:
+                  val_commission:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        denom:
+                          type: string
+                          example: stake
+                        amount:
+                          type: string
+                          example: '50'
+        '400':
+          description: Invalid validator address
+        '500':
+          description: Internal Server Error
+      operationId: getDistributionValidatorsByValidatorAddr
+      x-operation-id-source: derived
+  /distribution/validators/{validatorAddr}/outstanding_rewards:
+    parameters:
+    - in: path
+      name: validatorAddr
+      description: Bech32 OperatorAddress of validator
+      required: true
+      x-example: cosmosvaloper16xyempempp92x9hyzz9wrgf94r6j9h5f2w4n2l
+      schema:
+        type: string
+    get:
+      deprecated: true
+      summary: Fee distribution outstanding rewards of a single validator
+      tags:
+      - Distribution
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    denom:
+                      type: string
+                      example: stake
+                    amount:
+                      type: string
+                      example: '50'
+        '500':
+          description: Internal Server Error
+      operationId: getDistributionValidatorsByValidatorAddrOutstandingRewards
+      x-operation-id-source: derived
+  /distribution/validators/{validatorAddr}/rewards:
+    parameters:
+    - in: path
+      name: validatorAddr
+      description: Bech32 OperatorAddress of validator
+      required: true
+      x-example: cosmosvaloper16xyempempp92x9hyzz9wrgf94r6j9h5f2w4n2l
+      schema:
+        type: string
+    get:
+      deprecated: true
+      summary: Commission and self-delegation rewards of a single validator
+      description: Query the commission and self-delegation rewards of validator.
+      tags:
+      - Distribution
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    denom:
+                      type: string
+                      example: stake
+                    amount:
+                      type: string
+                      example: '50'
+        '400':
+          description: Invalid validator address
+        '500':
+          description: Internal Server Error
+      operationId: getDistributionValidatorsByValidatorAddrRewards
+      x-operation-id-source: derived
+    post:
+      deprecated: true
+      summary: Withdraw the validator's rewards
+      description: Withdraw the validator's self-delegation and commissions rewards
+      tags:
+      - Distribution
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
                 type: object
                 properties:
-                  signature:
-                    type: string
-                    example: MEUCIQD02fsDPra8MtbRsyB1w7bqTM55Wu138zQbFcWx4+CFyAIge5WNPfKIuvzBZ69MyqHsqD8S1IwiEp+iUb6VSdtlpgY=
-                  pub_key:
+                  msg:
+                    type: array
+                    items:
+                      type: string
+                  fee:
                     type: object
                     properties:
-                      type:
+                      gas:
                         type: string
-                        example: tendermint/PubKeySecp256k1
-                      value:
+                      amount:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            denom:
+                              type: string
+                              example: stake
+                            amount:
+                              type: string
+                              example: '50'
+                  memo:
+                    type: string
+                  signature:
+                    type: object
+                    properties:
+                      signature:
                         type: string
-                        example: Avz04VhtKJh8ACCVzlI8aTosGy0ikFXKIVHQ3jKMrosH
-                  account_number:
-                    type: string
-                    example: '0'
-                  sequence:
-                    type: string
-                    example: '0'
+                        example: MEUCIQD02fsDPra8MtbRsyB1w7bqTM55Wu138zQbFcWx4+CFyAIge5WNPfKIuvzBZ69MyqHsqD8S1IwiEp+iUb6VSdtlpgY=
+                      pub_key:
+                        type: object
+                        properties:
+                          type:
+                            type: string
+                            example: tendermint/PubKeySecp256k1
+                          value:
+                            type: string
+                            example: Avz04VhtKJh8ACCVzlI8aTosGy0ikFXKIVHQ3jKMrosH
+                      account_number:
+                        type: string
+                        example: '0'
+                      sequence:
+                        type: string
+                        example: '0'
         '400':
           description: Invalid validator address
         '401':
           description: Key password is wrong
         '500':
           description: Internal Server Error
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                base_req:
+                  type: object
+                  properties:
+                    from:
+                      type: string
+                      example: cosmos1g9ahr6xhht5rmqven628nklxluzyv8z9jqjcmc
+                      description: Sender address or Keybase name to generate a transaction
+                    memo:
+                      type: string
+                      example: Sent via Cosmos Voyager 🚀
+                    chain_id:
+                      type: string
+                      example: Cosmos-Hub
+                    account_number:
+                      type: string
+                      example: '0'
+                    sequence:
+                      type: string
+                      example: '1'
+                    gas:
+                      type: string
+                      example: '200000'
+                    gas_adjustment:
+                      type: string
+                      example: '1.2'
+                    fees:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          denom:
+                            type: string
+                            example: stake
+                          amount:
+                            type: string
+                            example: '50'
+                    simulate:
+                      type: boolean
+                      example: false
+                      description: Estimate gas for a transaction (cannot be used in conjunction with generate_only)
+      operationId: postDistributionValidatorsByValidatorAddrRewards
+      x-operation-id-source: derived
   /distribution/community_pool:
     get:
       deprecated: true
       summary: Community pool parameters
       tags:
       - Distribution
-      produces:
-      - application/json
       responses:
         '200':
           description: OK
-          schema:
-            type: array
-            items:
-              type: object
-              properties:
-                denom:
-                  type: string
-                  example: stake
-                amount:
-                  type: string
-                  example: '50'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    denom:
+                      type: string
+                      example: stake
+                    amount:
+                      type: string
+                      example: '50'
         '500':
           description: Internal Server Error
+      operationId: getDistributionCommunityPool
+      x-operation-id-source: derived
   /distribution/parameters:
     get:
       deprecated: true
       summary: Fee distribution parameters
       tags:
       - Distribution
-      produces:
-      - application/json
       responses:
         '200':
           description: OK
-          schema:
-            properties:
-              base_proposer_reward:
-                type: string
-              bonus_proposer_reward:
-                type: string
-              community_tax:
-                type: string
+          content:
+            application/json:
+              schema:
+                properties:
+                  base_proposer_reward:
+                    type: string
+                  bonus_proposer_reward:
+                    type: string
+                  community_tax:
+                    type: string
         '500':
           description: Internal Server Error
-securityDefinitions:
-  kms:
-    type: basic
+      operationId: getDistributionParameters
+      x-operation-id-source: derived
+components:
+  securitySchemes:
+    kms:
+      type: http
+      scheme: basic

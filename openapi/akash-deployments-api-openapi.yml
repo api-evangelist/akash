@@ -1,8 +1,10 @@
-swagger: '2.0'
+openapi: 3.2.0
 info:
-  title: AKASH - gRPC Gateway docs Addresses Deployments API
-  description: A REST interface for state queries
-  version: 1.0.0
+  title: Akash Network Console Deployments API
+  description: API providing data to the Akash Network Console
+  version: v1
+servers:
+- url: https://console-api-sandbox.akash.network
 tags:
 - name: Deployments
 paths:
@@ -107,8 +109,9 @@ paths:
                             reason:
                               type: string
                             status:
-                              type: object
-                              nullable: true
+                              type:
+                              - object
+                              - 'null'
                               properties:
                                 forwarded_ports:
                                   type: object
@@ -431,8 +434,9 @@ paths:
                             reason:
                               type: string
                             status:
-                              type: object
-                              nullable: true
+                              type:
+                              - object
+                              - 'null'
                               properties:
                                 forwarded_ports:
                                   type: object
@@ -679,8 +683,9 @@ paths:
       - ApiKeyAuth: []
       parameters:
       - schema:
-          type: number
-          nullable: true
+          type:
+          - number
+          - 'null'
           minimum: 0
         required: false
         name: skip
@@ -1005,8 +1010,9 @@ paths:
                             reason:
                               type: string
                             status:
-                              type: object
-                              nullable: true
+                              type:
+                              - object
+                              - 'null'
                               properties:
                                 forwarded_ports:
                                   type: object
@@ -1182,7 +1188,7 @@ paths:
                 - data
   /v1/addresses/{address}/deployments/{skip}/{limit}:
     get:
-      summary: Get a list of deployments by owner address.
+      summary: Get a list of deployments by owner address
       tags:
       - Deployments
       security: []
@@ -1195,8 +1201,9 @@ paths:
         name: address
         in: path
       - schema:
-          type: number
-          nullable: true
+          type:
+          - number
+          - 'null'
           minimum: 0
           description: Deployments to skip
           example: 10
@@ -1322,6 +1329,8 @@ paths:
                 - results
         '400':
           description: Invalid address
+      operationId: getV1AddressesByAddressDeploymentsBySkipByLimit
+      x-operation-id-source: derived
   /v1/deployment/{owner}/{dseq}:
     get:
       summary: Get deployment details
@@ -1374,8 +1383,9 @@ paths:
                         oseq:
                           type: number
                         provider:
-                          type: object
-                          nullable: true
+                          type:
+                          - object
+                          - 'null'
                           properties:
                             address:
                               type: string
@@ -1782,6 +1792,8 @@ paths:
           description: Invalid address or dseq
         '404':
           description: Deployment not found
+      operationId: getV1DeploymentByOwnerByDseq
+      x-operation-id-source: derived
   /akash/deployment/{version}/deployments/list:
     get:
       summary: List deployments (database fallback)
@@ -1803,14 +1815,16 @@ paths:
         name: filters.state
         in: query
       - schema:
-          type: number
-          nullable: true
+          type:
+          - number
+          - 'null'
         required: false
         name: pagination.offset
         in: query
       - schema:
-          type: number
-          nullable: true
+          type:
+          - number
+          - 'null'
         required: false
         name: pagination.limit
         in: query
@@ -1825,8 +1839,9 @@ paths:
         name: pagination.count_total
         in: query
       - schema:
-          type: boolean
-          nullable: true
+          type:
+          - boolean
+          - 'null'
         required: false
         name: pagination.reverse
         in: query
@@ -2177,8 +2192,9 @@ paths:
                     type: object
                     properties:
                       next_key:
-                        type: string
-                        nullable: true
+                        type:
+                        - string
+                        - 'null'
                       total:
                         type: string
                     required:
@@ -2187,6 +2203,8 @@ paths:
                 required:
                 - deployments
                 - pagination
+      operationId: getAkashDeploymentByVersionDeploymentsList
+      x-operation-id-source: derived
   /akash/deployment/{version}/deployments/info:
     get:
       summary: Get deployment info (database fallback)
@@ -2559,6 +2577,8 @@ paths:
                   - escrow_account
         '404':
           description: Deployment not found
+      operationId: getAkashDeploymentByVersionDeploymentsInfo
+      x-operation-id-source: derived
   /v1/weekly-cost:
     get:
       summary: Get weekly deployment cost
@@ -2585,9 +2605,11 @@ paths:
                     - weeklyCost
                 required:
                 - data
+      operationId: getV1WeeklyCost
+      x-operation-id-source: derived
   /v1/providers/{provider}/deployments/{skip}/{limit}:
     get:
-      summary: Get a list of deployments for a provider.
+      summary: Get a list of deployments for a provider
       tags:
       - Deployments
       security: []
@@ -2600,8 +2622,9 @@ paths:
         name: provider
         in: path
       - schema:
-          type: number
-          nullable: true
+          type:
+          - number
+          - 'null'
           minimum: 0
           description: Deployments to skip
           example: 10
@@ -2652,8 +2675,9 @@ paths:
                         createdHeight:
                           type: number
                         createdDate:
-                          type: string
-                          nullable: true
+                          type:
+                          - string
+                          - 'null'
                         status:
                           type: string
                         balance:
@@ -2661,8 +2685,9 @@ paths:
                         transferred:
                           type: number
                         settledAt:
-                          type: number
-                          nullable: true
+                          type:
+                          - number
+                          - 'null'
                         resources:
                           type: object
                           properties:
@@ -2698,14 +2723,17 @@ paths:
                               createdHeight:
                                 type: number
                               createdDate:
-                                type: string
-                                nullable: true
+                                type:
+                                - string
+                                - 'null'
                               closedHeight:
-                                type: number
-                                nullable: true
+                                type:
+                                - number
+                                - 'null'
                               closedDate:
-                                type: string
-                                nullable: true
+                                type:
+                                - string
+                                - 'null'
                               status:
                                 type: string
                               resources:
@@ -2755,6 +2783,25 @@ paths:
                 - deployments
         '400':
           description: Invalid status filter
-securityDefinitions:
-  kms:
-    type: basic
+      operationId: getV1ProvidersByProviderDeploymentsBySkipByLimit
+      x-operation-id-source: derived
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: 'JWT token for authenticated users, sent in "Authorization: Bearer %token" header.'
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-api-key
+      description: API key for programmatic access.
+    x-user-id:
+      type: apiKey
+      in: header
+      name: x-user-id
+    x-owner-address:
+      type: apiKey
+      in: header
+      name: x-owner-address

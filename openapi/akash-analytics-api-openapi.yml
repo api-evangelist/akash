@@ -1,8 +1,10 @@
-swagger: '2.0'
+openapi: 3.2.0
 info:
-  title: AKASH - gRPC Gateway docs Addresses Analytics API
-  description: A REST interface for state queries
-  version: 1.0.0
+  title: Akash Network Console Analytics API
+  description: API providing data to the Akash Network Console
+  version: v1
+servers:
+- url: https://console-api-sandbox.akash.network
 tags:
 - name: Analytics
 paths:
@@ -68,6 +70,10 @@ paths:
                 - compare
         '400':
           description: Invalid address
+      summary: Get providers by provider address active leases graph data
+      x-summary-source: derived
+      operationId: getV1ProvidersByProviderAddressActiveLeasesGraphData
+      x-operation-id-source: derived
   /v1/provider-graph-data/{dataName}:
     get:
       tags:
@@ -166,6 +172,10 @@ paths:
                 - snapshots
         '404':
           description: Graph data not found
+      summary: Get provider graph data by data name
+      x-summary-source: derived
+      operationId: getV1ProviderGraphDataByDataName
+      x-operation-id-source: derived
   /v1/graph-data/{dataName}:
     get:
       tags:
@@ -240,6 +250,10 @@ paths:
                 - snapshots
         '404':
           description: Graph data not found
+      summary: Get graph data by data name
+      x-summary-source: derived
+      operationId: getV1GraphDataByDataName
+      x-operation-id-source: derived
   /v1/bme/dashboard-data:
     get:
       tags:
@@ -348,6 +362,10 @@ paths:
                 required:
                 - now
                 - compare
+      summary: Get bme dashboard data
+      x-summary-source: derived
+      operationId: getV1BmeDashboardData
+      x-operation-id-source: derived
   /v1/bme/status-history:
     get:
       tags:
@@ -384,6 +402,10 @@ paths:
                   - previousStatus
                   - newStatus
                   - collateralRatio
+      summary: Get bme status history
+      x-summary-source: derived
+      operationId: getV1BmeStatusHistory
+      x-operation-id-source: derived
   /v1/dashboard-data:
     get:
       tags:
@@ -688,11 +710,13 @@ paths:
                             operatorAddress:
                               type: string
                             moniker:
-                              type: string
-                              nullable: true
+                              type:
+                              - string
+                              - 'null'
                             avatarUrl:
-                              type: string
-                              nullable: true
+                              type:
+                              - string
+                              - 'null'
                           required:
                           - address
                           - operatorAddress
@@ -724,8 +748,9 @@ paths:
                         isSuccess:
                           type: boolean
                         error:
-                          type: string
-                          nullable: true
+                          type:
+                          - string
+                          - 'null'
                         gasUsed:
                           type: number
                         gasWanted:
@@ -768,6 +793,10 @@ paths:
                 - networkCapacityStats
                 - latestBlocks
                 - latestTransactions
+      summary: Get dashboard data
+      x-summary-source: derived
+      operationId: getV1DashboardData
+      x-operation-id-source: derived
   /v1/network-capacity:
     get:
       tags:
@@ -897,6 +926,10 @@ paths:
                 required:
                 - activeProviderCount
                 - resources
+      summary: Get network capacity
+      x-summary-source: derived
+      operationId: getV1NetworkCapacity
+      x-operation-id-source: derived
   /v1/market-data/{coin?}:
     get:
       tags:
@@ -940,9 +973,13 @@ paths:
                 - marketCapRank
                 - priceChange24h
                 - priceChangePercentage24
+      summary: Get market data by coin?
+      x-summary-source: derived
+      operationId: getV1MarketDataByCoin?
+      x-operation-id-source: derived
   /v1/leases-duration/{owner}:
     get:
-      summary: Get leases durations.
+      summary: Get leases durations
       tags:
       - Analytics
       security: []
@@ -1034,6 +1071,25 @@ paths:
                 - leases
         '400':
           description: 'Invalid start date, must be in the following format: YYYY-MM-DD'
-securityDefinitions:
-  kms:
-    type: basic
+      operationId: getV1LeasesDurationByOwner
+      x-operation-id-source: derived
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: 'JWT token for authenticated users, sent in "Authorization: Bearer %token" header.'
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-api-key
+      description: API key for programmatic access.
+    x-user-id:
+      type: apiKey
+      in: header
+      name: x-user-id
+    x-owner-address:
+      type: apiKey
+      in: header
+      name: x-owner-address

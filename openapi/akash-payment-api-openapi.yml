@@ -1,8 +1,10 @@
-swagger: '2.0'
+openapi: 3.2.0
 info:
-  title: AKASH - gRPC Gateway docs Addresses Payment API
-  description: A REST interface for state queries
-  version: 1.0.0
+  title: Akash Network Console Payment API
+  description: API providing data to the Akash Network Console
+  version: v1
+servers:
+- url: https://console-api-sandbox.akash.network
 tags:
 - name: Payment
 paths:
@@ -40,6 +42,8 @@ paths:
                       - isCustom
                 required:
                 - data
+      operationId: getV1StripePrices
+      x-operation-id-source: derived
   /v1/stripe/coupons/apply:
     post:
       summary: Apply a coupon to the current user
@@ -80,26 +84,32 @@ paths:
                     type: object
                     properties:
                       coupon:
-                        type: object
-                        nullable: true
+                        type:
+                        - object
+                        - 'null'
                         properties:
                           id:
                             type: string
                           percent_off:
-                            type: number
-                            nullable: true
+                            type:
+                            - number
+                            - 'null'
                           amount_off:
-                            type: number
-                            nullable: true
+                            type:
+                            - number
+                            - 'null'
                           valid:
-                            type: boolean
-                            nullable: true
+                            type:
+                            - boolean
+                            - 'null'
                           name:
-                            type: string
-                            nullable: true
+                            type:
+                            - string
+                            - 'null'
                           description:
-                            type: string
-                            nullable: true
+                            type:
+                            - string
+                            - 'null'
                         required:
                         - id
                       amountAdded:
@@ -129,6 +139,8 @@ paths:
                         - message
                 required:
                 - data
+      operationId: postV1StripeCouponsApply
+      x-operation-id-source: derived
   /v1/stripe/customers/organization:
     put:
       summary: Update customer organization
@@ -151,6 +163,8 @@ paths:
       responses:
         '204':
           description: Organization updated successfully
+      operationId: putV1StripeCustomersOrganization
+      x-operation-id-source: derived
   /v1/stripe/payment-methods/setup:
     post:
       summary: Create a Stripe SetupIntent for adding a payment method
@@ -172,15 +186,18 @@ paths:
                     type: object
                     properties:
                       clientSecret:
-                        type: string
-                        nullable: true
+                        type:
+                        - string
+                        - 'null'
                     required:
                     - clientSecret
                 required:
                 - data
+      operationId: postV1StripePaymentMethodsSetup
+      x-operation-id-source: derived
   /v1/stripe/payment-methods/default:
     post:
-      summary: Marks a payment method as the default.
+      summary: Marks a payment method as the default
       tags:
       - Payment
       security:
@@ -204,6 +221,8 @@ paths:
       responses:
         '200':
           description: Payment method is marked as the default successfully.
+      operationId: postV1StripePaymentMethodsDefault
+      x-operation-id-source: derived
     get:
       summary: Get the default payment method for the current user
       description: Retrieves the default payment method associated with the current user's account, including card details, validation status, and billing information.
@@ -230,72 +249,89 @@ paths:
                       isDefault:
                         type: boolean
                       card:
-                        type: object
-                        nullable: true
+                        type:
+                        - object
+                        - 'null'
                         properties:
                           brand:
-                            type: string
-                            nullable: true
+                            type:
+                            - string
+                            - 'null'
                           last4:
-                            type: string
-                            nullable: true
+                            type:
+                            - string
+                            - 'null'
                           exp_month:
                             type: number
                           exp_year:
                             type: number
                           funding:
-                            type: string
-                            nullable: true
+                            type:
+                            - string
+                            - 'null'
                           country:
-                            type: string
-                            nullable: true
+                            type:
+                            - string
+                            - 'null'
                           network:
-                            type: string
-                            nullable: true
+                            type:
+                            - string
+                            - 'null'
                           three_d_secure_usage:
-                            type: object
-                            nullable: true
+                            type:
+                            - object
+                            - 'null'
                             properties:
                               supported:
-                                type: boolean
-                                nullable: true
+                                type:
+                                - boolean
+                                - 'null'
                         required:
                         - brand
                         - last4
                         - exp_month
                         - exp_year
                       link:
-                        type: object
-                        nullable: true
+                        type:
+                        - object
+                        - 'null'
                         properties:
                           email:
-                            type: string
-                            nullable: true
+                            type:
+                            - string
+                            - 'null'
                       billing_details:
                         type: object
                         properties:
                           address:
-                            type: object
-                            nullable: true
+                            type:
+                            - object
+                            - 'null'
                             properties:
                               city:
-                                type: string
-                                nullable: true
+                                type:
+                                - string
+                                - 'null'
                               country:
-                                type: string
-                                nullable: true
+                                type:
+                                - string
+                                - 'null'
                               line1:
-                                type: string
-                                nullable: true
+                                type:
+                                - string
+                                - 'null'
                               line2:
-                                type: string
-                                nullable: true
+                                type:
+                                - string
+                                - 'null'
                               postal_code:
-                                type: string
-                                nullable: true
+                                type:
+                                - string
+                                - 'null'
                               state:
-                                type: string
-                                nullable: true
+                                type:
+                                - string
+                                - 'null'
                             required:
                             - city
                             - country
@@ -304,20 +340,25 @@ paths:
                             - postal_code
                             - state
                           email:
-                            type: string
-                            nullable: true
+                            type:
+                            - string
+                            - 'null'
                           name:
-                            type: string
-                            nullable: true
+                            type:
+                            - string
+                            - 'null'
                           phone:
-                            type: string
-                            nullable: true
+                            type:
+                            - string
+                            - 'null'
                     required:
                     - type
                 required:
                 - data
         '404':
           description: Default payment method not found
+      operationId: getV1StripePaymentMethodsDefault
+      x-operation-id-source: derived
   /v1/stripe/payment-methods:
     get:
       summary: Get all payment methods for the current user
@@ -347,72 +388,89 @@ paths:
                         isDefault:
                           type: boolean
                         card:
-                          type: object
-                          nullable: true
+                          type:
+                          - object
+                          - 'null'
                           properties:
                             brand:
-                              type: string
-                              nullable: true
+                              type:
+                              - string
+                              - 'null'
                             last4:
-                              type: string
-                              nullable: true
+                              type:
+                              - string
+                              - 'null'
                             exp_month:
                               type: number
                             exp_year:
                               type: number
                             funding:
-                              type: string
-                              nullable: true
+                              type:
+                              - string
+                              - 'null'
                             country:
-                              type: string
-                              nullable: true
+                              type:
+                              - string
+                              - 'null'
                             network:
-                              type: string
-                              nullable: true
+                              type:
+                              - string
+                              - 'null'
                             three_d_secure_usage:
-                              type: object
-                              nullable: true
+                              type:
+                              - object
+                              - 'null'
                               properties:
                                 supported:
-                                  type: boolean
-                                  nullable: true
+                                  type:
+                                  - boolean
+                                  - 'null'
                           required:
                           - brand
                           - last4
                           - exp_month
                           - exp_year
                         link:
-                          type: object
-                          nullable: true
+                          type:
+                          - object
+                          - 'null'
                           properties:
                             email:
-                              type: string
-                              nullable: true
+                              type:
+                              - string
+                              - 'null'
                         billing_details:
                           type: object
                           properties:
                             address:
-                              type: object
-                              nullable: true
+                              type:
+                              - object
+                              - 'null'
                               properties:
                                 city:
-                                  type: string
-                                  nullable: true
+                                  type:
+                                  - string
+                                  - 'null'
                                 country:
-                                  type: string
-                                  nullable: true
+                                  type:
+                                  - string
+                                  - 'null'
                                 line1:
-                                  type: string
-                                  nullable: true
+                                  type:
+                                  - string
+                                  - 'null'
                                 line2:
-                                  type: string
-                                  nullable: true
+                                  type:
+                                  - string
+                                  - 'null'
                                 postal_code:
-                                  type: string
-                                  nullable: true
+                                  type:
+                                  - string
+                                  - 'null'
                                 state:
-                                  type: string
-                                  nullable: true
+                                  type:
+                                  - string
+                                  - 'null'
                               required:
                               - city
                               - country
@@ -421,18 +479,23 @@ paths:
                               - postal_code
                               - state
                             email:
-                              type: string
-                              nullable: true
+                              type:
+                              - string
+                              - 'null'
                             name:
-                              type: string
-                              nullable: true
+                              type:
+                              - string
+                              - 'null'
                             phone:
-                              type: string
-                              nullable: true
+                              type:
+                              - string
+                              - 'null'
                       required:
                       - type
                 required:
                 - data
+      operationId: getV1StripePaymentMethods
+      x-operation-id-source: derived
   /v1/stripe/payment-methods/{paymentMethodId}:
     delete:
       summary: Remove a payment method
@@ -453,6 +516,8 @@ paths:
       responses:
         '204':
           description: Payment method removed successfully
+      operationId: deleteV1StripePaymentMethodsByPaymentMethodId
+      x-operation-id-source: derived
   /v1/stripe/payment-methods/validate:
     post:
       summary: Validates a payment method after 3D Secure authentication
@@ -492,6 +557,8 @@ paths:
                     type: boolean
                 required:
                 - success
+      operationId: postV1StripePaymentMethodsValidate
+      x-operation-id-source: derived
   /v1/stripe/transactions/confirm:
     post:
       summary: Confirm a payment using a saved payment method
@@ -599,6 +666,8 @@ paths:
                     - transactionId
                 required:
                 - data
+      operationId: postV1StripeTransactionsConfirm
+      x-operation-id-source: derived
   /v1/stripe/transactions:
     get:
       summary: Get transaction history for the current customer
@@ -675,8 +744,9 @@ paths:
                             created:
                               type: number
                             paymentMethod:
-                              type: object
-                              nullable: true
+                              type:
+                              - object
+                              - 'null'
                               properties:
                                 type:
                                   type: string
@@ -685,72 +755,89 @@ paths:
                                 isDefault:
                                   type: boolean
                                 card:
-                                  type: object
-                                  nullable: true
+                                  type:
+                                  - object
+                                  - 'null'
                                   properties:
                                     brand:
-                                      type: string
-                                      nullable: true
+                                      type:
+                                      - string
+                                      - 'null'
                                     last4:
-                                      type: string
-                                      nullable: true
+                                      type:
+                                      - string
+                                      - 'null'
                                     exp_month:
                                       type: number
                                     exp_year:
                                       type: number
                                     funding:
-                                      type: string
-                                      nullable: true
+                                      type:
+                                      - string
+                                      - 'null'
                                     country:
-                                      type: string
-                                      nullable: true
+                                      type:
+                                      - string
+                                      - 'null'
                                     network:
-                                      type: string
-                                      nullable: true
+                                      type:
+                                      - string
+                                      - 'null'
                                     three_d_secure_usage:
-                                      type: object
-                                      nullable: true
+                                      type:
+                                      - object
+                                      - 'null'
                                       properties:
                                         supported:
-                                          type: boolean
-                                          nullable: true
+                                          type:
+                                          - boolean
+                                          - 'null'
                                   required:
                                   - brand
                                   - last4
                                   - exp_month
                                   - exp_year
                                 link:
-                                  type: object
-                                  nullable: true
+                                  type:
+                                  - object
+                                  - 'null'
                                   properties:
                                     email:
-                                      type: string
-                                      nullable: true
+                                      type:
+                                      - string
+                                      - 'null'
                                 billing_details:
                                   type: object
                                   properties:
                                     address:
-                                      type: object
-                                      nullable: true
+                                      type:
+                                      - object
+                                      - 'null'
                                       properties:
                                         city:
-                                          type: string
-                                          nullable: true
+                                          type:
+                                          - string
+                                          - 'null'
                                         country:
-                                          type: string
-                                          nullable: true
+                                          type:
+                                          - string
+                                          - 'null'
                                         line1:
-                                          type: string
-                                          nullable: true
+                                          type:
+                                          - string
+                                          - 'null'
                                         line2:
-                                          type: string
-                                          nullable: true
+                                          type:
+                                          - string
+                                          - 'null'
                                         postal_code:
-                                          type: string
-                                          nullable: true
+                                          type:
+                                          - string
+                                          - 'null'
                                         state:
-                                          type: string
-                                          nullable: true
+                                          type:
+                                          - string
+                                          - 'null'
                                       required:
                                       - city
                                       - country
@@ -759,25 +846,31 @@ paths:
                                       - postal_code
                                       - state
                                     email:
-                                      type: string
-                                      nullable: true
+                                      type:
+                                      - string
+                                      - 'null'
                                     name:
-                                      type: string
-                                      nullable: true
+                                      type:
+                                      - string
+                                      - 'null'
                                     phone:
-                                      type: string
-                                      nullable: true
+                                      type:
+                                      - string
+                                      - 'null'
                               required:
                               - type
                             receiptUrl:
-                              type: string
-                              nullable: true
+                              type:
+                              - string
+                              - 'null'
                             description:
-                              type: string
-                              nullable: true
+                              type:
+                              - string
+                              - 'null'
                             metadata:
-                              type: object
-                              nullable: true
+                              type:
+                              - object
+                              - 'null'
                               additionalProperties:
                                 type: string
                           required:
@@ -790,13 +883,16 @@ paths:
                       hasMore:
                         type: boolean
                       nextPage:
-                        type: string
-                        nullable: true
+                        type:
+                        - string
+                        - 'null'
                     required:
                     - transactions
                     - hasMore
                 required:
                 - data
+      operationId: getV1StripeTransactions
+      x-operation-id-source: derived
   /v1/stripe/transactions/export:
     get:
       summary: Export transaction history as CSV for the current customer
@@ -837,6 +933,25 @@ paths:
               schema:
                 type: string
                 format: binary
-securityDefinitions:
-  kms:
-    type: basic
+      operationId: getV1StripeTransactionsExport
+      x-operation-id-source: derived
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: 'JWT token for authenticated users, sent in "Authorization: Bearer %token" header.'
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-api-key
+      description: API key for programmatic access.
+    x-user-id:
+      type: apiKey
+      in: header
+      name: x-user-id
+    x-owner-address:
+      type: apiKey
+      in: header
+      name: x-owner-address

@@ -1,8 +1,10 @@
-swagger: '2.0'
+openapi: 3.2.0
 info:
-  title: AKASH - gRPC Gateway docs Addresses WalletSetting API
-  description: A REST interface for state queries
-  version: 1.0.0
+  title: Akash Network Console Wallet Setting API
+  description: API providing data to the Akash Network Console
+  version: v1
+servers:
+- url: https://console-api-sandbox.akash.network
 tags:
 - name: WalletSetting
 paths:
@@ -34,6 +36,8 @@ paths:
                 - data
         '404':
           description: UserWallet Not Found
+      operationId: getV1WalletSettings
+      x-operation-id-source: derived
     post:
       summary: Create wallet settings
       description: Creates wallet settings for a user wallet
@@ -76,6 +80,8 @@ paths:
                 - data
         '404':
           description: UserWallet Not Found
+      operationId: postV1WalletSettings
+      x-operation-id-source: derived
     put:
       summary: Update wallet settings
       description: Updates wallet settings for a user wallet
@@ -118,6 +124,8 @@ paths:
                 - data
         '404':
           description: UserWallet Not Found
+      operationId: putV1WalletSettings
+      x-operation-id-source: derived
     delete:
       summary: Delete wallet settings
       description: Deletes wallet settings for a user wallet
@@ -131,6 +139,25 @@ paths:
           description: Wallet settings deleted successfully
         '404':
           description: UserWallet Not Found
-securityDefinitions:
-  kms:
-    type: basic
+      operationId: deleteV1WalletSettings
+      x-operation-id-source: derived
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: 'JWT token for authenticated users, sent in "Authorization: Bearer %token" header.'
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-api-key
+      description: API key for programmatic access.
+    x-user-id:
+      type: apiKey
+      in: header
+      name: x-user-id
+    x-owner-address:
+      type: apiKey
+      in: header
+      name: x-owner-address

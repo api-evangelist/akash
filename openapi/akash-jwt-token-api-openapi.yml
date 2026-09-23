@@ -1,8 +1,10 @@
-swagger: '2.0'
+openapi: 3.2.0
 info:
-  title: AKASH - gRPC Gateway docs Addresses JWT Token API
-  description: A REST interface for state queries
-  version: 1.0.0
+  title: Akash Network Console JWT Token API
+  description: API providing data to the Akash Network Console
+  version: v1
+servers:
+- url: https://console-api-sandbox.akash.network
 tags:
 - name: JWT Token
 paths:
@@ -25,12 +27,10 @@ paths:
                   properties:
                     ttl:
                       type: integer
-                      minimum: 0
-                      exclusiveMinimum: true
+                      exclusiveMinimum: 0
                     leases:
                       type: object
-                      additionalProperties:
-                        nullable: true
+                      additionalProperties: {}
                   required:
                   - ttl
                   - leases
@@ -53,6 +53,25 @@ paths:
                     - token
                 required:
                 - data
-securityDefinitions:
-  kms:
-    type: basic
+      operationId: postV1CreateJwtToken
+      x-operation-id-source: derived
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: 'JWT token for authenticated users, sent in "Authorization: Bearer %token" header.'
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-api-key
+      description: API key for programmatic access.
+    x-user-id:
+      type: apiKey
+      in: header
+      name: x-user-id
+    x-owner-address:
+      type: apiKey
+      in: header
+      name: x-owner-address

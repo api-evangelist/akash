@@ -1,8 +1,10 @@
-swagger: '2.0'
+openapi: 3.2.0
 info:
-  title: AKASH - gRPC Gateway docs Addresses Validators API
-  description: A REST interface for state queries
-  version: 1.0.0
+  title: Akash Network Console Validators API
+  description: API providing data to the Akash Network Console
+  version: v1
+servers:
+- url: https://console-api-sandbox.akash.network
 tags:
 - name: Validators
 paths:
@@ -36,8 +38,9 @@ paths:
                     rank:
                       type: number
                     keybaseAvatarUrl:
-                      type: string
-                      nullable: true
+                      type:
+                      - string
+                      - 'null'
                   required:
                   - operatorAddress
                   - moniker
@@ -47,6 +50,10 @@ paths:
                   - votingPowerRatio
                   - rank
                   - keybaseAvatarUrl
+      summary: Get validators
+      x-summary-source: derived
+      operationId: getV1Validators
+      x-operation-id-source: derived
   /v1/validators/{address}:
     get:
       tags:
@@ -71,16 +78,19 @@ paths:
                   operatorAddress:
                     type: string
                   address:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
                   moniker:
                     type: string
                   keybaseUsername:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
                   keybaseAvatarUrl:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
                   votingPower:
                     type: number
                   commission:
@@ -115,6 +125,27 @@ paths:
           description: Invalid address
         '404':
           description: Validator not found
-securityDefinitions:
-  kms:
-    type: basic
+      summary: Get validators by address
+      x-summary-source: derived
+      operationId: getV1ValidatorsByAddress
+      x-operation-id-source: derived
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: 'JWT token for authenticated users, sent in "Authorization: Bearer %token" header.'
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-api-key
+      description: API key for programmatic access.
+    x-user-id:
+      type: apiKey
+      in: header
+      name: x-user-id
+    x-owner-address:
+      type: apiKey
+      in: header
+      name: x-owner-address
