@@ -131,18 +131,29 @@ components:
       required:
       - statusCode
       - message
-    ForbiddenErrorResponse:
+    ValidationErrorResponse:
       type: object
       properties:
         statusCode:
           type: number
-          minimum: 403
-          maximum: 403
+          minimum: 400
+          maximum: 400
         message:
           type: string
+        errors:
+          type: object
+          properties:
+            issues:
+              type: array
+              items:
+                type: object
+                properties: {}
+          required:
+          - issues
       required:
       - statusCode
       - message
+      - errors
     DeploymentAlertsResponse:
       type: object
       properties:
@@ -205,29 +216,30 @@ components:
           - alerts
       required:
       - data
-    ValidationErrorResponse:
+    UnauthorizedErrorResponse:
       type: object
       properties:
         statusCode:
           type: number
-          minimum: 400
-          maximum: 400
+          minimum: 401
+          maximum: 401
         message:
           type: string
-        errors:
-          type: object
-          properties:
-            issues:
-              type: array
-              items:
-                type: object
-                properties: {}
-          required:
-          - issues
       required:
       - statusCode
       - message
-      - errors
+    ForbiddenErrorResponse:
+      type: object
+      properties:
+        statusCode:
+          type: number
+          minimum: 403
+          maximum: 403
+        message:
+          type: string
+      required:
+      - statusCode
+      - message
     DeploymentAlertCreateInput:
       type: object
       properties:
@@ -267,18 +279,6 @@ components:
           - alerts
       required:
       - data
-    UnauthorizedErrorResponse:
-      type: object
-      properties:
-        statusCode:
-          type: number
-          minimum: 401
-          maximum: 401
-        message:
-          type: string
-      required:
-      - statusCode
-      - message
   securitySchemes:
     BearerAuth:
       type: http

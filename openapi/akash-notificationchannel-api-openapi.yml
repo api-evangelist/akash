@@ -301,18 +301,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    NotFoundErrorResponse:
-      type: object
-      properties:
-        statusCode:
-          type: number
-          minimum: 404
-          maximum: 404
-        message:
-          type: string
-      required:
-      - statusCode
-      - message
     InternalServerErrorResponse:
       type: object
       properties:
@@ -320,18 +308,6 @@ components:
           type: number
           minimum: 500
           maximum: 500
-        message:
-          type: string
-      required:
-      - statusCode
-      - message
-    ForbiddenErrorResponse:
-      type: object
-      properties:
-        statusCode:
-          type: number
-          minimum: 403
-          maximum: 403
         message:
           type: string
       required:
@@ -457,6 +433,88 @@ components:
               - addresses
       required:
       - data
+    UnauthorizedErrorResponse:
+      type: object
+      properties:
+        statusCode:
+          type: number
+          minimum: 401
+          maximum: 401
+        message:
+          type: string
+      required:
+      - statusCode
+      - message
+    NotFoundErrorResponse:
+      type: object
+      properties:
+        statusCode:
+          type: number
+          minimum: 404
+          maximum: 404
+        message:
+          type: string
+      required:
+      - statusCode
+      - message
+    NotificationChannelCreateInput:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            name:
+              type: string
+            type:
+              type: string
+              enum:
+              - email
+            config:
+              type: object
+              properties:
+                addresses:
+                  type: array
+                  items:
+                    type: string
+                    format: email
+              required:
+              - addresses
+            isDefault:
+              type: boolean
+          required:
+          - name
+          - type
+          - config
+      required:
+      - data
+    NotificationChannelCreateDefaultInput:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            name:
+              type: string
+            type:
+              type: string
+              enum:
+              - email
+            config:
+              type: object
+              properties:
+                addresses:
+                  type: array
+                  items:
+                    type: string
+                    format: email
+              required:
+              - addresses
+          required:
+          - name
+          - type
+          - config
+      required:
+      - data
     NotificationChannelOutput:
       type: object
       properties:
@@ -500,76 +558,18 @@ components:
           - updatedAt
       required:
       - data
-    NotificationChannelCreateDefaultInput:
-      type: object
-      properties:
-        data:
-          type: object
-          properties:
-            name:
-              type: string
-            type:
-              type: string
-              enum:
-              - email
-            config:
-              type: object
-              properties:
-                addresses:
-                  type: array
-                  items:
-                    type: string
-                    format: email
-              required:
-              - addresses
-          required:
-          - name
-          - type
-          - config
-      required:
-      - data
-    UnauthorizedErrorResponse:
+    ForbiddenErrorResponse:
       type: object
       properties:
         statusCode:
           type: number
-          minimum: 401
-          maximum: 401
+          minimum: 403
+          maximum: 403
         message:
           type: string
       required:
       - statusCode
       - message
-    NotificationChannelCreateInput:
-      type: object
-      properties:
-        data:
-          type: object
-          properties:
-            name:
-              type: string
-            type:
-              type: string
-              enum:
-              - email
-            config:
-              type: object
-              properties:
-                addresses:
-                  type: array
-                  items:
-                    type: string
-                    format: email
-              required:
-              - addresses
-            isDefault:
-              type: boolean
-          required:
-          - name
-          - type
-          - config
-      required:
-      - data
   securitySchemes:
     BearerAuth:
       type: http

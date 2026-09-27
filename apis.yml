@@ -5,15 +5,21 @@ description: Akash Network is a decentralized cloud computing marketplace that c
   provider discovery, GPU availability, AI inference, and direct blockchain interaction via Cosmos SDK modules.
 deliveryModel:
   model: saas
-  open_source: false
+  license_evidence:
+    not_product:
+    - akash-network/akashjs
+    - akash-network/node
+    - akash-network/provider
+  open_source: unknown
   commercial: true
   callable_host: true
   label: Hosted service · you call their endpoint
-  confidence: high
+  confidence: low
   source:
   - openapi
   - pricing
-  generated: '2026-08-28'
+  - repository-not-product
+  generated: '2026-09-25'
   method: derived
 accessModel:
   pricing: freemium
@@ -31,6 +37,15 @@ accessModel:
   method: derived
 image: https://akash.network/favicon.ico
 tags:
+- Cloud Computing
+- Decentralized
+- Blockchain
+- Kubernetes
+- GPU
+- Inference
+- Cosmos
+- Web3
+tags_raw:
 - Cloud Computing
 - Decentralized
 - Blockchain
