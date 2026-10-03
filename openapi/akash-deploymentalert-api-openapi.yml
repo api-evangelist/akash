@@ -119,6 +119,45 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    DeploymentAlertCreateInput:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            alerts:
+              type: object
+              properties:
+                deploymentBalance:
+                  type: object
+                  properties:
+                    notificationChannelId:
+                      type: string
+                      format: uuid
+                    enabled:
+                      type: boolean
+                      default: true
+                    threshold:
+                      type: number
+                      minimum: 0
+                  required:
+                  - notificationChannelId
+                  - threshold
+                deploymentClosed:
+                  type: object
+                  properties:
+                    notificationChannelId:
+                      type: string
+                      format: uuid
+                    enabled:
+                      type: boolean
+                      default: true
+                  required:
+                  - notificationChannelId
+          required:
+          - alerts
+      required:
+      - data
     InternalServerErrorResponse:
       type: object
       properties:
@@ -131,29 +170,18 @@ components:
       required:
       - statusCode
       - message
-    ValidationErrorResponse:
+    ForbiddenErrorResponse:
       type: object
       properties:
         statusCode:
           type: number
-          minimum: 400
-          maximum: 400
+          minimum: 403
+          maximum: 403
         message:
           type: string
-        errors:
-          type: object
-          properties:
-            issues:
-              type: array
-              items:
-                type: object
-                properties: {}
-          required:
-          - issues
       required:
       - statusCode
       - message
-      - errors
     DeploymentAlertsResponse:
       type: object
       properties:
@@ -216,6 +244,29 @@ components:
           - alerts
       required:
       - data
+    ValidationErrorResponse:
+      type: object
+      properties:
+        statusCode:
+          type: number
+          minimum: 400
+          maximum: 400
+        message:
+          type: string
+        errors:
+          type: object
+          properties:
+            issues:
+              type: array
+              items:
+                type: object
+                properties: {}
+          required:
+          - issues
+      required:
+      - statusCode
+      - message
+      - errors
     UnauthorizedErrorResponse:
       type: object
       properties:
@@ -228,57 +279,6 @@ components:
       required:
       - statusCode
       - message
-    ForbiddenErrorResponse:
-      type: object
-      properties:
-        statusCode:
-          type: number
-          minimum: 403
-          maximum: 403
-        message:
-          type: string
-      required:
-      - statusCode
-      - message
-    DeploymentAlertCreateInput:
-      type: object
-      properties:
-        data:
-          type: object
-          properties:
-            alerts:
-              type: object
-              properties:
-                deploymentBalance:
-                  type: object
-                  properties:
-                    notificationChannelId:
-                      type: string
-                      format: uuid
-                    enabled:
-                      type: boolean
-                      default: true
-                    threshold:
-                      type: number
-                      minimum: 0
-                  required:
-                  - notificationChannelId
-                  - threshold
-                deploymentClosed:
-                  type: object
-                  properties:
-                    notificationChannelId:
-                      type: string
-                      format: uuid
-                    enabled:
-                      type: boolean
-                      default: true
-                  required:
-                  - notificationChannelId
-          required:
-          - alerts
-      required:
-      - data
   securitySchemes:
     BearerAuth:
       type: http

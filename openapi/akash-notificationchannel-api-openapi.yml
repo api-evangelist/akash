@@ -301,6 +301,49 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    NotificationChannelOutput:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            name:
+              type: string
+            type:
+              type: string
+              enum:
+              - email
+            config:
+              type: object
+              properties:
+                addresses:
+                  type: array
+                  items:
+                    type: string
+                    format: email
+              required:
+              - addresses
+            isDefault:
+              type: boolean
+            id:
+              type: string
+              format: uuid
+            userId:
+              type: string
+              format: uuid
+            createdAt: {}
+            updatedAt: {}
+          required:
+          - name
+          - type
+          - config
+          - isDefault
+          - id
+          - userId
+          - createdAt
+          - updatedAt
+      required:
+      - data
     InternalServerErrorResponse:
       type: object
       properties:
@@ -313,29 +356,82 @@ components:
       required:
       - statusCode
       - message
-    ValidationErrorResponse:
+    NotificationChannelPatchInput:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            name:
+              type: string
+            type:
+              type: string
+              enum:
+              - email
+            config:
+              type: object
+              properties:
+                addresses:
+                  type: array
+                  items:
+                    type: string
+                    format: email
+              required:
+              - addresses
+      required:
+      - data
+    ForbiddenErrorResponse:
       type: object
       properties:
         statusCode:
           type: number
-          minimum: 400
-          maximum: 400
+          minimum: 403
+          maximum: 403
         message:
           type: string
-        errors:
-          type: object
-          properties:
-            issues:
-              type: array
-              items:
-                type: object
-                properties: {}
-          required:
-          - issues
       required:
       - statusCode
       - message
-      - errors
+    NotFoundErrorResponse:
+      type: object
+      properties:
+        statusCode:
+          type: number
+          minimum: 404
+          maximum: 404
+        message:
+          type: string
+      required:
+      - statusCode
+      - message
+    NotificationChannelCreateDefaultInput:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            name:
+              type: string
+            type:
+              type: string
+              enum:
+              - email
+            config:
+              type: object
+              properties:
+                addresses:
+                  type: array
+                  items:
+                    type: string
+                    format: email
+              required:
+              - addresses
+          required:
+          - name
+          - type
+          - config
+      required:
+      - data
     NotificationChannelListOutput:
       type: object
       properties:
@@ -409,54 +505,6 @@ components:
       required:
       - data
       - pagination
-    NotificationChannelPatchInput:
-      type: object
-      properties:
-        data:
-          type: object
-          properties:
-            name:
-              type: string
-            type:
-              type: string
-              enum:
-              - email
-            config:
-              type: object
-              properties:
-                addresses:
-                  type: array
-                  items:
-                    type: string
-                    format: email
-              required:
-              - addresses
-      required:
-      - data
-    UnauthorizedErrorResponse:
-      type: object
-      properties:
-        statusCode:
-          type: number
-          minimum: 401
-          maximum: 401
-        message:
-          type: string
-      required:
-      - statusCode
-      - message
-    NotFoundErrorResponse:
-      type: object
-      properties:
-        statusCode:
-          type: number
-          minimum: 404
-          maximum: 404
-        message:
-          type: string
-      required:
-      - statusCode
-      - message
     NotificationChannelCreateInput:
       type: object
       properties:
@@ -487,84 +535,36 @@ components:
           - config
       required:
       - data
-    NotificationChannelCreateDefaultInput:
-      type: object
-      properties:
-        data:
-          type: object
-          properties:
-            name:
-              type: string
-            type:
-              type: string
-              enum:
-              - email
-            config:
-              type: object
-              properties:
-                addresses:
-                  type: array
-                  items:
-                    type: string
-                    format: email
-              required:
-              - addresses
-          required:
-          - name
-          - type
-          - config
-      required:
-      - data
-    NotificationChannelOutput:
-      type: object
-      properties:
-        data:
-          type: object
-          properties:
-            name:
-              type: string
-            type:
-              type: string
-              enum:
-              - email
-            config:
-              type: object
-              properties:
-                addresses:
-                  type: array
-                  items:
-                    type: string
-                    format: email
-              required:
-              - addresses
-            isDefault:
-              type: boolean
-            id:
-              type: string
-              format: uuid
-            userId:
-              type: string
-              format: uuid
-            createdAt: {}
-            updatedAt: {}
-          required:
-          - name
-          - type
-          - config
-          - isDefault
-          - id
-          - userId
-          - createdAt
-          - updatedAt
-      required:
-      - data
-    ForbiddenErrorResponse:
+    ValidationErrorResponse:
       type: object
       properties:
         statusCode:
           type: number
-          minimum: 403
-          maximum: 403
+          minimum: 400
+          maximum: 400
+        message:
+          type: string
+        errors:
+          type: object
+          properties:
+            issues:
+              type: array
+              items:
+                type: object
+                properties: {}
+          required:
+          - issues
+      required:
+      - statusCode
+      - message
+      - errors
+    UnauthorizedErrorResponse:
+      type: object
+      properties:
+        statusCode:
+          type: number
+          minimum: 401
+          maximum: 401
         message:
           type: string
       required:
