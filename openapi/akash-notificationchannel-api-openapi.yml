@@ -344,19 +344,19 @@ components:
           - updatedAt
       required:
       - data
-    InternalServerErrorResponse:
+    NotFoundErrorResponse:
       type: object
       properties:
         statusCode:
           type: number
-          minimum: 500
-          maximum: 500
+          minimum: 404
+          maximum: 404
         message:
           type: string
       required:
       - statusCode
       - message
-    NotificationChannelPatchInput:
+    NotificationChannelCreateInput:
       type: object
       properties:
         data:
@@ -378,32 +378,14 @@ components:
                     format: email
               required:
               - addresses
+            isDefault:
+              type: boolean
+          required:
+          - name
+          - type
+          - config
       required:
       - data
-    ForbiddenErrorResponse:
-      type: object
-      properties:
-        statusCode:
-          type: number
-          minimum: 403
-          maximum: 403
-        message:
-          type: string
-      required:
-      - statusCode
-      - message
-    NotFoundErrorResponse:
-      type: object
-      properties:
-        statusCode:
-          type: number
-          minimum: 404
-          maximum: 404
-        message:
-          type: string
-      required:
-      - statusCode
-      - message
     NotificationChannelCreateDefaultInput:
       type: object
       properties:
@@ -432,6 +414,18 @@ components:
           - config
       required:
       - data
+    InternalServerErrorResponse:
+      type: object
+      properties:
+        statusCode:
+          type: number
+          minimum: 500
+          maximum: 500
+        message:
+          type: string
+      required:
+      - statusCode
+      - message
     NotificationChannelListOutput:
       type: object
       properties:
@@ -505,7 +499,19 @@ components:
       required:
       - data
       - pagination
-    NotificationChannelCreateInput:
+    ForbiddenErrorResponse:
+      type: object
+      properties:
+        statusCode:
+          type: number
+          minimum: 403
+          maximum: 403
+        message:
+          type: string
+      required:
+      - statusCode
+      - message
+    NotificationChannelPatchInput:
       type: object
       properties:
         data:
@@ -527,14 +533,20 @@ components:
                     format: email
               required:
               - addresses
-            isDefault:
-              type: boolean
-          required:
-          - name
-          - type
-          - config
       required:
       - data
+    UnauthorizedErrorResponse:
+      type: object
+      properties:
+        statusCode:
+          type: number
+          minimum: 401
+          maximum: 401
+        message:
+          type: string
+      required:
+      - statusCode
+      - message
     ValidationErrorResponse:
       type: object
       properties:
@@ -558,18 +570,6 @@ components:
       - statusCode
       - message
       - errors
-    UnauthorizedErrorResponse:
-      type: object
-      properties:
-        statusCode:
-          type: number
-          minimum: 401
-          maximum: 401
-        message:
-          type: string
-      required:
-      - statusCode
-      - message
   securitySchemes:
     BearerAuth:
       type: http

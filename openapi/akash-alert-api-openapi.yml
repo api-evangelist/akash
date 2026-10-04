@@ -278,6 +278,712 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    AlertOutputResponse:
+      type: object
+      properties:
+        data:
+          oneOf:
+          - type: object
+            properties:
+              notificationChannelId:
+                type: string
+                format: uuid
+              name:
+                type: string
+                minLength: 3
+              enabled:
+                type: boolean
+              summary:
+                type: string
+                minLength: 3
+              description:
+                type: string
+                minLength: 3
+              id:
+                type: string
+                format: uuid
+              userId:
+                type: string
+                format: uuid
+              notificationChannelName:
+                type: string
+              status:
+                type: string
+              createdAt: {}
+              updatedAt: {}
+              params:
+                type: object
+                properties:
+                  dseq:
+                    type: string
+                    pattern: ^\d+$
+                  type:
+                    type: string
+                  suppressedBySystem:
+                    type: boolean
+                required:
+                - dseq
+                - type
+              conditions:
+                oneOf:
+                - type: object
+                  properties:
+                    operator:
+                      type: string
+                      enum:
+                      - and
+                    value:
+                      type: array
+                      minItems: 2
+                      items:
+                        type: object
+                        properties:
+                          operator:
+                            oneOf:
+                            - type: string
+                              enum:
+                              - eq
+                            - type: string
+                              enum:
+                              - lt
+                            - type: string
+                              enum:
+                              - gt
+                            - type: string
+                              enum:
+                              - lte
+                            - type: string
+                              enum:
+                              - gte
+                          field:
+                            type: string
+                          value:
+                            oneOf:
+                            - type: string
+                            - type: number
+                            - type: boolean
+                        required:
+                        - operator
+                        - field
+                        - value
+                  required:
+                  - operator
+                  - value
+                - type: object
+                  properties:
+                    operator:
+                      type: string
+                      enum:
+                      - or
+                    value:
+                      type: array
+                      minItems: 2
+                      items:
+                        type: object
+                        properties:
+                          operator:
+                            oneOf:
+                            - type: string
+                              enum:
+                              - eq
+                            - type: string
+                              enum:
+                              - lt
+                            - type: string
+                              enum:
+                              - gt
+                            - type: string
+                              enum:
+                              - lte
+                            - type: string
+                              enum:
+                              - gte
+                          field:
+                            type: string
+                          value:
+                            oneOf:
+                            - type: string
+                            - type: number
+                            - type: boolean
+                        required:
+                        - operator
+                        - field
+                        - value
+                  required:
+                  - operator
+                  - value
+                - type: object
+                  properties:
+                    operator:
+                      oneOf:
+                      - type: string
+                        enum:
+                        - eq
+                      - type: string
+                        enum:
+                        - lt
+                      - type: string
+                        enum:
+                        - gt
+                      - type: string
+                        enum:
+                        - lte
+                      - type: string
+                        enum:
+                        - gte
+                    field:
+                      type: string
+                    value:
+                      oneOf:
+                      - type: string
+                      - type: number
+                      - type: boolean
+                  required:
+                  - operator
+                  - field
+                  - value
+              type:
+                type: string
+                enum:
+                - CHAIN_MESSAGE
+            required:
+            - notificationChannelId
+            - name
+            - enabled
+            - summary
+            - description
+            - id
+            - userId
+            - status
+            - createdAt
+            - updatedAt
+            - conditions
+            - type
+          - type: object
+            properties:
+              notificationChannelId:
+                type: string
+                format: uuid
+              name:
+                type: string
+                minLength: 3
+              enabled:
+                type: boolean
+              summary:
+                type: string
+                minLength: 3
+              description:
+                type: string
+                minLength: 3
+              id:
+                type: string
+                format: uuid
+              userId:
+                type: string
+                format: uuid
+              notificationChannelName:
+                type: string
+              status:
+                type: string
+              createdAt: {}
+              updatedAt: {}
+              params:
+                type: object
+                properties:
+                  dseq:
+                    type: string
+                    pattern: ^\d+$
+                  type:
+                    type: string
+                  suppressedBySystem:
+                    type: boolean
+                required:
+                - dseq
+                - type
+              conditions:
+                oneOf:
+                - type: object
+                  properties:
+                    operator:
+                      type: string
+                      enum:
+                      - and
+                    value:
+                      type: array
+                      minItems: 2
+                      items:
+                        type: object
+                        properties:
+                          operator:
+                            oneOf:
+                            - type: string
+                              enum:
+                              - eq
+                            - type: string
+                              enum:
+                              - lt
+                            - type: string
+                              enum:
+                              - gt
+                            - type: string
+                              enum:
+                              - lte
+                            - type: string
+                              enum:
+                              - gte
+                          field:
+                            type: string
+                          value:
+                            oneOf:
+                            - type: string
+                            - type: number
+                            - type: boolean
+                        required:
+                        - operator
+                        - field
+                        - value
+                  required:
+                  - operator
+                  - value
+                - type: object
+                  properties:
+                    operator:
+                      type: string
+                      enum:
+                      - or
+                    value:
+                      type: array
+                      minItems: 2
+                      items:
+                        type: object
+                        properties:
+                          operator:
+                            oneOf:
+                            - type: string
+                              enum:
+                              - eq
+                            - type: string
+                              enum:
+                              - lt
+                            - type: string
+                              enum:
+                              - gt
+                            - type: string
+                              enum:
+                              - lte
+                            - type: string
+                              enum:
+                              - gte
+                          field:
+                            type: string
+                          value:
+                            oneOf:
+                            - type: string
+                            - type: number
+                            - type: boolean
+                        required:
+                        - operator
+                        - field
+                        - value
+                  required:
+                  - operator
+                  - value
+                - type: object
+                  properties:
+                    operator:
+                      oneOf:
+                      - type: string
+                        enum:
+                        - eq
+                      - type: string
+                        enum:
+                        - lt
+                      - type: string
+                        enum:
+                        - gt
+                      - type: string
+                        enum:
+                        - lte
+                      - type: string
+                        enum:
+                        - gte
+                    field:
+                      type: string
+                    value:
+                      oneOf:
+                      - type: string
+                      - type: number
+                      - type: boolean
+                  required:
+                  - operator
+                  - field
+                  - value
+              type:
+                type: string
+                enum:
+                - CHAIN_EVENT
+            required:
+            - notificationChannelId
+            - name
+            - enabled
+            - summary
+            - description
+            - id
+            - userId
+            - status
+            - createdAt
+            - updatedAt
+            - conditions
+            - type
+          - type: object
+            properties:
+              notificationChannelId:
+                type: string
+                format: uuid
+              name:
+                type: string
+                minLength: 3
+              enabled:
+                type: boolean
+              summary:
+                type: string
+                minLength: 3
+              description:
+                type: string
+                minLength: 3
+              id:
+                type: string
+                format: uuid
+              userId:
+                type: string
+                format: uuid
+              notificationChannelName:
+                type: string
+              status:
+                type: string
+              createdAt: {}
+              updatedAt: {}
+              type:
+                type: string
+                enum:
+                - DEPLOYMENT_BALANCE
+              conditions:
+                oneOf:
+                - type: object
+                  properties:
+                    operator:
+                      type: string
+                      enum:
+                      - and
+                    value:
+                      type: array
+                      minItems: 2
+                      items:
+                        type: object
+                        properties:
+                          operator:
+                            oneOf:
+                            - type: string
+                              enum:
+                              - eq
+                            - type: string
+                              enum:
+                              - lt
+                            - type: string
+                              enum:
+                              - gt
+                            - type: string
+                              enum:
+                              - lte
+                            - type: string
+                              enum:
+                              - gte
+                          field:
+                            type: string
+                            enum:
+                            - balance
+                          value:
+                            type: number
+                        required:
+                        - operator
+                        - field
+                        - value
+                  required:
+                  - operator
+                  - value
+                - type: object
+                  properties:
+                    operator:
+                      type: string
+                      enum:
+                      - or
+                    value:
+                      type: array
+                      minItems: 2
+                      items:
+                        type: object
+                        properties:
+                          operator:
+                            oneOf:
+                            - type: string
+                              enum:
+                              - eq
+                            - type: string
+                              enum:
+                              - lt
+                            - type: string
+                              enum:
+                              - gt
+                            - type: string
+                              enum:
+                              - lte
+                            - type: string
+                              enum:
+                              - gte
+                          field:
+                            type: string
+                            enum:
+                            - balance
+                          value:
+                            type: number
+                        required:
+                        - operator
+                        - field
+                        - value
+                  required:
+                  - operator
+                  - value
+                - type: object
+                  properties:
+                    operator:
+                      oneOf:
+                      - type: string
+                        enum:
+                        - eq
+                      - type: string
+                        enum:
+                        - lt
+                      - type: string
+                        enum:
+                        - gt
+                      - type: string
+                        enum:
+                        - lte
+                      - type: string
+                        enum:
+                        - gte
+                    field:
+                      type: string
+                      enum:
+                      - balance
+                    value:
+                      type: number
+                  required:
+                  - operator
+                  - field
+                  - value
+              params:
+                type: object
+                properties:
+                  dseq:
+                    type: string
+                    pattern: ^\d+$
+                  owner:
+                    type: string
+                  suppressedBySystem:
+                    type: boolean
+                required:
+                - dseq
+                - owner
+            required:
+            - notificationChannelId
+            - name
+            - enabled
+            - summary
+            - description
+            - id
+            - userId
+            - status
+            - createdAt
+            - updatedAt
+            - type
+            - conditions
+            - params
+          - type: object
+            properties:
+              notificationChannelId:
+                type: string
+                format: uuid
+              name:
+                type: string
+                minLength: 3
+              enabled:
+                type: boolean
+              summary:
+                type: string
+                minLength: 3
+              description:
+                type: string
+                minLength: 3
+              id:
+                type: string
+                format: uuid
+              userId:
+                type: string
+                format: uuid
+              notificationChannelName:
+                type: string
+              status:
+                type: string
+              createdAt: {}
+              updatedAt: {}
+              type:
+                type: string
+                enum:
+                - WALLET_BALANCE
+              conditions:
+                oneOf:
+                - type: object
+                  properties:
+                    operator:
+                      type: string
+                      enum:
+                      - and
+                    value:
+                      type: array
+                      minItems: 2
+                      items:
+                        type: object
+                        properties:
+                          operator:
+                            oneOf:
+                            - type: string
+                              enum:
+                              - eq
+                            - type: string
+                              enum:
+                              - lt
+                            - type: string
+                              enum:
+                              - gt
+                            - type: string
+                              enum:
+                              - lte
+                            - type: string
+                              enum:
+                              - gte
+                          field:
+                            type: string
+                            enum:
+                            - balance
+                          value:
+                            type: number
+                        required:
+                        - operator
+                        - field
+                        - value
+                  required:
+                  - operator
+                  - value
+                - type: object
+                  properties:
+                    operator:
+                      type: string
+                      enum:
+                      - or
+                    value:
+                      type: array
+                      minItems: 2
+                      items:
+                        type: object
+                        properties:
+                          operator:
+                            oneOf:
+                            - type: string
+                              enum:
+                              - eq
+                            - type: string
+                              enum:
+                              - lt
+                            - type: string
+                              enum:
+                              - gt
+                            - type: string
+                              enum:
+                              - lte
+                            - type: string
+                              enum:
+                              - gte
+                          field:
+                            type: string
+                            enum:
+                            - balance
+                          value:
+                            type: number
+                        required:
+                        - operator
+                        - field
+                        - value
+                  required:
+                  - operator
+                  - value
+                - type: object
+                  properties:
+                    operator:
+                      oneOf:
+                      - type: string
+                        enum:
+                        - eq
+                      - type: string
+                        enum:
+                        - lt
+                      - type: string
+                        enum:
+                        - gt
+                      - type: string
+                        enum:
+                        - lte
+                      - type: string
+                        enum:
+                        - gte
+                    field:
+                      type: string
+                      enum:
+                      - balance
+                    value:
+                      type: number
+                  required:
+                  - operator
+                  - field
+                  - value
+              params:
+                type: object
+                properties:
+                  owner:
+                    type: string
+                  denom:
+                    type: string
+                  suppressedBySystem:
+                    type: boolean
+                required:
+                - owner
+                - denom
+            required:
+            - notificationChannelId
+            - name
+            - enabled
+            - summary
+            - description
+            - id
+            - userId
+            - status
+            - createdAt
+            - updatedAt
+            - type
+            - conditions
+            - params
+      required:
+      - data
     AlertListOutputResponse:
       type: object
       properties:
@@ -1014,712 +1720,6 @@ components:
       required:
       - data
       - pagination
-    AlertOutputResponse:
-      type: object
-      properties:
-        data:
-          oneOf:
-          - type: object
-            properties:
-              notificationChannelId:
-                type: string
-                format: uuid
-              name:
-                type: string
-                minLength: 3
-              enabled:
-                type: boolean
-              summary:
-                type: string
-                minLength: 3
-              description:
-                type: string
-                minLength: 3
-              id:
-                type: string
-                format: uuid
-              userId:
-                type: string
-                format: uuid
-              notificationChannelName:
-                type: string
-              status:
-                type: string
-              createdAt: {}
-              updatedAt: {}
-              params:
-                type: object
-                properties:
-                  dseq:
-                    type: string
-                    pattern: ^\d+$
-                  type:
-                    type: string
-                  suppressedBySystem:
-                    type: boolean
-                required:
-                - dseq
-                - type
-              conditions:
-                oneOf:
-                - type: object
-                  properties:
-                    operator:
-                      type: string
-                      enum:
-                      - and
-                    value:
-                      type: array
-                      minItems: 2
-                      items:
-                        type: object
-                        properties:
-                          operator:
-                            oneOf:
-                            - type: string
-                              enum:
-                              - eq
-                            - type: string
-                              enum:
-                              - lt
-                            - type: string
-                              enum:
-                              - gt
-                            - type: string
-                              enum:
-                              - lte
-                            - type: string
-                              enum:
-                              - gte
-                          field:
-                            type: string
-                          value:
-                            oneOf:
-                            - type: string
-                            - type: number
-                            - type: boolean
-                        required:
-                        - operator
-                        - field
-                        - value
-                  required:
-                  - operator
-                  - value
-                - type: object
-                  properties:
-                    operator:
-                      type: string
-                      enum:
-                      - or
-                    value:
-                      type: array
-                      minItems: 2
-                      items:
-                        type: object
-                        properties:
-                          operator:
-                            oneOf:
-                            - type: string
-                              enum:
-                              - eq
-                            - type: string
-                              enum:
-                              - lt
-                            - type: string
-                              enum:
-                              - gt
-                            - type: string
-                              enum:
-                              - lte
-                            - type: string
-                              enum:
-                              - gte
-                          field:
-                            type: string
-                          value:
-                            oneOf:
-                            - type: string
-                            - type: number
-                            - type: boolean
-                        required:
-                        - operator
-                        - field
-                        - value
-                  required:
-                  - operator
-                  - value
-                - type: object
-                  properties:
-                    operator:
-                      oneOf:
-                      - type: string
-                        enum:
-                        - eq
-                      - type: string
-                        enum:
-                        - lt
-                      - type: string
-                        enum:
-                        - gt
-                      - type: string
-                        enum:
-                        - lte
-                      - type: string
-                        enum:
-                        - gte
-                    field:
-                      type: string
-                    value:
-                      oneOf:
-                      - type: string
-                      - type: number
-                      - type: boolean
-                  required:
-                  - operator
-                  - field
-                  - value
-              type:
-                type: string
-                enum:
-                - CHAIN_MESSAGE
-            required:
-            - notificationChannelId
-            - name
-            - enabled
-            - summary
-            - description
-            - id
-            - userId
-            - status
-            - createdAt
-            - updatedAt
-            - conditions
-            - type
-          - type: object
-            properties:
-              notificationChannelId:
-                type: string
-                format: uuid
-              name:
-                type: string
-                minLength: 3
-              enabled:
-                type: boolean
-              summary:
-                type: string
-                minLength: 3
-              description:
-                type: string
-                minLength: 3
-              id:
-                type: string
-                format: uuid
-              userId:
-                type: string
-                format: uuid
-              notificationChannelName:
-                type: string
-              status:
-                type: string
-              createdAt: {}
-              updatedAt: {}
-              params:
-                type: object
-                properties:
-                  dseq:
-                    type: string
-                    pattern: ^\d+$
-                  type:
-                    type: string
-                  suppressedBySystem:
-                    type: boolean
-                required:
-                - dseq
-                - type
-              conditions:
-                oneOf:
-                - type: object
-                  properties:
-                    operator:
-                      type: string
-                      enum:
-                      - and
-                    value:
-                      type: array
-                      minItems: 2
-                      items:
-                        type: object
-                        properties:
-                          operator:
-                            oneOf:
-                            - type: string
-                              enum:
-                              - eq
-                            - type: string
-                              enum:
-                              - lt
-                            - type: string
-                              enum:
-                              - gt
-                            - type: string
-                              enum:
-                              - lte
-                            - type: string
-                              enum:
-                              - gte
-                          field:
-                            type: string
-                          value:
-                            oneOf:
-                            - type: string
-                            - type: number
-                            - type: boolean
-                        required:
-                        - operator
-                        - field
-                        - value
-                  required:
-                  - operator
-                  - value
-                - type: object
-                  properties:
-                    operator:
-                      type: string
-                      enum:
-                      - or
-                    value:
-                      type: array
-                      minItems: 2
-                      items:
-                        type: object
-                        properties:
-                          operator:
-                            oneOf:
-                            - type: string
-                              enum:
-                              - eq
-                            - type: string
-                              enum:
-                              - lt
-                            - type: string
-                              enum:
-                              - gt
-                            - type: string
-                              enum:
-                              - lte
-                            - type: string
-                              enum:
-                              - gte
-                          field:
-                            type: string
-                          value:
-                            oneOf:
-                            - type: string
-                            - type: number
-                            - type: boolean
-                        required:
-                        - operator
-                        - field
-                        - value
-                  required:
-                  - operator
-                  - value
-                - type: object
-                  properties:
-                    operator:
-                      oneOf:
-                      - type: string
-                        enum:
-                        - eq
-                      - type: string
-                        enum:
-                        - lt
-                      - type: string
-                        enum:
-                        - gt
-                      - type: string
-                        enum:
-                        - lte
-                      - type: string
-                        enum:
-                        - gte
-                    field:
-                      type: string
-                    value:
-                      oneOf:
-                      - type: string
-                      - type: number
-                      - type: boolean
-                  required:
-                  - operator
-                  - field
-                  - value
-              type:
-                type: string
-                enum:
-                - CHAIN_EVENT
-            required:
-            - notificationChannelId
-            - name
-            - enabled
-            - summary
-            - description
-            - id
-            - userId
-            - status
-            - createdAt
-            - updatedAt
-            - conditions
-            - type
-          - type: object
-            properties:
-              notificationChannelId:
-                type: string
-                format: uuid
-              name:
-                type: string
-                minLength: 3
-              enabled:
-                type: boolean
-              summary:
-                type: string
-                minLength: 3
-              description:
-                type: string
-                minLength: 3
-              id:
-                type: string
-                format: uuid
-              userId:
-                type: string
-                format: uuid
-              notificationChannelName:
-                type: string
-              status:
-                type: string
-              createdAt: {}
-              updatedAt: {}
-              type:
-                type: string
-                enum:
-                - DEPLOYMENT_BALANCE
-              conditions:
-                oneOf:
-                - type: object
-                  properties:
-                    operator:
-                      type: string
-                      enum:
-                      - and
-                    value:
-                      type: array
-                      minItems: 2
-                      items:
-                        type: object
-                        properties:
-                          operator:
-                            oneOf:
-                            - type: string
-                              enum:
-                              - eq
-                            - type: string
-                              enum:
-                              - lt
-                            - type: string
-                              enum:
-                              - gt
-                            - type: string
-                              enum:
-                              - lte
-                            - type: string
-                              enum:
-                              - gte
-                          field:
-                            type: string
-                            enum:
-                            - balance
-                          value:
-                            type: number
-                        required:
-                        - operator
-                        - field
-                        - value
-                  required:
-                  - operator
-                  - value
-                - type: object
-                  properties:
-                    operator:
-                      type: string
-                      enum:
-                      - or
-                    value:
-                      type: array
-                      minItems: 2
-                      items:
-                        type: object
-                        properties:
-                          operator:
-                            oneOf:
-                            - type: string
-                              enum:
-                              - eq
-                            - type: string
-                              enum:
-                              - lt
-                            - type: string
-                              enum:
-                              - gt
-                            - type: string
-                              enum:
-                              - lte
-                            - type: string
-                              enum:
-                              - gte
-                          field:
-                            type: string
-                            enum:
-                            - balance
-                          value:
-                            type: number
-                        required:
-                        - operator
-                        - field
-                        - value
-                  required:
-                  - operator
-                  - value
-                - type: object
-                  properties:
-                    operator:
-                      oneOf:
-                      - type: string
-                        enum:
-                        - eq
-                      - type: string
-                        enum:
-                        - lt
-                      - type: string
-                        enum:
-                        - gt
-                      - type: string
-                        enum:
-                        - lte
-                      - type: string
-                        enum:
-                        - gte
-                    field:
-                      type: string
-                      enum:
-                      - balance
-                    value:
-                      type: number
-                  required:
-                  - operator
-                  - field
-                  - value
-              params:
-                type: object
-                properties:
-                  dseq:
-                    type: string
-                    pattern: ^\d+$
-                  owner:
-                    type: string
-                  suppressedBySystem:
-                    type: boolean
-                required:
-                - dseq
-                - owner
-            required:
-            - notificationChannelId
-            - name
-            - enabled
-            - summary
-            - description
-            - id
-            - userId
-            - status
-            - createdAt
-            - updatedAt
-            - type
-            - conditions
-            - params
-          - type: object
-            properties:
-              notificationChannelId:
-                type: string
-                format: uuid
-              name:
-                type: string
-                minLength: 3
-              enabled:
-                type: boolean
-              summary:
-                type: string
-                minLength: 3
-              description:
-                type: string
-                minLength: 3
-              id:
-                type: string
-                format: uuid
-              userId:
-                type: string
-                format: uuid
-              notificationChannelName:
-                type: string
-              status:
-                type: string
-              createdAt: {}
-              updatedAt: {}
-              type:
-                type: string
-                enum:
-                - WALLET_BALANCE
-              conditions:
-                oneOf:
-                - type: object
-                  properties:
-                    operator:
-                      type: string
-                      enum:
-                      - and
-                    value:
-                      type: array
-                      minItems: 2
-                      items:
-                        type: object
-                        properties:
-                          operator:
-                            oneOf:
-                            - type: string
-                              enum:
-                              - eq
-                            - type: string
-                              enum:
-                              - lt
-                            - type: string
-                              enum:
-                              - gt
-                            - type: string
-                              enum:
-                              - lte
-                            - type: string
-                              enum:
-                              - gte
-                          field:
-                            type: string
-                            enum:
-                            - balance
-                          value:
-                            type: number
-                        required:
-                        - operator
-                        - field
-                        - value
-                  required:
-                  - operator
-                  - value
-                - type: object
-                  properties:
-                    operator:
-                      type: string
-                      enum:
-                      - or
-                    value:
-                      type: array
-                      minItems: 2
-                      items:
-                        type: object
-                        properties:
-                          operator:
-                            oneOf:
-                            - type: string
-                              enum:
-                              - eq
-                            - type: string
-                              enum:
-                              - lt
-                            - type: string
-                              enum:
-                              - gt
-                            - type: string
-                              enum:
-                              - lte
-                            - type: string
-                              enum:
-                              - gte
-                          field:
-                            type: string
-                            enum:
-                            - balance
-                          value:
-                            type: number
-                        required:
-                        - operator
-                        - field
-                        - value
-                  required:
-                  - operator
-                  - value
-                - type: object
-                  properties:
-                    operator:
-                      oneOf:
-                      - type: string
-                        enum:
-                        - eq
-                      - type: string
-                        enum:
-                        - lt
-                      - type: string
-                        enum:
-                        - gt
-                      - type: string
-                        enum:
-                        - lte
-                      - type: string
-                        enum:
-                        - gte
-                    field:
-                      type: string
-                      enum:
-                      - balance
-                    value:
-                      type: number
-                  required:
-                  - operator
-                  - field
-                  - value
-              params:
-                type: object
-                properties:
-                  owner:
-                    type: string
-                  denom:
-                    type: string
-                  suppressedBySystem:
-                    type: boolean
-                required:
-                - owner
-                - denom
-            required:
-            - notificationChannelId
-            - name
-            - enabled
-            - summary
-            - description
-            - id
-            - userId
-            - status
-            - createdAt
-            - updatedAt
-            - type
-            - conditions
-            - params
-      required:
-      - data
     InternalServerErrorResponse:
       type: object
       properties:
@@ -1727,18 +1727,6 @@ components:
           type: number
           minimum: 500
           maximum: 500
-        message:
-          type: string
-      required:
-      - statusCode
-      - message
-    ForbiddenErrorResponse:
-      type: object
-      properties:
-        statusCode:
-          type: number
-          minimum: 403
-          maximum: 403
         message:
           type: string
       required:
@@ -2000,29 +1988,6 @@ components:
                   - value
       required:
       - data
-    ValidationErrorResponse:
-      type: object
-      properties:
-        statusCode:
-          type: number
-          minimum: 400
-          maximum: 400
-        message:
-          type: string
-        errors:
-          type: object
-          properties:
-            issues:
-              type: array
-              items:
-                type: object
-                properties: {}
-          required:
-          - issues
-      required:
-      - statusCode
-      - message
-      - errors
     AlertCreateInput:
       type: object
       properties:
@@ -2661,6 +2626,18 @@ components:
             - params
       required:
       - data
+    ForbiddenErrorResponse:
+      type: object
+      properties:
+        statusCode:
+          type: number
+          minimum: 403
+          maximum: 403
+        message:
+          type: string
+      required:
+      - statusCode
+      - message
     UnauthorizedErrorResponse:
       type: object
       properties:
@@ -2673,6 +2650,29 @@ components:
       required:
       - statusCode
       - message
+    ValidationErrorResponse:
+      type: object
+      properties:
+        statusCode:
+          type: number
+          minimum: 400
+          maximum: 400
+        message:
+          type: string
+        errors:
+          type: object
+          properties:
+            issues:
+              type: array
+              items:
+                type: object
+                properties: {}
+          required:
+          - issues
+      required:
+      - statusCode
+      - message
+      - errors
   securitySchemes:
     BearerAuth:
       type: http
