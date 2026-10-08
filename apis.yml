@@ -758,6 +758,10 @@ apis:
   - type: Application
     url: https://console.akash.network/
 common:
+- type: RateLimits
+  url: rate-limits/rate-limits.yml
+- type: FinOps
+  url: finops/finops.yml
 - type: Pricing
   url: https://akash.network/pricing/gpus/
 - type: Plans
