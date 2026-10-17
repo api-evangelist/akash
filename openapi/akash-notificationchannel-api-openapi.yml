@@ -301,56 +301,25 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    NotificationChannelOutput:
-      type: object
-      properties:
-        data:
-          type: object
-          properties:
-            name:
-              type: string
-            type:
-              type: string
-              enum:
-              - email
-            config:
-              type: object
-              properties:
-                addresses:
-                  type: array
-                  items:
-                    type: string
-                    format: email
-              required:
-              - addresses
-            isDefault:
-              type: boolean
-            id:
-              type: string
-              format: uuid
-            userId:
-              type: string
-              format: uuid
-            createdAt: {}
-            updatedAt: {}
-          required:
-          - name
-          - type
-          - config
-          - isDefault
-          - id
-          - userId
-          - createdAt
-          - updatedAt
-      required:
-      - data
-    NotFoundErrorResponse:
+    UnauthorizedErrorResponse:
       type: object
       properties:
         statusCode:
           type: number
-          minimum: 404
-          maximum: 404
+          minimum: 401
+          maximum: 401
+        message:
+          type: string
+      required:
+      - statusCode
+      - message
+    InternalServerErrorResponse:
+      type: object
+      properties:
+        statusCode:
+          type: number
+          minimum: 500
+          maximum: 500
         message:
           type: string
       required:
@@ -386,46 +355,6 @@ components:
           - config
       required:
       - data
-    NotificationChannelCreateDefaultInput:
-      type: object
-      properties:
-        data:
-          type: object
-          properties:
-            name:
-              type: string
-            type:
-              type: string
-              enum:
-              - email
-            config:
-              type: object
-              properties:
-                addresses:
-                  type: array
-                  items:
-                    type: string
-                    format: email
-              required:
-              - addresses
-          required:
-          - name
-          - type
-          - config
-      required:
-      - data
-    InternalServerErrorResponse:
-      type: object
-      properties:
-        statusCode:
-          type: number
-          minimum: 500
-          maximum: 500
-        message:
-          type: string
-      required:
-      - statusCode
-      - message
     NotificationChannelListOutput:
       type: object
       properties:
@@ -499,18 +428,6 @@ components:
       required:
       - data
       - pagination
-    ForbiddenErrorResponse:
-      type: object
-      properties:
-        statusCode:
-          type: number
-          minimum: 403
-          maximum: 403
-        message:
-          type: string
-      required:
-      - statusCode
-      - message
     NotificationChannelPatchInput:
       type: object
       properties:
@@ -535,18 +452,49 @@ components:
               - addresses
       required:
       - data
-    UnauthorizedErrorResponse:
+    NotificationChannelOutput:
       type: object
       properties:
-        statusCode:
-          type: number
-          minimum: 401
-          maximum: 401
-        message:
-          type: string
+        data:
+          type: object
+          properties:
+            name:
+              type: string
+            type:
+              type: string
+              enum:
+              - email
+            config:
+              type: object
+              properties:
+                addresses:
+                  type: array
+                  items:
+                    type: string
+                    format: email
+              required:
+              - addresses
+            isDefault:
+              type: boolean
+            id:
+              type: string
+              format: uuid
+            userId:
+              type: string
+              format: uuid
+            createdAt: {}
+            updatedAt: {}
+          required:
+          - name
+          - type
+          - config
+          - isDefault
+          - id
+          - userId
+          - createdAt
+          - updatedAt
       required:
-      - statusCode
-      - message
+      - data
     ValidationErrorResponse:
       type: object
       properties:
@@ -570,6 +518,58 @@ components:
       - statusCode
       - message
       - errors
+    NotificationChannelCreateDefaultInput:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            name:
+              type: string
+            type:
+              type: string
+              enum:
+              - email
+            config:
+              type: object
+              properties:
+                addresses:
+                  type: array
+                  items:
+                    type: string
+                    format: email
+              required:
+              - addresses
+          required:
+          - name
+          - type
+          - config
+      required:
+      - data
+    ForbiddenErrorResponse:
+      type: object
+      properties:
+        statusCode:
+          type: number
+          minimum: 403
+          maximum: 403
+        message:
+          type: string
+      required:
+      - statusCode
+      - message
+    NotFoundErrorResponse:
+      type: object
+      properties:
+        statusCode:
+          type: number
+          minimum: 404
+          maximum: 404
+        message:
+          type: string
+      required:
+      - statusCode
+      - message
   securitySchemes:
     BearerAuth:
       type: http
