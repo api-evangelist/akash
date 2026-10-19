@@ -757,6 +757,46 @@ apis:
   properties:
   - type: Application
     url: https://console.akash.network/
+- aid: akash:akash-anthropic-api
+  name: Akash Network Anthropic API
+  description: Anthropic-compatible inference endpoints
+  humanURL: https://akash.network/docs/api-documentation/console-api/
+  baseURL: https://console-api.akash.network
+  tags:
+  - Anthropic
+  properties:
+  - type: OpenAPI
+    url: openapi/akash-anthropic-api-openapi.yml
+- aid: akash:akash-images-api
+  name: Akash Network Images API
+  description: The Images API from Akash Network — 2 operation(s) for images.
+  humanURL: https://akash.network/docs/api-documentation/console-api/
+  baseURL: https://console-api.akash.network
+  tags:
+  - Images
+  properties:
+  - type: OpenAPI
+    url: openapi/akash-images-api-openapi.yml
+- aid: akash:akash-inference-api
+  name: Akash Network Inference API
+  description: OpenAI-compatible chat and text completions
+  humanURL: https://akash.network/docs/api-documentation/console-api/
+  baseURL: https://console-api.akash.network
+  tags:
+  - Inference
+  properties:
+  - type: OpenAPI
+    url: openapi/akash-inference-api-openapi.yml
+- aid: akash:akash-models-api
+  name: Akash Network Models API
+  description: Model listing and metadata
+  humanURL: https://akash.network/docs/api-documentation/console-api/
+  baseURL: https://console-api.akash.network
+  tags:
+  - Models
+  properties:
+  - type: OpenAPI
+    url: openapi/akash-models-api-openapi.yml
 common:
 - type: RateLimits
   url: rate-limits/rate-limits.yml

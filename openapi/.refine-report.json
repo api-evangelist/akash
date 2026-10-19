@@ -2,7 +2,8 @@
   "provider": "akash",
   "sources": [
     "_original/akash-blockchain-rest-api.yaml",
-    "_original/akash-console-deployment-api.json"
+    "_original/akash-console-deployment-api.json",
+    "_original/akash-openapi.json"
   ],
   "outputs": [
     "akash-auth-api-openapi.yml",
@@ -41,14 +42,18 @@
     "akash-users-api-openapi.yml",
     "akash-validators-api-openapi.yml",
     "akash-wallet-api-openapi.yml",
-    "akash-walletsetting-api-openapi.yml"
+    "akash-walletsetting-api-openapi.yml",
+    "akash-anthropic-api-openapi.yml",
+    "akash-images-api-openapi.yml",
+    "akash-inference-api-openapi.yml",
+    "akash-models-api-openapi.yml"
   ],
   "archived": [],
   "errors": [],
   "warnings": [],
   "notes": [
     "1 archived document(s) dropped as subsets of other archived documents",
-    "sourced from openapi/_original/ (2 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "sourced from openapi/_original/ (3 archived document(s)); previously refined output at the top level was skipped rather than re-split",
     "akash-blockchain-rest-api.yaml: upgraded swagger 2.0 -> OpenAPI 3.2.0",
     "akash-blockchain-rest-api.yaml: declared missing tag: Auth",
     "akash-blockchain-rest-api.yaml: declared missing tag: Bank",
@@ -90,9 +95,11 @@
     "akash-console-deployment-api.json: declared missing tag: Validators",
     "akash-console-deployment-api.json: declared missing tag: Wallet",
     "akash-console-deployment-api.json: declared missing tag: WalletSetting",
+    "akash-openapi.json: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "akash-openapi.json: declared missing tag: Images",
     "tag 'Auth' spans 2 source specs (akash-blockchain-rest-api.yaml, akash-console-deployment-api.json): per-path servers applied",
     "tag 'Transactions' spans 2 source specs (akash-blockchain-rest-api.yaml, akash-console-deployment-api.json): per-path servers applied",
-    "apis.yml register: already-registered"
+    "apis.yml register: written (+4 apis, 53 total)"
   ],
   "skipped": [
     "_original/akash-notifications-api.json: archived document superseded by a larger archived document",

@@ -1,0 +1,182 @@
+openapi: 3.2.0
+info:
+  title: AkashML Images API
+  description: AkashML public API for inference. Use your AkashML API key to access OpenAI-compatible chat completions, text completions, and model listings, plus the Anthropic-compatible Messages API.
+  version: 1.0.0
+servers:
+- url: https://api.akashml.com
+  description: Production
+tags:
+- name: Images
+paths:
+  /v1/images/generations:
+    post:
+      summary: Create image
+      tags:
+      - Images
+      description: 'Creates one or more images from a text prompt.
+
+
+        **Response headers**
+
+
+        - `Inference-Id` — Unique ID for this request. Include this when contacting support.
+
+
+        **Error codes**
+
+
+        | Status | Meaning |
+
+        |--------|---------|
+
+        | `402` | Insufficient credits |
+
+        | `429` | Rate limited |
+
+        | `504` | No backend available |
+
+        | `529` | No healthy backends are available for the requested model |'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - model
+              - prompt
+              properties:
+                model:
+                  type: string
+                  description: The image model to use, e.g. `black-forest-labs/FLUX.1-schnell`.
+                prompt:
+                  type: string
+                  description: Text description of the desired image.
+                n:
+                  type: integer
+                  minimum: 1
+                  maximum: 10
+                  description: Number of images to generate. Defaults to 1.
+                size:
+                  type: string
+                  pattern: ^(auto|\d{1,5}x\d{1,5})$
+                  description: Image size as `WIDTHxHEIGHT`, e.g. `1024x1024`, or `auto` to use the model's default size. Defaults vary by model.
+                response_format:
+                  type: string
+                  enum:
+                  - b64_json
+                  description: Format of returned images.
+                user:
+                  type: string
+                  description: End-user identifier for abuse monitoring.
+                negative_prompt:
+                  type: string
+                  description: Text the model should avoid generating.
+                num_inference_steps:
+                  type: integer
+                  minimum: 1
+                  maximum: 100
+                  description: Number of denoising steps. Higher = better quality, higher cost.
+                guidance_scale:
+                  type: number
+                  minimum: 0
+                true_cfg_scale:
+                  type: number
+                  minimum: 0
+                seed:
+                  type: integer
+                  description: Deterministic seed for reproducible generation.
+              additionalProperties: true
+      security:
+      - BearerAuth: []
+      responses:
+        '200':
+          description: Default Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  created:
+                    type: integer
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        b64_json:
+                          type: string
+                          description: Base64-encoded image bytes.
+                        url:
+                          type: string
+                          description: Hosted URL of the image, if the backend returned one.
+                        revised_prompt:
+                          type: string
+                      additionalProperties: true
+                additionalProperties: true
+      operationId: postV1ImagesGenerations
+      x-operation-id-source: derived
+  /v1/images/edits:
+    post:
+      summary: Edit image
+      tags:
+      - Images
+      description: 'Edits an existing image based on a text prompt. Accepts `multipart/form-data` with the original image attached as `image`.
+
+
+        **Response headers**
+
+
+        - `Inference-Id` — Unique ID for this request. Include this when contacting support.
+
+
+        **Error codes**
+
+
+        | Status | Meaning |
+
+        |--------|---------|
+
+        | `402` | Insufficient credits |
+
+        | `429` | Rate limited |
+
+        | `504` | No backend available |
+
+        | `529` | No healthy backends are available for the requested model |'
+      security:
+      - BearerAuth: []
+      responses:
+        '200':
+          description: Default Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  created:
+                    type: integer
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        b64_json:
+                          type: string
+                          description: Base64-encoded image bytes.
+                        url:
+                          type: string
+                          description: Hosted URL of the image, if the backend returned one.
+                        revised_prompt:
+                          type: string
+                      additionalProperties: true
+                additionalProperties: true
+      operationId: postV1ImagesEdits
+      x-operation-id-source: derived
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: API key passed as Bearer token

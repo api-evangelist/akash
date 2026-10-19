@@ -1,0 +1,612 @@
+openapi: 3.2.0
+info:
+  title: AkashML Anthropic API
+  description: AkashML public API for inference. Use your AkashML API key to access OpenAI-compatible chat completions, text completions, and model listings, plus the Anthropic-compatible Messages API.
+  version: 1.0.0
+servers:
+- url: https://api.akashml.com
+  description: Production
+tags:
+- name: Anthropic
+  description: Anthropic-compatible inference endpoints
+paths:
+  /anthropic:
+    get:
+      summary: Anthropic base health probe
+      tags:
+      - Anthropic
+      description: 'Lightweight probe used by Claude Code when it first connects to the base URL. Always returns `{ status: "ok" }`.'
+      responses:
+        '200':
+          description: Default Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    enum:
+                    - ok
+                required:
+                - status
+      operationId: getAnthropic
+      x-operation-id-source: derived
+  /anthropic/v1/models:
+    get:
+      summary: List models (Anthropic shape)
+      tags:
+      - Anthropic
+      description: Lists available models in the Anthropic API shape. Model IDs containing `/` are aliased with `--` (e.g., `anthropic/claude-3-5-sonnet` → `anthropic--claude-3-5-sonnet`) because Claude Code rejects slashed identifiers.
+      security:
+      - BearerAuth: []
+      responses:
+        '200':
+          description: Default Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        type:
+                          type: string
+                          enum:
+                          - model
+                        id:
+                          type: string
+                          description: Anthropic-shaped model identifier. Slashes in the upstream ID are aliased with `--` because Claude Code rejects model IDs containing `/` — e.g., `anthropic/claude-3-5-sonnet` is exposed as `anthropic--claude-3-5-sonnet`.
+                        display_name:
+                          type: string
+                        created_at:
+                          type: string
+                          description: ISO 8601 timestamp.
+                      required:
+                      - type
+                      - id
+                      - display_name
+                      - created_at
+                      additionalProperties: true
+                  has_more:
+                    type: boolean
+                  first_id:
+                    type:
+                    - string
+                    - 'null'
+                  last_id:
+                    type:
+                    - string
+                    - 'null'
+                required:
+                - data
+                - has_more
+                - first_id
+                - last_id
+                additionalProperties: true
+        '401':
+          description: Missing or invalid API key (`authentication_error`).
+          content:
+            application/json:
+              schema:
+                description: Missing or invalid API key (`authentication_error`).
+                type: object
+                properties:
+                  type:
+                    type: string
+                    enum:
+                    - error
+                  error:
+                    type: object
+                    properties:
+                      type:
+                        type: string
+                        enum:
+                        - invalid_request_error
+                        - authentication_error
+                        - permission_error
+                        - not_found_error
+                        - request_too_large
+                        - rate_limit_error
+                        - overloaded_error
+                        - api_error
+                        description: Anthropic-style error category.
+                      message:
+                        type: string
+                    required:
+                    - type
+                    - message
+                    additionalProperties: true
+                required:
+                - type
+                - error
+                additionalProperties: true
+        '429':
+          description: Rate limited (`rate_limit_error`). The `Retry-After` header indicates when to retry.
+          headers:
+            Retry-After:
+              schema:
+                schema:
+                  type: integer
+              description: Number of seconds to wait before retrying. Present when the request is rate limited.
+          content:
+            application/json:
+              schema:
+                description: Rate limited (`rate_limit_error`). The `Retry-After` header indicates when to retry.
+                type: object
+                properties:
+                  type:
+                    type: string
+                    enum:
+                    - error
+                  error:
+                    type: object
+                    properties:
+                      type:
+                        type: string
+                        enum:
+                        - invalid_request_error
+                        - authentication_error
+                        - permission_error
+                        - not_found_error
+                        - request_too_large
+                        - rate_limit_error
+                        - overloaded_error
+                        - api_error
+                        description: Anthropic-style error category.
+                      message:
+                        type: string
+                    required:
+                    - type
+                    - message
+                    additionalProperties: true
+                required:
+                - type
+                - error
+                additionalProperties: true
+        '500':
+          description: Internal server error (`api_error`).
+          content:
+            application/json:
+              schema:
+                description: Internal server error (`api_error`).
+                type: object
+                properties:
+                  type:
+                    type: string
+                    enum:
+                    - error
+                  error:
+                    type: object
+                    properties:
+                      type:
+                        type: string
+                        enum:
+                        - invalid_request_error
+                        - authentication_error
+                        - permission_error
+                        - not_found_error
+                        - request_too_large
+                        - rate_limit_error
+                        - overloaded_error
+                        - api_error
+                        description: Anthropic-style error category.
+                      message:
+                        type: string
+                    required:
+                    - type
+                    - message
+                    additionalProperties: true
+                required:
+                - type
+                - error
+                additionalProperties: true
+      operationId: getAnthropicV1Models
+      x-operation-id-source: derived
+  /anthropic/v1/messages:
+    post:
+      summary: Create a message (Anthropic shape)
+      tags:
+      - Anthropic
+      description: 'Anthropic-compatible Messages endpoint. Internally translates to the upstream OpenAI-compatible inference path.
+
+
+        **Streaming.** When `stream: true` is set, the response content type switches to `text/event-stream` and Anthropic-shaped events are emitted. Event types:
+
+
+        - `message_start` — message envelope with id, model, role, usage.
+
+        - `content_block_start` — start of a content block (text, tool_use, thinking).
+
+        - `content_block_delta` — incremental content (text delta, input_json_delta, thinking_delta).
+
+        - `content_block_stop` — end of a content block.
+
+        - `message_delta` — running stop_reason / usage updates.
+
+        - `message_stop` — terminal event.
+
+        - `ping` — keep-alive.
+
+        - `error` — terminal error event (see error type mapping below).
+
+
+        **Model ID aliasing.** Slashes in upstream model IDs are aliased with `--` — pass `anthropic--claude-3-5-sonnet` to target `anthropic/claude-3-5-sonnet`.
+
+
+        **Error response shape.** All non-2xx responses use `{ type: "error", error: { type, message } }`. Status → `error.type` mapping:
+
+
+        | Status | `error.type` |
+
+        |--------|---------------|
+
+        | `400` | `invalid_request_error` |
+
+        | `401` | `authentication_error` |
+
+        | `403` | `permission_error` |
+
+        | `404` | `not_found_error` |
+
+        | `413` | `request_too_large` |
+
+        | `429` | `rate_limit_error` (response includes `Retry-After` header) |
+
+        | `500` | `api_error` |
+
+        | `503` / `529` | `overloaded_error` |'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                model:
+                  type: string
+                  description: Model identifier. Slashes in upstream IDs are aliased with `--` — e.g., pass `anthropic--claude-3-5-sonnet` to target `anthropic/claude-3-5-sonnet`.
+                messages:
+                  type: array
+                  items:
+                    type: object
+                    additionalProperties: true
+                  description: 'Conversation history. Each message is `{ role: "user" | "assistant", content: string | ContentBlock[] }`. Content blocks include `text`, `tool_use`, `tool_result`, and `thinking`.'
+                max_tokens:
+                  type: integer
+                  description: Maximum number of tokens to generate before stopping. Required by Anthropic's API.
+                system:
+                  description: System prompt. Either a string or an array of content blocks.
+                  anyOf:
+                  - type: string
+                  - type: array
+                    items:
+                      type: object
+                temperature:
+                  type: number
+                  description: Sampling temperature between 0 and 1.
+                top_p:
+                  type: number
+                  description: Nucleus sampling probability mass threshold.
+                top_k:
+                  type: integer
+                  description: Sample from the top K options for each subsequent token.
+                stop_sequences:
+                  type: array
+                  items:
+                    type: string
+                  description: Sequences that will cause the model to stop generating.
+                stream:
+                  type: boolean
+                  description: If true, the response is sent as a Server-Sent Events stream (`text/event-stream`) of Anthropic-shaped events. See the response description for the event types.
+                tools:
+                  type: array
+                  items:
+                    type: object
+                  description: Definitions of tools the model may call.
+                tool_choice:
+                  type: object
+                  description: 'Controls how the model selects tools. `{ type: "auto" }`, `{ type: "any" }`, `{ type: "tool", name: "..." }`.'
+                thinking:
+                  type: object
+                  description: 'Extended thinking configuration: `{ type: "enabled", budget_tokens: number }`.'
+                metadata:
+                  type: object
+                  description: Optional request metadata (e.g., `user_id`).
+              required:
+              - model
+              - messages
+              - max_tokens
+              additionalProperties: true
+      security:
+      - BearerAuth: []
+      responses:
+        '200':
+          description: Default Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  type:
+                    type: string
+                    enum:
+                    - message
+                  role:
+                    type: string
+                    enum:
+                    - assistant
+                  content:
+                    type: array
+                    items:
+                      type: object
+                      additionalProperties: true
+                    description: Output content blocks. Each block has a `type` (`text`, `tool_use`, `thinking`, ...) plus type-specific fields.
+                  model:
+                    type: string
+                  stop_reason:
+                    type:
+                    - string
+                    - 'null'
+                    description: One of `end_turn`, `max_tokens`, `stop_sequence`, `tool_use`.
+                  stop_sequence:
+                    type:
+                    - string
+                    - 'null'
+                  usage:
+                    type: object
+                    properties:
+                      input_tokens:
+                        type: integer
+                      output_tokens:
+                        type: integer
+                    additionalProperties: true
+                required:
+                - id
+                - type
+                - role
+                - content
+                - model
+                - usage
+                additionalProperties: true
+        '400':
+          description: Malformed request (`invalid_request_error`).
+          content:
+            application/json:
+              schema:
+                description: Malformed request (`invalid_request_error`).
+                type: object
+                properties:
+                  type:
+                    type: string
+                    enum:
+                    - error
+                  error:
+                    type: object
+                    properties:
+                      type:
+                        type: string
+                        enum:
+                        - invalid_request_error
+                        - authentication_error
+                        - permission_error
+                        - not_found_error
+                        - request_too_large
+                        - rate_limit_error
+                        - overloaded_error
+                        - api_error
+                        description: Anthropic-style error category.
+                      message:
+                        type: string
+                    required:
+                    - type
+                    - message
+                    additionalProperties: true
+                required:
+                - type
+                - error
+                additionalProperties: true
+        '401':
+          description: Missing or invalid API key (`authentication_error`).
+          content:
+            application/json:
+              schema:
+                description: Missing or invalid API key (`authentication_error`).
+                type: object
+                properties:
+                  type:
+                    type: string
+                    enum:
+                    - error
+                  error:
+                    type: object
+                    properties:
+                      type:
+                        type: string
+                        enum:
+                        - invalid_request_error
+                        - authentication_error
+                        - permission_error
+                        - not_found_error
+                        - request_too_large
+                        - rate_limit_error
+                        - overloaded_error
+                        - api_error
+                        description: Anthropic-style error category.
+                      message:
+                        type: string
+                    required:
+                    - type
+                    - message
+                    additionalProperties: true
+                required:
+                - type
+                - error
+                additionalProperties: true
+        '403':
+          description: Caller is not permitted to use this model (`permission_error`).
+          content:
+            application/json:
+              schema:
+                description: Caller is not permitted to use this model (`permission_error`).
+                type: object
+                properties:
+                  type:
+                    type: string
+                    enum:
+                    - error
+                  error:
+                    type: object
+                    properties:
+                      type:
+                        type: string
+                        enum:
+                        - invalid_request_error
+                        - authentication_error
+                        - permission_error
+                        - not_found_error
+                        - request_too_large
+                        - rate_limit_error
+                        - overloaded_error
+                        - api_error
+                        description: Anthropic-style error category.
+                      message:
+                        type: string
+                    required:
+                    - type
+                    - message
+                    additionalProperties: true
+                required:
+                - type
+                - error
+                additionalProperties: true
+        '429':
+          description: Rate limited (`rate_limit_error`). The `Retry-After` header indicates when to retry.
+          headers:
+            Retry-After:
+              schema:
+                schema:
+                  type: integer
+              description: Number of seconds to wait before retrying. Present when the request is rate limited.
+          content:
+            application/json:
+              schema:
+                description: Rate limited (`rate_limit_error`). The `Retry-After` header indicates when to retry.
+                type: object
+                properties:
+                  type:
+                    type: string
+                    enum:
+                    - error
+                  error:
+                    type: object
+                    properties:
+                      type:
+                        type: string
+                        enum:
+                        - invalid_request_error
+                        - authentication_error
+                        - permission_error
+                        - not_found_error
+                        - request_too_large
+                        - rate_limit_error
+                        - overloaded_error
+                        - api_error
+                        description: Anthropic-style error category.
+                      message:
+                        type: string
+                    required:
+                    - type
+                    - message
+                    additionalProperties: true
+                required:
+                - type
+                - error
+                additionalProperties: true
+        '500':
+          description: Internal server error (`api_error`).
+          content:
+            application/json:
+              schema:
+                description: Internal server error (`api_error`).
+                type: object
+                properties:
+                  type:
+                    type: string
+                    enum:
+                    - error
+                  error:
+                    type: object
+                    properties:
+                      type:
+                        type: string
+                        enum:
+                        - invalid_request_error
+                        - authentication_error
+                        - permission_error
+                        - not_found_error
+                        - request_too_large
+                        - rate_limit_error
+                        - overloaded_error
+                        - api_error
+                        description: Anthropic-style error category.
+                      message:
+                        type: string
+                    required:
+                    - type
+                    - message
+                    additionalProperties: true
+                required:
+                - type
+                - error
+                additionalProperties: true
+        '503':
+          description: No healthy backends available for the requested model (`overloaded_error`).
+          content:
+            application/json:
+              schema:
+                description: No healthy backends available for the requested model (`overloaded_error`).
+                type: object
+                properties:
+                  type:
+                    type: string
+                    enum:
+                    - error
+                  error:
+                    type: object
+                    properties:
+                      type:
+                        type: string
+                        enum:
+                        - invalid_request_error
+                        - authentication_error
+                        - permission_error
+                        - not_found_error
+                        - request_too_large
+                        - rate_limit_error
+                        - overloaded_error
+                        - api_error
+                        description: Anthropic-style error category.
+                      message:
+                        type: string
+                    required:
+                    - type
+                    - message
+                    additionalProperties: true
+                required:
+                - type
+                - error
+                additionalProperties: true
+      operationId: postAnthropicV1Messages
+      x-operation-id-source: derived
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: API key passed as Bearer token

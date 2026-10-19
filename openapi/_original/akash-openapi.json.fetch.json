@@ -1,0 +1,12 @@
+{
+ "url": "https://api.akashml.com/openapi.json",
+ "final": "https://api.akashml.com/openapi.json",
+ "status": 200,
+ "content_type": "application/json; charset=utf-8",
+ "bytes": 29287,
+ "sha256": "e4ff35993783ff3b338635d4899c8c79d2a66a49449ac3a9621dcf26ec0f61e8",
+ "fetched_at": "2026-10-19",
+ "fetched_by": "APIEvangelist-Harvest/1.0 (+https://apievangelist.com)",
+ "match": "byte-identical",
+ "note": "re-archived: the provider's current document replaced a stale archive (roadmap#793); the old files are in openapi/_superseded/2026-10-19-stale"
+}

@@ -119,30 +119,45 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    UnauthorizedErrorResponse:
+    DeploymentAlertCreateInput:
       type: object
       properties:
-        statusCode:
-          type: number
-          minimum: 401
-          maximum: 401
-        message:
-          type: string
+        data:
+          type: object
+          properties:
+            alerts:
+              type: object
+              properties:
+                deploymentBalance:
+                  type: object
+                  properties:
+                    notificationChannelId:
+                      type: string
+                      format: uuid
+                    enabled:
+                      type: boolean
+                      default: true
+                    threshold:
+                      type: number
+                      minimum: 0
+                  required:
+                  - notificationChannelId
+                  - threshold
+                deploymentClosed:
+                  type: object
+                  properties:
+                    notificationChannelId:
+                      type: string
+                      format: uuid
+                    enabled:
+                      type: boolean
+                      default: true
+                  required:
+                  - notificationChannelId
+          required:
+          - alerts
       required:
-      - statusCode
-      - message
-    InternalServerErrorResponse:
-      type: object
-      properties:
-        statusCode:
-          type: number
-          minimum: 500
-          maximum: 500
-        message:
-          type: string
-      required:
-      - statusCode
-      - message
+      - data
     DeploymentAlertsResponse:
       type: object
       properties:
@@ -205,6 +220,18 @@ components:
           - alerts
       required:
       - data
+    UnauthorizedErrorResponse:
+      type: object
+      properties:
+        statusCode:
+          type: number
+          minimum: 401
+          maximum: 401
+        message:
+          type: string
+      required:
+      - statusCode
+      - message
     ValidationErrorResponse:
       type: object
       properties:
@@ -228,6 +255,18 @@ components:
       - statusCode
       - message
       - errors
+    InternalServerErrorResponse:
+      type: object
+      properties:
+        statusCode:
+          type: number
+          minimum: 500
+          maximum: 500
+        message:
+          type: string
+      required:
+      - statusCode
+      - message
     ForbiddenErrorResponse:
       type: object
       properties:
@@ -240,45 +279,6 @@ components:
       required:
       - statusCode
       - message
-    DeploymentAlertCreateInput:
-      type: object
-      properties:
-        data:
-          type: object
-          properties:
-            alerts:
-              type: object
-              properties:
-                deploymentBalance:
-                  type: object
-                  properties:
-                    notificationChannelId:
-                      type: string
-                      format: uuid
-                    enabled:
-                      type: boolean
-                      default: true
-                    threshold:
-                      type: number
-                      minimum: 0
-                  required:
-                  - notificationChannelId
-                  - threshold
-                deploymentClosed:
-                  type: object
-                  properties:
-                    notificationChannelId:
-                      type: string
-                      format: uuid
-                    enabled:
-                      type: boolean
-                      default: true
-                  required:
-                  - notificationChannelId
-          required:
-          - alerts
-      required:
-      - data
   securitySchemes:
     BearerAuth:
       type: http

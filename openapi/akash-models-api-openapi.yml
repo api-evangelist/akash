@@ -1,0 +1,93 @@
+openapi: 3.2.0
+info:
+  title: AkashML Models API
+  description: AkashML public API for inference. Use your AkashML API key to access OpenAI-compatible chat completions, text completions, and model listings, plus the Anthropic-compatible Messages API.
+  version: 1.0.0
+servers:
+- url: https://api.akashml.com
+  description: Production
+tags:
+- name: Models
+  description: Model listing and metadata
+paths:
+  /v1/models:
+    get:
+      summary: List models
+      tags:
+      - Models
+      description: Lists the currently available models with pricing and capability metadata.
+      security:
+      - BearerAuth: []
+      responses:
+        '200':
+          description: Default Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  object:
+                    type: string
+                    enum:
+                    - list
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        object:
+                          type: string
+                          enum:
+                          - model
+                        created:
+                          type: integer
+                        owned_by:
+                          type: string
+                        name:
+                          type: string
+                        context_length:
+                          type: integer
+                        input_modalities:
+                          type: array
+                          items:
+                            type: string
+                        output_modalities:
+                          type: array
+                          items:
+                            type: string
+                        supported_sampling_parameters:
+                          type: array
+                          items:
+                            type: string
+                        supported_features:
+                          type: array
+                          items:
+                            type: string
+                        description:
+                          type: string
+                        max_output_length:
+                          type: integer
+                        quantization:
+                          type: string
+                        pricing:
+                          type: object
+                          properties:
+                            input:
+                              type: string
+                            output:
+                              type: string
+                            request:
+                              type: string
+                          additionalProperties: true
+                      additionalProperties: true
+                additionalProperties: true
+      operationId: getV1Models
+      x-operation-id-source: derived
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: API key passed as Bearer token
