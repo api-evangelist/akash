@@ -1,0 +1,23 @@
+edges:
+- partner_name: OpenAI
+  partner: openai
+  partner_match: domain
+  type: contract
+  channel: provider-built
+  relationship: compatible
+  direction: provider-built
+  evidence: https://github.com/api-evangelist/akash/blob/main/openapi/akash-anthropic-api-openapi.yml#L4
+  contract_reference:
+    repo: akash
+    spec_file: akash-anthropic-api-openapi.yml
+    property: description
+    value: OpenAI-compatible
+    note: 'akash declares OpenAI compatibility: ''description: AkashML public API for inference. Use your AkashML
+      API key to access OpenAI-compatible chat completions, text completions, and model listings, plus'''
+    detected_by: sweep-model-routing.py
+    detected: '2026-10-19'
+  detected_by: sweep-model-routing.py
+  first_seen: '2026-10-19'
+generated: '2026-10-19'
+method: searched
+checked: []
