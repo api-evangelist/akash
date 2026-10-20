@@ -20,4 +20,7 @@ edges:
   first_seen: '2026-10-19'
 generated: '2026-10-19'
 method: searched
-checked: []
+checked:
+- https://github.com/api-evangelist/akash/blob/main/openapi/akash-anthropic-api-openapi.yml#L4
+source:
+- https://github.com/api-evangelist/akash/blob/main/openapi/akash-anthropic-api-openapi.yml#L4
