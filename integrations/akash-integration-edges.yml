@@ -18,9 +18,29 @@ edges:
     detected: '2026-10-19'
   detected_by: sweep-model-routing.py
   first_seen: '2026-10-19'
+- partner_name: Terraform (terraform-registry)
+  partner: terraform
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: terraform-registry
+  evidence: https://registry.terraform.io/providers/akash-network/akash
+  mirror_of: terraform/integrations/terraform-integration-edges.yml
+  apps:
+  - akash-network/akash
+  listing_count: 1
+  detected: '2026-10-21'
+  detected_by: mirror-platform-listings.py
+  category: infrastructure-as-code provider registry listing
+  badges:
+  - Verified publisher (GitHub domain-verified organization)
 generated: '2026-10-19'
 method: searched
 checked:
 - https://github.com/api-evangelist/akash/blob/main/openapi/akash-anthropic-api-openapi.yml#L4
+- terraform/integrations/terraform-integration-edges.yml
 source:
 - https://github.com/api-evangelist/akash/blob/main/openapi/akash-anthropic-api-openapi.yml#L4
